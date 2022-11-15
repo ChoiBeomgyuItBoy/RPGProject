@@ -1,6 +1,6 @@
 # RPG Project
 ## Game Design Documentation:
-  - [file:///C:/Users/octav/OneDrive/Escritorio/Unity%20Master/GDDs/Project%20Dragon%20GDD.pdf](url)
+[Project Dragon GDD.pdf](https://github.com/ChoiBeomgyuItBoy/RPGProject/files/10008006/Project.Dragon.GDD.pdf)
 
 ## Gameplay Overview:
   - ...
