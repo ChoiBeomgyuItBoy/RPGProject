@@ -25,9 +25,9 @@ namespace RPG.Control
 
         public void OnClick(InputAction.CallbackContext context)
         {
-            if(context.performed) { IsClicking = true; }
+            if(context.performed) IsClicking = true; 
             
-            else if(context.canceled){ IsClicking = false; }
+            else if(context.canceled) IsClicking = false; 
         }
     }
 }

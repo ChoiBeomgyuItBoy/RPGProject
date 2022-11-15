@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using RPG.Combat;
 
 namespace RPG.Movement
 {
@@ -7,15 +8,30 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour
     {
         private NavMeshAgent agent;
-
+        private Fighter fighter;
+        
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
+            fighter = GetComponent<Fighter>();
         }
 
-        public void MoveTo(Vector3 position)
+        public void StartMoveAction(Vector3 destination)
         {
-            agent.destination = position;
+            fighter.Cancel();
+
+            MoveTo(destination);
+        }
+
+        public void MoveTo(Vector3 destination)
+        {
+            agent.destination = destination;
+            agent.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            agent.isStopped = true;
         }
     }
 }
