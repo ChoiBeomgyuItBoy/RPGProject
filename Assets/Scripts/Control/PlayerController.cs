@@ -7,17 +7,6 @@ namespace RPG.Control
     [RequireComponent(typeof(InputReader), typeof(Mover), typeof(Fighter))]
     public class PlayerController : MonoBehaviour
     {
-        private InputReader inputReader;
-        private Mover mover;
-        private Fighter fighter;
-
-        private void Start()
-        {
-            inputReader = GetComponent<InputReader>();
-            mover = GetComponent<Mover>();
-            fighter = GetComponent<Fighter>();
-        }
-
         private void Update()
         {
             if(InteractWithCombat()) return;
@@ -34,9 +23,9 @@ namespace RPG.Control
 
                 if(target == null) continue; 
 
-                if(inputReader.IsClicking)
+                if(GetComponent<InputReader>().IsClicking)
                 {
-                    fighter.Attack(target);
+                    GetComponent<Fighter>().Attack(target);
                 }
 
                 return true;
@@ -53,9 +42,9 @@ namespace RPG.Control
 
             if(hasHit)
             {
-                if(inputReader.IsClicking)
+                if(GetComponent<InputReader>().IsClicking)
                 {
-                    mover.StartMoveAction(hit.point);
+                    GetComponent<Mover>().StartMoveAction(hit.point);
                 }
 
                 return true;

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
+using System;
 
 namespace RPG.Movement
 {
@@ -8,17 +9,22 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, IAction
     {
         private NavMeshAgent agent;
-        private ActionScheduler scheduler;
-        
+
+        public event Action<float> OnLocomotion;
+
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
-            scheduler = GetComponent<ActionScheduler>();
+        }
+        
+        private void Update()
+        {
+            OnLocomotion?.Invoke(GetLocalSpeed());
         }
 
         public void StartMoveAction(Vector3 destination)
         {
-            scheduler.StartAction(this);
+            GetComponent<ActionScheduler>().StartAction(this);
 
             MoveTo(destination);
         }
@@ -26,12 +32,21 @@ namespace RPG.Movement
         public void MoveTo(Vector3 destination)
         {
             agent.destination = destination;
+
             agent.isStopped = false;
         }
 
         public void Cancel()
         {
             agent.isStopped = true;
+        }
+
+        private float GetLocalSpeed()
+        {
+            Vector3 globalVelocity = agent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(globalVelocity);
+
+            return localVelocity.z;
         }
     }
 }

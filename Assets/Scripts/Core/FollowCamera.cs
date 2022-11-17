@@ -6,16 +6,16 @@ namespace RPG.Core
     {
         [SerializeField] private Transform target;
 
-        private Vector3 difference;
+        private Vector3 targetDistance;
 
         private void Start()
         {
-            difference = transform.position - target.position;
+            targetDistance = transform.position - target.position;
         }
 
         private void LateUpdate()
         {
-            transform.position = target.position + difference;
+            transform.position = target.position + targetDistance;
         }
     }
 }
