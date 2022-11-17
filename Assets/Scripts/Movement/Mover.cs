@@ -5,20 +5,24 @@ using System;
 
 namespace RPG.Movement
 {
-    [RequireComponent(typeof(NavMeshAgent), typeof(ActionScheduler))]
+    [RequireComponent(typeof(NavMeshAgent), typeof(ActionScheduler), typeof(Health))]
     public class Mover : MonoBehaviour, IAction
     {
         private NavMeshAgent agent;
+        private Health health;
 
         public event Action<float> OnLocomotion;
 
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
         
         private void Update()
         {
+            agent.enabled = !health.IsDead;
+
             OnLocomotion?.Invoke(GetLocalSpeed());
         }
 

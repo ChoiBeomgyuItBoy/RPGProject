@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace RPG.Combat
+namespace RPG.Core
 {
+    [RequireComponent(typeof(ActionScheduler))]
     public class Health : MonoBehaviour
     {
         [SerializeField] private float health = 100f;
@@ -17,7 +18,14 @@ namespace RPG.Combat
 
             health = Mathf.Max(0f, health - damage);
 
-            if(IsDead) OnDead?.Invoke();
+            if(IsDead) Die();
+        }
+
+        private void Die()
+        {
+            OnDead?.Invoke();
+
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
 }

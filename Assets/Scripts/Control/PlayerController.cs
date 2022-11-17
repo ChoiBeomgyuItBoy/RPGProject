@@ -1,14 +1,18 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Control
 {
     [RequireComponent(typeof(InputReader), typeof(Mover), typeof(Fighter))]
+    [RequireComponent(typeof(Health))]
     public class PlayerController : MonoBehaviour
     {
         private void Update()
         {
+            if(GetComponent<Health>().IsDead) return;
+
             if(InteractWithCombat()) return;
             if(InteractWithMovement()) return;
         }
@@ -21,11 +25,13 @@ namespace RPG.Control
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
 
-                if(!GetComponent<Fighter>().CanAttack(target)) continue;
+                if(target == null) continue;
+
+                if(!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
 
                 if(GetComponent<InputReader>().IsClicking)
                 {
-                    GetComponent<Fighter>().Attack(target);
+                    GetComponent<Fighter>().Attack(target.gameObject);
                 }
 
                 return true;

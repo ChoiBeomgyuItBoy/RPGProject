@@ -1,6 +1,7 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Animations
 {
@@ -31,7 +32,7 @@ namespace RPG.Animations
 
             GetComponent<Fighter>().OnAttack -= PlayAttack;
 
-            GetComponent<Fighter>().OnCancel += CancelAttack;
+            GetComponent<Fighter>().OnCancel -= CancelAttack;
 
             GetComponent<Health>().OnDead -= PlayDead;
         }

@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
@@ -68,6 +68,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5627818114199205344, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163334672943536279, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
@@ -108,7 +118,7 @@ MonoBehaviour:
   weaponRange: 2
   timeBetweenAttacks: 1
   attackDamage: 10
---- !u!114 &3413195226040433716
+--- !u!114 &4564676605790810299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,10 +127,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2917784652512093055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0170e7defbe80e648ba39777ea7b29f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 611e94ac2c8be1d4bb98d3bccfc276a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  chaseDistance: 5
 --- !u!4 &7188226318440833362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
