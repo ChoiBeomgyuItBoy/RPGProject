@@ -12,21 +12,23 @@ namespace RPG.Combat
         [SerializeField] private float timeBetweenAttacks = 1f;
         [SerializeField] private float attackDamage = 10f;
 
-        private Transform target;
+        private Health target;
 
         private float timeSinceLastAttack = 0;
 
         public event Action OnAttack;
+        public event Action OnCancel;
 
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
 
             if(target == null) return;
+            if(target.IsDead) return;
 
-            if(!GetIsInRange()) 
+            if(!IsInRange()) 
             {
-                GetComponent<Mover>().MoveTo(target.position);
+                GetComponent<Mover>().MoveTo(target.transform.position);
             }
             else 
             {
@@ -35,10 +37,24 @@ namespace RPG.Combat
             }
         }
 
-        private bool GetIsInRange() => Vector3.Distance(transform.position, target.position) < weaponRange;
+        private bool IsInRange()
+        {
+            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+        } 
+
+        public bool CanAttack(CombatTarget combatTarget)
+        {
+            if(combatTarget == null) return false;
+
+            Health currentTarget = combatTarget.GetComponent<Health>();
+
+            return currentTarget != null && !currentTarget.IsDead;
+        }
 
         private void AttackBehaviour()
         {
+            FaceTarget();
+
             if(timeSinceLastAttack < timeBetweenAttacks) return;
 
             OnAttack?.Invoke();
@@ -50,12 +66,23 @@ namespace RPG.Combat
         {
             GetComponent<ActionScheduler>().StartAction(this);
 
-            target = combatTarget.transform;
+            target = combatTarget.GetComponent<Health>();
         }
 
         public void Cancel()
         {
+            OnCancel?.Invoke();
+
             target = null; 
+        }
+
+        private void FaceTarget()
+        {
+            Vector3 lookPosition = target.transform.position - transform.position;
+
+            lookPosition.y = 0f;
+
+            transform.rotation = Quaternion.LookRotation(lookPosition);
         }
 
         // Animation Event
@@ -63,10 +90,7 @@ namespace RPG.Combat
         {
             if(target == null) return;
 
-            if(target.TryGetComponent<Health>(out Health health))
-            {
-                health.TakeDamage(attackDamage);
-            }
+            target.TakeDamage(attackDamage);
         }
     }
 }

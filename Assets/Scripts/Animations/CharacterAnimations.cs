@@ -4,26 +4,36 @@ using RPG.Combat;
 
 namespace RPG.Animations
 {
-    [RequireComponent(typeof(Animator), typeof(Mover))]
+    [RequireComponent(typeof(Animator))]
     public class CharacterAnimations : MonoBehaviour
     {
         private Animator animator;
 
         private readonly int ForwardSpeedHash = Animator.StringToHash("forwardSpeed");
         private readonly int AttackHash = Animator.StringToHash("attack");
+        private readonly int CancelAttackHash = Animator.StringToHash("cancelAttack");
+        private readonly int DeadHash = Animator.StringToHash("die");
 
         private void OnEnable()
         {
             GetComponent<Mover>().OnLocomotion += UpdateLocomotion;
 
-            if(TryGetComponent<Fighter>(out Fighter fighter)) fighter.OnAttack += PlayAttack;
+            GetComponent<Fighter>().OnAttack += PlayAttack;
+
+            GetComponent<Fighter>().OnCancel += CancelAttack;
+
+            GetComponent<Health>().OnDead += PlayDead;
         }
 
         private void OnDisable()
         {
             GetComponent<Mover>().OnLocomotion -= UpdateLocomotion;
 
-            if(TryGetComponent<Fighter>(out Fighter fighter)) fighter.OnAttack += PlayAttack;
+            GetComponent<Fighter>().OnAttack -= PlayAttack;
+
+            GetComponent<Fighter>().OnCancel += CancelAttack;
+
+            GetComponent<Health>().OnDead -= PlayDead;
         }
 
         private void Start()
@@ -38,7 +48,19 @@ namespace RPG.Animations
 
         private void PlayAttack()
         {
+            animator.ResetTrigger(CancelAttackHash);
             animator.SetTrigger(AttackHash);
+        }
+
+        private void CancelAttack()
+        {
+            animator.ResetTrigger(AttackHash);
+            animator.SetTrigger(CancelAttackHash);
+        }   
+
+        private void PlayDead()
+        {
+            animator.SetTrigger(DeadHash);
         }
     }
 }
