@@ -33,7 +33,7 @@ namespace RPG.Movement
             MoveTo(destination);
         }
 
-        public void MoveTo(Vector3 destination)
+        private void MoveTo(Vector3 destination)
         {
             agent.destination = destination;
 
