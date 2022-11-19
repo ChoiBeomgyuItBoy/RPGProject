@@ -14,18 +14,19 @@ namespace RPG.Control
         [SerializeField] private float chaseDistance = 5f;
         [SerializeField] private float suspicionTime = 3f;
         [SerializeField] private float waypointTolerance = 2f;
-
-        private GameObject player;
+        [SerializeField] private float waypointDwellTime = 3f;
 
         private Fighter fighter;
         private Mover mover;
         private ActionScheduler scheduler;
         private Health health;
+        private GameObject player;
 
         private Vector3 guardPosition;
         private Vector3 currentWaypoint;
 
         private float timeSinceLastSawPlayer = Mathf.Infinity;
+        private float timeSinceArrivedWaypoint = Mathf.Infinity;
 
         private int currentWaypointIndex = 0;
 
@@ -43,27 +44,33 @@ namespace RPG.Control
 
         private void Update()
         {
-            if(health.IsDead) return;
+            if (health.IsDead) return;
 
-            if(IsInChaseRange() && fighter.CanAttack(player))
+            if (IsInChaseRange() && fighter.CanAttack(player))
             {
-                timeSinceLastSawPlayer = 0f;
                 AttackBehaviour();
             }
-            else if(timeSinceLastSawPlayer < suspicionTime)
+            else if (timeSinceLastSawPlayer < suspicionTime)
             {
                 SuspicionBehaviour();
             }
-            else 
+            else
             {
                 PatrolBehaviour();
             }
+            
+            UpdateTimers();
+        }
 
+        private void UpdateTimers()
+        {
             timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceArrivedWaypoint += Time.deltaTime;
         }
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0f;
             fighter.Attack(player);
         }
 
@@ -80,13 +87,17 @@ namespace RPG.Control
             {
                 if(AtWaypoint())
                 {
+                    timeSinceArrivedWaypoint = 0f;
                     CycleWaypoint();
                 }
 
                 nextPosition = GetCurrentWaypoint();
             }
 
-            mover.StartMoveAction(nextPosition);
+            if(timeSinceArrivedWaypoint > waypointDwellTime)
+            {
+                mover.StartMoveAction(nextPosition);
+            }
         }
         
         private bool AtWaypoint()
