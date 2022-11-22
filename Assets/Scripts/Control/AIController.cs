@@ -2,12 +2,9 @@ using UnityEngine;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
-using System;
 
 namespace RPG.Control
 {
-    [RequireComponent(typeof(Fighter), typeof(Mover), typeof(ActionScheduler))]
-    [RequireComponent(typeof(Health))]
     public class AIController : MonoBehaviour
     {
         [SerializeField] private PatrolPath patrolPath;
@@ -15,6 +12,7 @@ namespace RPG.Control
         [SerializeField] private float suspicionTime = 3f;
         [SerializeField] private float waypointTolerance = 2f;
         [SerializeField] private float waypointDwellTime = 3f;
+        [SerializeField] [Range(0f,1f)] private float patrolSpeedFraction = 0.2f;
 
         private Fighter fighter;
         private Mover mover;
@@ -96,7 +94,7 @@ namespace RPG.Control
 
             if(timeSinceArrivedWaypoint > waypointDwellTime)
             {
-                mover.StartMoveAction(nextPosition);
+                mover.StartMoveAction(nextPosition, patrolSpeedFraction);
             }
         }
         
@@ -120,9 +118,9 @@ namespace RPG.Control
             return IsInRange(transform.position, player.transform.position, chaseDistance);
         }
 
-        private bool IsInRange(Vector3 init, Vector3 target, float range)
+        private bool IsInRange(Vector3 from, Vector3 to, float range)
         {
-            float targetDistanceSqr  = (init - target).sqrMagnitude;
+            float targetDistanceSqr  = (from - to).sqrMagnitude;
             float rangeSqr = range * range;
 
             return targetDistanceSqr < rangeSqr;

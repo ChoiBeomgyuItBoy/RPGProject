@@ -5,7 +5,6 @@ using RPG.Core;
 
 namespace RPG.Control
 {
-    [RequireComponent(typeof(Mover), typeof(Fighter), typeof(Health))]
     public class PlayerController : MonoBehaviour
     {
         private void Update()
@@ -49,7 +48,7 @@ namespace RPG.Control
             {
                 if(Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().StartMoveAction(hit.point);
+                    GetComponent<Mover>().StartMoveAction(hit.point, 1f);
                 }
 
                 return true;

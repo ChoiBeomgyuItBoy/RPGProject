@@ -5,38 +5,42 @@ using System;
 
 namespace RPG.Movement
 {
-    [RequireComponent(typeof(NavMeshAgent), typeof(ActionScheduler), typeof(Health))]
     public class Mover : MonoBehaviour, IAction
     {
+        [SerializeField] private float maxSpeed = 6f;
+
         private NavMeshAgent agent;
-        private Health health;
 
         public event Action<float> OnLocomotion;
 
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
-            health = GetComponent<Health>();
         }
         
         private void Update()
         {
-            agent.enabled = !health.IsDead;
+            agent.enabled = !GetComponent<Health>().IsDead;
 
             OnLocomotion?.Invoke(GetLocalSpeed());
         }
 
-        public void StartMoveAction(Vector3 destination)
+        private void DisableAgent()
+        {
+            agent.enabled = !GetComponent<Health>().IsDead;
+        }
+
+        public void StartMoveAction(Vector3 destination, float speedFraction)
         {
             GetComponent<ActionScheduler>().StartAction(this);
 
-            MoveTo(destination);
+            MoveTo(destination, speedFraction);
         }
 
-        private void MoveTo(Vector3 destination)
+        private void MoveTo(Vector3 destination, float speedFraction)
         {
             agent.destination = destination;
-
+            agent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
             agent.isStopped = false;
         }
 

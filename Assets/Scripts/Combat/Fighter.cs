@@ -5,7 +5,6 @@ using System;
 
 namespace RPG.Combat
 {
-    [RequireComponent(typeof(Mover), typeof(ActionScheduler))]
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] private float weaponRange = 2f;
@@ -28,7 +27,7 @@ namespace RPG.Combat
 
             if(!IsInRange()) 
             {
-                GetComponent<Mover>().StartMoveAction(target.transform.position);
+                GetComponent<Mover>().StartMoveAction(target.transform.position,1f);
             }
             else 
             {
@@ -74,6 +73,8 @@ namespace RPG.Combat
             OnCancel?.Invoke();
 
             target = null; 
+
+            GetComponent<Mover>().Cancel();
         }
 
         private void FaceTarget()

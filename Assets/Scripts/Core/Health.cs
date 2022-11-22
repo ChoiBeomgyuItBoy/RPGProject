@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace RPG.Core
 {
-    [RequireComponent(typeof(ActionScheduler))]
     public class Health : MonoBehaviour
     {
         [SerializeField] private float health = 100f;
