@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace RPG.Core
@@ -7,9 +6,9 @@ namespace RPG.Core
     {
         [SerializeField] private float health = 100f;
 
-        public bool IsDead => health == 0;
+        private readonly int DeadHash = Animator.StringToHash("die");
 
-        public event Action OnDead;
+        public bool IsDead => health == 0;
 
         public void TakeDamage(float damage)
         {
@@ -22,9 +21,9 @@ namespace RPG.Core
 
         private void Die()
         {
-            OnDead?.Invoke();
-
             GetComponent<ActionScheduler>().CancelCurrentAction();
+
+            GetComponent<Animator>().SetTrigger(DeadHash);
         }
     }
 }

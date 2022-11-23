@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
-using System;
 
 namespace RPG.Movement
 {
@@ -9,9 +8,9 @@ namespace RPG.Movement
     {
         [SerializeField] private float maxSpeed = 6f;
 
-        private NavMeshAgent agent;
+        private readonly int ForwardSpeedHash = Animator.StringToHash("forwardSpeed");
 
-        public event Action<float> OnLocomotion;
+        private NavMeshAgent agent;
 
         private void Start()
         {
@@ -22,7 +21,7 @@ namespace RPG.Movement
         {
             agent.enabled = !GetComponent<Health>().IsDead;
 
-            OnLocomotion?.Invoke(GetLocalSpeed());
+            GetComponent<Animator>().SetFloat(ForwardSpeedHash, GetLocalSpeed());
         }
 
         private void DisableAgent()

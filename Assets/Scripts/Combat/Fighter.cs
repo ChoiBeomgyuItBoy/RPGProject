@@ -1,7 +1,6 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
-using System;
 
 namespace RPG.Combat
 {
@@ -11,12 +10,12 @@ namespace RPG.Combat
         [SerializeField] private float timeBetweenAttacks = 1f;
         [SerializeField] private float attackDamage = 10f;
 
+        private readonly int AttackHash = Animator.StringToHash("attack");
+        private readonly int CancelAttackHash = Animator.StringToHash("cancelAttack");
+
         private Health target;
 
         private float timeSinceLastAttack = Mathf.Infinity;
-
-        public event Action OnAttack;
-        public event Action OnCancel;
 
         private void Update()
         {
@@ -63,18 +62,20 @@ namespace RPG.Combat
 
             if(timeSinceLastAttack < timeBetweenAttacks) return;
 
-            OnAttack?.Invoke();
-
             timeSinceLastAttack = 0f;
+
+            GetComponent<Animator>().SetTrigger(AttackHash);
+            GetComponent<Animator>().ResetTrigger(CancelAttackHash);
         }
 
         public void Cancel()
         {
-            OnCancel?.Invoke();
-
             target = null; 
 
             GetComponent<Mover>().Cancel();
+
+            GetComponent<Animator>().ResetTrigger(AttackHash);
+            GetComponent<Animator>().SetTrigger(CancelAttackHash);
         }
 
         private void FaceTarget()
