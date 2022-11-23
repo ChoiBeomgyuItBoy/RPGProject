@@ -7,7 +7,7 @@ namespace RPG.Cinematics
 {
     public class CinematicsControlRemover : MonoBehaviour
     {
-        GameObject player;
+        private GameObject player;
 
         private void Start()
         {
