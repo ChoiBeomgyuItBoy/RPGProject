@@ -7,6 +7,11 @@ namespace RPG.Combat
     {
         [SerializeField] private float speed = 1f;
 
+        [Tooltip("If projectile will always follow its target")]
+        [SerializeField] private bool isHoming = false;
+
+        [SerializeField] private GameObject hitEffect = null;
+
         private Health target = null;
         private CapsuleCollider targetCapsule;
 
@@ -15,18 +20,33 @@ namespace RPG.Combat
         private void Start()
         {
             targetCapsule = target.GetComponent<CapsuleCollider>();
+
+            transform.LookAt(GetAimLocation());
         }
 
         private void Update()
         {
-            ProjectileBehaviour();
+            if(target == null) return;
+            if(isHoming && !target.IsDead)
+            {
+                transform.LookAt(GetAimLocation());
+            }
+
+            transform.Translate(CalculateMovement());
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if(other.GetComponent<Health>() != target) return;
-            
+            if(target.IsDead) return;
+
             target.TakeDamage(damage);
+
+            if(hitEffect != null)
+            {
+                Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+            }
+
             Destroy(gameObject);
         }
 
@@ -34,12 +54,6 @@ namespace RPG.Combat
         {
             this.target = target;
             this.damage = damage;
-        }
-
-        private void ProjectileBehaviour()
-        {
-            transform.LookAt(GetAimLocation());
-            transform.Translate(CalculateMovement());
         }
 
         private Vector3 GetAimLocation()
