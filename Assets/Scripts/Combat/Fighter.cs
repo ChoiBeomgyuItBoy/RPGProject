@@ -7,7 +7,8 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] private float timeBetweenAttacks = 1f;
-        [SerializeField] Transform handTransform = null;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
 
         private readonly int AttackHash = Animator.StringToHash("attack");
@@ -45,7 +46,7 @@ namespace RPG.Combat
         {
             currentWeapon = weapon;
 
-            weapon.Spawn(handTransform, GetComponent<Animator>());
+            weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
         }
 
         private bool IsInRange()
@@ -105,7 +106,14 @@ namespace RPG.Combat
         {
             if(target == null) return;
 
-            target.TakeDamage(currentWeapon.GetDamage());
+            if(currentWeapon.HasProjectile())
+            {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            }
+            else
+            {
+                target.TakeDamage(currentWeapon.GetDamage());
+            }
         }
     }
 }
