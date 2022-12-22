@@ -5,12 +5,13 @@ namespace RPG.Combat
 {
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private GameObject hitEffect = null;
         [SerializeField] private float speed = 1f;
 
         [Tooltip("If projectile will always follow its target")]
+        [SerializeField] private float maxLifeTime = 10f;
+        [SerializeField] private float lifeAfterHit = 0.2f;
         [SerializeField] private bool isHoming = false;
-
-        [SerializeField] private GameObject hitEffect = null;
 
         private Health target = null;
         private CapsuleCollider targetCapsule;
@@ -42,18 +43,22 @@ namespace RPG.Combat
 
             target.TakeDamage(damage);
 
+            speed = 0f;
+
             if(hitEffect != null)
             {
                 Instantiate(hitEffect, GetAimLocation(), transform.rotation);
             }
 
-            Destroy(gameObject);
+            Destroy(gameObject, lifeAfterHit);
         }
 
         public void SetProjectileInfo(Health target, float damage)
         {
             this.target = target;
             this.damage = damage;
+
+            Destroy(gameObject, maxLifeTime);
         }
 
         private Vector3 GetAimLocation()

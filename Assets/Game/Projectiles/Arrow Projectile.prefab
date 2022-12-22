@@ -212,10 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1b581fbb1b95a4ebe1fb7845d74e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  isHoming: 0
   hitEffect: {fileID: 6378098559349678447, guid: ec74fd58ee040e2409046667411aab3e,
     type: 3}
+  speed: 20
+  maxLifeTime: 10
+  lifeAfterHit: 0.1
+  isHoming: 0
 --- !u!1001 &2494187797350909707
 PrefabInstance:
   m_ObjectHideFlags: 0

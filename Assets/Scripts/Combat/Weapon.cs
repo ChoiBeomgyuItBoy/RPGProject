@@ -53,22 +53,31 @@ namespace RPG.Combat
             if(equippedWeaponPrefab != null)
             {
                 Transform handTransform = GetHandTransfrom(rightHand, leftHand);
-
                 GameObject weapon = Instantiate(equippedWeaponPrefab, handTransform);
 
                 weapon.name = weaponName;
             }
 
+            var defaultController = GetDefaultController(animator);
+
             if(animatorOverride != null)
             {
                 animator.runtimeAnimatorController = animatorOverride;
             }
+            else if(defaultController != null)
+            {
+                animator.runtimeAnimatorController = defaultController.runtimeAnimatorController;
+            }
+        }
+
+        private AnimatorOverrideController GetDefaultController(Animator animator)
+        {
+            return animator.runtimeAnimatorController as AnimatorOverrideController;
         }
 
         public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
         {
             Transform handTransform = GetHandTransfrom(rightHand, leftHand);
-
             Projectile projectileInstance = Instantiate(projectile, handTransform.position, Quaternion.identity);
 
             projectileInstance.SetProjectileInfo(target, weaponDamage);
