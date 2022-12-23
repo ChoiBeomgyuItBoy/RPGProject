@@ -1,4 +1,4 @@
-using RPG.Core;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -14,6 +14,7 @@ namespace RPG.Combat
         [SerializeField] private bool isHoming = false;
 
         private Health target = null;
+        private GameObject instigator = null;
         private CapsuleCollider targetCapsule;
 
         private float damage = 0f;
@@ -41,7 +42,7 @@ namespace RPG.Combat
             if(other.GetComponent<Health>() != target) return;
             if(target.IsDead) return;
 
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
 
             speed = 0f;
 
@@ -53,9 +54,10 @@ namespace RPG.Combat
             Destroy(gameObject, lifeAfterHit);
         }
 
-        public void SetProjectileInfo(Health target, float damage)
+        public void SetProjectileInfo(Health target, GameObject instigator, float damage)
         {
             this.target = target;
+            this.instigator = instigator;
             this.damage = damage;
 
             Destroy(gameObject, maxLifeTime);

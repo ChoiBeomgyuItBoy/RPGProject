@@ -2,6 +2,7 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
@@ -104,6 +105,11 @@ namespace RPG.Combat
 
             transform.rotation = Quaternion.LookRotation(lookPosition);
         }
+
+        public Health GetTarget()
+        {
+            return target;
+        }
         
         public object CaptureState()
         {
@@ -125,11 +131,11 @@ namespace RPG.Combat
 
             if(currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target);
             }
             else
             {
-                target.TakeDamage(currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, currentWeapon.GetDamage());
             }
         }
     }

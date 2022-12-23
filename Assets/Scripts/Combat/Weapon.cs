@@ -1,4 +1,4 @@
-using RPG.Core;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -75,12 +75,12 @@ namespace RPG.Combat
             return animator.runtimeAnimatorController as AnimatorOverrideController;
         }
 
-        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
+        public void LaunchProjectile(GameObject instigator, Transform rightHand, Transform leftHand, Health target)
         {
             Transform handTransform = GetHandTransfrom(rightHand, leftHand);
             Projectile projectileInstance = Instantiate(projectile, handTransform.position, Quaternion.identity);
 
-            projectileInstance.SetProjectileInfo(target, weaponDamage);
+            projectileInstance.SetProjectileInfo(target, instigator, weaponDamage);
         }
     }
 }
