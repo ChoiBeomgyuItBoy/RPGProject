@@ -101,6 +101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1570730885108137830, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
+      propertyPath: shouldUseModifiers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570730885108137830, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
       propertyPath: levelUpParticleEffect
       value: 
       objectReference: {fileID: 2514832659284438701, guid: 6e739efe8d4016547bef36e0f530ac29,
@@ -191,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 100
-  health: -1
 --- !u!114 &1025308114778480845
 MonoBehaviour:
   m_ObjectHideFlags: 0

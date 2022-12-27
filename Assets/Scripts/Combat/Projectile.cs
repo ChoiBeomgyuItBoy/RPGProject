@@ -15,14 +15,11 @@ namespace RPG.Combat
 
         private Health target = null;
         private GameObject instigator = null;
-        private CapsuleCollider targetCapsule;
 
         private float damage = 0f;
 
         private void Start()
         {
-            targetCapsule = target.GetComponent<CapsuleCollider>();
-
             transform.LookAt(GetAimLocation());
         }
 
@@ -70,7 +67,7 @@ namespace RPG.Combat
 
         private float GetTargetCenter()
         {
-            return (targetCapsule.height / 2);
+            return (target.GetComponent<CapsuleCollider>().height / 2);
         }
 
         private Vector3 CalculateMovement()

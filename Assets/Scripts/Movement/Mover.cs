@@ -13,10 +13,12 @@ namespace RPG.Movement
         private readonly int ForwardSpeedHash = Animator.StringToHash("forwardSpeed");
 
         private NavMeshAgent agent;
+        private Health health;
 
-        private void Start()
+        private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
         
         private void Update()
@@ -35,7 +37,7 @@ namespace RPG.Movement
 
         private void DisableAgent()
         {
-            agent.enabled = !GetComponent<Health>().IsDead;
+            agent.enabled = !health.IsDead;
         }
 
         public void StartMoveAction(Vector3 destination, float speedFraction)
@@ -79,12 +81,14 @@ namespace RPG.Movement
         {
             MoverSaveData data = (MoverSaveData)state;
 
-            GetComponent<NavMeshAgent>().enabled = false;
+            agent.enabled = false;
 
             transform.position = data.position.ToVector();
             transform.eulerAngles = data.rotation.ToVector();
 
-            GetComponent<NavMeshAgent>().enabled = true;
+            agent.enabled = true;
+
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
 }

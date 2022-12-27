@@ -7,7 +7,7 @@ namespace RPG.Core
         [SerializeField] private GameObject targetToDestroy = null;
         private new ParticleSystem particleSystem;
 
-        private void Start()
+        private void Awake()
         {
             particleSystem = GetComponent<ParticleSystem>();
         }
