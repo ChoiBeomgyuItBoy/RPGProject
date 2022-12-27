@@ -4,22 +4,21 @@ using RPG.Stats;
 
 namespace RPG.Attributes
 {
-    public class ExperienceDisplay : MonoBehaviour
+    public class LevelDisplay : MonoBehaviour
     {
-        Experience experience;
+        BaseStats stats;
 
         TMP_Text experienceValueText;
 
         void Awake()
         {
-            experience = GameObject.FindWithTag("Player").GetComponent<Experience>();
+            stats = GameObject.FindWithTag("Player").GetComponent<BaseStats>();
             experienceValueText = GetComponent<TMP_Text>();
         }
 
         void Update()
         {
-            experienceValueText.text = string.Format("{0:0}", experience.GetPoints());
+            experienceValueText.text = string.Format("{0:0}", stats.GetLevel());
         }
     }
 }
-

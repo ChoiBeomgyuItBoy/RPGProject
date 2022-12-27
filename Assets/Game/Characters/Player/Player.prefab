@@ -99,6 +99,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1570730885108137830, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: levelUpParticleEffect
+      value: 
+      objectReference: {fileID: 2514832659284438701, guid: 6e739efe8d4016547bef36e0f530ac29,
+        type: 3}
     - target: {fileID: 2213373714675495569, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: uniqueIdentifier
@@ -184,6 +190,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0170e7defbe80e648ba39777ea7b29f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regenerationPercentage: 100
+  health: -1
+--- !u!114 &1025308114778480845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676208176979660310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ba3f134934daf4e9b9649c94a408c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencePoints: 0
 --- !u!114 &2997220086331652442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,19 +234,6 @@ MonoBehaviour:
   leftHandTransform: {fileID: 843278747481097449}
   defaultWeapon: {fileID: 11400000, guid: 4de6a239db049ff4281ceb338a849069, type: 2}
   defaultWeaponName: Unarmed
---- !u!114 &6927600037471204504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676208176979660310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1236a9df7cbe68646a16b55c5acb97d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  experiencePoints: 0
 --- !u!4 &6700421774421265467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,

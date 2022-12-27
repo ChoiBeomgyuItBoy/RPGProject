@@ -3,6 +3,7 @@ using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Attributes;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
@@ -129,13 +130,15 @@ namespace RPG.Combat
         {
             if(target == null) return;
 
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+
             if(currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target, damage);
             }
             else
             {
-                target.TakeDamage(gameObject, currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
         }
     }

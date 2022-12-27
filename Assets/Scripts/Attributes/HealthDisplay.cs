@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 namespace RPG.Attributes
 {
@@ -17,7 +18,7 @@ namespace RPG.Attributes
 
         void Update()
         {
-            healthValueText.text = string.Format("{0:0.0}%", health.GetHealthPercentage());
+            healthValueText.text = string.Format("{0:0}/{1:0}", health.GetCurrentHealth(), health.GetMaxHealth());
         }
     }
 }
