@@ -1,5 +1,6 @@
 using RPG.Attributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Combat
 {
@@ -10,13 +11,15 @@ namespace RPG.Combat
 
         [Tooltip("If projectile will always follow its target")]
         [SerializeField] private float maxLifeTime = 10f;
-        [SerializeField] private float lifeAfterHit = 0.2f;
+        [SerializeField] private float lifeAfterHit = 0.5f;
         [SerializeField] private bool isHoming = false;
 
         private Health target = null;
         private GameObject instigator = null;
 
         private float damage = 0f;
+
+        [SerializeField] private UnityEvent onHit;
 
         private void Start()
         {
@@ -42,6 +45,8 @@ namespace RPG.Combat
             target.TakeDamage(instigator, damage);
 
             speed = 0f;
+
+            onHit.Invoke();
 
             if(hitEffect != null)
             {

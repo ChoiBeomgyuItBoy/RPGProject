@@ -108,11 +108,11 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 1
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 40
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    minRegionArea: 20
+    minRegionArea: 100
     manualCellSize: 1
     cellSize: 0.17777
     manualTileSize: 0
@@ -6762,6 +6762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: '--------- CORE ---------  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118806309746042363, guid: b52fb5d54be7b2145b1631437eb0d35d,
+        type: 3}
+      propertyPath: maxNavPathLength
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5819461152826426612, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}

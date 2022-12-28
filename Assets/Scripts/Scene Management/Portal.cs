@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using RPG.Core;
+using RPG.Control;
 
 namespace RPG.SceneManagement
 {
@@ -12,13 +14,14 @@ namespace RPG.SceneManagement
             A, B, C, D, E
         }
 
-        [SerializeField] private int sceneToLoad;
-        [SerializeField] private float fadeOutTime = 0.5f;
-        [SerializeField] private float fadeInTime = 1f;
-        [SerializeField] private Transform spawnPoint;
-        [SerializeField] private DestinationIdentifier destination;
+        [SerializeField] int sceneToLoad;
+        [SerializeField] float fadeOutTime = 0.5f;
+        [SerializeField] float fadeInTime = 1f;
+        [SerializeField] float fadeWaitTime = 0.5f;
+        [SerializeField] Transform spawnPoint;
+        [SerializeField] DestinationIdentifier destination;
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if(other.tag == "Player")
             {
@@ -26,7 +29,7 @@ namespace RPG.SceneManagement
             }
         }
 
-        private IEnumerator Transition()
+        IEnumerator Transition()
         {
             if(sceneToLoad < 0) 
             { 
@@ -37,13 +40,17 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
+            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+
+            ToggleControl(false);
 
             yield return fader.FadeOut(fadeOutTime);
 
-            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
             wrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+            
+            ToggleControl(false);
 
             wrapper.Load();
 
@@ -52,14 +59,16 @@ namespace RPG.SceneManagement
 
             wrapper.Save();
 
-            yield return new WaitForSeconds(fadeInTime);
-            yield return fader.FadeIn(fadeInTime);
+            yield return new WaitForSeconds(fadeWaitTime);
+            fader.FadeIn(fadeInTime);
+
+            ToggleControl(true);
 
             Destroy(gameObject);
         }
 
 
-        private Portal GetOtherPortal()
+        Portal GetOtherPortal()
         {
             foreach(Portal portal in FindObjectsOfType<Portal>())
             {
@@ -73,7 +82,7 @@ namespace RPG.SceneManagement
             return null;
         }
 
-        private void UpdatePlayer(Portal otherPortal)
+        void UpdatePlayer(Portal otherPortal)
         {
             GameObject player = GameObject.FindWithTag("Player");
 
@@ -83,6 +92,14 @@ namespace RPG.SceneManagement
             player.transform.rotation = otherPortal.spawnPoint.rotation;
 
             player.GetComponent<NavMeshAgent>().enabled = true;
+        }
+
+        void ToggleControl(bool state)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+
+            player.GetComponent<ActionScheduler>().CancelCurrentAction();
+            player.GetComponent<PlayerController>().enabled = state;
         }
     }
 }
