@@ -36,7 +36,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -114,8 +114,8 @@ CanvasGroup:
   m_GameObject: {fileID: 6146527628139699273}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!222 &6146527628139699269
 CanvasRenderer:
@@ -167,5 +167,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35914e99dff1f4e4a828569d43e58732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 2
-  fadeInTime: 0.5

@@ -1,55 +1,102 @@
 using UnityEngine;
 using RPG.Movement;
-using RPG.Combat;
 using RPG.Attributes;
+using UnityEngine.EventSystems;
+using System;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        private void Update()
+        [System.Serializable]
+        struct CursorMapping
         {
-            if(GetComponent<Health>().IsDead) return;
-
-            if(InteractWithCombat()) return;
-            if(InteractWithMovement()) return;
+            public CursorType type;
+            public Texture2D texture;
+            public Vector2 hotSpot;
         }
 
-        private bool InteractWithCombat()
+        [SerializeField] CursorMapping[] cursorMappings = null;
+        [SerializeField] float maxNavMeshProjectionDistance = 1f;
+        [SerializeField] float maxNavPathLength = 40f;
+        void Update()
         {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            if(InteractWithUI()) return;
 
-            foreach(RaycastHit hit in hits)
+            if(GetComponent<Health>().IsDead) 
             {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+                SetCursor(CursorType.None);
+                return;
+            }
 
-                if(target == null) continue;
+            if(InteractWithComponent()) return;
+            if(InteractWithMovement()) return;
 
-                if(!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
+            SetCursor(CursorType.None);
+        }
 
-                if(Input.GetMouseButton(0))
-                {
-                    GetComponent<Fighter>().Attack(target.gameObject);
-                }
-
+        bool InteractWithUI()
+        {
+            if(EventSystem.current.IsPointerOverGameObject())
+            {
+                SetCursor(CursorType.UI);
                 return true;
             }
 
             return false;
         }
 
-        private bool InteractWithMovement()
+        bool InteractWithComponent()
         {
-            RaycastHit hit;
+            RaycastHit[] hits = RaycastAllSorted();
 
-            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            foreach(RaycastHit hit in hits)
+            {
+                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+
+                foreach(IRaycastable raycastable in raycastables)
+                {
+                    if(raycastable.HandleRaycast(this))
+                    {
+                        SetCursor(raycastable.GetCursorType());
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        RaycastHit[] RaycastAllSorted()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            float[] distances = new float[hits.Length];
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                distances[i] = hits[i].distance;
+            }
+
+            Array.Sort(distances, hits);
+
+            return hits;
+        }
+
+        bool InteractWithMovement()
+        {
+            Vector3 target;
+
+            bool hasHit = RaycastNavMesh(out target);
 
             if(hasHit)
             {
                 if(Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().StartMoveAction(hit.point, 1f);
+                    GetComponent<Mover>().StartMoveAction(target, 1f);
                 }
+
+                SetCursor(CursorType.Movement);
 
                 return true;
             }
@@ -57,7 +104,79 @@ namespace RPG.Control
             return false;
         }
 
-        private Ray GetMouseRay()
+        bool RaycastNavMesh(out Vector3 target)
+        {
+            target = new Vector3();
+
+            RaycastHit raycastHit;
+            bool hasHit = Physics.Raycast(GetMouseRay(), out raycastHit);
+
+            if(!hasHit) return false;
+
+            NavMeshHit navMeshHit;
+
+            bool hasCastToNavMesh = 
+            (
+                NavMesh.SamplePosition
+                (
+                    raycastHit.point, 
+                    out navMeshHit, 
+                    maxNavMeshProjectionDistance, 
+                    NavMesh.AllAreas
+                )
+            );
+
+            if(!hasCastToNavMesh) return false;
+            
+            target = navMeshHit.position;
+
+            NavMeshPath path = new NavMeshPath();
+            bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
+
+            if(!hasPath) return false;
+
+            if(path.status != NavMeshPathStatus.PathComplete) return false;
+
+            if(GetPathLength(path) > maxNavPathLength) return false;
+
+            return true;
+        }
+
+        private float GetPathLength(NavMeshPath path)
+        {
+            float total = 0f;
+            float length = path.corners.Length;
+
+            if(length < 2f) return total;
+
+            for (int i = 0; i < length - 1; i++)
+            {
+                total += Vector3.Distance(path.corners[i], path.corners[i + 1]);
+            }
+
+            return total;
+        }
+
+        void SetCursor(CursorType type)
+        {
+            CursorMapping mapping = GetCursorMapping(type);
+            Cursor.SetCursor(mapping.texture, mapping.hotSpot, CursorMode.Auto);
+        }
+
+        CursorMapping GetCursorMapping(CursorType type)
+        {
+            foreach(CursorMapping cursorMap in cursorMappings)
+            {
+                if(cursorMap.type == type)
+                {
+                    return cursorMap;
+                }
+            }
+
+            return cursorMappings[0];
+        }
+
+        Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
