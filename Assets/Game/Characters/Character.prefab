@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2490049209682546000}
   - component: {fileID: 2213373714675495569}
   - component: {fileID: 1570730885108137830}
+  - component: {fileID: 9097565465805572420}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -35,7 +36,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7299322586079519282}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,3 +166,128 @@ MonoBehaviour:
   startingLevel: 1
   characterClass: 0
   progression: {fileID: 11400000, guid: 1f00ebba34a31264e95a464ba986726c, type: 2}
+  levelUpParticleEffect: {fileID: 0}
+  shouldUseModifiers: 0
+--- !u!114 &9097565465805572420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51748920889891302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0170e7defbe80e648ba39777ea7b29f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regenerationPercentage: 100
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4485886567415715483}
+        m_TargetAssemblyTypeName: RPG.UI.DamageText.DamageTextSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &7952580937063705258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 5406678212735441867}
+    m_Modifications:
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769551912340943172, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage Text Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772537383710571569, guid: 297879b1afe309f4aa20dd37923bae04,
+        type: 3}
+      propertyPath: damageTextPrefab
+      value: 
+      objectReference: {fileID: 5906060578790272812, guid: ab81c53d91f49f3428cc69bcdfea68d1,
+        type: 3}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 297879b1afe309f4aa20dd37923bae04, type: 3}
+--- !u!114 &4485886567415715483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5772537383710571569, guid: 297879b1afe309f4aa20dd37923bae04,
+    type: 3}
+  m_PrefabInstance: {fileID: 7952580937063705258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd0d4de58a4fd1479542da75e4e891b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7299322586079519282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 797516524569544856, guid: 297879b1afe309f4aa20dd37923bae04,
+    type: 3}
+  m_PrefabInstance: {fileID: 7952580937063705258}
+  m_PrefabAsset: {fileID: 0}
