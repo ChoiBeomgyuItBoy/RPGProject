@@ -62,6 +62,11 @@ namespace RPG.Attributes
             }
         }
 
+        public void Heal(float amount)
+        {
+            health.value = Mathf.Min(health.value + amount, GetMaxHealth());
+        }
+
         private void RegenerateHealth()
         {
             float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
