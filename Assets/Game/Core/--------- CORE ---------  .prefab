@@ -45,7 +45,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.78242713, g: 0.8396226, b: 0.6693218, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -383,6 +383,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5819461152826426612}
     m_Modifications:
+    - target: {fileID: 5377034239963689559, guid: 2f11f71a547c1024b8fd617968c80871,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5377034239963689643, guid: 2f11f71a547c1024b8fd617968c80871,
         type: 3}
       propertyPath: m_RootOrder
@@ -391,17 +396,17 @@ PrefabInstance:
     - target: {fileID: 5377034239963689643, guid: 2f11f71a547c1024b8fd617968c80871,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.19058
+      value: -32.725906
       objectReference: {fileID: 0}
     - target: {fileID: 5377034239963689643, guid: 2f11f71a547c1024b8fd617968c80871,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.849483
+      value: 8.832679
       objectReference: {fileID: 0}
     - target: {fileID: 5377034239963689643, guid: 2f11f71a547c1024b8fd617968c80871,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.704311
+      value: 29.904964
       objectReference: {fileID: 0}
     - target: {fileID: 5377034239963689643, guid: 2f11f71a547c1024b8fd617968c80871,
         type: 3}
@@ -460,6 +465,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5819461152826426612}
     m_Modifications:
+    - target: {fileID: 6180054457911471289, guid: a7f9aa1382a40f94a8375002ef636bef,
+        type: 3}
+      propertyPath: m_CameraDistance
+      value: 11.356934
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180054457911471289, guid: a7f9aa1382a40f94a8375002ef636bef,
+        type: 3}
+      propertyPath: m_TrackedObjectOffset.x
+      value: -0.20472538
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180054457911471289, guid: a7f9aa1382a40f94a8375002ef636bef,
+        type: 3}
+      propertyPath: m_TrackedObjectOffset.y
+      value: 0.7443145
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180054457911471289, guid: a7f9aa1382a40f94a8375002ef636bef,
+        type: 3}
+      propertyPath: m_TrackedObjectOffset.z
+      value: -0.55075127
+      objectReference: {fileID: 0}
     - target: {fileID: 6180054458938921244, guid: a7f9aa1382a40f94a8375002ef636bef,
         type: 3}
       propertyPath: m_RootOrder
@@ -468,17 +493,17 @@ PrefabInstance:
     - target: {fileID: 6180054458938921244, guid: a7f9aa1382a40f94a8375002ef636bef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.19058
+      value: -31.486357
       objectReference: {fileID: 0}
     - target: {fileID: 6180054458938921244, guid: a7f9aa1382a40f94a8375002ef636bef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.849483
+      value: 7.387532
       objectReference: {fileID: 0}
     - target: {fileID: 6180054458938921244, guid: a7f9aa1382a40f94a8375002ef636bef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.704311
+      value: 30.297981
       objectReference: {fileID: 0}
     - target: {fileID: 6180054458938921244, guid: a7f9aa1382a40f94a8375002ef636bef,
         type: 3}
@@ -525,6 +550,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 6786031848518733978}
+    - target: {fileID: 6180054458938921247, guid: a7f9aa1382a40f94a8375002ef636bef,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f9aa1382a40f94a8375002ef636bef, type: 3}
