@@ -31,10 +31,10 @@ namespace RPG.Combat
         {
             currentWeaponConfig = defaultWeapon;
 
-            currentWeapon = new LazyValue<Weapon>(SetUpDefaultWeapon);
+            currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
         }
 
-        private Weapon SetUpDefaultWeapon()
+        private Weapon SetupDefaultWeapon()
         {
             return AttachWeapon(defaultWeapon);
         }
@@ -51,7 +51,7 @@ namespace RPG.Combat
             if(target == null) return;
             if(target.IsDead) return;
 
-            if(!IsInRange()) 
+            if(!IsInRange(target.transform)) 
             {
                 GetComponent<Mover>().StartMoveAction(target.transform.position, 1f);
             }
@@ -65,7 +65,7 @@ namespace RPG.Combat
         public void EquipWeapon(WeaponConfig weapon)
         {
             currentWeaponConfig = weapon;
-            currentWeapon.value = AttachWeapon(currentWeaponConfig);
+            currentWeapon.value = AttachWeapon(weapon);
         }
 
         private Weapon AttachWeapon(WeaponConfig weapon)
@@ -73,14 +73,15 @@ namespace RPG.Combat
             return weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
         }
 
-        private bool IsInRange()
+        private bool IsInRange(Transform targetTransform)
         {
-            return Vector3.Distance(transform.position, target.transform.position) < currentWeaponConfig.GetRange();
+            return Vector3.Distance(transform.position, targetTransform.position) < currentWeaponConfig.GetRange();
         } 
 
         public bool CanAttack(GameObject combatTarget)
         {
             if(combatTarget == null) return false;
+            if(!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position) && !IsInRange(combatTarget.transform)) return false;
 
             Health currentTarget = combatTarget.GetComponent<Health>();
 

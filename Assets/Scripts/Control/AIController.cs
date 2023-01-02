@@ -4,31 +4,35 @@ using RPG.Core;
 using RPG.Movement;
 using RPG.Attributes;
 using GameDevTV.Utils;
+using System;
 
 namespace RPG.Control
 {
     public class AIController : MonoBehaviour
     {
-        [SerializeField] private PatrolPath patrolPath;
-        [SerializeField] private float chaseDistance = 5f;
-        [SerializeField] private float suspicionTime = 3f;
-        [SerializeField] private float waypointTolerance = 2f;
-        [SerializeField] private float waypointDwellTime = 3f;
-        [SerializeField] [Range(0f,1f)] private float patrolSpeedFraction = 0.2f;
+        [SerializeField] PatrolPath patrolPath;
+        [SerializeField] float chaseDistance = 5f;
+        [SerializeField] float suspicionTime = 3f;
+        [SerializeField] float aggroCooldownTime = 4f;
+        [SerializeField] float waypointTolerance = 2f;
+        [SerializeField] float waypointDwellTime = 3f;
+        [SerializeField] float shoutDistance = 5f;
+        [SerializeField] [Range(0f,1f)] float patrolSpeedFraction = 0.2f;
 
-        private Fighter fighter;
-        private Mover mover;
-        private ActionScheduler scheduler;
-        private Health health;
-        private GameObject player;
+        Fighter fighter;
+        Mover mover;
+        ActionScheduler scheduler;
+        Health health;
+        GameObject player;
 
-        private LazyValue<Vector3> guardPosition;
-        private Vector3 currentWaypoint;
+        LazyValue<Vector3> guardPosition;
+        Vector3 currentWaypoint;
 
-        private float timeSinceLastSawPlayer = Mathf.Infinity;
-        private float timeSinceArrivedWaypoint = Mathf.Infinity;
+        float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceArrivedWaypoint = Mathf.Infinity;
+        float timeSinceAggrevated = Mathf.Infinity;
 
-        private int currentWaypointIndex = 0;
+        int currentWaypointIndex = 0;
 
         private void Awake()
         {
@@ -56,7 +60,7 @@ namespace RPG.Control
         {
             if (health.IsDead) return;
 
-            if (IsInChaseRange() && fighter.CanAttack(player))
+            if (IsAggrevated() && fighter.CanAttack(player))
             {
                 AttackBehaviour();
             }
@@ -72,16 +76,36 @@ namespace RPG.Control
             UpdateTimers();
         }
 
+        public void Aggrevate()
+        {
+            timeSinceAggrevated = 0f;
+        }
+
         private void UpdateTimers()
         {
             timeSinceLastSawPlayer += Time.deltaTime;
             timeSinceArrivedWaypoint += Time.deltaTime;
+            timeSinceAggrevated += Time.deltaTime;
         }
 
         private void AttackBehaviour()
         {
             timeSinceLastSawPlayer = 0f;
             fighter.Attack(player);
+
+            AggrevateNearbyEnemies();
+        }
+
+        private void AggrevateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+
+            foreach(RaycastHit hit in hits)
+            {
+                if(!hit.transform.TryGetComponent<AIController>(out AIController controller)) continue;
+
+                controller.Aggrevate();
+            }
         }
 
         private void SuspicionBehaviour()
@@ -125,9 +149,9 @@ namespace RPG.Control
             return patrolPath.GetWaypoint(currentWaypointIndex);
         }
 
-        private bool IsInChaseRange()
+        private bool IsAggrevated()
         {
-            return IsInRange(transform.position, player.transform.position, chaseDistance);
+            return IsInRange(transform.position, player.transform.position, chaseDistance) || timeSinceAggrevated < aggroCooldownTime;
         }
 
         private bool IsInRange(Vector3 from, Vector3 to, float range)

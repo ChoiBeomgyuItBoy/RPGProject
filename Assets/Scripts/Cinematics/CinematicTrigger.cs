@@ -1,20 +1,43 @@
 using System.Collections.Generic;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.Playables;
 
 namespace RPG.Cinematics
 {
-    public class CinematicTrigger : MonoBehaviour
+    public class CinematicTrigger : MonoBehaviour, ISaveable
     {
-        private List<Collider> alreadyCollidedWith = new List<Collider>();
-
-        private void OnTriggerEnter(Collider other)
+        [System.Serializable]
+        class SerializableBool
         {
-            if(other.tag == "Player" && !alreadyCollidedWith.Contains(other))
+            bool state;
+
+            public SerializableBool(bool state) { this.state = state; } 
+
+            public bool ToBool() => state;
+        }
+
+        bool alreadyCollidedWith = false;
+
+        void OnTriggerEnter(Collider other)
+        {
+            if(other.tag == "Player" && !alreadyCollidedWith)
             {
                 GetComponent<PlayableDirector>().Play();
-                alreadyCollidedWith.Add(other);
+                alreadyCollidedWith = true;
             }
+        }
+
+        public object CaptureState()
+        {
+            return new SerializableBool(alreadyCollidedWith);
+        }
+
+        public void RestoreState(object state)
+        {
+            SerializableBool previousState = (SerializableBool) state;
+
+            alreadyCollidedWith = previousState.ToBool();
         }
     }
 }
