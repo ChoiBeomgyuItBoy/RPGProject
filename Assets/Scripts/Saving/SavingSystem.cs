@@ -1,14 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace RPG.Saving
+namespace GameDevTV.Saving
 {
+    /// <summary>
+    /// This component provides the interface to the saving system. It provides
+    /// methods to save and restore a scene.
+    ///
+    /// This component should be created once and shared between all subsequent scenes.
+    /// </summary>
     public class SavingSystem : MonoBehaviour
     {
+        /// <summary>
+        /// Will load the last scene that was saved and restore the state. This
+        /// must be run as a coroutine.
+        /// </summary>
+        /// <param name="saveFile">The save file to consult for loading.</param>
         public IEnumerator LoadLastScene(string saveFile)
         {
             Dictionary<string, object> state = LoadFile(saveFile);
@@ -21,6 +34,9 @@ namespace RPG.Saving
             RestoreState(state);
         }
 
+        /// <summary>
+        /// Save the current scene to the provided save file.
+        /// </summary>
         public void Save(string saveFile)
         {
             Dictionary<string, object> state = LoadFile(saveFile);
@@ -28,15 +44,20 @@ namespace RPG.Saving
             SaveFile(saveFile, state);
         }
 
-        public void Load(string saveFile)
-        {
-            RestoreState(LoadFile(saveFile));
-        }
-
+        /// <summary>
+        /// Delete the state in the given save file.
+        /// </summary>
         public void Delete(string saveFile)
         {
-            print("Deleting" + GetPathFromSaveFile(saveFile));
+            print("Deleting: " + GetPathFromSaveFile(saveFile));
             File.Delete(GetPathFromSaveFile(saveFile));
+        }
+
+        // PRIVATE
+
+        private void Load(string saveFile)
+        {
+            RestoreState(LoadFile(saveFile));
         }
 
         private Dictionary<string, object> LoadFile(string saveFile)
