@@ -96,6 +96,10 @@ namespace GameDevTV.Core.UI.Tooltips
 
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
+            var slotCorners = new Vector3[4];
+            GetComponent<RectTransform>().GetWorldCorners(slotCorners);
+            Rect rect = new Rect(slotCorners[0], slotCorners[2] - slotCorners[0]);
+            if (rect.Contains(eventData.position)) return;
             ClearTooltip();
         }
 

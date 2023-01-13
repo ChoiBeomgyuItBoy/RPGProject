@@ -4,6 +4,7 @@ using RPG.Attributes;
 using UnityEngine.EventSystems;
 using System;
 using UnityEngine.AI;
+using GameDevTV.Inventories;
 
 namespace RPG.Control
 {
@@ -21,9 +22,11 @@ namespace RPG.Control
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
         [SerializeField] float raycastRadius = 1f;
 
+        bool isDraggingUI = false;
+
         void Update()
         {
-            if(InteractWithUI()) return;
+            CheckSpecialAbilityKeys();
 
             if(GetComponent<Health>().IsDead) 
             {
@@ -31,17 +34,63 @@ namespace RPG.Control
                 return;
             }
 
+            if(InteractWithUI()) return;
             if(InteractWithMovement()) return;
             if(InteractWithComponent()) return;
 
             SetCursor(CursorType.None);
         }
+        
+        private void CheckSpecialAbilityKeys()
+        {
+            var actionStore = GetComponent<ActionStore>();
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                actionStore.Use(0, gameObject);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                actionStore.Use(1, gameObject);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                actionStore.Use(2, gameObject);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                actionStore.Use(3, gameObject);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                actionStore.Use(4, gameObject);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                actionStore.Use(5, gameObject);
+            }
+        }
 
         bool InteractWithUI()
         {
+            if(Input.GetMouseButtonUp(0))
+            {
+                isDraggingUI = false;
+            }
+
             if(EventSystem.current.IsPointerOverGameObject())
             {
+                if(Input.GetMouseButton(0))
+                {
+                    isDraggingUI = true;
+                }
+
                 SetCursor(CursorType.UI);
+                return true;
+            }
+
+            if(isDraggingUI)
+            {
                 return true;
             }
 
@@ -50,7 +99,6 @@ namespace RPG.Control
 
         bool InteractWithComponent()
         {
-
             RaycastHit[] hits = RaycastAllSorted();
 
             foreach(RaycastHit hit in hits)
