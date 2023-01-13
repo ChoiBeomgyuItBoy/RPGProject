@@ -4,7 +4,7 @@
 
 [Progression Design Spread Sheet](https://docs.google.com/spreadsheets/d/1rpPL9uQ_G4Flr2CaPOI2p4AnV467sR0BQsqG1LqRv3Q/edit#gid=0)
 
-[Inventory System Design Diagram](https://lucid.app/lucidspark/0425b69d-4ee6-4c35-8a70-750facf220db/edit?invitationId=inv_4ad7cf12-57b1-4b56-bba8-99a42cf98780#)
+[Inventory Architecture Diagram](https://lucid.app/lucidspark/0425b69d-4ee6-4c35-8a70-750facf220db/edit?invitationId=inv_4ad7cf12-57b1-4b56-bba8-99a42cf98780#)
 
 ## Gameplay Overview:
   ![image](https://user-images.githubusercontent.com/113314204/212237795-f2f32459-9829-4e56-b729-457ede70c19d.png)
@@ -14,8 +14,11 @@
   
 ## Info:
   - Project Dragon is a Fantasy RPG, Action, Point & Click style game.
-  - Arquitecture Modules:
-    - Core Combat
+  - Architecture Modules:
+    - Point & Click Movement
+    - Enemy AI (FSM simulation)
+    - Combat 
+    - Cinematics
     - Inventories
     - Dialogues
     - Quests
