@@ -185,6 +185,11 @@ namespace GameDevTV.Inventories
             {
                 AddAction(InventoryItem.GetFromID(pair.Value.itemID), pair.Key, pair.Value.number);
             }
+
+            if(storeUpdated != null)
+            {
+                storeUpdated();
+            }
         }
     }
 }
