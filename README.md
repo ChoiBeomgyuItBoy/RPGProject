@@ -15,7 +15,10 @@
 ## Info:
   - Project Dragon is a Fantasy RPG, Action, Point & Click style game.
   - Arquitecture Modules:
-    - Core Combat
+    - Point & Click Movement
+    - Enemy AI (FSM simulation)
+    - Combat 
+    - Cinematics
     - Inventories
     - Dialogues
     - Quests
