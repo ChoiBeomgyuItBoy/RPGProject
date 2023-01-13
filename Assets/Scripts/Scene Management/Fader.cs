@@ -7,7 +7,7 @@ namespace RPG.SceneManagement
     {
         private CanvasGroup canvasGroup;
 
-        private Coroutine currentActiveFade;
+        private Coroutine currentActiveFade = null;
 
         private void Awake()
         {
@@ -44,7 +44,7 @@ namespace RPG.SceneManagement
         {
             while(!Mathf.Approximately(canvasGroup.alpha, alphaTarget))
             {
-                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, alphaTarget, Time.unscaledDeltaTime / time);
+                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, alphaTarget, Time.deltaTime / time);
                 yield return null;
             }
         }
