@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5941780417033394514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 4ffa733f-92a8-4f29-8633-65836d7fdeec
+  m_EditorClassIdentifier: 
+  text: NO
+  rect:
+    serializedVersion: 2
+    x: 368
+    y: 214
+    width: 200
+    height: 100
+  children:
+  - 50b45eb1-18f6-4462-abcd-5519bef68c7c
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: New Dialogue 1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7967655694679230171}
+  - {fileID: -5941780417033394514}
+  - {fileID: 3328276895815550829}
+--- !u!114 &3328276895815550829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 50b45eb1-18f6-4462-abcd-5519bef68c7c
+  m_EditorClassIdentifier: 
+  text: BYE
+  rect:
+    serializedVersion: 2
+    x: 688
+    y: 129
+    width: 200
+    height: 100
+  children: []
+--- !u!114 &7967655694679230171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 8b26356f-5121-43e6-aa2c-6476d2aa7384
+  m_EditorClassIdentifier: 
+  text: HI
+  rect:
+    serializedVersion: 2
+    x: 62
+    y: 125
+    width: 200
+    height: 100
+  children:
+  - 4ffa733f-92a8-4f29-8633-65836d7fdeec
