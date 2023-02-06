@@ -1,3 +1,5 @@
+using System;
+using RPG.Attributes;
 using RPG.Control;
 using UnityEngine;
 
@@ -6,6 +8,12 @@ namespace RPG.Dialogue
     public class AIConversant : MonoBehaviour, IRaycastable
     {
         [SerializeField] Dialogue defaultDialogue = null;
+        [SerializeField] string conversantName = "";
+
+        public string GetName()
+        {
+            return conversantName;
+        }
 
         public CursorType GetCursorType()
         {
@@ -14,6 +22,11 @@ namespace RPG.Dialogue
 
         public bool HandleRaycast(PlayerController callingController)
         {
+            if(GetComponent<Health>().IsDead)
+            {
+                return false;
+            }
+
             if(defaultDialogue == null)
             {
                 return false;
@@ -21,7 +34,7 @@ namespace RPG.Dialogue
 
             if(Input.GetMouseButtonDown(0))
             {
-                callingController.GetComponent<PlayerConversant>().StartDialogue(defaultDialogue);
+                callingController.GetComponent<PlayerConversant>().StartDialogue(this, defaultDialogue);
             }
 
             return true;

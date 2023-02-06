@@ -22,6 +22,8 @@ MonoBehaviour:
     height: 100
   children:
   - 2815e6e9-a147-486c-8911-4c6683c7eee6
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-5598328589693936927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +46,8 @@ MonoBehaviour:
     height: 100
   children:
   - 2815e6e9-a147-486c-8911-4c6683c7eee6
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-4056074683760290825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +71,8 @@ MonoBehaviour:
   children:
   - 9fb69365-1fa3-4f25-b490-dd61fbaf1541
   - 41798a0f-6175-4ea3-ada6-355ac2ef492b
+  onEnterAction: TestRootEnter
+  onExitAction: TestRootExit
 --- !u!114 &-2704060466744876130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +94,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-2458500506486810146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +118,8 @@ MonoBehaviour:
     height: 100
   children:
   - dd90bfdc-216d-45db-928c-46d8f1e873c4
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-99146538890707159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,10 +137,12 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1026
-    y: 47
+    y: 46
     width: 200
     height: 100
   children: []
+  onEnterAction: 
+  onExitAction: Attack
 --- !u!114 &-43556042263365463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +165,8 @@ MonoBehaviour:
     height: 100
   children:
   - 4746bd29-5d74-4d9f-b8d5-63fb7ace47bc
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +177,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
-  m_Name: Welcome Dialogue
+  m_Name: New in Town
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -4056074683760290825}
@@ -199,6 +213,8 @@ MonoBehaviour:
     height: 100
   children:
   - b357a816-81b0-485d-89d0-ecd3bbedaa78
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &6832918914940361023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +237,8 @@ MonoBehaviour:
     height: 100
   children:
   - 078ed791-7de5-4f1a-a9d7-cc251a4eee3d
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &7722466798689295545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,10 +255,12 @@ MonoBehaviour:
   text: Really? Then you must know Mr. Taehyung
   rect:
     serializedVersion: 2
-    x: 546
-    y: 153
+    x: 527
+    y: 168
     width: 200
     height: 100
   children:
   - 2c0a5515-1867-43ae-9b0c-100cef11175f
   - 35111bf4-ad71-4893-a8f3-c2e0570e226a
+  onEnterAction: 
+  onExitAction: 

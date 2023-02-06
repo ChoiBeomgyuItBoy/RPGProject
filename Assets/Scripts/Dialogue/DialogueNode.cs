@@ -11,11 +11,15 @@ namespace RPG.Dialogue
         [SerializeField] string text;
         [SerializeField] Rect rect = new Rect(0, 0, 200, 100);
         [SerializeField] List <string> children = new List<string>();
+        [SerializeField] string onEnterAction;
+        [SerializeField] string onExitAction;
 
         public Rect GetRect() => rect;
         public string GetText() => text;
         public List<string> GetChildren() => children;
         public bool IsPlayerSpeaking() => isPlayerSpeaking;
+        public string GetOnEnterAction() => onEnterAction;
+        public string GetOnExitAction() => onExitAction;
 
 # if UNITY_EDITOR
         public void SetPosition(Vector2 newPosition)

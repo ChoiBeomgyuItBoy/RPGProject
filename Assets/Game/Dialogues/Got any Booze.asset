@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4931239001487027356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 6201917c-ab44-4947-b731-24cc137ba992
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Got any booze with ya?
+  rect:
+    serializedVersion: 2
+    x: 99
+    y: 102
+    width: 200
+    height: 100
+  children:
+  - e55d64fe-5f37-4d0f-8ee6-fda742b5d909
+  - 6040d89f-477e-4d2c-bf86-ce58a3615ae7
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2780969648454228210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: a00bb924-ce7d-4f0c-b924-ebde6fdda2dc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Then go away bastard!
+  rect:
+    serializedVersion: 2
+    x: 618
+    y: 208
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Got any Booze
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -4931239001487027356}
+  - {fileID: 5305545507157196285}
+  - {fileID: 4179350835118171608}
+  - {fileID: -2780969648454228210}
+  - {fileID: 3621921210664871366}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3621921210664871366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f9f16b02-3ae5-4d0c-8557-0a2caa338eb9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: See you around mate
+  rect:
+    serializedVersion: 2
+    x: 612
+    y: 32
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4179350835118171608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 6040d89f-477e-4d2c-bf86-ce58a3615ae7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Excuse me?
+  rect:
+    serializedVersion: 2
+    x: 362
+    y: 198
+    width: 200
+    height: 100
+  children:
+  - a00bb924-ce7d-4f0c-b924-ebde6fdda2dc
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5305545507157196285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e55d64fe-5f37-4d0f-8ee6-fda742b5d909
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 'Sure! '
+  rect:
+    serializedVersion: 2
+    x: 366
+    y: 40
+    width: 200
+    height: 100
+  children:
+  - f9f16b02-3ae5-4d0c-8557-0a2caa338eb9
+  onEnterAction: 
+  onExitAction: 
