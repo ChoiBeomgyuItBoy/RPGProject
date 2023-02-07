@@ -1,0 +1,217 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6820337009646320320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 881ad65c-f3aa-4730-90c0-148de8b974ed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Really? Thanks a lot mate!
+  rect:
+    serializedVersion: 2
+    x: 1085
+    y: 11
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: GiveQuest
+--- !u!114 &-6185561897589213009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f76216ad-9667-4bd2-8cf8-128bdacadfb1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'm gonna find him don't worry
+  rect:
+    serializedVersion: 2
+    x: 815
+    y: 21
+    width: 200
+    height: 100
+  children:
+  - 881ad65c-f3aa-4730-90c0-148de8b974ed
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3573601416544723713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 2834141a-2802-4578-bf1f-d968d85d4fa0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Sure! Who is he?
+  rect:
+    serializedVersion: 2
+    x: 324
+    y: 90
+    width: 200
+    height: 100
+  children:
+  - 07fc6842-b5cc-40a7-82c0-8c0d3f9b29d9
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Missing Friend
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4074316401570188357}
+  - {fileID: -3573601416544723713}
+  - {fileID: 3513392452860696737}
+  - {fileID: 4841432846060371987}
+  - {fileID: 686103006727955405}
+  - {fileID: 8896664713253726758}
+  - {fileID: -6185561897589213009}
+  - {fileID: -6820337009646320320}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &686103006727955405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 07fc6842-b5cc-40a7-82c0-8c0d3f9b29d9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'He is a messy and tall guy... and you didn''t hear this from me but he is
+    always drunk. '
+  rect:
+    serializedVersion: 2
+    x: 547
+    y: 67
+    width: 200
+    height: 100
+  children:
+  - 6ae41d59-3e6b-46e4-be8f-a9e0b55f2ebe
+  - f76216ad-9667-4bd2-8cf8-128bdacadfb1
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3513392452860696737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 0019ea50-c955-4f3a-887e-359791bcd140
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'm bussy,get lost
+  rect:
+    serializedVersion: 2
+    x: 326
+    y: 234
+    width: 200
+    height: 100
+  children:
+  - 2e4d89cd-75bc-42fb-ac03-29331e12ace9
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4074316401570188357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: bf1935cf-5681-41b5-9093-3cf40f828a08
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: My friend is missing, can you help me?
+  rect:
+    serializedVersion: 2
+    x: 41
+    y: 132
+    width: 200
+    height: 100
+  children:
+  - 2834141a-2802-4578-bf1f-d968d85d4fa0
+  - 0019ea50-c955-4f3a-887e-359791bcd140
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4841432846060371987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 2e4d89cd-75bc-42fb-ac03-29331e12ace9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: All right, thanks
+  rect:
+    serializedVersion: 2
+    x: 820
+    y: 309
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8896664713253726758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 6ae41d59-3e6b-46e4-be8f-a9e0b55f2ebe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Oh... never mind
+  rect:
+    serializedVersion: 2
+    x: 812
+    y: 167
+    width: 200
+    height: 100
+  children:
+  - 2e4d89cd-75bc-42fb-ac03-29331e12ace9
+  onEnterAction: 
+  onExitAction: 

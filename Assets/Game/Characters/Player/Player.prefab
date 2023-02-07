@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
@@ -199,6 +199,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 16
+--- !u!114 &6010739777470729433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676208176979660310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b30f2c4e9939244bed0c4e3706c132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statuses:
+  - quest: {fileID: 11400000, guid: 546b18b0b5e31ca4bbffe778940aed04, type: 2}
+    completedObjectives:
+    - Find some food for him
+  - quest: {fileID: 11400000, guid: ead8c148964b4be40a9e7c47eaa550fb, type: 2}
+    completedObjectives:
+    - Defeat all castle entrance enemies
+    - Find the castle door
 --- !u!114 &6357777208121707042
 MonoBehaviour:
   m_ObjectHideFlags: 0
