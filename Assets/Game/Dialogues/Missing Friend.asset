@@ -24,8 +24,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: GiveQuest
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-6185561897589213009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,8 +50,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-3573601416544723713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,8 +67,8 @@ MonoBehaviour:
   text: Sure! Who is he?
   rect:
     serializedVersion: 2
-    x: 324
-    y: 90
+    x: 323
+    y: 77
     width: 200
     height: 100
   children:
@@ -78,8 +76,12 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Find Kim Jiwoo's Friend
+        negate: 1
 --- !u!114 &-2251579882313790894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,19 +95,79 @@ MonoBehaviour:
   m_Name: 5198189c-9a39-45e7-b04b-27cf303694bf
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Oops, wrong memory hehe
+  text: Oops, bad memory hehe
   rect:
     serializedVersion: 2
-    x: 641
-    y: 442
+    x: 635
+    y: 420
     width: 200
     height: 100
   children: []
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
+--- !u!114 &-1710746170733252327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 1ec3d2f8-918d-4498-929f-d98cbe8b58b0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Thanks a lot!
+  rect:
+    serializedVersion: 2
+    x: 625
+    y: 556
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-41303989410220969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d7d9839d-b19f-40b2-a233-f775398c9134
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I got it
+  rect:
+    serializedVersion: 2
+    x: 340
+    y: 447
+    width: 200
+    height: 100
+  children:
+  - 1ec3d2f8-918d-4498-929f-d98cbe8b58b0
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Find Kim Jiwoo's Friend
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Find Kim Jiwoo's Friend
+        negate: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +191,8 @@ MonoBehaviour:
   - {fileID: -6820337009646320320}
   - {fileID: 4697077678457742596}
   - {fileID: -2251579882313790894}
+  - {fileID: -41303989410220969}
+  - {fileID: -1710746170733252327}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &686103006727955405
 MonoBehaviour:
@@ -157,8 +221,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &3513392452860696737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +238,8 @@ MonoBehaviour:
   text: I'm bussy,get lost
   rect:
     serializedVersion: 2
-    x: 326
-    y: 234
+    x: 325
+    y: 206
     width: 200
     height: 100
   children:
@@ -184,8 +247,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &4074316401570188357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,11 +272,11 @@ MonoBehaviour:
   - 2834141a-2802-4578-bf1f-d968d85d4fa0
   - 0019ea50-c955-4f3a-887e-359791bcd140
   - aee259ed-e704-4a23-91b2-4b5b32b26710
+  - d7d9839d-b19f-40b2-a233-f775398c9134
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &4697077678457742596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,8 +293,8 @@ MonoBehaviour:
   text: I'm working on it
   rect:
     serializedVersion: 2
-    x: 321
-    y: 402
+    x: 341
+    y: 325
     width: 200
     height: 100
   children:
@@ -240,9 +302,17 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: HasQuest
-    parameters:
-    - Missing Friend
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Find Kim Jiwoo's Friend
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Find Kim Jiwoo's Friend
+        negate: 1
 --- !u!114 &4841432846060371987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,8 +337,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &8896664713253726758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,5 +363,4 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []

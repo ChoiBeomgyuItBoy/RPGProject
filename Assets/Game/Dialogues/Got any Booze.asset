@@ -23,8 +23,11 @@ MonoBehaviour:
   children:
   - e55d64fe-5f37-4d0f-8ee6-fda742b5d909
   - 6040d89f-477e-4d2c-bf86-ce58a3615ae7
+  - 0184d221-1a71-4249-bf96-11fa66b123aa
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-2780969648454228210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,13 +44,15 @@ MonoBehaviour:
   text: Then go away bastard!
   rect:
     serializedVersion: 2
-    x: 618
-    y: 208
+    x: 625
+    y: 252
     width: 200
     height: 100
   children: []
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +71,40 @@ MonoBehaviour:
   - {fileID: 4179350835118171608}
   - {fileID: -2780969648454228210}
   - {fileID: 3621921210664871366}
+  - {fileID: 1466724066847913688}
+  - {fileID: 5141805946807086437}
   newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1466724066847913688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 0184d221-1a71-4249-bf96-11fa66b123aa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Kim Jiwoo is looking for you
+  rect:
+    serializedVersion: 2
+    x: 373
+    y: 128
+    width: 200
+    height: 100
+  children:
+  - ff2ea633-256d-46a7-a3f9-28002e974615
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Find Kim Jiwoo's Friend
+        negate: 0
 --- !u!114 &3621921210664871366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,13 +121,15 @@ MonoBehaviour:
   text: See you around mate
   rect:
     serializedVersion: 2
-    x: 612
+    x: 611
     y: 32
     width: 200
     height: 100
   children: []
-  onEnterAction: CompleteObjective
+  onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &4179350835118171608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,14 +146,41 @@ MonoBehaviour:
   text: Excuse me?
   rect:
     serializedVersion: 2
-    x: 362
-    y: 198
+    x: 375
+    y: 230
     width: 200
     height: 100
   children:
   - a00bb924-ce7d-4f0c-b924-ebde6fdda2dc
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
+--- !u!114 &5141805946807086437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ff2ea633-256d-46a7-a3f9-28002e974615
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Really? Damn... we had a fight and i escaped, thanks though
+  rect:
+    serializedVersion: 2
+    x: 617
+    y: 143
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: CompleteObjective
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &5305545507157196285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,11 +197,13 @@ MonoBehaviour:
   text: 'Sure! '
   rect:
     serializedVersion: 2
-    x: 366
-    y: 40
+    x: 376
+    y: 26
     width: 200
     height: 100
   children:
   - f9f16b02-3ae5-4d0c-8557-0a2caa338eb9
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
