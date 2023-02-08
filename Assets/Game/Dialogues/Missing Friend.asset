@@ -23,6 +23,9 @@ MonoBehaviour:
   children: []
   onEnterAction: 
   onExitAction: GiveQuest
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &-6185561897589213009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +50,9 @@ MonoBehaviour:
   - 881ad65c-f3aa-4730-90c0-148de8b974ed
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &-3573601416544723713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +77,35 @@ MonoBehaviour:
   - 07fc6842-b5cc-40a7-82c0-8c0d3f9b29d9
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-2251579882313790894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 5198189c-9a39-45e7-b04b-27cf303694bf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Oops, wrong memory hehe
+  rect:
+    serializedVersion: 2
+    x: 641
+    y: 442
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +127,8 @@ MonoBehaviour:
   - {fileID: 8896664713253726758}
   - {fileID: -6185561897589213009}
   - {fileID: -6820337009646320320}
+  - {fileID: 4697077678457742596}
+  - {fileID: -2251579882313790894}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &686103006727955405
 MonoBehaviour:
@@ -119,6 +156,9 @@ MonoBehaviour:
   - f76216ad-9667-4bd2-8cf8-128bdacadfb1
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &3513392452860696737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +183,9 @@ MonoBehaviour:
   - 2e4d89cd-75bc-42fb-ac03-29331e12ace9
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &4074316401570188357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,8 +209,40 @@ MonoBehaviour:
   children:
   - 2834141a-2802-4578-bf1f-d968d85d4fa0
   - 0019ea50-c955-4f3a-887e-359791bcd140
+  - aee259ed-e704-4a23-91b2-4b5b32b26710
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &4697077678457742596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: aee259ed-e704-4a23-91b2-4b5b32b26710
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'm working on it
+  rect:
+    serializedVersion: 2
+    x: 321
+    y: 402
+    width: 200
+    height: 100
+  children:
+  - 5198189c-9a39-45e7-b04b-27cf303694bf
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: HasQuest
+    parameters:
+    - Missing Friend
 --- !u!114 &4841432846060371987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +266,9 @@ MonoBehaviour:
   children: []
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &8896664713253726758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +293,6 @@ MonoBehaviour:
   - 2e4d89cd-75bc-42fb-ac03-29331e12ace9
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
