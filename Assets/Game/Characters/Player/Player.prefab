@@ -112,6 +112,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1726232337313470448}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4085659651537881334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676208176979660310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29913b5e7608b245b688f68c2f28b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &489673940845552283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +196,9 @@ MonoBehaviour:
   - type: 6
     texture: {fileID: 2800000, guid: 96d4bfdb0d6d8c042bf8fccf6524d239, type: 3}
     hotSpot: {x: 0, y: 0}
+  - type: 7
+    texture: {fileID: 2800000, guid: 3451779baa5804d40bf1e952eb56a81a, type: 3}
+    hotSpot: {x: 0, y: 0}
   maxNavMeshProjectionDistance: 1
   raycastRadius: 2
 --- !u!114 &4204853891115104432
@@ -211,14 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b30f2c4e9939244bed0c4e3706c132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statuses:
-  - quest: {fileID: 11400000, guid: 546b18b0b5e31ca4bbffe778940aed04, type: 2}
-    completedObjectives:
-    - Find some food for him
-  - quest: {fileID: 11400000, guid: ead8c148964b4be40a9e7c47eaa550fb, type: 2}
-    completedObjectives:
-    - Defeat all castle entrance enemies
-    - Find the castle door
 --- !u!114 &6357777208121707042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +268,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fc10940e5e2494895230945be88105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1833966590082182957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676208176979660310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb5114adade71be46a1bc0a8d9aa5126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingBalance: 400
 --- !u!4 &6700421774421265467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
