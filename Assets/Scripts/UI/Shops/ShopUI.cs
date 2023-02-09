@@ -11,14 +11,17 @@ namespace RPG.UI.Shops
         [SerializeField] TextMeshProUGUI shopName;
         [SerializeField] Transform listRoot;
         [SerializeField] Button quitButton;
-        [SerializeField] Button buyButton;
+        [SerializeField] Button confirmButton;
         [SerializeField] RowUI rowPrefab;
         [SerializeField] TextMeshProUGUI totalField;
         Shopper shopper = null;
         Shop currentShop = null;
 
+        Color originalTotalTextColor;
+
         void Start()
         {
+            originalTotalTextColor = totalField.color;
             shopper = GameObject.FindWithTag("Player").GetComponent<Shopper>();
 
             if(shopper != null)
@@ -27,8 +30,8 @@ namespace RPG.UI.Shops
                 ShopChanged();
             }
 
+            confirmButton.onClick.AddListener(ConfirmTransaction);
             quitButton.onClick.AddListener(Close);     
-            buyButton.onClick.AddListener(ConfirmTransaction);
         }
 
         void ShopChanged()
@@ -64,6 +67,10 @@ namespace RPG.UI.Shops
             }
 
             totalField.text = $"Total: ${currentShop.TransactionTotal():N2}";
+
+            totalField.color = currentShop.HasSufficientFunds() ? originalTotalTextColor : Color.red;
+
+            confirmButton.interactable = currentShop.CanTransact();
         }
 
         void Close()
