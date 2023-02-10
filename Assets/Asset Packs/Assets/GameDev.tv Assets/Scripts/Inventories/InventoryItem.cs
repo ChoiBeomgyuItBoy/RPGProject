@@ -36,6 +36,9 @@ namespace GameDevTV.Inventories
         [Tooltip("The price for this item in all shops")]
         [SerializeField] float price = 0;
 
+        [Tooltip("The category for this item in all shops")]
+        [SerializeField] ItemCategory category = ItemCategory.None;
+
         // STATE
         static Dictionary<string, InventoryItem> itemLookupCache;
 
@@ -114,6 +117,11 @@ namespace GameDevTV.Inventories
         public float GetPrice()
         {
             return price;
+        }
+
+        public ItemCategory GetItemCategory()
+        {
+            return category;
         }
 
         // PRIVATE

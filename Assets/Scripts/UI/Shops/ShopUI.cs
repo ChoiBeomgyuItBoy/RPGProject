@@ -12,8 +12,10 @@ namespace RPG.UI.Shops
         [SerializeField] Transform listRoot;
         [SerializeField] Button quitButton;
         [SerializeField] Button confirmButton;
+        [SerializeField] Button switchButton;
         [SerializeField] RowUI rowPrefab;
         [SerializeField] TextMeshProUGUI totalField;
+        
         Shopper shopper = null;
         Shop currentShop = null;
 
@@ -30,8 +32,9 @@ namespace RPG.UI.Shops
                 ShopChanged();
             }
 
-            confirmButton.onClick.AddListener(ConfirmTransaction);
             quitButton.onClick.AddListener(Close);     
+            confirmButton.onClick.AddListener(ConfirmTransaction);
+            switchButton.onClick.AddListener(SwitchMode);
         }
 
         void ShopChanged()
@@ -44,6 +47,11 @@ namespace RPG.UI.Shops
             currentShop = shopper.GetActiveShop();
 
             gameObject.SetActive(currentShop != null);
+
+            foreach(FilterButtonUI button in GetComponentsInChildren<FilterButtonUI>())
+            {
+                button.SetShop(currentShop);
+            }
 
             if(currentShop != null)   
             {
@@ -71,6 +79,25 @@ namespace RPG.UI.Shops
             totalField.color = currentShop.HasSufficientFunds() ? originalTotalTextColor : Color.red;
 
             confirmButton.interactable = currentShop.CanTransact();
+
+            var switchText = switchButton.GetComponentInChildren<TextMeshProUGUI>();
+            var confirmText = confirmButton.GetComponentInChildren<TextMeshProUGUI>();
+
+            if(currentShop.IsBuyingMode())
+            {
+                switchText.text = "Switch to Selling";
+                confirmText.text = "Buy";
+            }
+            else
+            {
+                switchText.text = "Switch to Buying";
+                confirmText.text = "Sell";
+            }
+
+            foreach(FilterButtonUI button in GetComponentsInChildren<FilterButtonUI>())
+            {
+                button.RefreshUI();
+            }
         }
 
         void Close()
@@ -81,6 +108,11 @@ namespace RPG.UI.Shops
         void ConfirmTransaction()
         {
             currentShop.ConfirmTransaction();
+        }
+
+        void SwitchMode()
+        {
+            currentShop.SelectMode(!currentShop.IsBuyingMode());
         }
     }
 }

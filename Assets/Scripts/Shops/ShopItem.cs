@@ -48,5 +48,10 @@ namespace RPG.Shops
         {
             return quantityInTransaction;
         }
+
+        public ItemCategory GetCategory()
+        {
+            return item.GetItemCategory();
+        }
     }
 }
