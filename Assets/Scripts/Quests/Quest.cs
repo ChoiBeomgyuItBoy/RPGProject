@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG.Quests
 {
-    [CreateAssetMenu(menuName = "RPG/New Quest")]
+    [CreateAssetMenu(menuName = "RPG/Quests/New Quest")]
     public class Quest : ScriptableObject
     {
         [SerializeField] List<Objective> objectives = new List<Objective>();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RPG.Stats
 {
-    [CreateAssetMenu(fileName = "Progession", menuName = "Stats/New Progression", order = 0)]
+    [CreateAssetMenu(menuName = "RPG/Stats/New Progression")]
     public class Progression : ScriptableObject
     {
         [System.Serializable]

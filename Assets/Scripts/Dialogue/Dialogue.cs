@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RPG.Dialogue
 {
-    [CreateAssetMenu(menuName = ("New Dialogue"))]
+    [CreateAssetMenu(menuName = ("RPG/Dialogues/New Dialogue"))]
     public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField] List<DialogueNode> nodes = new List<DialogueNode>();

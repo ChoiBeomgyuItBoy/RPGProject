@@ -18,8 +18,6 @@ namespace GameDevTV.Inventories
         // CONFIG DATA
         [Tooltip("Does an instance of this item get consumed every time it's used.")]
         [SerializeField] bool consumable = false;
-        [SerializeField] float healthToRestore = -1;
-
 
         // PUBLIC
 
@@ -27,27 +25,9 @@ namespace GameDevTV.Inventories
         /// Trigger the use of this item. Override to provide functionality.
         /// </summary>
         /// <param name="user">The character that is using this action.</param>
-        public virtual bool Use(GameObject user)
+        public virtual void Use(GameObject user)
         {
-            if(healthToRestore > 0)
-            {
-                Health health = user.GetComponent<Health>();
-                
-                if(health == null)
-                {
-                    return false;
-                }
-
-                if(health.GetCurrentHealth() >= health.GetMaxHealth())
-                {
-                    return false;
-                }
-
-                user.GetComponent<Health>().Heal(healthToRestore);
-                return true;
-            }
-
-            return false;
+            Debug.Log("Using action: " + this);
         }
 
         public bool isConsumable()

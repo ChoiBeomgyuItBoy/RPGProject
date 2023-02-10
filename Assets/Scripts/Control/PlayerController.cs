@@ -23,52 +23,32 @@ namespace RPG.Control
         [SerializeField] float raycastRadius = 1f;
 
         bool isDraggingUI = false;
+        Health health = null;
+        ActionStore actionStore = null;
+        const int actionSlots = 6;
+
+
+        void Awake()
+        {
+            health = GetComponent<Health>();
+            actionStore = GetComponent<ActionStore>();
+        }
 
         void Update()
         {
-            CheckSpecialAbilityKeys();
-
-            if(GetComponent<Health>().IsDead) 
+            if(health.IsDead) 
             {
                 SetCursor(CursorType.None);
                 return;
             }
+
+            UseAbilites();
 
             if(InteractWithUI()) return;
             if(InteractWithMovement()) return;
             if(InteractWithComponent()) return;
 
             SetCursor(CursorType.None);
-        }
-        
-        private void CheckSpecialAbilityKeys()
-        {
-            var actionStore = GetComponent<ActionStore>();
-
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                actionStore.Use(0, gameObject);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                actionStore.Use(1, gameObject);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                actionStore.Use(2, gameObject);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                actionStore.Use(3, gameObject);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                actionStore.Use(4, gameObject);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha6))
-            {
-                actionStore.Use(5, gameObject);
-            }
         }
 
         bool InteractWithUI()
@@ -95,6 +75,17 @@ namespace RPG.Control
             }
 
             return false;
+        }
+
+        void UseAbilites()
+        {
+            for (int i = 0; i < actionSlots; i++)
+            {
+                if(Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    actionStore.Use(i, gameObject);
+                }
+            }
         }
 
         bool InteractWithComponent()
