@@ -1,9 +1,10 @@
 using System;
+using GameDevTV.Saving;
 using UnityEngine;
 
 namespace RPG.Inventories
 {
-    public class Purse : MonoBehaviour
+    public class Purse : MonoBehaviour, ISaveable
     {
         [SerializeField] float startingBalance = 400;
 
@@ -25,6 +26,16 @@ namespace RPG.Inventories
         {
             balance += amount;
             onChange?.Invoke();
+        }
+
+        object ISaveable.CaptureState()
+        {
+            return balance;
+        }
+
+        void ISaveable.RestoreState(object state)
+        {
+            balance = (float) state;
         }
     }
 }

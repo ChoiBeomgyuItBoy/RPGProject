@@ -30,5 +30,15 @@ namespace RPG.Stats
         {
             experiencePoints = (float) state;
         }
+
+        // DEBUG TOOL
+
+        private void Update()
+        {
+            if(Input.GetKey(KeyCode.E))
+            {
+                GainExperience(Time.deltaTime * 1000);
+            }
+        }
     }
 }
