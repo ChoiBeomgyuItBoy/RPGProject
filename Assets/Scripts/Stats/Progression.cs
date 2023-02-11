@@ -29,9 +29,22 @@ namespace RPG.Stats
         {
             BuildLookup();
 
+            if(!lookupTable[characterClass].ContainsKey(stat))
+            {
+                return 0;
+            }
+
             int[] levels = lookupTable[characterClass][stat];
 
-            if(levels.Length < level) return 0f;
+            if(levels.Length == 0)
+            {
+                return 0;
+            }
+
+            if(level > levels.Length)
+            {
+                return levels[levels.Length - 1];
+            }
 
             return levels[level - 1];
         }

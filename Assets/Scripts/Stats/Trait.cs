@@ -3,7 +3,7 @@ namespace RPG.Stats
     public enum Trait 
     {
         Strength,
-        Fastness,
+        Charmingness,
         Luck,
         Intelligence,
         Toughness

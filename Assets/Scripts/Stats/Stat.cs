@@ -7,6 +7,8 @@ namespace RPG.Stats
         ExperienceToLevelUp,
         Damage,
         Mana,
-        ManaRegenRate
+        ManaRegenRate,
+        TotalTraitPoints,
+        BuyingDiscountPercentage
     }
 }
