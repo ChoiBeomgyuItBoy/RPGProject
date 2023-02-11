@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d6f54cdf9943140a56e3d7adab4632, type: 3}
-  m_Name: Health Effect
+  m_Script: {fileID: 11500000, guid: 3b3f96a76b1ba364c9cc22e8bcd9d690, type: 3}
+  m_Name: Blast Effect
   m_EditorClassIdentifier: 
-  healthChange: -10
+  effectPrefab: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
+  destroyDelay: 1

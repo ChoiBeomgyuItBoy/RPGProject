@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Summon Area
   m_EditorClassIdentifier: 
   itemID: 103513a5-91fd-4fe2-8916-053a885d7005
-  displayName: Magic Ball
+  displayName: Summon Spell
   description: An insanelly powerfull enchanment used by the old witches of Mortem
-  icon: {fileID: 21300000, guid: a1ec2c0ddc0da634b85f0f465fec2d0d, type: 3}
+  icon: {fileID: 21300000, guid: 7d629c55a331a654fa7d93fce0bad6af, type: 3}
   pickup: {fileID: 8063493189960858902, guid: 47c9c4bd3629cad4db8e1920a955f997, type: 3}
   stackable: 0
   price: 899.99
@@ -24,3 +24,7 @@ MonoBehaviour:
   targetingStrategy: {fileID: 11400000, guid: 0ed50a192236fff418e1d683a833cdc1, type: 2}
   filterStrategies:
   - {fileID: 11400000, guid: 2e65f85867d8b2b4787fba92230be080, type: 2}
+  effectStrategies:
+  - {fileID: 11400000, guid: a235c4a568fbdae49afdba20c8bb4ddd, type: 2}
+  - {fileID: 11400000, guid: 7e5443b5405d0dc4a891fab817f2c144, type: 2}
+  coolDownTime: 5

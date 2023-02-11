@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
+using RPG.Abilities;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -14,42 +16,51 @@ namespace GameDevTV.UI.Inventories
         // CONFIG DATA
         [SerializeField] InventoryItemIcon icon = null;
         [SerializeField] int index = 0;
+        [SerializeField] Image cooldownOverlay = null;
 
         // CACHE
-        ActionStore store;
+        ActionStore actionStore;
+        CooldownStore cooldownStore;
 
         // LIFECYCLE METHODS
         private void Awake()
         {
-            store = GameObject.FindGameObjectWithTag("Player").GetComponent<ActionStore>();
-            store.storeUpdated += UpdateIcon;
+            GameObject player = GameObject.FindWithTag("Player");
+            actionStore = player.GetComponent<ActionStore>();
+            cooldownStore = player.GetComponent<CooldownStore>();
+            actionStore.storeUpdated += UpdateIcon;
+        }
+
+        private void Update()
+        {
+            cooldownOverlay.fillAmount = cooldownStore.GetFractionRemaining(GetItem());
         }
 
         // PUBLIC
 
         public void AddItems(InventoryItem item, int number)
         {
-            store.AddAction(item, index, number);
+            actionStore.AddAction(item, index, number);
         }
 
         public InventoryItem GetItem()
         {
-            return store.GetAction(index);
+            return actionStore.GetAction(index);
         }
 
         public int GetNumber()
         {
-            return store.GetNumber(index);
+            return actionStore.GetNumber(index);
         }
 
         public int MaxAcceptable(InventoryItem item)
         {
-            return store.MaxAcceptable(item, index);
+            return actionStore.MaxAcceptable(item, index);
         }
 
         public void RemoveItems(int number)
         {
-            store.RemoveItems(index, number);
+            actionStore.RemoveItems(index, number);
         }
 
         // PRIVATE
