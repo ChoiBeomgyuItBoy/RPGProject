@@ -27,6 +27,10 @@ namespace RPG.Control
         ActionStore actionStore = null;
         const int actionSlots = 6;
 
+        public static Ray GetMouseRay()
+        {
+            return Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
 
         void Awake()
         {
@@ -193,11 +197,6 @@ namespace RPG.Control
             }
 
             return cursorMappings[0];
-        }
-
-        Ray GetMouseRay()
-        {
-            return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
     }
 }
