@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a791dbfcd6ba5941a758fbd0ce640b7, type: 3}
+  m_Name: Health Potion
+  m_EditorClassIdentifier: 
+  itemID: ac6ff0c6-3a3b-4dd2-ade8-70e042a1aff8
+  displayName: Health Potion
+  description: A magic elixir that regenerates its owner health
+  icon: {fileID: 21300000, guid: f1dd815974b2d4240a6bc912d6585497, type: 3}
+  pickup: {fileID: 0}
+  stackable: 1
+  price: 10
+  category: 5
+  consumable: 1
+  targetingStrategy: {fileID: 11400000, guid: 3b84493648a20ff46a0013da05fd3434, type: 2}
+  filterStrategies: []
+  effectStrategies:
+  - {fileID: 11400000, guid: 8929dde1f560e0e4a939824a89d527a2, type: 2}
+  - {fileID: 11400000, guid: d7a02d2a3ef3bad49bcfa642ba3ff971, type: 2}
+  coolDownTime: 3
+  manaCost: 0

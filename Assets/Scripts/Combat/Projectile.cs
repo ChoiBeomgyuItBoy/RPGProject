@@ -1,3 +1,4 @@
+using System;
 using RPG.Attributes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,12 +10,14 @@ namespace RPG.Combat
         [SerializeField] private GameObject hitEffect = null;
         [SerializeField] private float speed = 1f;
 
-        [Tooltip("If projectile will always follow its target")]
         [SerializeField] private float maxLifeTime = 10f;
         [SerializeField] private float lifeAfterHit = 0.5f;
+        
+        [Tooltip("If projectile will always follow its target")]
         [SerializeField] private bool isHoming = false;
 
         private Health target = null;
+        private Vector3 targetPoint;
         private GameObject instigator = null;
 
         private float damage = 0f;
@@ -28,8 +31,7 @@ namespace RPG.Combat
 
         private void Update()
         {
-            if(target == null) return;
-            if(isHoming && !target.IsDead)
+            if(target != null && isHoming && !target.IsDead)
             {
                 transform.LookAt(GetAimLocation());
             }
@@ -39,10 +41,13 @@ namespace RPG.Combat
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.GetComponent<Health>() != target) return;
-            if(target.IsDead) return;
+            Health health = other.GetComponent<Health>();
 
-            target.TakeDamage(instigator, damage);
+            if (target != null && health != target) return;
+            if (health == null || health.IsDead) return;
+            if (other.gameObject == instigator) return;
+
+            health.TakeDamage(instigator, damage);
 
             speed = 0f;
 
@@ -58,7 +63,18 @@ namespace RPG.Combat
 
         public void SetProjectileInfo(Health target, GameObject instigator, float damage)
         {
+            SetProjectileInfo(instigator, damage, target);
+        }
+
+        public void SetProjectileInfo(Vector3 targetPoint, GameObject instigator, float damage)
+        {
+            SetProjectileInfo(instigator, damage, null, targetPoint);
+        }
+
+        public void SetProjectileInfo(GameObject instigator, float damage, Health target=null, Vector3 targetPoint=default)
+        {
             this.target = target;
+            this.targetPoint = targetPoint;
             this.instigator = instigator;
             this.damage = damage;
 
@@ -67,6 +83,11 @@ namespace RPG.Combat
 
         private Vector3 GetAimLocation()
         {
+            if(target == null)
+            {
+                return targetPoint;
+            }
+
             return target.transform.position + Vector3.up * GetTargetCenter();
         }
 

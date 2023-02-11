@@ -1,5 +1,6 @@
 using GameDevTV.Inventories;
 using RPG.Attributes;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Abilities
@@ -17,22 +18,35 @@ namespace RPG.Abilities
         {
             Mana mana = user.GetComponent<Mana>();
 
-            if(mana.GetMana() < manaCost) return;
+            if(mana.GetMana() < manaCost) 
+            {
+                return;
+            }
 
             CooldownStore cooldownStore = user.GetComponent<CooldownStore>();
 
-            if(cooldownStore.GetTimeRemaining(this) > 0) return;
+            if(cooldownStore.GetTimeRemaining(this) > 0) 
+            {
+                return;
+            }
 
             AbilityData data = new AbilityData(user);
+
+            user.GetComponent<ActionScheduler>().StartAction(data);
 
             targetingStrategy.StartTargeting(data, () => TargetAquired(data));
         }
 
         private void TargetAquired(AbilityData data)
         {
+            if(data.IsCancelled()) return;
+
             Mana mana = data.GetUser().GetComponent<Mana>();
 
-            if(!mana.UseMana(manaCost)) return;
+            if(!mana.UseMana(manaCost)) 
+            {
+                return;
+            }
 
             CooldownStore cooldownStore = data.GetUser().GetComponent<CooldownStore>();
 

@@ -167,6 +167,18 @@ namespace RPG.Combat
             EquipWeapon(loadedWeapon);
         }
 
+        public Transform GetHandTransform(bool isRightHanded)
+        {
+            if(isRightHanded)
+            {
+                return rightHandTransform;
+            }
+            else
+            {
+                return leftHandTransform;
+            }
+        }
+
         // Animation Event
         private void Hit()
         {
