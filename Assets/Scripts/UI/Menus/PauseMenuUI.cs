@@ -24,12 +24,16 @@ namespace RPG.UI.Menus
 
         void OnEnable()
         {
+            if(playerController == null) return;
+
             Time.timeScale = 0;
             playerController.enabled = false;
         }
 
         void OnDisable()
         {
+            if(playerController == null) return;
+            
             Time.timeScale = 1;
             playerController.enabled = true;
         }

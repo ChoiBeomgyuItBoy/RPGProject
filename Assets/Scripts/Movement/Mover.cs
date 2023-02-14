@@ -3,6 +3,7 @@ using UnityEngine.AI;
 using RPG.Core;
 using GameDevTV.Saving;
 using RPG.Attributes;
+using System;
 
 namespace RPG.Movement
 {
@@ -119,6 +120,11 @@ namespace RPG.Movement
             agent.enabled = true;
 
             GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        public void Teleport(Vector3 destination)
+        {
+            agent.Warp(destination);
         }
     }
 }

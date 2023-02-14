@@ -5,6 +5,7 @@ using RPG.Movement;
 using RPG.Attributes;
 using GameDevTV.Utils;
 using System;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -44,16 +45,12 @@ namespace RPG.Control
             health = GetComponent<Health>();
 
             guardPosition = new LazyValue<Vector3>(GetInitialPosition);
+            guardPosition.ForceInit();
         }
 
         private Vector3 GetInitialPosition()
         {
             return transform.position;
-        }
-
-        private void Start()
-        {
-            guardPosition.ForceInit();
         }
 
         private void Update()
@@ -81,11 +78,25 @@ namespace RPG.Control
             timeSinceAggrevated = 0f;
         }
 
+        public void Reset()
+        {
+            mover.Teleport(guardPosition.value);
+            ResetState();
+        }
+
         private void UpdateTimers()
         {
             timeSinceLastSawPlayer += Time.deltaTime;
             timeSinceArrivedWaypoint += Time.deltaTime;
             timeSinceAggrevated += Time.deltaTime;
+        }
+
+        private void ResetState()
+        {
+            timeSinceLastSawPlayer = Mathf.Infinity;
+            timeSinceArrivedWaypoint = Mathf.Infinity;
+            timeSinceAggrevated = Mathf.Infinity;
+            currentWaypointIndex = 0;
         }
 
         private void AttackBehaviour()

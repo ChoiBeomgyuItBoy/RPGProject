@@ -11,13 +11,15 @@ namespace RPG.Attributes
     {
         [SerializeField] private float regenerationPercentage = 100f;
         [SerializeField] private UnityEvent<float> onDamageTaken;
-        [SerializeField] private UnityEvent onDie;
+        [SerializeField] public UnityEvent onDie;
 
         private LazyValue<float> health;
 
         private readonly int DeadHash = Animator.StringToHash("die");
 
         public bool IsDead => health.value <= 0;
+
+        private bool wasDeadLastFrame = false;
 
         private void Awake()
         {
@@ -53,42 +55,22 @@ namespace RPG.Attributes
             if(IsDead) 
             {
                 onDie.Invoke();
-                Die();
                 AwardExperience(instigator);
             }
             else
             {
                 onDamageTaken.Invoke(damage);
             }
+
+            UpdateState();
         }
 
         public void Heal(float amount)
         {
             health.value = Mathf.Min(health.value + amount, GetMaxHealth());
+            UpdateState();
         }
-
-        private void RegenerateHealth()
-        {
-            float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
-
-            health.value = Mathf.Max(health.value, regenHealthPoints);
-        }
-
-        private void AwardExperience(GameObject instigator)
-        {
-            Experience experience = instigator.GetComponent<Experience>();
-
-            if(experience == null) return;
-
-            experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
-        }
-
-        private void Die()
-        {
-            GetComponent<ActionScheduler>().CancelCurrentAction();
-            GetComponent<Animator>().SetTrigger(DeadHash);
-        }
-
+        
         public float GetCurrentHealth()
         {
             return health.value;
@@ -118,7 +100,41 @@ namespace RPG.Attributes
         {
             health.value = (float) state;
 
-            if(IsDead) Die();
+            UpdateState();
+        }
+
+        private void UpdateState()
+        {
+            Animator animator = GetComponent<Animator>();
+
+            if(!wasDeadLastFrame && IsDead)
+            {           
+                GetComponent<ActionScheduler>().CancelCurrentAction();
+                animator.SetTrigger(DeadHash);
+            }
+
+            if(wasDeadLastFrame && !IsDead)
+            {
+                animator.Rebind();
+            }
+
+            wasDeadLastFrame = IsDead;
+        }
+
+        private void RegenerateHealth()
+        {
+            float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
+
+            health.value = Mathf.Max(health.value, regenHealthPoints);
+        }
+
+        private void AwardExperience(GameObject instigator)
+        {
+            Experience experience = instigator.GetComponent<Experience>();
+
+            if(experience == null) return;
+
+            experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
         }
     }
 }
