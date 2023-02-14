@@ -3,6 +3,7 @@ using RPG.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 namespace RPG.UI.Menus
 {
@@ -11,6 +12,7 @@ namespace RPG.UI.Menus
         [SerializeField] Button continueButton;
         [SerializeField] Button newGameButton;
         [SerializeField] Button loadButton;
+        [SerializeField] Button quitButton;
         [SerializeField] TMP_InputField newGameInput;
         LazyValue<SavingWrapper> savingWrapper;
 
@@ -24,6 +26,7 @@ namespace RPG.UI.Menus
             savingWrapper.ForceInit();
             continueButton.onClick.AddListener(ContinueGame);
             newGameButton.onClick.AddListener(NewGame);
+            quitButton.onClick.AddListener(Quit);
 
             continueButton.interactable = savingWrapper.value.CanContinue();
             loadButton.interactable = savingWrapper.value.CanLoad();
@@ -44,6 +47,14 @@ namespace RPG.UI.Menus
             savingWrapper.value.NewGame(newGameInput.text);
         }
 
+        void Quit()
+        {
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
+        }
     }
 }
 

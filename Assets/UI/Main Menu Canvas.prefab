@@ -989,6 +989,7 @@ MonoBehaviour:
   continueButton: {fileID: 742354234802163648}
   newGameButton: {fileID: 2508273710282325067}
   loadButton: {fileID: 8253296173156371607}
+  quitButton: {fileID: 8253296172899460237}
   newGameInput: {fileID: 4368179607818070882}
 --- !u!1 &7940191784960581755
 GameObject:
@@ -2515,6 +2516,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5136148795724319356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8253296172899460237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3877279571219951345, guid: f12b47583c688ed428ca3693ba8f2102,
+    type: 3}
+  m_PrefabInstance: {fileID: 5136148795724319356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5136148796819031329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3245,12 +3258,12 @@ PrefabInstance:
     - target: {fileID: 4373750959323671345, guid: 8638014c93f14d7429e276b406663df9,
         type: 3}
       propertyPath: m_Size
-      value: 0.87050647
+      value: 0.8705064
       objectReference: {fileID: 0}
     - target: {fileID: 4373750959323671345, guid: 8638014c93f14d7429e276b406663df9,
         type: 3}
       propertyPath: m_Value
-      value: 0.99999934
+      value: 1.0000007
       objectReference: {fileID: 0}
     - target: {fileID: 5759985166876371679, guid: 8638014c93f14d7429e276b406663df9,
         type: 3}

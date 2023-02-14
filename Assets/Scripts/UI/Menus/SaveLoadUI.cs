@@ -13,14 +13,13 @@ namespace RPG.UI.Menus
 
         void OnEnable()
         {
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            if(savingWrapper == null) return;
+
             foreach(Transform children in contentRoot)
             {
                 Destroy(children.gameObject);
             }
-
-            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
-
-            if(savingWrapper == null) return;
 
             foreach(string saveFile in savingWrapper.ListSaves())
             {
