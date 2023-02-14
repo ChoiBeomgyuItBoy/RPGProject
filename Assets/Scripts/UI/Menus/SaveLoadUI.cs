@@ -1,0 +1,36 @@
+using GameDevTV.Utils;
+using RPG.SceneManagement;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace RPG.UI.Menus
+{
+    public class SaveLoadUI : MonoBehaviour
+    {
+        [SerializeField] Transform contentRoot;
+        [SerializeField] GameObject buttonPrefab;
+
+        void OnEnable()
+        {
+            foreach(Transform children in contentRoot)
+            {
+                Destroy(children.gameObject);
+            }
+
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+
+            if(savingWrapper == null) return;
+
+            foreach(string saveFile in savingWrapper.ListSaves())
+            {
+                GameObject buttonInstance  = Instantiate(buttonPrefab, contentRoot);
+                TMP_Text buttonText  = buttonInstance.GetComponentInChildren<TMP_Text>();
+                Button button = buttonInstance.GetComponent<Button>();
+
+                buttonText.text = saveFile;
+                button.onClick.AddListener(() => savingWrapper.LoadGame(saveFile));
+            }
+        }
+    }
+}
