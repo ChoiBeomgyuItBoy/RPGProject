@@ -113,9 +113,12 @@ namespace RPG.Control
 
             foreach(RaycastHit hit in hits)
             {
-                if(!hit.transform.TryGetComponent<AIController>(out AIController controller)) continue;
+                AIController controller = hit.transform.GetComponent<AIController>();
 
-                controller.Aggrevate();
+                if(controller != null)
+                {
+                    controller.Aggrevate();
+                }
             }
         }
 

@@ -10,6 +10,7 @@ namespace RPG.UI.Menus
         PlayerController playerController;
         [SerializeField] Button saveButton;
         [SerializeField] Button saveAndQuitButton;
+        [SerializeField] float normalTimeScale = 1;
 
         void Awake()
         {
@@ -34,7 +35,7 @@ namespace RPG.UI.Menus
         {
             if(playerController == null) return;
             
-            Time.timeScale = 1;
+            Time.timeScale = normalTimeScale;
             playerController.enabled = true;
         }
 

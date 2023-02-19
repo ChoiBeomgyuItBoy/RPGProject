@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953f2f19c0286ef44ab11fbe1a2868e3, type: 3}
+  m_Name: Iron Sword
+  m_EditorClassIdentifier: 
+  itemID: ade66768-a581-4ef2-8956-f82a7df9db0b
+  displayName: Iron Sword
+  description: '(Weapon)
+
+    Sharp, Large and Pointy'
+  icon: {fileID: 21300000, guid: d19901b0ee3c38743a7d383bd484b0b5, type: 3}
+  pickup: {fileID: 2699501989834438182, guid: 808584e255191cc44855e7dc13d591b6, type: 3}
+  stackable: 0
+  price: 1000.99
+  category: 2
+  allowedEquipLocation: 5
+  animatorOverride: {fileID: 22100000, guid: c7b8b11c4bab83a428938c655982ea2b, type: 2}
+  equippedWeaponPrefab: {fileID: 4396510055607372673, guid: 34d03633752ced24098728ba83f9f05e,
+    type: 3}
+  projectile: {fileID: 0}
+  weaponRange: 3
+  weaponDamage: 20
+  percentageBonus: 10
+  isRightHanded: 1

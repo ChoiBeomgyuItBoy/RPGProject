@@ -220,6 +220,7 @@ MonoBehaviour:
   rightHandTransform: {fileID: 0}
   leftHandTransform: {fileID: 0}
   defaultWeapon: {fileID: 11400000, guid: 4de6a239db049ff4281ceb338a849069, type: 2}
+  autoAttackRange: 4
 --- !u!114 &4564676605790810299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ MonoBehaviour:
   aggroCooldownTime: 4
   waypointTolerance: 2
   waypointDwellTime: 3
-  shoutDistance: 10
+  shoutDistance: 15
   patrolSpeedFraction: 0.2
 --- !u!114 &8818086873557907835
 MonoBehaviour:

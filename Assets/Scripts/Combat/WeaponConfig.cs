@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RPG.Combat
 {
-    [CreateAssetMenu(menuName = "RPG/Combat/New Weapon")]
+    [CreateAssetMenu(menuName = "RPG/Inventory/New Weapon")]
     public class WeaponConfig : EquipableItem, IModifierProvider
     {
         [SerializeField] AnimatorOverrideController animatorOverride = null;
