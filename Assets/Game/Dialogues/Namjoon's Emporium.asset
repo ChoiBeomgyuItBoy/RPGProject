@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8371037779446810346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 0665980c-ca75-466a-a64d-23ec55a4b770
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What you got?
+  rect:
+    serializedVersion: 2
+    x: 281
+    y: 65
+    width: 200
+    height: 100
+  children:
+  - df6ffe5c-0558-49b6-ac10-d8546e6b24f8
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-7968151440832186599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: df6ffe5c-0558-49b6-ac10-d8546e6b24f8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Take a look at my emporium
+  rect:
+    serializedVersion: 2
+    x: 529
+    y: 61
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: ShowShop
+  condition:
+    and: []
+--- !u!114 &-5293964528248677732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: a5f4bacf-8b0e-4932-abcc-14f007f683aa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: '*Angry*'
+  rect:
+    serializedVersion: 2
+    x: 535
+    y: 203
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4242029970413634370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 5a72351f-b946-4d17-ac25-bdb511d098d1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Not interested, sorry
+  rect:
+    serializedVersion: 2
+    x: 267
+    y: 201
+    width: 200
+    height: 100
+  children:
+  - a5f4bacf-8b0e-4932-abcc-14f007f683aa
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Namjoon's Emporium
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 6722908636418405071}
+  - {fileID: -8371037779446810346}
+  - {fileID: -4242029970413634370}
+  - {fileID: -5293964528248677732}
+  - {fileID: -7968151440832186599}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &6722908636418405071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 6ec2cc8b-b6f2-441e-8b9e-677652c55e3b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hi there! Looking for supplies?
+  rect:
+    serializedVersion: 2
+    x: 22
+    y: 122
+    width: 200
+    height: 100
+  children:
+  - 0665980c-ca75-466a-a64d-23ec55a4b770
+  - 5a72351f-b946-4d17-ac25-bdb511d098d1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

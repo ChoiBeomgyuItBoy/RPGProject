@@ -16,6 +16,7 @@ namespace RPG.Shops
         [SerializeField] StockItemConfig[] stockConfig;
         [SerializeField] [Range(0,100)] float sellingDiscountPercentage = 80f;
         [SerializeField] [Range(0,100)] float maximumBarterDiscount = 80f;
+        [SerializeField] bool raycastable = true;
 
         Dictionary<InventoryItem, int> transaction = new Dictionary<InventoryItem, int>();
         Dictionary<InventoryItem, int> stockSold = new Dictionary<InventoryItem, int>();
@@ -217,6 +218,11 @@ namespace RPG.Shops
             onChange?.Invoke();
         }
 
+        public void SetShop(PlayerController callingController)
+        {
+            callingController.GetComponent<Shopper>().SetActiveShop(this);
+        }
+
         private void BuyItem(Inventory shopperInventory, Purse shopperPurse, InventoryItem item, float price)
         {
             if (shopperPurse.GetBalance() < price) return;
@@ -367,9 +373,11 @@ namespace RPG.Shops
 
         bool IRaycastable.HandleRaycast(PlayerController callingController)
         {
+            if(!raycastable) return false;
+
             if(Input.GetMouseButtonDown(0))
             {
-                callingController.GetComponent<Shopper>().SetActiveShop(this);
+                SetShop(callingController);
             }
 
             return true;
