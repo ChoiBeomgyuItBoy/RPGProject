@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: ac6ff0c6-3a3b-4dd2-ade8-70e042a1aff8
   displayName: Health Potion
-  description: A magic elixir that regenerates its owner health
+  description: 'A magic elixir that regenerates life.
+
+    +100 HP'
   icon: {fileID: 21300000, guid: f1dd815974b2d4240a6bc912d6585497, type: 3}
   pickup: {fileID: 0}
   stackable: 1
-  price: 10
+  price: 50
   category: 5
   consumable: 1
   targetingStrategy: {fileID: 11400000, guid: 3b84493648a20ff46a0013da05fd3434, type: 2}
@@ -26,5 +28,5 @@ MonoBehaviour:
   effectStrategies:
   - {fileID: 11400000, guid: 8929dde1f560e0e4a939824a89d527a2, type: 2}
   - {fileID: 11400000, guid: d7a02d2a3ef3bad49bcfa642ba3ff971, type: 2}
-  coolDownTime: 3
+  coolDownTime: 5
   manaCost: 0

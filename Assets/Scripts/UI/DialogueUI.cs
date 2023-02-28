@@ -43,6 +43,8 @@ namespace RPG.UI
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 
+            quitButton.gameObject.SetActive(!playerConversant.HasNext());
+
             if(playerConversant.IsChoosing())
             {
                 BuildChoiceList();

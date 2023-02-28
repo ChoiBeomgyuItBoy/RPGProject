@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdfc0f2b30ab01458b74d4f35b1148f, type: 3}
   m_Name: Default Enemy Drops
   m_EditorClassIdentifier: 
-  potentialDrops: []
-  dropChancePercentage: []
-  minDrops: 
-  maxDrops: 
+  potentialDrops:
+  - item: {fileID: 11400000, guid: 95a25eed5b59b284abf8c30447469c8c, type: 2}
+    relativeChance:
+    - 1
+    minNumber: 1000000013000000
+    maxNumber: 1400000017000000
+  dropChancePercentage:
+  - 100
+  minDrops: 01000000
+  maxDrops: 01000000

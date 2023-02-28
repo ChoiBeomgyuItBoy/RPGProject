@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RPG.Core
+namespace GameDevTV.Utils
 {
     public interface IPredicateEvaluator
     {
