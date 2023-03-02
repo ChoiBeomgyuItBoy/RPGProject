@@ -91,6 +91,7 @@ namespace RPG.SceneManagement
             yield return fader.FadeIn(fadeInTime);
         }
 
+#if UNITY_EDITOR
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.L))
@@ -108,6 +109,7 @@ namespace RPG.SceneManagement
                 Delete();
             }
         }
+#endif
 
         public void Load()
         {

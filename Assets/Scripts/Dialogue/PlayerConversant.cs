@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameDevTV.Utils;
+using RPG.Control;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -23,6 +25,9 @@ namespace RPG.Dialogue
             currentNode = currentDialogue.GetRootNode();
             TriggerEnterAction();
             onConversationUpdated?.Invoke();
+
+            GetComponent<PlayerController>().enabled = false;
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
         public void Quit()
@@ -33,6 +38,8 @@ namespace RPG.Dialogue
             isChoosing = false;
             currentConversant = null;
             onConversationUpdated?.Invoke();
+
+            GetComponent<PlayerController>().enabled = true;
         }
 
         public bool IsActive()
