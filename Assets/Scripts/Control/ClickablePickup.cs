@@ -8,12 +8,12 @@ namespace RPG.Control
     {
         Pickup pickup = null;
 
-        private void Awake()
+        void Awake()
         {
             pickup = GetComponent<Pickup>();
         }
 
-        public CursorType GetCursorType()
+        CursorType IRaycastable.GetCursorType()
         {
             if(pickup.CanBePickedUp())
             {
@@ -25,7 +25,7 @@ namespace RPG.Control
             }
         }
 
-        public bool HandleRaycast(PlayerController callingController)
+        bool IRaycastable.HandleRaycast(PlayerController callingController)
         {
             if(Input.GetMouseButton(0))
             {

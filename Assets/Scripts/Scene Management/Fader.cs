@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,14 +5,8 @@ namespace RPG.SceneManagement
 {
     public class Fader : MonoBehaviour
     {
-        private CanvasGroup canvasGroup;
-
-        private Coroutine currentActiveFade = null;
-
-        private void Awake()
-        {
-            canvasGroup = GetComponent<CanvasGroup>();
-        }
+        CanvasGroup canvasGroup;
+        Coroutine currentActiveFade = null;
 
         public void FadeOutInmediate()
         {
@@ -41,6 +34,11 @@ namespace RPG.SceneManagement
             return currentActiveFade;
         }
 
+        private void Awake()
+        {
+            canvasGroup = GetComponent<CanvasGroup>();
+        }
+
         private IEnumerator FadeRoutine(float alphaTarget, float time)
         {
             while(!Mathf.Approximately(canvasGroup.alpha, alphaTarget))
@@ -48,11 +46,6 @@ namespace RPG.SceneManagement
                 canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, alphaTarget, Time.unscaledDeltaTime / time);
                 yield return null;
             }
-        }
-
-        internal void FadeOut(object fadeOutTime)
-        {
-            throw new NotImplementedException();
         }
     }
 }

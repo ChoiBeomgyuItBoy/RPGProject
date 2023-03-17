@@ -7,7 +7,7 @@ using RPG.Control;
 
 namespace RPG.SceneManagement
 {
-    public class Portal : MonoBehaviour
+    public class Portal : MonoBehaviour, IRaycastable
     {
         enum DestinationIdentifier
         {
@@ -100,6 +100,21 @@ namespace RPG.SceneManagement
 
             player.GetComponent<ActionScheduler>().CancelCurrentAction();
             player.GetComponent<PlayerController>().enabled = state;
+        }
+
+        bool IRaycastable.HandleRaycast(PlayerController callingController)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(Transition());
+            }
+
+            return true;
+        }
+
+        CursorType IRaycastable.GetCursorType()
+        {
+            return CursorType.Door;
         }
     }
 }

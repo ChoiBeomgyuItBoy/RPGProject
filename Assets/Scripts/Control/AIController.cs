@@ -5,7 +5,6 @@ using RPG.Movement;
 using RPG.Attributes;
 using GameDevTV.Utils;
 using System;
-using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -34,6 +33,17 @@ namespace RPG.Control
         float timeSinceAggrevated = Mathf.Infinity;
 
         int currentWaypointIndex = 0;
+
+        public void Aggrevate()
+        {
+            timeSinceAggrevated = 0f;
+        }
+
+        public void Reset()
+        {
+            mover.Teleport(guardPosition.value);
+            ResetState();
+        }
 
         private void Awake()
         {
@@ -71,17 +81,6 @@ namespace RPG.Control
             }
             
             UpdateTimers();
-        }
-
-        public void Aggrevate()
-        {
-            timeSinceAggrevated = 0f;
-        }
-
-        public void Reset()
-        {
-            mover.Teleport(guardPosition.value);
-            ResetState();
         }
 
         private void UpdateTimers()

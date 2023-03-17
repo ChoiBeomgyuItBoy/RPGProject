@@ -4,18 +4,7 @@ namespace RPG.Control
 {
     public class PatrolPath : MonoBehaviour
     {
-        private const float waypointGizmoRadius = 0.3f;
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.gray;
-
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Gizmos.DrawSphere(GetWaypoint(i), waypointGizmoRadius);
-                Gizmos.DrawLine(GetWaypoint(i), GetWaypoint(GetNextIndex(i)));
-            }
-        }
+        const float waypointGizmoRadius = 0.3f;
 
         public int GetNextIndex(int index)
         {
@@ -27,6 +16,17 @@ namespace RPG.Control
         public Vector3 GetWaypoint(int index)
         {
             return transform.GetChild(index).position;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.gray;
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Gizmos.DrawSphere(GetWaypoint(i), waypointGizmoRadius);
+                Gizmos.DrawLine(GetWaypoint(i), GetWaypoint(GetNextIndex(i)));
+            }
         }
     }
 }

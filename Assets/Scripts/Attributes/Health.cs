@@ -12,40 +12,32 @@ namespace RPG.Attributes
         [SerializeField] private float regenerationPercentage = 100f;
         [SerializeField] private UnityEvent<float> onDamageTaken;
         [SerializeField] public UnityEvent onDie;
-
         private LazyValue<float> health;
-
         private readonly int DeadHash = Animator.StringToHash("die");
-
+        private bool wasDeadLastFrame = false;
         public bool IsDead => health.value <= 0;
 
-        private bool wasDeadLastFrame = false;
-
-        private void Awake()
+        public float GetCurrentHealth()
         {
-            health = new LazyValue<float>(GetInitialHealth);
+            return health.value;
         }
 
-        private float GetInitialHealth()
+        public float GetMaxHealth()
         {
             return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        private void Start()
+        public float GetPercentage()
         {
-            health.ForceInit();
+            return 100 * (GetFraction());
         }
 
-        private void OnEnable()
+        public float GetFraction()
         {
-            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
+            return health.value / GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        private void OnDisable()
-        {
-            GetComponent<BaseStats>().onLevelUp -= RegenerateHealth;
-        }
-
+        
         public void TakeDamage(GameObject instigator, float damage)
         {
             if(IsDead) return;
@@ -70,37 +62,31 @@ namespace RPG.Attributes
             health.value = Mathf.Min(health.value + amount, GetMaxHealth());
             UpdateState();
         }
-        
-        public float GetCurrentHealth()
+
+        private void Awake()
         {
-            return health.value;
+            health = new LazyValue<float>(GetInitialHealth);
         }
 
-        public float GetMaxHealth()
+        private void Start()
+        {
+            health.ForceInit();
+        }
+
+
+        private float GetInitialHealth()
         {
             return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        public float GetPercentage()
+        private void OnEnable()
         {
-            return 100 * (GetFraction());
+            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
         }
 
-        public float GetFraction()
+        private void OnDisable()
         {
-            return health.value / GetComponent<BaseStats>().GetStat(Stat.Health);
-        }
-
-        public object CaptureState()
-        {
-            return health.value;
-        }
-
-        public void RestoreState(object state)
-        {
-            health.value = (float) state;
-
-            UpdateState();
+            GetComponent<BaseStats>().onLevelUp -= RegenerateHealth;
         }
 
         private void UpdateState()
@@ -135,6 +121,18 @@ namespace RPG.Attributes
             if(experience == null) return;
 
             experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
+        }
+
+        object ISaveable.CaptureState()
+        {
+            return health.value;
+        }
+
+        void ISaveable.RestoreState(object state)
+        {
+            health.value = (float) state;
+
+            UpdateState();
         }
     }
 }

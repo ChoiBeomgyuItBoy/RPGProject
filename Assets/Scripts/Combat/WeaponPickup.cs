@@ -12,7 +12,7 @@ namespace RPG.Combat
         [SerializeField] float healthToRestore = 0;
         [SerializeField] float respawnTime = 5f;
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if(other.tag == "Player")
             {
@@ -20,7 +20,7 @@ namespace RPG.Combat
             }
         }
 
-        private void Pickup(GameObject subject)
+        void Pickup(GameObject subject)
         {
             if(weapon != null)
             {
@@ -34,7 +34,7 @@ namespace RPG.Combat
             StartCoroutine(HideForSeconds(respawnTime));
         }
 
-        private IEnumerator HideForSeconds(float seconds)
+        IEnumerator HideForSeconds(float seconds)
         {
             ShowPickup(false);
 
@@ -43,7 +43,7 @@ namespace RPG.Combat
             ShowPickup(true);
         }
 
-        private void ShowPickup(bool shouldShow)
+        void ShowPickup(bool shouldShow)
         {
             GetComponent<Collider>().enabled = shouldShow;
 
@@ -53,7 +53,7 @@ namespace RPG.Combat
             }
         }
 
-        public bool HandleRaycast(PlayerController callingController)
+        bool IRaycastable.HandleRaycast(PlayerController callingController)
         {           
             if(Input.GetMouseButtonDown(0))
             {
@@ -63,7 +63,7 @@ namespace RPG.Combat
             return true;
         }
 
-        public CursorType GetCursorType()
+        CursorType IRaycastable.GetCursorType()
         {
             return CursorType.Pickup;
         }

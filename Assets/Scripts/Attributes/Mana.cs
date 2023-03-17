@@ -10,6 +10,27 @@ namespace RPG.Attributes
     {
         LazyValue<float> mana;
 
+        public float GetMana()
+        {
+            return mana.value;
+        }
+
+        public float GetMaxMana()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.Mana);
+        }
+
+        public bool UseMana(float manaToUse)
+        {
+            if(manaToUse > mana.value)
+            {
+                return false;
+            }
+
+            mana.value -= manaToUse;
+            return true;
+        }
+
         void Awake()
         {
             mana = new LazyValue<float>(GetMaxMana);
@@ -36,27 +57,6 @@ namespace RPG.Attributes
         float GetRegenRate()
         {
             return GetComponent<BaseStats>().GetStat(Stat.ManaRegenRate);
-        }
-
-        public float GetMana()
-        {
-            return mana.value;
-        }
-
-        public float GetMaxMana()
-        {
-            return GetComponent<BaseStats>().GetStat(Stat.Mana);
-        }
-
-        public bool UseMana(float manaToUse)
-        {
-            if(manaToUse > mana.value)
-            {
-                return false;
-            }
-
-            mana.value -= manaToUse;
-            return true;
         }
 
         object ISaveable.CaptureState()

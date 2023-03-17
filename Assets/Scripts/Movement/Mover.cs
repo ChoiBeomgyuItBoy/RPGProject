@@ -3,57 +3,24 @@ using UnityEngine.AI;
 using RPG.Core;
 using GameDevTV.Saving;
 using RPG.Attributes;
-using System;
 
 namespace RPG.Movement
 {
     public class Mover : MonoBehaviour, IAction, ISaveable
     {
-        [SerializeField] private float maxSpeed = 6f;
+        [SerializeField] float maxSpeed = 6f;
         [SerializeField] float maxNavPathLength = 40f;
 
-        private readonly int ForwardSpeedHash = Animator.StringToHash("forwardSpeed");
+        readonly int ForwardSpeedHash = Animator.StringToHash("forwardSpeed");
 
-        private NavMeshAgent agent;
-        private Health health;
-
-        private void Awake()
-        {
-            agent = GetComponent<NavMeshAgent>();
-            health = GetComponent<Health>();
-        }
-        
-        private void Update()
-        {
-            agent.enabled = !GetComponent<Health>().IsDead;
-
-            GetComponent<Animator>().SetFloat(ForwardSpeedHash, GetLocalSpeed());
-        }
-
-        [System.Serializable]
-        private struct MoverSaveData
-        {
-            public SerializableVector3 position;
-            public SerializableVector3 rotation;
-        }
-
-        private void DisableAgent()
-        {
-            agent.enabled = !health.IsDead;
-        }
+        NavMeshAgent agent;
+        Health health;
 
         public void StartMoveAction(Vector3 destination, float speedFraction)
         {
             GetComponent<ActionScheduler>().StartAction(this);
 
             MoveTo(destination, speedFraction);
-        }
-
-        private void MoveTo(Vector3 destination, float speedFraction)
-        {
-            agent.destination = destination;
-            agent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
-            agent.isStopped = false;
         }
 
         public bool CanMoveTo(Vector3 destination)
@@ -68,6 +35,36 @@ namespace RPG.Movement
             if(GetPathLength(path) > maxNavPathLength) return false;
 
             return true;
+        }
+
+        public void Teleport(Vector3 destination)
+        {
+            agent.Warp(destination);
+        }
+
+        private void Awake()
+        {
+            agent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
+        }
+        
+        private void Update()
+        {
+            agent.enabled = !GetComponent<Health>().IsDead;
+
+            GetComponent<Animator>().SetFloat(ForwardSpeedHash, GetLocalSpeed());
+        }
+
+        private void DisableAgent()
+        {
+            agent.enabled = !health.IsDead;
+        }
+
+        private void MoveTo(Vector3 destination, float speedFraction)
+        {
+            agent.destination = destination;
+            agent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
+            agent.isStopped = false;
         }
 
         private float GetPathLength(NavMeshPath path)
@@ -85,11 +82,6 @@ namespace RPG.Movement
             return total;
         }
 
-        public void Cancel()
-        {
-            agent.isStopped = true;
-        }
-
         private float GetLocalSpeed()
         {
             Vector3 globalVelocity = agent.velocity;
@@ -98,7 +90,19 @@ namespace RPG.Movement
             return localVelocity.z;
         }
 
-        public object CaptureState()
+        public void Cancel()
+        {
+            agent.isStopped = true;
+        }
+
+        [System.Serializable]
+        private struct MoverSaveData
+        {
+            public SerializableVector3 position;
+            public SerializableVector3 rotation;
+        }
+
+        object ISaveable.CaptureState()
         {
             MoverSaveData data = new MoverSaveData();
 
@@ -108,7 +112,7 @@ namespace RPG.Movement
             return data;
         }
 
-        public void RestoreState(object state)
+        void ISaveable.RestoreState(object state)
         {
             MoverSaveData data = (MoverSaveData)state;
 
@@ -120,11 +124,6 @@ namespace RPG.Movement
             agent.enabled = true;
 
             GetComponent<ActionScheduler>().CancelCurrentAction();
-        }
-
-        public void Teleport(Vector3 destination)
-        {
-            agent.Warp(destination);
         }
     }
 }

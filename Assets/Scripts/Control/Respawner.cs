@@ -56,7 +56,7 @@ namespace RPG.Control
             yield return fader.FadeIn(fadeTime);
         }
 
-        private void RespawnPlayer()
+        void RespawnPlayer()
         {
             Vector3 positionDelta = respawnLocation.position - transform.position;
 
@@ -70,7 +70,7 @@ namespace RPG.Control
             }
         }
 
-        private void ResetEnemies()
+        void ResetEnemies()
         {
             foreach(AIController enemyController in FindObjectsOfType<AIController>())
             {
