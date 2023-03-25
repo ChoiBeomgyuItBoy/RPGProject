@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,8 @@ namespace RPG.Audio
 {
     public class AmbientAudioPlayer : MonoBehaviour
     {
+        [SerializeField] GlobalSettings globalSettings;
         [SerializeField] SceneTrackData[] sceneTracks;
-        [SerializeField] [Range(0,1)] float globalVolume = 1;
         Dictionary<int, Dictionary<TrackType, Track>> trackLookup = null;
         Track currentTrack = null;
         Coroutine currentActiveFade = null;
@@ -30,20 +31,6 @@ namespace RPG.Audio
             public AudioClip clip;
             [Range(0,1)] public float volumeFraction = 0.2f;
             [System.NonSerialized] public float resumeTime = 0;
-        }
-
-        public float GetGlobalVolume()
-        {
-            return globalVolume;
-        }
-
-        public void UpdateGlobalVolume(float volume)
-        {
-            if(currentTrack != null)
-            {
-                globalVolume = volume;
-                audioSource.volume = globalVolume * Mathf.Clamp01(currentTrack.volumeFraction);
-            }
         }
 
         public bool HasTrack(TrackType trackType, int sceneIndex)
@@ -89,6 +76,24 @@ namespace RPG.Audio
             yield return FadeTrack(TrackType.Ambient, currentScene, 5);
         }
 
+        private void OnEnable()
+        {
+            globalSettings.onSettingsChanged += UpdateVolume;
+        }
+
+        private void OnDisable()
+        {
+            globalSettings.onSettingsChanged -= UpdateVolume;
+        }
+
+        private void UpdateVolume()
+        {
+            if(currentTrack != null)
+            {
+                audioSource.volume = globalSettings.GetMasterVolume() * globalSettings.GetMusicVolume() * Mathf.Clamp01(currentTrack.volumeFraction);
+            }
+        }
+
         private void BuildTrackLookup()
         {
             trackLookup = new Dictionary<int, Dictionary<TrackType, Track>>();
@@ -132,7 +137,7 @@ namespace RPG.Audio
 
         private IEnumerator FadeRoutine(float volumeFraction, float time)
         {
-            float targetVolume = globalVolume * Mathf.Clamp01(volumeFraction);
+            float targetVolume = globalSettings.GetMasterVolume() * globalSettings.GetMusicVolume() * Mathf.Clamp01(volumeFraction);
 
             while(!Mathf.Approximately(audioSource.volume, targetVolume))
             {

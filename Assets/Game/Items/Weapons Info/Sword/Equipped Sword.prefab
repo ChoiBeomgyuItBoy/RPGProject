@@ -49,10 +49,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2429049594382200516}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 6406286671615614689}
+        m_TargetAssemblyTypeName: RPG.Audio.SFXPlayer, Assembly-CSharp
         m_MethodName: Play
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6969411485833121012}
   - component: {fileID: 2429049594382200516}
+  - component: {fileID: 6406286671615614689}
   m_Layer: 0
   m_Name: Hit Sound
   m_TagString: Untagged
@@ -103,7 +104,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ecb1846d8f5334e4098e073700dc88fb, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -189,6 +190,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6406286671615614689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424097737526065198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fbc39cb4f88d54a886102a8077d392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalSettings: {fileID: 11400000, guid: 36445edfb088d204fa2335342112ca9e, type: 2}
+  clips:
+  - {fileID: 8300000, guid: ecb1846d8f5334e4098e073700dc88fb, type: 3}
 --- !u!1001 &5191028817481336111
 PrefabInstance:
   m_ObjectHideFlags: 0

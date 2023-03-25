@@ -4,6 +4,7 @@ using GameDevTV.Saving;
 using System;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using RPG.Audio;
 
 namespace RPG.SceneManagement
 {
@@ -11,6 +12,8 @@ namespace RPG.SceneManagement
     {
         [SerializeField] private float fadeInTime = 0.2f;
         [SerializeField] float fadeOutTime = 0.2f;
+        [SerializeField] float fadeOutMusicTime = 5;
+        [SerializeField] float fadeInMusicTime = 5;
         [SerializeField] int firstLevelBuildIndex = 1;
         [SerializeField] int menuLevelBuildIndex = 0;
 
@@ -78,17 +81,28 @@ namespace RPG.SceneManagement
         private IEnumerator LoadScene(int sceneIndex)
         {
             Fader fader = FindObjectOfType<Fader>();
+            AmbientAudioPlayer audioPlayer = FindObjectOfType<AmbientAudioPlayer>();
+
             yield return fader.FadeOut(fadeOutTime);
+            yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
             yield return SceneManager.LoadSceneAsync(sceneIndex);
             yield return fader.FadeIn(fadeInTime);
+            yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneIndex, fadeInMusicTime);
         }
 
         private IEnumerator LoadLastScene()
         {
             Fader fader = FindObjectOfType<Fader>();
+            AmbientAudioPlayer audioPlayer = FindObjectOfType<AmbientAudioPlayer>();
+            SavingSystem savingSystem = GetComponent<SavingSystem>();
+
             yield return fader.FadeOut(fadeOutTime);
-            yield return GetComponent<SavingSystem>().LoadLastScene(GetCurrentSave());
+            yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
+            yield return savingSystem.LoadLastScene(GetCurrentSave());
             yield return fader.FadeIn(fadeInTime);
+
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneIndex, fadeInMusicTime);
         }
 
 #if UNITY_EDITOR

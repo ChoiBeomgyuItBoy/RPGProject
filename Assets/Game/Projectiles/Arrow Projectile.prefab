@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3853982296977607090}
   - component: {fileID: 3860014948388757114}
+  - component: {fileID: 1073666222253288673}
   m_Layer: 0
   m_Name: Projectile Hit Sound
   m_TagString: Untagged
@@ -128,6 +129,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1073666222253288673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865169419918564150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fbc39cb4f88d54a886102a8077d392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalSettings: {fileID: 11400000, guid: 36445edfb088d204fa2335342112ca9e, type: 2}
+  clips:
+  - {fileID: 8300000, guid: 3ab4b9bb431abca44a50195dd6f36e6b, type: 3}
 --- !u!1 &4721575532928955159
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,10 +399,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3860014948388757114}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 1073666222253288673}
+        m_TargetAssemblyTypeName: RPG.Audio.SFXPlayer, Assembly-CSharp
         m_MethodName: Play
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -405,6 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3273616499060589782}
   - component: {fileID: 2736905415468604046}
+  - component: {fileID: 3302029207969961700}
   m_Layer: 0
   m_Name: Projectile Launch Sound
   m_TagString: Untagged
@@ -523,6 +540,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3302029207969961700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632068335275709021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fbc39cb4f88d54a886102a8077d392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalSettings: {fileID: 11400000, guid: 36445edfb088d204fa2335342112ca9e, type: 2}
+  clips:
+  - {fileID: 8300000, guid: 94fc62564eabf2e429355affe6bee585, type: 3}
 --- !u!1001 &2494187797350909707
 PrefabInstance:
   m_ObjectHideFlags: 0
