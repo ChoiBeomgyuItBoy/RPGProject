@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 using RPG.Core;
 using RPG.Control;
+using RPG.Audio;
 
 namespace RPG.SceneManagement
 {
@@ -18,8 +19,11 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeOutTime = 0.5f;
         [SerializeField] float fadeInTime = 1f;
         [SerializeField] float fadeWaitTime = 0.5f;
+        [SerializeField] float fadeOutMusicTime = 8;
+        [SerializeField] float fadeInMusicTime = 5;
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifier destination;
+        [SerializeField] bool raycastable = false;
 
         void OnTriggerEnter(Collider other)
         {
@@ -41,10 +45,12 @@ namespace RPG.SceneManagement
 
             Fader fader = FindObjectOfType<Fader>();
             SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            AmbientAudioPlayer audioPlayer = FindObjectOfType<AmbientAudioPlayer>();
 
             ToggleControl(false);
 
             yield return fader.FadeOut(fadeOutTime);
+            yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
 
             wrapper.Save();
 
@@ -61,6 +67,8 @@ namespace RPG.SceneManagement
 
             yield return new WaitForSeconds(fadeWaitTime);
             fader.FadeIn(fadeInTime);
+
+            yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneToLoad, fadeInMusicTime);
 
             ToggleControl(true);
 
@@ -104,6 +112,8 @@ namespace RPG.SceneManagement
 
         bool IRaycastable.HandleRaycast(PlayerController callingController)
         {
+            if(!raycastable) return false;
+
             if(Input.GetMouseButtonDown(0))
             {
                 StartCoroutine(Transition());

@@ -1,4 +1,6 @@
 using System;
+using RPG.Control;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Shops
@@ -11,17 +13,11 @@ namespace RPG.Shops
 
         public void SetActiveShop(Shop shop)
         {
-            if(activeShop != null)
-            {
-                activeShop.SetShopper(null);
-            }
+            activeShop?.SetShopper(null);
 
             activeShop = shop;
 
-            if(activeShop != null)
-            {
-                activeShop.SetShopper(this);
-            }
+            activeShop?.SetShopper(this);
 
             activeShopChanged?.Invoke();
         }

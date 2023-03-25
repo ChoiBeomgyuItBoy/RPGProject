@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8287060319223095479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 05fa0b4c-466b-4580-8737-a5c75a43e453
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 'Just passing by '
+  rect:
+    serializedVersion: 2
+    x: 294
+    y: 250
+    width: 200
+    height: 100
+  children:
+  - 288b9731-1149-4d39-a951-1c36a9815041
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-1590570022742141628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 08bdd27d-1cc9-43c8-9309-b56cb5c6135b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Who sent you here?
+  rect:
+    serializedVersion: 2
+    x: 292
+    y: 150
+    width: 200
+    height: 100
+  children:
+  - 2af555ca-d288-4c03-aca8-2e5a732e9a49
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Gather info from guards
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Gather info from guards
+        negate: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Angry Guard
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1413285666430501433}
+  - {fileID: -1590570022742141628}
+  - {fileID: -8287060319223095479}
+  - {fileID: 4518120429908292223}
+  - {fileID: 6499215291830137595}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1413285666430501433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e92bfe89-7382-478e-87bf-d62a0cb9b116
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What the hell are you doing here?
+  rect:
+    serializedVersion: 2
+    x: 44
+    y: 174
+    width: 200
+    height: 100
+  children:
+  - 08bdd27d-1cc9-43c8-9309-b56cb5c6135b
+  - 05fa0b4c-466b-4580-8737-a5c75a43e453
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &4518120429908292223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 288b9731-1149-4d39-a951-1c36a9815041
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Seriously? Get lost before I kick your ass!
+  rect:
+    serializedVersion: 2
+    x: 562
+    y: 262
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &6499215291830137595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 2af555ca-d288-4c03-aca8-2e5a732e9a49
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I'll kill you if you keep aslking questions like that!
+  rect:
+    serializedVersion: 2
+    x: 563
+    y: 150
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

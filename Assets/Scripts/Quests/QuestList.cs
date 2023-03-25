@@ -9,9 +9,15 @@ namespace RPG.Quests
 {
     public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
+        //[SerializeField] Quest initialQuest;
         List<QuestStatus> statuses = new List<QuestStatus>();
 
         public event Action onListUpdated;
+
+        // private void Start()
+        // {
+        //     AddQuest(initialQuest);
+        // }
 
         public void AddQuest(Quest quest)
         {
@@ -106,6 +112,8 @@ namespace RPG.Quests
 
         public bool? Evaluate(string predicate, string[] parameters)
         {
+            QuestStatus status = GetQuestStatus(Quest.GetByName(parameters[0]));
+
             switch(predicate)
             {
                 case "HasQuest":
@@ -114,12 +122,19 @@ namespace RPG.Quests
 
                 case "CompletedQuest":
 
-                    QuestStatus status = GetQuestStatus(Quest.GetByName(parameters[0]));
                     if(status != null)
                     {
                         return status.IsComplete();
                     }
                     return false;
+
+                case "CompletedObjective":       
+
+                    if(status != null)
+                    {
+                        return status.IsObjectiveComplete(parameters[1]);
+                    } 
+                    return false;    
             }
 
             return null;

@@ -4,13 +4,13 @@ namespace RPG.Quests
 {
     public class QuestGiver : MonoBehaviour
     {
-        [SerializeField] Quest quest;
+        [SerializeField] Quest[] quests;
 
         // Called in Unity Event for dialogue action
-        public void GiveQuest()
+        public void GiveQuest(int index)
         {
             QuestList questList = GameObject.FindWithTag("Player").GetComponent<QuestList>();
-            questList.AddQuest(quest);
+            questList.AddQuest(quests[index]);
         }
     }
 }

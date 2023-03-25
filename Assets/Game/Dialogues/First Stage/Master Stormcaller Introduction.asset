@@ -1,0 +1,1014 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9192689556975269880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f510b7f5-eb3f-4981-8160-367247fefeb4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I was enjoying my breakfast.
+  rect:
+    serializedVersion: 2
+    x: 247
+    y: 162
+    width: 200
+    height: 100
+  children:
+  - 2c5fa2ba-f9cf-45b4-bd67-05153b3be5c2
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Gather info from guards
+        negate: 1
+--- !u!114 &-8668769584103858953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 36947c81-d60b-4313-81bb-f55f129b7fe3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What noise?
+  rect:
+    serializedVersion: 2
+    x: 888
+    y: 187
+    width: 200
+    height: 100
+  children:
+  - d1fa2058-6bb4-4dac-87f1-1ab1522e861e
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-8129246115194410370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 05e833da-7be9-4edd-90b0-bb9877cb3735
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I was studying.
+  rect:
+    serializedVersion: 2
+    x: 244
+    y: 251
+    width: 200
+    height: 100
+  children:
+  - 2c5fa2ba-f9cf-45b4-bd67-05153b3be5c2
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Gather info from guards
+        negate: 1
+--- !u!114 &-7954554420428479654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 0471cfc3-091d-420e-aa4f-d7ef4197b630
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 'I was enjoying my breakfast '
+  rect:
+    serializedVersion: 2
+    x: 390
+    y: 138
+    width: 200
+    height: 100
+  children:
+  - 3721a5ab-c1db-4695-9f3e-4a89e11e2b00
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-6639765534472915477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f0841ace-ffc6-4703-9064-84a19642dfd2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yeah I barely had any sleep cause of it.
+  rect:
+    serializedVersion: 2
+    x: 889
+    y: 94
+    width: 200
+    height: 100
+  children:
+  - d1fa2058-6bb4-4dac-87f1-1ab1522e861e
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-6524768761836406479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 36e0c0eb-24e8-4d1b-a872-dac485b435a4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Of course master! I won't dissapoint you.
+  rect:
+    serializedVersion: 2
+    x: 1624
+    y: 96
+    width: 200
+    height: 100
+  children:
+  - 994f0f83-c0d3-4bdc-b354-65187085cb9c
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-6250247692377319972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: b73c17ea-e753-4fa8-b356-916007de1b2c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Of course, It scared the hell out of me
+  rect:
+    serializedVersion: 2
+    x: 1153
+    y: 195
+    width: 200
+    height: 100
+  children:
+  - f6e9d3db-0b8e-45cb-bb41-c7c8ba892435
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-5950381942777108424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 994f0f83-c0d3-4bdc-b354-65187085cb9c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'Allright! try to be cautious, we don''t know their intentions.
+
+    Good
+    luck.'
+  rect:
+    serializedVersion: 2
+    x: 2062
+    y: 105
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: GiveQuest1
+  condition:
+    and: []
+--- !u!114 &-5737013806992036858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c037823b-e7d3-4f00-b04f-0e800f348524
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You want to get expelled from the academy? Cut the lazyness already!
+  rect:
+    serializedVersion: 2
+    x: 1835
+    y: 212
+    width: 200
+    height: 100
+  children:
+  - 994f0f83-c0d3-4bdc-b354-65187085cb9c
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-5228151467176782579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 82f6d7b1-9a86-4da8-b1d9-06cb8ee8081d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'Anyways, did you hear that noise last night? '
+  rect:
+    serializedVersion: 2
+    x: 899
+    y: 142
+    width: 200
+    height: 100
+  children:
+  - c00e7109-b703-4720-adb8-2b676423b396
+  - b73c17ea-e753-4fa8-b356-916007de1b2c
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-5214611278144357661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d06197f6-274a-4eea-8116-c47cd4090cc5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What did they say?
+  rect:
+    serializedVersion: 2
+    x: 496
+    y: 453
+    width: 200
+    height: 100
+  children:
+  - b7bce3e9-7524-4c89-92a3-6c1f71ccaac0
+  onEnterAction: 
+  onExitAction: CompleteObjective
+  condition:
+    and: []
+--- !u!114 &-4561830606875328220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d1f672d5-1002-4358-9880-0970af54ab71
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "I'll give you a list of equipment that you'll need, try to either find it
+    or buy it. \nI'm trusting you in this, you have something special remember it!"
+  rect:
+    serializedVersion: 2
+    x: 1233
+    y: 453
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: GiveQuest2
+  condition:
+    and: []
+--- !u!114 &-4542217573319537030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e41e19cd-a8f8-464a-809a-6ae23588d6d1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I was studying some spells sir
+  rect:
+    serializedVersion: 2
+    x: 382
+    y: 240
+    width: 200
+    height: 100
+  children:
+  - 3721a5ab-c1db-4695-9f3e-4a89e11e2b00
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-3337686417565225397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: fa9c0caf-b374-4fe0-80ca-b8c13f3c335a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'm collecting the items
+  rect:
+    serializedVersion: 2
+    x: 248
+    y: 562
+    width: 200
+    height: 100
+  children:
+  - 3fa0d56c-fbc6-47fa-a509-229598dab6a4
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Prepare for the fight
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Prepare for the fight
+        negate: 1
+--- !u!114 &-3076424589423173048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 7e5a0371-9b93-4fdf-9c5c-872014a9f35c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Mmm... I'm investigating the soldiers...
+  rect:
+    serializedVersion: 2
+    x: 244
+    y: 348
+    width: 200
+    height: 100
+  children:
+  - 29cb7463-b83f-4d99-8b17-bcb7ec9565b1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Gather info from guards
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Gather info from guards
+        negate: 1
+--- !u!114 &-2802214280860222837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 13632a48-2b11-4722-84f3-2a92d21381aa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Anyways, did you hear all that noise last night?
+  rect:
+    serializedVersion: 2
+    x: 668
+    y: 143
+    width: 200
+    height: 100
+  children:
+  - f0841ace-ffc6-4703-9064-84a19642dfd2
+  - 36947c81-d60b-4313-81bb-f55f129b7fe3
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-2275981277806728222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 79df9b35-67e4-40f7-b18b-908f9a6a0784
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: So this is your first duty as a sorcerer's apprentice. Go talk to the guards
+    and try to figure out what this is all about.
+  rect:
+    serializedVersion: 2
+    x: 1354
+    y: 135
+    width: 200
+    height: 100
+  children:
+  - 36e0c0eb-24e8-4d1b-a872-dac485b435a4
+  - d8e2e59f-f659-4fae-bd96-5b6fc731654c
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-1958224467741983547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f6e9d3db-0b8e-45cb-bb41-c7c8ba892435
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Well it seems that the the new king has started sending troops to all places
+    in mortem. Quite suspicious don't you think?
+  rect:
+    serializedVersion: 2
+    x: 1396
+    y: 143
+    width: 200
+    height: 100
+  children:
+  - 007a6a28-ed1d-40b5-b63d-fe9d3a9b54ae
+  - d154f206-4678-4ca5-9ad3-5ceeeb3cf701
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-1007013505496937919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 007a6a28-ed1d-40b5-b63d-fe9d3a9b54ae
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Kinda...
+  rect:
+    serializedVersion: 2
+    x: 1660
+    y: 75
+    width: 200
+    height: 100
+  children:
+  - d7fb3c81-6cb1-4ed7-bb94-9378939c447b
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-901240513678262557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ad1938d9-ab53-4222-90b7-6fd7b222e192
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I overslept.
+  rect:
+    serializedVersion: 2
+    x: 248
+    y: 62
+    width: 200
+    height: 100
+  children:
+  - 2c5fa2ba-f9cf-45b4-bd67-05153b3be5c2
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Gather info from guards
+        negate: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Master Stormcaller Introduction
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 6312893799377107690}
+  - {fileID: -901240513678262557}
+  - {fileID: -9192689556975269880}
+  - {fileID: -8129246115194410370}
+  - {fileID: 9065425343729355850}
+  - {fileID: -2802214280860222837}
+  - {fileID: -6639765534472915477}
+  - {fileID: -8668769584103858953}
+  - {fileID: 3564871015296268401}
+  - {fileID: -2275981277806728222}
+  - {fileID: -6524768761836406479}
+  - {fileID: 925172224077431208}
+  - {fileID: -5950381942777108424}
+  - {fileID: -5737013806992036858}
+  - {fileID: -3076424589423173048}
+  - {fileID: 585155260410309296}
+  - {fileID: 164294007022369090}
+  - {fileID: -5214611278144357661}
+  - {fileID: 3746278151739532657}
+  - {fileID: 102204285887022386}
+  - {fileID: -4561830606875328220}
+  - {fileID: -3337686417565225397}
+  - {fileID: 3946032574055213299}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &102204285887022386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 7999ee13-0dc8-43b1-bf75-3ee94f326ec4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'It''s time for your training to finally be complete Aurora.
+
+    You must
+    destroy those guards at all costs.'
+  rect:
+    serializedVersion: 2
+    x: 990
+    y: 453
+    width: 200
+    height: 100
+  children:
+  - d1f672d5-1002-4358-9880-0970af54ab71
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &164294007022369090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c9172740-7fcc-45c2-91fd-7d7b167f9902
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I got the information
+  rect:
+    serializedVersion: 2
+    x: 244
+    y: 447
+    width: 200
+    height: 100
+  children:
+  - d06197f6-274a-4eea-8116-c47cd4090cc5
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Gather info from guards
+        - a
+        negate: 0
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Prepare for the fight
+        negate: 1
+--- !u!114 &172579183136981757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c00e7109-b703-4720-adb8-2b676423b396
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What noise?
+  rect:
+    serializedVersion: 2
+    x: 1157
+    y: 72
+    width: 200
+    height: 100
+  children:
+  - f6e9d3db-0b8e-45cb-bb41-c7c8ba892435
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &585155260410309296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 29cb7463-b83f-4d99-8b17-bcb7ec9565b1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Oh.. yeah... I was tricking you of course I remember...
+  rect:
+    serializedVersion: 2
+    x: 490
+    y: 349
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &852832156591048517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 3721a5ab-c1db-4695-9f3e-4a89e11e2b00
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Aurora... I'm a sorcerer I can see through your lies
+  rect:
+    serializedVersion: 2
+    x: 649
+    y: 142
+    width: 200
+    height: 100
+  children:
+  - 82f6d7b1-9a86-4da8-b1d9-06cb8ee8081d
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &925172224077431208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d8e2e59f-f659-4fae-bd96-5b6fc731654c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Can I go back to sleep?
+  rect:
+    serializedVersion: 2
+    x: 1618
+    y: 201
+    width: 200
+    height: 100
+  children:
+  - c037823b-e7d3-4f00-b04f-0e800f348524
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2579023971128603213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 93abdd32-53fd-4fc5-b647-eaf1f1bff4ee
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 'I overslept '
+  rect:
+    serializedVersion: 2
+    x: 390
+    y: 41
+    width: 200
+    height: 100
+  children:
+  - 3721a5ab-c1db-4695-9f3e-4a89e11e2b00
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2961806623922424383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d7fb3c81-6cb1-4ed7-bb94-9378939c447b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Perfect! Just be careful, we don't know their intentions with us
+  rect:
+    serializedVersion: 2
+    x: 2161
+    y: 138
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &3564871015296268401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d1fa2058-6bb4-4dac-87f1-1ab1522e861e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Well a bunch of guards forced their wey into the village and took the little
+    island for themselves. Very suspicous don't ya think?
+  rect:
+    serializedVersion: 2
+    x: 1119
+    y: 139
+    width: 200
+    height: 100
+  children:
+  - 79df9b35-67e4-40f7-b18b-908f9a6a0784
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3746278151739532657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: b7bce3e9-7524-4c89-92a3-6c1f71ccaac0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hmmm so it was the king huh? We must get them out from the village, It's
+    our duty as sorcerer's!
+  rect:
+    serializedVersion: 2
+    x: 746
+    y: 453
+    width: 200
+    height: 100
+  children:
+  - 7999ee13-0dc8-43b1-bf75-3ee94f326ec4
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3833751832720821525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: b4eb361e-a82b-45dd-9c49-fc9fc60c69b5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You want me to kick you out of the academy? Cut the lazyness and do you master
+    a favor
+  rect:
+    serializedVersion: 2
+    x: 1899
+    y: 192
+    width: 200
+    height: 100
+  children:
+  - d7fb3c81-6cb1-4ed7-bb94-9378939c447b
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3946032574055213299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 3fa0d56c-fbc6-47fa-a509-229598dab6a4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hurry up!
+  rect:
+    serializedVersion: 2
+    x: 505
+    y: 559
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &6312893799377107690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 5ddd2082-912c-4389-9059-a0f3512f6169
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Where the hell have you been? I've been waiting for you the entire morning!
+  rect:
+    serializedVersion: 2
+    x: 25
+    y: 159
+    width: 200
+    height: 100
+  children:
+  - 93abdd32-53fd-4fc5-b647-eaf1f1bff4ee
+  - 0471cfc3-091d-420e-aa4f-d7ef4197b630
+  - e41e19cd-a8f8-464a-809a-6ae23588d6d1
+  - ad1938d9-ab53-4222-90b7-6fd7b222e192
+  - f510b7f5-eb3f-4981-8160-367247fefeb4
+  - 05e833da-7be9-4edd-90b0-bb9877cb3735
+  - 7e5a0371-9b93-4fdf-9c5c-872014a9f35c
+  - c9172740-7fcc-45c2-91fd-7d7b167f9902
+  - fa9c0caf-b374-4fe0-80ca-b8c13f3c335a
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &7625621373419654704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d154f206-4678-4ca5-9ad3-5ceeeb3cf701
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: It's weird
+  rect:
+    serializedVersion: 2
+    x: 1655
+    y: 208
+    width: 200
+    height: 100
+  children:
+  - b4eb361e-a82b-45dd-9c49-fc9fc60c69b5
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &9065425343729355850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 2c5fa2ba-f9cf-45b4-bd67-05153b3be5c2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Aurora... I'm a sorcerer, I can see through your lies
+  rect:
+    serializedVersion: 2
+    x: 469
+    y: 146
+    width: 200
+    height: 100
+  children:
+  - 13632a48-2b11-4722-84f3-2a92d21381aa
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

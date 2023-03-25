@@ -19,8 +19,9 @@ namespace RPG.Control
         }
 
         [SerializeField] CursorMapping[] cursorMappings = null;
-        [SerializeField] float maxNavMeshProjectionDistance = 1f;
-        [SerializeField] float raycastRadius = 1f;
+        [SerializeField] float maxNavMeshProjectionDistance = 40;
+        [SerializeField] float maxInteractionDistance = 10;
+        [SerializeField] float raycastRadius = 1;
 
         bool isDraggingUI = false;
         Health health = null;
@@ -102,6 +103,8 @@ namespace RPG.Control
 
                 foreach(IRaycastable raycastable in raycastables)
                 {
+                    if(!CanInteract(hit)) return false;
+
                     if(raycastable.HandleRaycast(this))
                     {
                         SetCursor(raycastable.GetCursorType());
@@ -111,6 +114,11 @@ namespace RPG.Control
             }
 
             return false;
+        }
+
+        bool CanInteract(RaycastHit hit)
+        {
+            return Vector3.Distance(transform.position, hit.transform.position) < maxInteractionDistance;
         }
 
         RaycastHit[] RaycastAllSorted()

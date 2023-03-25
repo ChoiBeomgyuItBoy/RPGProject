@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a791dbfcd6ba5941a758fbd0ce640b7, type: 3}
+  m_Name: Apple
+  m_EditorClassIdentifier: 
+  itemID: a867d8e7-7a1b-4906-a26b-ac80c58fc907
+  displayName: Honeycrisp Apple
+  description: 'Crunchy, juicy and delicious!
+
+    +10HP'
+  icon: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
+  pickup: {fileID: 2938967630934665869, guid: b9763a98ad8492b4392bbb091727bf01, type: 3}
+  stackable: 1
+  price: 10
+  category: 5
+  consumable: 1
+  targetingStrategy: {fileID: 11400000, guid: 3b84493648a20ff46a0013da05fd3434, type: 2}
+  filterStrategies: []
+  effectStrategies:
+  - {fileID: 11400000, guid: 9ce8b7201e3cf2f408a38620974df904, type: 2}
+  - {fileID: 11400000, guid: d7a02d2a3ef3bad49bcfa642ba3ff971, type: 2}
+  coolDownTime: 7
+  manaCost: 0

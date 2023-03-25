@@ -5,6 +5,7 @@ using RPG.Movement;
 using RPG.Attributes;
 using GameDevTV.Utils;
 using System;
+using UnityEngine.Events;
 
 namespace RPG.Control
 {
@@ -34,8 +35,11 @@ namespace RPG.Control
 
         int currentWaypointIndex = 0;
 
+        public event Action onAggrevated;
+
         public void Aggrevate()
         {
+            onAggrevated?.Invoke();
             timeSinceAggrevated = 0f;
         }
 
@@ -100,6 +104,7 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            if(!GetComponent<Fighter>().enabled) return;
             timeSinceLastSawPlayer = 0f;
             fighter.Attack(player);
 
@@ -123,6 +128,7 @@ namespace RPG.Control
 
         private void SuspicionBehaviour()
         {
+            if(!GetComponent<Fighter>().enabled) return;
             scheduler.CancelCurrentAction();
         }
 

@@ -218,11 +218,6 @@ namespace RPG.Shops
             onChange?.Invoke();
         }
 
-        public void SetShop(PlayerController callingController)
-        {
-            callingController.GetComponent<Shopper>().SetActiveShop(this);
-        }
-
         private void BuyItem(Inventory shopperInventory, Purse shopperPurse, InventoryItem item, float price)
         {
             if (shopperPurse.GetBalance() < price) return;
@@ -377,7 +372,7 @@ namespace RPG.Shops
 
             if(Input.GetMouseButtonDown(0))
             {
-                SetShop(callingController);
+                callingController.GetComponent<Shopper>().SetActiveShop(this);
             }
 
             return true;

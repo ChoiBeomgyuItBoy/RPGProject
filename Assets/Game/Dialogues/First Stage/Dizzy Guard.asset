@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6448685123004449575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 9589922b-2cac-4e67-975c-fcf6778a04ac
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Why are you drunk?
+  rect:
+    serializedVersion: 2
+    x: 289
+    y: 424
+    width: 200
+    height: 100
+  children:
+  - 6b7a6044-89c6-4ebc-8610-f3d3e5a704d4
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4736753161532091864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 1e59b882-f013-44d6-8b1a-ad7ac5d23575
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: '*Burps* Can you get me some more wine? '
+  rect:
+    serializedVersion: 2
+    x: 536
+    y: 171
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4320783374267494297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 2ed813e0-ca28-4d8c-9d82-b466a85ad45b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Who are you?
+  rect:
+    serializedVersion: 2
+    x: 294
+    y: 317
+    width: 200
+    height: 100
+  children:
+  - ce390588-0dae-46fa-945d-6ed244194757
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Gather info from guards
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Gather info from guards
+        negate: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Dizzy Guard
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3898563719515991169}
+  - {fileID: 6018805876029433795}
+  - {fileID: -4320783374267494297}
+  - {fileID: -4736753161532091864}
+  - {fileID: 3821927881066922921}
+  - {fileID: -6448685123004449575}
+  - {fileID: 6835675753624480949}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3821927881066922921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ce390588-0dae-46fa-945d-6ed244194757
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: '*Burps* Stop harassing me.'
+  rect:
+    serializedVersion: 2
+    x: 544
+    y: 319
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3898563719515991169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e90d768b-60e4-4fda-821f-2928cb440ed5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: '*Burps* what you want?'
+  rect:
+    serializedVersion: 2
+    x: 37
+    y: 210
+    width: 200
+    height: 100
+  children:
+  - 7e8a9ca5-5665-49af-a6b9-d3de7860fc41
+  - 2ed813e0-ca28-4d8c-9d82-b466a85ad45b
+  - 9589922b-2cac-4e67-975c-fcf6778a04ac
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &6018805876029433795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 7e8a9ca5-5665-49af-a6b9-d3de7860fc41
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Who sent you to our town?
+  rect:
+    serializedVersion: 2
+    x: 289
+    y: 195
+    width: 200
+    height: 100
+  children:
+  - 1e59b882-f013-44d6-8b1a-ad7ac5d23575
+  - 08bdd27d-1cc9-43c8-9309-b56cb5c6135b
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Gather info from guards
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Gather info from guards
+        negate: 1
+--- !u!114 &6835675753624480949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 6b7a6044-89c6-4ebc-8610-f3d3e5a704d4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: '*Burps* That wine you folks make is hella amazing!'
+  rect:
+    serializedVersion: 2
+    x: 541
+    y: 433
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
