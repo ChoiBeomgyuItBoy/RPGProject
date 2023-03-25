@@ -11,6 +11,7 @@ namespace RPG.Audio
     {
         [SerializeField] GlobalSettings globalSettings;
         [SerializeField] SceneTrackData[] sceneTracks;
+        [SerializeField] float initialTrackFadeInTime = 10;
         Dictionary<int, Dictionary<TrackType, Track>> trackLookup = null;
         Track currentTrack = null;
         Coroutine currentActiveFade = null;
@@ -73,7 +74,7 @@ namespace RPG.Audio
         private IEnumerator Start()
         {
             int currentScene = SceneManager.GetActiveScene().buildIndex;
-            yield return FadeTrack(TrackType.Ambient, currentScene, 5);
+            yield return FadeTrack(TrackType.Ambient, currentScene, initialTrackFadeInTime);
         }
 
         private void OnEnable()

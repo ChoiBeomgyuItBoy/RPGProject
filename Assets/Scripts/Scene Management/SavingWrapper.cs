@@ -86,8 +86,8 @@ namespace RPG.SceneManagement
             yield return fader.FadeOut(fadeOutTime);
             yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
             yield return SceneManager.LoadSceneAsync(sceneIndex);
-            yield return fader.FadeIn(fadeInTime);
             yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneIndex, fadeInMusicTime);
+            yield return fader.FadeIn(fadeInTime);
         }
 
         private IEnumerator LoadLastScene()
@@ -99,10 +99,9 @@ namespace RPG.SceneManagement
             yield return fader.FadeOut(fadeOutTime);
             yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
             yield return savingSystem.LoadLastScene(GetCurrentSave());
-            yield return fader.FadeIn(fadeInTime);
-
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
             yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneIndex, fadeInMusicTime);
+            yield return fader.FadeIn(fadeInTime);
         }
 
 #if UNITY_EDITOR

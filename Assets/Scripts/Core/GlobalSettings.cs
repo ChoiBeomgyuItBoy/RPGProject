@@ -5,7 +5,7 @@ namespace RPG.Core
 {
     [CreateAssetMenu(menuName = "RPG/New Global Settings")]
     public class GlobalSettings : ScriptableObject
-    {   
+    {  
         [SerializeField] [Range(0,1)] float masterVolume = 1;
         [SerializeField] [Range(0,1)] float musicVolume = 1;
         [SerializeField] [Range(0,1)] float sfxVolume = 1;

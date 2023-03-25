@@ -1,4 +1,5 @@
 using RPG.Control;
+using RPG.Core;
 using RPG.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,10 +8,10 @@ namespace RPG.UI.Menus
 {
     public class PauseMenuUI : MonoBehaviour
     {
-        PlayerController playerController;
+        [SerializeField] float normalTimeScale = 1;
         [SerializeField] Button saveButton;
         [SerializeField] Button saveAndQuitButton;
-        [SerializeField] float normalTimeScale = 1;
+        PlayerController playerController;
 
         void Awake()
         {
