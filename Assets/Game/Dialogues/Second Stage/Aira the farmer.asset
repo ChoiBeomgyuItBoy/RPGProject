@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7943883647784939805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: fd5d40db-2f0c-4a99-9d57-ea29d467cf72
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Those disgusting guards harassed me and took all of it...
+  rect:
+    serializedVersion: 2
+    x: 807
+    y: 208
+    width: 200
+    height: 100
+  children:
+  - 3ce76f36-01e2-4f0b-9e12-d333bbbea44c
+  - 1f55027a-8c74-4066-8abb-8101670ccb18
+  onEnterAction: PlayCrySFX
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-7548464311931305575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 3ce76f36-01e2-4f0b-9e12-d333bbbea44c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Really? I will make them regret it!
+  rect:
+    serializedVersion: 2
+    x: 1055
+    y: 169
+    width: 200
+    height: 100
+  children:
+  - 22365846-708a-45b1-a02c-bebfa52885fe
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-4287993073161749936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +79,37 @@ MonoBehaviour:
   onExitAction: ShowShop
   condition:
     and: []
+--- !u!114 &-4004436122374459964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e28bd6a2-8e15-476f-9eeb-04f30e6b8c69
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Do you have any honey?
+  rect:
+    serializedVersion: 2
+    x: 312
+    y: 202
+    width: 200
+    height: 100
+  children:
+  - dfa26743-3627-4520-b022-b8efaa2d711d
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Prepare for the fight
+        negate: 0
 --- !u!114 &-1752097692020711130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,7 +133,8 @@ MonoBehaviour:
   children:
   - 248d0b64-924c-436a-96e9-c8712d5ce4ee
   - c8b9eedc-29a9-4406-8bce-e8938fb2768a
-  onEnterAction: 
+  - e28bd6a2-8e15-476f-9eeb-04f30e6b8c69
+  onEnterAction: PlayYawnSFX
   onExitAction: 
   condition:
     and: []
@@ -94,8 +179,8 @@ MonoBehaviour:
   text: All right have a good one!
   rect:
     serializedVersion: 2
-    x: 565
-    y: 218
+    x: 577
+    y: 337
     width: 200
     height: 100
   children: []
@@ -123,6 +208,83 @@ MonoBehaviour:
   - {fileID: 5646644248706663443}
   - {fileID: -353465615594004820}
   newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3802923519697561954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: a73ae341-3e28-4c13-94be-27439f5118e3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ok, bye.
+  rect:
+    serializedVersion: 2
+    x: 1313
+    y: 309
+    width: 200
+    height: 100
+  children: []
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &4329018734684201027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 1f55027a-8c74-4066-8abb-8101670ccb18
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: So sad but I gotta go.
+  rect:
+    serializedVersion: 2
+    x: 1047
+    y: 298
+    width: 200
+    height: 100
+  children:
+  - a73ae341-3e28-4c13-94be-27439f5118e3
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &5581697877329467122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: dfa26743-3627-4520-b022-b8efaa2d711d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I mean I used to have some but...
+  rect:
+    serializedVersion: 2
+    x: 572
+    y: 203
+    width: 200
+    height: 100
+  children:
+  - fd5d40db-2f0c-4a99-9d57-ea29d467cf72
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &5646644248706663443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,12 +301,37 @@ MonoBehaviour:
   text: Nothing.
   rect:
     serializedVersion: 2
-    x: 306
-    y: 216
+    x: 303
+    y: 318
     width: 200
     height: 100
   children:
   - 613c2dce-e829-430a-b3b4-7bd84a1b5cf1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &5894856299653810849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 22365846-708a-45b1-a02c-bebfa52885fe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Are you serious? They look very tough, so you must be careful.
+  rect:
+    serializedVersion: 2
+    x: 1311
+    y: 161
+    width: 200
+    height: 100
+  children: []
   onEnterAction: 
   onExitAction: 
   condition:

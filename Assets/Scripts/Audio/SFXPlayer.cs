@@ -7,6 +7,7 @@ namespace RPG.Audio
     {
         [SerializeField] GlobalSettings globalSettings;
         [SerializeField] AudioClip[] clips;
+        [SerializeField] bool playFirstClipOnAwake = false;
 
         AudioSource audioSource;
 
@@ -30,6 +31,11 @@ namespace RPG.Audio
         private void Start()
         {
             UpdateVolume();
+
+            if(playFirstClipOnAwake)
+            {
+                Play(0);
+            }
         }
 
         private void OnEnable()

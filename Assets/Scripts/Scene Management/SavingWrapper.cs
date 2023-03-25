@@ -81,7 +81,7 @@ namespace RPG.SceneManagement
         private IEnumerator LoadScene(int sceneIndex)
         {
             Fader fader = FindObjectOfType<Fader>();
-            AmbientAudioPlayer audioPlayer = FindObjectOfType<AmbientAudioPlayer>();
+            MusicPlayer audioPlayer = FindObjectOfType<MusicPlayer>();
 
             yield return fader.FadeOut(fadeOutTime);
             yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
@@ -93,7 +93,7 @@ namespace RPG.SceneManagement
         private IEnumerator LoadLastScene()
         {
             Fader fader = FindObjectOfType<Fader>();
-            AmbientAudioPlayer audioPlayer = FindObjectOfType<AmbientAudioPlayer>();
+            MusicPlayer audioPlayer = FindObjectOfType<MusicPlayer>();
             SavingSystem savingSystem = GetComponent<SavingSystem>();
 
             yield return fader.FadeOut(fadeOutTime);

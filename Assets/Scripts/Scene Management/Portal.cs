@@ -45,7 +45,7 @@ namespace RPG.SceneManagement
 
             Fader fader = FindObjectOfType<Fader>();
             SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-            AmbientAudioPlayer audioPlayer = FindObjectOfType<AmbientAudioPlayer>();
+            MusicPlayer audioPlayer = FindObjectOfType<MusicPlayer>();
 
             ToggleControl(false);
 

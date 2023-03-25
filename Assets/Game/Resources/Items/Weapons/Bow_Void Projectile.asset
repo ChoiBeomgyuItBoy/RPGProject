@@ -18,11 +18,13 @@ MonoBehaviour:
 
     A magical bow which follows its target wherever it
     goes, super poweful.'
-  icon: {fileID: 21300000, guid: f8078c2bb5ee88d4a9472f76e501e0f3, type: 3}
+  icon: {fileID: 21300000, guid: 5d7061fc7da05ce44add317708ec7215, type: 3}
   pickup: {fileID: 4411117885703783312, guid: 451f6581f0f9e0b488f1613e82ca69c0, type: 3}
   stackable: 0
   price: 75
   category: 4
+  equipCondition:
+    and: []
   allowedEquipLocation: 5
   animatorOverride: {fileID: 22100000, guid: 5f86249740ffaa241bd52aecbe71a420, type: 2}
   equippedWeaponPrefab: {fileID: 5419322990443482469, guid: 96416c9f93d498747bd07aa847db4441,
