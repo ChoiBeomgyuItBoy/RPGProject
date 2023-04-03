@@ -1,3 +1,4 @@
+using System.Collections;
 using RPG.Core;
 using UnityEngine;
 
@@ -19,7 +20,9 @@ namespace RPG.Audio
 
         public void PlayRandom()
         {
-            audioSource.clip = clips[GetRandomIndex()];
+            int randomIndex = Random.Range(0, clips.Length);
+
+            audioSource.clip = clips[randomIndex];
             audioSource.Play();
         }
 
@@ -51,11 +54,6 @@ namespace RPG.Audio
         private void UpdateVolume()
         {
             audioSource.volume = globalSettings.GetMasterVolume() * globalSettings.GetSFXVolume();
-        }
-
-        private int GetRandomIndex()
-        {
-            return Random.Range(0, clips.Length);
         }
     }
 }

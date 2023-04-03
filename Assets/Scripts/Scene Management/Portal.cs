@@ -19,8 +19,8 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeOutTime = 0.5f;
         [SerializeField] float fadeInTime = 1f;
         [SerializeField] float fadeWaitTime = 0.5f;
-        [SerializeField] float fadeOutMusicTime = 8;
-        [SerializeField] float fadeInMusicTime = 5;
+        [SerializeField] float fadeInMusicTime = 3;
+        [SerializeField] float fadeOutMusicTime = 3;
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifier destination;
         [SerializeField] bool raycastable = false;
@@ -44,13 +44,13 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
             SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-            MusicPlayer audioPlayer = FindObjectOfType<MusicPlayer>();
 
             ToggleControl(false);
 
             yield return fader.FadeOut(fadeOutTime);
-            yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
+            yield return audioManager.FadeOutMaster(fadeOutMusicTime);
 
             wrapper.Save();
 
@@ -66,9 +66,9 @@ namespace RPG.SceneManagement
             wrapper.Save();
 
             yield return new WaitForSeconds(fadeWaitTime);
-            fader.FadeIn(fadeInTime);
+            yield return audioManager.FadeInMaster(fadeInMusicTime);
 
-            yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneToLoad, fadeInMusicTime);
+            fader.FadeIn(fadeInTime);
 
             ToggleControl(true);
 

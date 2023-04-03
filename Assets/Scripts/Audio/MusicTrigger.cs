@@ -10,16 +10,18 @@ namespace RPG.Audio
 {
     public class MusicTrigger : MonoBehaviour
     {
-        [SerializeField] float trackFadeInTime = 1;
-        [SerializeField] float trackFadeOutTime = 5;
+        [SerializeField] float fadeInMusicTime = 2;
+        [SerializeField] float fadeOutMusicTime = 2;
+        AudioManager audioManager;
         List<CombatTarget> targets = new List<CombatTarget>();
-        MusicPlayer audioPlayer;
 
-        bool alreadyAggrevated = false;
+        int sceneIndex => SceneManager.GetActiveScene().buildIndex;
+        bool alreadyInCombat = false;
 
         void Start()
         {
-            audioPlayer = FindObjectOfType<MusicPlayer>();
+            audioManager = FindObjectOfType<AudioManager>();
+            StartCoroutine(FadeInMusic(TrackType.Ambient));
         }
 
         void OnTriggerEnter(Collider other)
@@ -44,55 +46,50 @@ namespace RPG.Audio
 
         void AddTarget(CombatTarget target)
         {
-            var health = target.GetComponent<Health>();
-            var controller = target.GetComponent<AIController>();
-
-            if(health.IsDead) return;
-
             targets.Add(target);
-            controller.onAggrevated += FadeBattleMusic;
-            health.onDie.AddListener(() => RemoveTarget(target));
+            target.GetComponent<AIController>().onAggrevated += PlayCombatMusic;
+            target.GetComponent<Health>().onDie.AddListener(() => RemoveTarget(target));
         }
 
         void RemoveTarget(CombatTarget target)
         {
-            var health = target.GetComponent<Health>();
-            var controller = target.GetComponent<AIController>();
-
             targets.Remove(target);
+            target.GetComponent<AIController>().onAggrevated -= PlayCombatMusic;
+            target.GetComponent<Health>().onDie.RemoveListener(() => RemoveTarget(target));
 
-            controller.onAggrevated -= FadeBattleMusic;
-            health.onDie.RemoveListener(() => RemoveTarget(target));
-
-            if(targets.Count == 0)
+            if(targets.Count == 0 && alreadyInCombat)
             {
-                FadeAmbientMusic();
+                PlayAmbientMusic();
             }
         }
 
-        void FadeBattleMusic()
-        {   
-            if(alreadyAggrevated) return;
-            alreadyAggrevated = true;
-            StartCoroutine(MusicRoutine(TrackType.Battle));
+        void PlayCombatMusic()
+        {
+            if(alreadyInCombat) return;
+            alreadyInCombat = true;
+            StartCoroutine(FadeOutInMusic(TrackType.Combat));
         }
 
-        void FadeAmbientMusic()
+        void PlayAmbientMusic()
         {
-            if(!alreadyAggrevated) return;
-            alreadyAggrevated = false;
-            StartCoroutine(MusicRoutine(TrackType.Ambient));
+            alreadyInCombat = false;
+            StartCoroutine(FadeOutInMusic(TrackType.Ambient));
         }
 
-        IEnumerator MusicRoutine(TrackType trackType)
+        IEnumerator FadeOutInMusic(TrackType trackType)
         {
-            yield return audioPlayer.FadeOutCurrentTrack(trackFadeOutTime);
-            yield return audioPlayer.FadeTrack(trackType, GetSceneIndex(), trackFadeInTime);
+            yield return FadeOutMusic();
+            yield return FadeInMusic(trackType);
         }
 
-        int GetSceneIndex()
+        IEnumerator FadeOutMusic()
         {
-            return SceneManager.GetActiveScene().buildIndex;
+            yield return audioManager.FadeOutMusic(fadeOutMusicTime);
+        }
+
+        IEnumerator FadeInMusic(TrackType trackType)
+        {
+            yield return audioManager.FadeInMusic(fadeInMusicTime, sceneIndex, trackType);
         }
     }
 }

@@ -12,8 +12,7 @@ namespace RPG.SceneManagement
     {
         [SerializeField] private float fadeInTime = 0.2f;
         [SerializeField] float fadeOutTime = 0.2f;
-        [SerializeField] float fadeOutMusicTime = 5;
-        [SerializeField] float fadeInMusicTime = 5;
+        [SerializeField] float fadeOutMusicTime = 10;
         [SerializeField] int firstLevelBuildIndex = 1;
         [SerializeField] int menuLevelBuildIndex = 0;
 
@@ -81,26 +80,22 @@ namespace RPG.SceneManagement
         private IEnumerator LoadScene(int sceneIndex)
         {
             Fader fader = FindObjectOfType<Fader>();
-            MusicPlayer audioPlayer = FindObjectOfType<MusicPlayer>();
-
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
+            audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
-            yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
             yield return SceneManager.LoadSceneAsync(sceneIndex);
-            yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneIndex, fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
         }
 
         private IEnumerator LoadLastScene()
         {
             Fader fader = FindObjectOfType<Fader>();
-            MusicPlayer audioPlayer = FindObjectOfType<MusicPlayer>();
             SavingSystem savingSystem = GetComponent<SavingSystem>();
-
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
+            audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
-            yield return audioPlayer.FadeOutCurrentTrack(fadeOutMusicTime);
             yield return savingSystem.LoadLastScene(GetCurrentSave());
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            yield return audioPlayer.FadeTrack(TrackType.Ambient, sceneIndex, fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
         }
 
