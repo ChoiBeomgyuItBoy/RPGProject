@@ -14,13 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives:
   - reference: a
-    description: Get a Dagger.
+    description: Get a Dagger and equip it.
+    usesCondition: 1
+    completionCondition:
+      and:
+      - or:
+        - predicate: HasItemEquiped
+          parameters:
+          - a9d2ab8f-684e-4110-ae34-606b50dbe97d
+          negate: 0
   - reference: b
     description: Get a Wooden Shield.
+    usesCondition: 1
+    completionCondition:
+      and:
+      - or:
+        - predicate: HasInventoryItem
+          parameters:
+          - aaa6ceb2-5541-4143-8991-b4e5690ccdd5
+          negate: 0
   - reference: c
     description: Get food.
+    usesCondition: 0
+    completionCondition:
+      and: []
   - reference: d
     description: Talk to Master Stormcaller once you get everything
+    usesCondition: 0
+    completionCondition:
+      and: []
   rewards:
   - number: 500
     item: {fileID: 11400000, guid: 95a25eed5b59b284abf8c30447469c8c, type: 2}

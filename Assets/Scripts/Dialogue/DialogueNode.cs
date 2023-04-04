@@ -12,16 +12,16 @@ namespace RPG.Dialogue
         [SerializeField][TextArea] string text;
         [SerializeField] Rect rect = new Rect(0, 0, 200, 100);
         [SerializeField] List <string> children = new List<string>();
-        [SerializeField] string onEnterAction;
-        [SerializeField] string onExitAction;
+        [SerializeField] string[] onEnterActions;
+        [SerializeField] string[] onExitActions;
         [SerializeField] Condition condition;
 
         public Rect GetRect() => rect;
         public string GetText() => text;
         public List<string> GetChildren() => children;
         public bool IsPlayerSpeaking() => isPlayerSpeaking;
-        public string GetOnEnterAction() => onEnterAction;
-        public string GetOnExitAction() => onExitAction;
+        public string[] GetOnEnterActions() => onEnterActions;
+        public string[] GetOnExitActions() => onExitActions;
 
         public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
         {
