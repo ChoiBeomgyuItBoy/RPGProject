@@ -46,20 +46,32 @@ namespace RPG.Audio
 
         void AddTarget(CombatTarget target)
         {
-            targets.Add(target);
-            target.GetComponent<AIController>().onAggrevated += PlayCombatMusic;
-            target.GetComponent<Health>().onDie.AddListener(() => RemoveTarget(target));
+            var health = target.GetComponent<Health>();
+            var controller = target.GetComponent<AIController>();
+
+            if(health != null && controller != null && !health.IsDead)
+            {
+                targets.Add(target);
+                health.onDie.AddListener(() => RemoveTarget(target));
+                controller.onAggrevated += PlayCombatMusic;
+            }
         }
 
         void RemoveTarget(CombatTarget target)
         {
-            targets.Remove(target);
-            target.GetComponent<AIController>().onAggrevated -= PlayCombatMusic;
-            target.GetComponent<Health>().onDie.RemoveListener(() => RemoveTarget(target));
+            var health = target.GetComponent<Health>();
+            var controller = target.GetComponent<AIController>();
 
-            if(targets.Count == 0 && alreadyInCombat)
+            if(health != null && controller != null)
             {
-                PlayAmbientMusic();
+                targets.Remove(target);
+                health.onDie.RemoveListener(() => RemoveTarget(target));
+                controller.onAggrevated -= PlayCombatMusic;
+
+                if(targets.Count == 0 && alreadyInCombat)
+                {
+                    PlayAmbientMusic();
+                } 
             }
         }
 

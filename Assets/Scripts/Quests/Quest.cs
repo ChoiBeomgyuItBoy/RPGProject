@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GameDevTV.Inventories;
+using GameDevTV.Utils;
 using UnityEngine;
 
 namespace RPG.Quests
@@ -10,12 +11,13 @@ namespace RPG.Quests
         [SerializeField] List<Objective> objectives = new List<Objective>();
         [SerializeField] List<Reward> rewards = new List<Reward>();
 
-
         [System.Serializable]
         public class Objective
         {
             public string reference;
             [TextArea] public string description;
+            public bool usesCondition = false;
+            public Condition completionCondition;
         }
 
         [System.Serializable]

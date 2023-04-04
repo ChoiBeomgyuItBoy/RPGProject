@@ -9,15 +9,9 @@ namespace RPG.Quests
 {
     public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
-        //[SerializeField] Quest initialQuest;
         List<QuestStatus> statuses = new List<QuestStatus>();
 
         public event Action onListUpdated;
-
-        // private void Start()
-        // {
-        //     AddQuest(initialQuest);
-        // }
 
         public void AddQuest(Quest quest)
         {
@@ -27,11 +21,6 @@ namespace RPG.Quests
 
             statuses.Add(newStatus);
             onListUpdated?.Invoke();
-        }
-
-        private bool HasQuest(Quest quest)
-        {
-            return GetQuestStatus(quest) != null;
         }
 
         public IEnumerable<QuestStatus> GetStatuses()
@@ -53,6 +42,31 @@ namespace RPG.Quests
                 status.CompleteObjective(objective);
 
                 onListUpdated?.Invoke();
+            }
+        }
+
+        private void Update()
+        {
+            CompleteObjectivesByPredicates();
+        }
+
+        private void CompleteObjectivesByPredicates()
+        {
+            foreach(QuestStatus status in statuses)
+            {
+                if(status.IsComplete()) continue;
+
+                Quest quest = status.GetQuest();
+                foreach(var objective in quest.GetObjectives())
+                {
+                    if(status.IsObjectiveComplete(objective.reference)) continue;
+                    if(!objective.usesCondition) continue;
+
+                    if(objective.completionCondition.Check(GetComponents<IPredicateEvaluator>()))
+                    {
+                        CompleteObjective(quest, objective.reference);
+                    }
+                }   
             }
         }
 
@@ -82,7 +96,12 @@ namespace RPG.Quests
             }
         }
 
-        public object CaptureState()
+        private bool HasQuest(Quest quest)
+        {
+            return GetQuestStatus(quest) != null;
+        }
+
+        object ISaveable.CaptureState()
         {
             List<object> state = new List<object>();
 
@@ -94,7 +113,7 @@ namespace RPG.Quests
             return state;
         }
 
-        public void RestoreState(object state)
+        void ISaveable.RestoreState(object state)
         {
             List<object> stateList = state as List<object>;
 
@@ -110,7 +129,7 @@ namespace RPG.Quests
             onListUpdated?.Invoke();
         }
 
-        public bool? Evaluate(string predicate, string[] parameters)
+        bool? IPredicateEvaluator.Evaluate(string predicate, string[] parameters)
         {
             QuestStatus status = GetQuestStatus(Quest.GetByName(parameters[0]));
 

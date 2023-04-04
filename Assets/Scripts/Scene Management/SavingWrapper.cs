@@ -102,10 +102,10 @@ namespace RPG.SceneManagement
 #if UNITY_EDITOR
         private void Update()
         {
-            // if(Input.GetKeyDown(KeyCode.L))
-            // {
-            //     Load();
-            // }
+            if(Input.GetKeyDown(KeyCode.L))
+            {
+                Load();
+            }
 
             // if(Input.GetKeyDown(KeyCode.S))
             // {
