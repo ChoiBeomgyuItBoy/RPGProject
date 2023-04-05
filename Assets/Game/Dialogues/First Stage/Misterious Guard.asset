@@ -22,8 +22,8 @@ MonoBehaviour:
     height: 100
   children:
   - fd5f54ea-5ce1-46a0-98aa-fc2fabcbbb3e
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-8421881474886091768
@@ -47,8 +47,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-8418591846564318399
@@ -74,8 +74,8 @@ MonoBehaviour:
   children:
   - c61828a4-7635-4bbd-b2ef-60706fca7928
   - aa8cdb43-85c4-4961-b6a2-7cea28596e38
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-7343637870617981788
@@ -101,8 +101,8 @@ MonoBehaviour:
   children:
   - 63d15ab3-6c9f-4969-a484-a20bcffa0c64
   - 313fe76a-2ab1-43a0-ab67-f942fcc816b6
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-6699945222094013405
@@ -122,14 +122,14 @@ MonoBehaviour:
     as you are kid.
   rect:
     serializedVersion: 2
-    x: 1583
-    y: 299
+    x: 1607
+    y: 288
     width: 200
     height: 100
   children:
   - 9f8fb2cd-07d9-4688-a09b-52a6b46e72d0
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-6271436216455172159
@@ -154,8 +154,8 @@ MonoBehaviour:
     height: 100
   children:
   - 78077a4a-f19e-4883-8b02-2db2e0950ace
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-6116659255861622105
@@ -180,8 +180,8 @@ MonoBehaviour:
     height: 100
   children:
   - 8c688bdc-2ed9-4328-84c7-0db446238341
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-5942968094810835657
@@ -206,8 +206,8 @@ MonoBehaviour:
     height: 100
   children:
   - 78077a4a-f19e-4883-8b02-2db2e0950ace
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-4594650792299359040
@@ -232,8 +232,8 @@ MonoBehaviour:
     height: 100
   children:
   - 6e48f7c1-549e-4dd0-91a8-29be5c4ee8d8
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-4475877997638239075
@@ -261,8 +261,8 @@ MonoBehaviour:
   - ebab3cfe-cd06-4713-981e-a59faa33c227
   - d22d488e-6bde-4681-beca-e304166ab989
   - dfb4de9f-a918-4baa-beda-e8271cb5f970
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-4058273457454112474
@@ -287,8 +287,8 @@ MonoBehaviour:
     height: 100
   children:
   - b1ed6647-aa12-443b-8dde-2d8cc64fca73
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and:
     - or:
@@ -323,8 +323,8 @@ MonoBehaviour:
     height: 100
   children:
   - 8c688bdc-2ed9-4328-84c7-0db446238341
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-2023918650904643489
@@ -348,8 +348,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-314985995691630100
@@ -373,8 +373,9 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: CompleteObjective
-  onExitAction: 
+  onEnterActions:
+  - CompleteObjective
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &11400000
@@ -432,8 +433,8 @@ MonoBehaviour:
     height: 100
   children:
   - 8f47a10f-b76c-43f5-b7b8-fea028610faf
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &3080824036971917478
@@ -458,8 +459,8 @@ MonoBehaviour:
     height: 100
   children:
   - 97d36881-6e0f-41c2-b7a4-b7dfec5aea21
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &4043910481068427424
@@ -484,8 +485,8 @@ MonoBehaviour:
     height: 100
   children:
   - 8c688bdc-2ed9-4328-84c7-0db446238341
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &5373167303944951707
@@ -509,8 +510,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &6789229567023697714
@@ -537,7 +538,7 @@ MonoBehaviour:
   children:
   - 9d0d000b-a2a7-4b0f-90d7-bc53b2aeb232
   - d7852906-7168-4db7-8133-182adcf9744a
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []

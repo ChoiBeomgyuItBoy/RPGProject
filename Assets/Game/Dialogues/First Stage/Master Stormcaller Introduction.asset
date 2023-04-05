@@ -22,8 +22,9 @@ MonoBehaviour:
     height: 100
   children:
   - 2c5fa2ba-f9cf-45b4-bd67-05153b3be5c2
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions:
+  - PlayDialogueMusic
   condition:
     and:
     - or:
@@ -47,14 +48,14 @@ MonoBehaviour:
   text: What noise?
   rect:
     serializedVersion: 2
-    x: 888
-    y: 187
+    x: 883
+    y: 186
     width: 200
     height: 100
   children:
   - d1fa2058-6bb4-4dac-87f1-1ab1522e861e
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-8129246115194410370
@@ -79,8 +80,9 @@ MonoBehaviour:
     height: 100
   children:
   - 2c5fa2ba-f9cf-45b4-bd67-05153b3be5c2
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions:
+  - PlayDialogueMusic
+  onExitActions: []
   condition:
     and:
     - or:
@@ -110,8 +112,8 @@ MonoBehaviour:
     height: 100
   children:
   - 3721a5ab-c1db-4695-9f3e-4a89e11e2b00
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-6639765534472915477
@@ -130,14 +132,14 @@ MonoBehaviour:
   text: Yeah I barely had any sleep cause of it.
   rect:
     serializedVersion: 2
-    x: 889
-    y: 94
+    x: 877
+    y: 73
     width: 200
     height: 100
   children:
   - d1fa2058-6bb4-4dac-87f1-1ab1522e861e
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-6524768761836406479
@@ -162,8 +164,8 @@ MonoBehaviour:
     height: 100
   children:
   - 994f0f83-c0d3-4bdc-b354-65187085cb9c
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-6250247692377319972
@@ -188,8 +190,8 @@ MonoBehaviour:
     height: 100
   children:
   - f6e9d3db-0b8e-45cb-bb41-c7c8ba892435
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-5950381942777108424
@@ -211,13 +213,15 @@ MonoBehaviour:
     luck.'
   rect:
     serializedVersion: 2
-    x: 2062
-    y: 105
+    x: 2072
+    y: 147
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: GiveQuest1
+  onEnterActions: []
+  onExitActions:
+  - GiveQuest1
+  - PlayAmbientMusic
   condition:
     and: []
 --- !u!114 &-5737013806992036858
@@ -242,8 +246,8 @@ MonoBehaviour:
     height: 100
   children:
   - 994f0f83-c0d3-4bdc-b354-65187085cb9c
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-5228151467176782579
@@ -269,8 +273,8 @@ MonoBehaviour:
   children:
   - c00e7109-b703-4720-adb8-2b676423b396
   - b73c17ea-e753-4fa8-b356-916007de1b2c
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-5214611278144357661
@@ -295,8 +299,8 @@ MonoBehaviour:
     height: 100
   children:
   - b7bce3e9-7524-4c89-92a3-6c1f71ccaac0
-  onEnterAction: 
-  onExitAction: CompleteObjective
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-4561830606875328220
@@ -321,8 +325,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: GiveQuest2
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-4542217573319537030
@@ -347,8 +351,8 @@ MonoBehaviour:
     height: 100
   children:
   - 3721a5ab-c1db-4695-9f3e-4a89e11e2b00
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-3337686417565225397
@@ -373,8 +377,8 @@ MonoBehaviour:
     height: 100
   children:
   - 3fa0d56c-fbc6-47fa-a509-229598dab6a4
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and:
     - or:
@@ -409,8 +413,8 @@ MonoBehaviour:
     height: 100
   children:
   - 29cb7463-b83f-4d99-8b17-bcb7ec9565b1
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and:
     - or:
@@ -439,15 +443,15 @@ MonoBehaviour:
   text: Anyways, did you hear all that noise last night?
   rect:
     serializedVersion: 2
-    x: 668
-    y: 143
+    x: 667
+    y: 141
     width: 200
     height: 100
   children:
   - f0841ace-ffc6-4703-9064-84a19642dfd2
   - 36947c81-d60b-4313-81bb-f55f129b7fe3
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-2275981277806728222
@@ -474,8 +478,8 @@ MonoBehaviour:
   children:
   - 36e0c0eb-24e8-4d1b-a872-dac485b435a4
   - d8e2e59f-f659-4fae-bd96-5b6fc731654c
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-1958224467741983547
@@ -502,8 +506,8 @@ MonoBehaviour:
   children:
   - 007a6a28-ed1d-40b5-b63d-fe9d3a9b54ae
   - d154f206-4678-4ca5-9ad3-5ceeeb3cf701
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-1007013505496937919
@@ -528,8 +532,8 @@ MonoBehaviour:
     height: 100
   children:
   - d7fb3c81-6cb1-4ed7-bb94-9378939c447b
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-901240513678262557
@@ -549,13 +553,14 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 248
-    y: 62
+    y: 59
     width: 200
     height: 100
   children:
   - 2c5fa2ba-f9cf-45b4-bd67-05153b3be5c2
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions:
+  - PlayDialogueMusic
   condition:
     and:
     - or:
@@ -625,8 +630,8 @@ MonoBehaviour:
     height: 100
   children:
   - d1f672d5-1002-4358-9880-0970af54ab71
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &164294007022369090
@@ -651,8 +656,8 @@ MonoBehaviour:
     height: 100
   children:
   - d06197f6-274a-4eea-8116-c47cd4090cc5
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and:
     - or:
@@ -688,8 +693,8 @@ MonoBehaviour:
     height: 100
   children:
   - f6e9d3db-0b8e-45cb-bb41-c7c8ba892435
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &585155260410309296
@@ -713,8 +718,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &852832156591048517
@@ -739,8 +744,8 @@ MonoBehaviour:
     height: 100
   children:
   - 82f6d7b1-9a86-4da8-b1d9-06cb8ee8081d
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &925172224077431208
@@ -759,14 +764,14 @@ MonoBehaviour:
   text: Can I go back to sleep?
   rect:
     serializedVersion: 2
-    x: 1618
-    y: 201
+    x: 1609
+    y: 215
     width: 200
     height: 100
   children:
   - c037823b-e7d3-4f00-b04f-0e800f348524
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &2579023971128603213
@@ -791,8 +796,8 @@ MonoBehaviour:
     height: 100
   children:
   - 3721a5ab-c1db-4695-9f3e-4a89e11e2b00
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &2961806623922424383
@@ -816,8 +821,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: GiveQuest
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &3564871015296268401
@@ -843,8 +848,8 @@ MonoBehaviour:
     height: 100
   children:
   - 79df9b35-67e4-40f7-b18b-908f9a6a0784
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &3746278151739532657
@@ -870,8 +875,8 @@ MonoBehaviour:
     height: 100
   children:
   - 7999ee13-0dc8-43b1-bf75-3ee94f326ec4
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &3833751832720821525
@@ -897,8 +902,8 @@ MonoBehaviour:
     height: 100
   children:
   - d7fb3c81-6cb1-4ed7-bb94-9378939c447b
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &3946032574055213299
@@ -922,8 +927,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &6312893799377107690
@@ -956,8 +961,9 @@ MonoBehaviour:
   - 7e5a0371-9b93-4fdf-9c5c-872014a9f35c
   - c9172740-7fcc-45c2-91fd-7d7b167f9902
   - fa9c0caf-b374-4fe0-80ca-b8c13f3c335a
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions:
+  - PlayGrowl
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &7625621373419654704
@@ -982,8 +988,8 @@ MonoBehaviour:
     height: 100
   children:
   - b4eb361e-a82b-45dd-9c49-fc9fc60c69b5
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &9065425343729355850
@@ -1008,7 +1014,8 @@ MonoBehaviour:
     height: 100
   children:
   - 13632a48-2b11-4722-84f3-2a92d21381aa
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions:
+  - PlayLaugh
+  onExitActions: []
   condition:
     and: []

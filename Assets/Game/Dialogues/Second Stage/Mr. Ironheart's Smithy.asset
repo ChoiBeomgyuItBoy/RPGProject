@@ -24,8 +24,8 @@ MonoBehaviour:
   children:
   - 6cce98c1-6719-4da7-aa38-abc566d91009
   - dbb39904-a303-4039-803e-6455b9ea97a4
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-5557420093583873114
@@ -50,8 +50,8 @@ MonoBehaviour:
     height: 100
   children:
   - 1966bd01-0618-4353-ac5f-a5a2ba3cb03f
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-2808260443665565818
@@ -75,8 +75,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-2426028094421666539
@@ -101,8 +101,8 @@ MonoBehaviour:
     height: 100
   children:
   - 8f36828b-0163-4e22-bbbf-abbac3c47254
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-1079443381691949788
@@ -121,14 +121,16 @@ MonoBehaviour:
   text: Alright! Take a look at my smithy
   rect:
     serializedVersion: 2
-    x: 559
+    x: 558
     y: 77
     width: 200
     height: 100
   children:
   - b813b2eb-5229-49e2-86f7-87bc7c0f5c00
-  onEnterAction: 
-  onExitAction: ShowShop
+  onEnterActions: []
+  onExitActions:
+  - ShowShop
+  - PlaySFX
   condition:
     and: []
 --- !u!114 &-989044205770199365
@@ -152,8 +154,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &11400000
@@ -206,8 +208,8 @@ MonoBehaviour:
     height: 100
   children:
   - 3e1e8eb9-29b9-438d-a60f-9a1bb2ea04b6
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &4071917335317449047
@@ -232,8 +234,8 @@ MonoBehaviour:
     height: 100
   children:
   - 823544e5-051c-4010-bbfe-2fa56ada26c5
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &5759530804425441853
@@ -258,8 +260,8 @@ MonoBehaviour:
     height: 100
   children:
   - 3e1e8eb9-29b9-438d-a60f-9a1bb2ea04b6
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &5818901689266412176
@@ -284,8 +286,8 @@ MonoBehaviour:
     height: 100
   children:
   - 79ad200f-080d-4393-94c9-e3ec6f8bc600
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and:
     - or:
@@ -314,8 +316,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &6722908636418405071
@@ -334,7 +336,7 @@ MonoBehaviour:
   text: Hi there! How can I help you?
   rect:
     serializedVersion: 2
-    x: 18
+    x: 17
     y: 122
     width: 200
     height: 100
@@ -342,8 +344,9 @@ MonoBehaviour:
   - bf37bfb3-68c7-4249-9174-502567ddb3d6
   - 174ecf0f-f830-401d-b124-5b62e5d31f51
   - 3f6f0358-9f4d-40a2-bb66-ad04fc518465
-  onEnterAction: PlaySFX
-  onExitAction: 
+  onEnterActions:
+  - PlaySFX
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &8186430841630711391
@@ -370,8 +373,8 @@ MonoBehaviour:
   children:
   - de135ac5-cb90-401a-b76e-07d07ad5b477
   - f968eee6-1aa6-4ebe-bd2c-993572c2ea68
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &8493489466443324447
@@ -395,7 +398,7 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: GiveQuest
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
