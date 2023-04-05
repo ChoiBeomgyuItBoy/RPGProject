@@ -48,23 +48,24 @@ MonoBehaviour:
   fadeOutMusicTime: 2
   sceneTracks:
   - sceneIndex: 0
-    ambientTrack:
-      clip: {fileID: 8300000, guid: 9e52e2506cbf02d4c98a4146812431f0, type: 3}
-      volumeFraction: 0.2
-    combatTrack:
-      clip: {fileID: 0}
-      volumeFraction: 0
+    sceneTracks:
+    - trackType: 0
+      track:
+        clip: {fileID: 8300000, guid: 9e52e2506cbf02d4c98a4146812431f0, type: 3}
+        volumeFraction: 0.2
   - sceneIndex: 1
-    ambientTrack:
-      clip: {fileID: 8300000, guid: 17b223a3205544b4080c293d3ec1b778, type: 3}
-      volumeFraction: 0.2
-    combatTrack:
-      clip: {fileID: 0}
-      volumeFraction: 0
+    sceneTracks:
+    - trackType: 0
+      track:
+        clip: {fileID: 8300000, guid: 17b223a3205544b4080c293d3ec1b778, type: 3}
+        volumeFraction: 0.2
   - sceneIndex: 3
-    ambientTrack:
-      clip: {fileID: 8300000, guid: 1c89994782545d245bffd931bfd88f15, type: 3}
-      volumeFraction: 0.2
-    combatTrack:
-      clip: {fileID: 8300000, guid: 5d2c63f7350baf84d9033f8a7fe75d66, type: 3}
-      volumeFraction: 0.2
+    sceneTracks:
+    - trackType: 0
+      track:
+        clip: {fileID: 8300000, guid: 1c89994782545d245bffd931bfd88f15, type: 3}
+        volumeFraction: 0.2
+    - trackType: 1
+      track:
+        clip: {fileID: 8300000, guid: 5d2c63f7350baf84d9033f8a7fe75d66, type: 3}
+        volumeFraction: 0.2

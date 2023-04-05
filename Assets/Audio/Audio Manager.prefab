@@ -144,25 +144,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: e6c1afd81ed416844b59303d19bcd4f6, type: 2}
   globalSettings: {fileID: 11400000, guid: 36445edfb088d204fa2335342112ca9e, type: 2}
-  sceneTracks:
-  - sceneIndex: 0
-    tracks:
-    - trackType: 0
-      clip: {fileID: 8300000, guid: 9e52e2506cbf02d4c98a4146812431f0, type: 3}
-      volumeFraction: 0.2
-  - sceneIndex: 1
-    tracks:
-    - trackType: 0
-      clip: {fileID: 8300000, guid: 17b223a3205544b4080c293d3ec1b778, type: 3}
-      volumeFraction: 0.2
-    - trackType: 2
-      clip: {fileID: 8300000, guid: c0453cc40df859141b14045e9ec27673, type: 3}
-      volumeFraction: 0.2
-  - sceneIndex: 3
-    tracks:
-    - trackType: 0
-      clip: {fileID: 8300000, guid: 1c89994782545d245bffd931bfd88f15, type: 3}
-      volumeFraction: 0.2
-    - trackType: 1
-      clip: {fileID: 8300000, guid: 5d2c63f7350baf84d9033f8a7fe75d66, type: 3}
-      volumeFraction: 0.2
+  initalFadeInTime: 6

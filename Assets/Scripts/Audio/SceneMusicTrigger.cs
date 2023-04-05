@@ -8,56 +8,88 @@ namespace RPG.Audio
     public class SceneMusicTrigger : MusicFader
     {
         [SerializeField] SceneTrack[] sceneTracks;
-        Dictionary<int, SceneTrack> trackLookup = new Dictionary<int, SceneTrack>();
+        Dictionary<int, Dictionary<TrackType, Track>> trackLookup = null;
 
         [System.Serializable]
         class SceneTrack
         {
             public int sceneIndex = 0;
-            public Track ambientTrack;
-            public Track combatTrack;
+            public SceneTrackData[] sceneTracks;
+        }
+
+        [System.Serializable]
+        class SceneTrackData
+        {
+            public TrackType trackType = default;
+            public Track track;
+        }
+
+        enum TrackType
+        {
+            Ambient, 
+            Combat
         }
 
         protected override Action OnStart()
         {
-            return PlayAmbientMusic;
+            return () => audioManager.value.PlayTrack(GetTrack(TrackType.Ambient));
         }
 
-        public void PlayAmbientMusic()
+        // Use for Unity Events
+        public void FadeOutInAmbientMusic()
+        {   
+            FadeSceneTrack(TrackType.Ambient);
+        }
+
+        // Use for Unity Events
+        public void FadeOutInCombatMusic()
         {
-            if(!trackLookup.ContainsKey(GetSceneIndex())) return;
+            FadeSceneTrack(TrackType.Combat);
+        }
 
-            Track ambientTrack = trackLookup[GetSceneIndex()].ambientTrack;
+        private void FadeSceneTrack(TrackType trackType)
+        {
+            Track track = GetTrack(trackType);
 
-            if(ambientTrack != null)
+            if(track != null)
             {
-                StartCoroutine(FadeOutInMusic(ambientTrack));
+                StartCoroutine(FadeOutInMusic(track));
             }
         }
 
-        public void PlayCombatMusic()
+        private void Awake()
         {
-            if(!trackLookup.ContainsKey(GetSceneIndex())) return;
-
-            Track combatTrack = trackLookup[GetSceneIndex()].combatTrack;
-
-            if(combatTrack != null)
-            {
-                StartCoroutine(FadeOutInMusic(combatTrack));
-            }
+            BuildTrackLookup();
         }
 
-        void Awake()
+        private void BuildTrackLookup()
         {
+            trackLookup = new Dictionary<int, Dictionary<TrackType, Track>>();
+
             foreach(var sceneTrack in sceneTracks)
             {
-                trackLookup[sceneTrack.sceneIndex] = sceneTrack;
+                var innerLookup = new Dictionary<TrackType, Track>();
+
+                foreach(var track in sceneTrack.sceneTracks)
+                {
+                    innerLookup[track.trackType] = track.track;
+                }
+
+                trackLookup[sceneTrack.sceneIndex] = innerLookup;
             }
         }
 
-        int GetSceneIndex()
+        private Track GetTrack(TrackType trackType)
         {
-            return SceneManager.GetActiveScene().buildIndex;
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            if(!trackLookup.ContainsKey(sceneIndex))
+            {
+                Debug.LogWarning($"Not a track of type {trackType} associated with scene {sceneIndex}");
+                return null;
+            }   
+
+            return trackLookup[sceneIndex][trackType];
         }
     }
 }

@@ -15,7 +15,7 @@ namespace RPG.Audio
         {
             audioManager = new LazyValue<AudioManager>(() => FindObjectOfType<AudioManager>());
             audioManager.ForceInit();
-            OnStart().Invoke();
+            OnStart()?.Invoke();
         }
 
         protected virtual Action OnStart()
@@ -23,15 +23,15 @@ namespace RPG.Audio
             return null;
         }
 
-        protected IEnumerator FadeInMusic(Track track)
-        {
-            yield return audioManager.value.FadeInTrack(fadeInMusicTime, track);
-        }
-
         protected IEnumerator FadeOutInMusic(Track track)
         { 
             yield return FadeOutMusic();
             yield return FadeInMusic(track);
+        }
+
+        protected IEnumerator FadeInMusic(Track track)
+        {
+            yield return audioManager.value.FadeInTrack(fadeInMusicTime, track);
         }
 
         protected IEnumerator FadeOutMusic()

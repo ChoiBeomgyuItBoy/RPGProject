@@ -9,6 +9,7 @@ namespace RPG.Audio
     {
         [SerializeField] AudioMixer audioMixer;
         [SerializeField] GlobalSettings globalSettings;
+        [SerializeField] float initalFadeInTime = 4;
         Track currentTrack = null;
         AudioSource audioSource;  
 
@@ -33,6 +34,26 @@ namespace RPG.Audio
             return StartCoroutine(FadeSnapshot("FadeInMusic", time));
         }
 
+        public void PlayTrack(Track track)
+        {
+            if(currentTrack != null)
+            {
+                currentTrack.SetResumeTime(audioSource.time);
+            }
+
+            if(track == null)
+            {
+                audioSource.clip = null;
+                return;
+            }
+
+            currentTrack = track;
+            audioSource.clip = currentTrack.GetClip();
+            audioSource.time = currentTrack.GetResumeTime();
+            UpdateVolume();
+            audioSource.Play();
+        }
+
         private void Awake()
         {
             audioSource = GetComponent<AudioSource>();
@@ -40,7 +61,7 @@ namespace RPG.Audio
 
         private IEnumerator Start()
         {
-            yield return FadeInMaster(3);
+            yield return FadeInMaster(initalFadeInTime);
         }
 
         private void OnEnable()
@@ -51,20 +72,6 @@ namespace RPG.Audio
         private void OnDisable()
         {
             globalSettings.onSettingsChanged -= UpdateVolume;
-        }
-
-        private void PlayTrack(Track track)
-        {
-            if(currentTrack != null)
-            {
-                currentTrack.SetResumeTime(audioSource.time);
-            }
-
-            currentTrack = track;
-            audioSource.clip = currentTrack.GetClip();
-            audioSource.time = currentTrack.GetResumeTime();
-            UpdateVolume();
-            audioSource.Play();
         }
 
         private void UpdateVolume()

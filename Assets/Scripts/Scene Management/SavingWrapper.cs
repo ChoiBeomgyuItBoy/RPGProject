@@ -12,7 +12,8 @@ namespace RPG.SceneManagement
     {
         [SerializeField] private float fadeInTime = 0.2f;
         [SerializeField] float fadeOutTime = 0.2f;
-        [SerializeField] float fadeOutMusicTime = 10;
+        [SerializeField] float fadeOutMusicTime = 3;
+        [SerializeField] float fadeInMusicTime = 3;
         [SerializeField] int firstLevelBuildIndex = 1;
         [SerializeField] int menuLevelBuildIndex = 0;
 
@@ -84,6 +85,7 @@ namespace RPG.SceneManagement
             audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
             yield return SceneManager.LoadSceneAsync(sceneIndex);
+            audioManager.FadeInMaster(fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
         }
 
@@ -95,7 +97,7 @@ namespace RPG.SceneManagement
             audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
             yield return savingSystem.LoadLastScene(GetCurrentSave());
-            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            audioManager.FadeInMaster(fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
         }
 
