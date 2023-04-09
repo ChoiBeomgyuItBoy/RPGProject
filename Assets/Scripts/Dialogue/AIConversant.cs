@@ -1,4 +1,3 @@
-using System;
 using RPG.Attributes;
 using RPG.Control;
 using UnityEngine;
@@ -13,6 +12,11 @@ namespace RPG.Dialogue
         public string GetName()
         {
             return conversantName;
+        }
+
+        public void ShowDialogue(PlayerController callingController)
+        {
+            callingController.GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
         }
 
         public CursorType GetCursorType()
@@ -34,7 +38,7 @@ namespace RPG.Dialogue
 
             if(Input.GetMouseButtonDown(0))
             {
-                callingController.GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
+                ShowDialogue(callingController);
             }
 
             return true;

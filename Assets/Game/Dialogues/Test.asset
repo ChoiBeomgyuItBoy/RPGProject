@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 5258428257700380247}
+  - {fileID: 215105616388126090}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &215105616388126090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e2d96acb-a7be-4ebe-addf-043059cae9a4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Those guards look scary
+  rect:
+    serializedVersion: 2
+    x: 373
+    y: 109
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &5258428257700380247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f1769175-72d7-4394-83d4-0e2945f4eac7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I should be careful...
+  rect:
+    serializedVersion: 2
+    x: 118
+    y: 108
+    width: 200
+    height: 100
+  children:
+  - e2d96acb-a7be-4ebe-addf-043059cae9a4
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
