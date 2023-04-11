@@ -23,8 +23,8 @@ MonoBehaviour:
   children:
   - 3ce76f36-01e2-4f0b-9e12-d333bbbea44c
   - 1f55027a-8c74-4066-8abb-8101670ccb18
-  onEnterAction: PlayCrySFX
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-7548464311931305575
@@ -49,8 +49,8 @@ MonoBehaviour:
     height: 100
   children:
   - 22365846-708a-45b1-a02c-bebfa52885fe
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-4287993073161749936
@@ -69,14 +69,15 @@ MonoBehaviour:
   text: Sure! You have to eat properly in order to be a strong man.
   rect:
     serializedVersion: 2
-    x: 561
+    x: 567
     y: 108
     width: 200
     height: 100
   children:
   - 9001ed5b-884a-4145-8853-9836b83c91b9
-  onEnterAction: 
-  onExitAction: ShowShop
+  onEnterActions: []
+  onExitActions:
+  - ShowShop
   condition:
     and: []
 --- !u!114 &-4004436122374459964
@@ -101,8 +102,8 @@ MonoBehaviour:
     height: 100
   children:
   - dfa26743-3627-4520-b022-b8efaa2d711d
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and:
     - or:
@@ -134,8 +135,8 @@ MonoBehaviour:
   - 248d0b64-924c-436a-96e9-c8712d5ce4ee
   - c8b9eedc-29a9-4406-8bce-e8938fb2768a
   - e28bd6a2-8e15-476f-9eeb-04f30e6b8c69
-  onEnterAction: PlayYawnSFX
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-669654156851311107
@@ -159,8 +160,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &-353465615594004820
@@ -184,8 +185,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &11400000
@@ -229,8 +230,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &4329018734684201027
@@ -255,8 +256,8 @@ MonoBehaviour:
     height: 100
   children:
   - a73ae341-3e28-4c13-94be-27439f5118e3
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &5581697877329467122
@@ -281,8 +282,8 @@ MonoBehaviour:
     height: 100
   children:
   - fd5d40db-2f0c-4a99-9d57-ea29d467cf72
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &5646644248706663443
@@ -307,8 +308,8 @@ MonoBehaviour:
     height: 100
   children:
   - 613c2dce-e829-430a-b3b4-7bd84a1b5cf1
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &5894856299653810849
@@ -332,8 +333,8 @@ MonoBehaviour:
     width: 200
     height: 100
   children: []
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []
 --- !u!114 &8672523275283429657
@@ -358,7 +359,7 @@ MonoBehaviour:
     height: 100
   children:
   - 88abc169-dad0-4592-ba8d-a254fa4e6050
-  onEnterAction: 
-  onExitAction: 
+  onEnterActions: []
+  onExitActions: []
   condition:
     and: []

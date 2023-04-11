@@ -6,7 +6,6 @@ namespace RPG.Audio
     {
         [SerializeField] Track[] tracks;
 
-        // Use for Unity Events
         public void PlayMusic(int trackIndex)
         {
             Track selectedTrack = tracks[trackIndex];

@@ -85,7 +85,7 @@ namespace RPG.SceneManagement
             audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
             yield return SceneManager.LoadSceneAsync(sceneIndex);
-            audioManager.FadeInMaster(fadeInMusicTime);
+            yield return audioManager.FadeInMaster(fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
         }
 
@@ -97,7 +97,7 @@ namespace RPG.SceneManagement
             audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
             yield return savingSystem.LoadLastScene(GetCurrentSave());
-            audioManager.FadeInMaster(fadeInMusicTime);
+            yield return audioManager.FadeInMaster(fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
         }
 

@@ -5,6 +5,8 @@ using UnityEngine.AI;
 using RPG.Core;
 using RPG.Control;
 using RPG.Audio;
+using GameDevTV.Utils;
+using System.Collections.Generic;
 
 namespace RPG.SceneManagement
 {
@@ -23,7 +25,14 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeOutMusicTime = 3;
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifier destination;
-        [SerializeField] bool raycastable = false;
+        [SerializeField] Condition condition;
+
+        IEnumerable<IPredicateEvaluator> predicates;
+
+        void Awake()
+        {
+            predicates = GameObject.FindWithTag("Player").GetComponents<IPredicateEvaluator>();
+        }
 
         void OnTriggerEnter(Collider other)
         {
@@ -112,11 +121,12 @@ namespace RPG.SceneManagement
 
         bool IRaycastable.HandleRaycast(PlayerController callingController)
         {
-            if(!raycastable) return false;
-
-            if(Input.GetMouseButtonDown(0))
+            if(condition.Check(predicates))
             {
-                StartCoroutine(Transition());
+                if(Input.GetMouseButtonDown(0))
+                {
+                    StartCoroutine(Transition());
+                }
             }
 
             return true;
@@ -124,7 +134,14 @@ namespace RPG.SceneManagement
 
         CursorType IRaycastable.GetCursorType()
         {
-            return CursorType.Door;
+            if(condition.Check(predicates))
+            {
+                return CursorType.Door;
+            }
+            else
+            {
+                return CursorType.Locked;
+            }
         }
     }
 }

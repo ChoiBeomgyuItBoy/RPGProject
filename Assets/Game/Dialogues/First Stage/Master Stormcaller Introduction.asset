@@ -48,7 +48,7 @@ MonoBehaviour:
   text: What noise?
   rect:
     serializedVersion: 2
-    x: 883
+    x: 879
     y: 186
     width: 200
     height: 100
@@ -158,8 +158,8 @@ MonoBehaviour:
   text: Of course master! I won't dissapoint you.
   rect:
     serializedVersion: 2
-    x: 1624
-    y: 96
+    x: 1728
+    y: 48
     width: 200
     height: 100
   children:
@@ -213,8 +213,8 @@ MonoBehaviour:
     luck.'
   rect:
     serializedVersion: 2
-    x: 2072
-    y: 147
+    x: 2198
+    y: 126
     width: 200
     height: 100
   children: []
@@ -240,8 +240,8 @@ MonoBehaviour:
   text: You want to get expelled from the academy? Cut the lazyness already!
   rect:
     serializedVersion: 2
-    x: 1835
-    y: 212
+    x: 1944
+    y: 245
     width: 200
     height: 100
   children:
@@ -293,8 +293,8 @@ MonoBehaviour:
   text: What did they say?
   rect:
     serializedVersion: 2
-    x: 496
-    y: 453
+    x: 494
+    y: 446
     width: 200
     height: 100
   children:
@@ -320,13 +320,14 @@ MonoBehaviour:
     or buy it. \nI'm trusting you in this, you have something special remember it!"
   rect:
     serializedVersion: 2
-    x: 1233
-    y: 453
+    x: 1217
+    y: 444
     width: 200
     height: 100
   children: []
   onEnterActions: []
-  onExitActions: []
+  onExitActions:
+  - CompleteObjective
   condition:
     and: []
 --- !u!114 &-4542217573319537030
@@ -371,8 +372,8 @@ MonoBehaviour:
   text: I'm collecting the items
   rect:
     serializedVersion: 2
-    x: 248
-    y: 562
+    x: 241
+    y: 548
     width: 200
     height: 100
   children:
@@ -404,7 +405,7 @@ MonoBehaviour:
   m_Name: 7e5a0371-9b93-4fdf-9c5c-872014a9f35c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Mmm... I'm investigating the soldiers...
+  text: I'm gathering the info...
   rect:
     serializedVersion: 2
     x: 244
@@ -471,8 +472,8 @@ MonoBehaviour:
     and try to figure out what this is all about.
   rect:
     serializedVersion: 2
-    x: 1354
-    y: 135
+    x: 1510
+    y: 130
     width: 200
     height: 100
   children:
@@ -604,6 +605,7 @@ MonoBehaviour:
   - {fileID: -4561830606875328220}
   - {fileID: -3337686417565225397}
   - {fileID: 3946032574055213299}
+  - {fileID: 3693880553195104533}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &102204285887022386
 MonoBehaviour:
@@ -624,8 +626,8 @@ MonoBehaviour:
     destroy those guards at all costs.'
   rect:
     serializedVersion: 2
-    x: 990
-    y: 453
+    x: 968
+    y: 447
     width: 200
     height: 100
   children:
@@ -764,8 +766,8 @@ MonoBehaviour:
   text: Can I go back to sleep?
   rect:
     serializedVersion: 2
-    x: 1609
-    y: 215
+    x: 1717
+    y: 247
     width: 200
     height: 100
   children:
@@ -842,8 +844,35 @@ MonoBehaviour:
     island for themselves. Very suspicous don't ya think?
   rect:
     serializedVersion: 2
-    x: 1119
-    y: 139
+    x: 1097
+    y: 133
+    width: 200
+    height: 100
+  children:
+  - 304798d6-e726-40d4-94eb-836b1cd528e5
+  onEnterActions: []
+  onExitActions:
+  - PlaySequence
+  condition:
+    and: []
+--- !u!114 &3693880553195104533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 304798d6-e726-40d4-94eb-836b1cd528e5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Look how disgusting they are!
+  rect:
+    serializedVersion: 2
+    x: 1306
+    y: 132
     width: 200
     height: 100
   children:
@@ -869,8 +898,8 @@ MonoBehaviour:
     our duty as sorcerer's!
   rect:
     serializedVersion: 2
-    x: 746
-    y: 453
+    x: 723
+    y: 447
     width: 200
     height: 100
   children:
@@ -922,8 +951,8 @@ MonoBehaviour:
   text: Hurry up!
   rect:
     serializedVersion: 2
-    x: 505
-    y: 559
+    x: 503
+    y: 550
     width: 200
     height: 100
   children: []

@@ -10,6 +10,7 @@ namespace RPG.Control
         FullPickup,
         Dialogue,
         Shop,
-        Door
+        Door,
+        Locked
     }
 }

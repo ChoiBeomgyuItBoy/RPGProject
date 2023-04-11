@@ -30,21 +30,19 @@ namespace RPG.Audio
             Combat
         }
 
-        protected override Action OnStart()
-        {
-            return () => audioManager.value.PlayTrack(GetTrack(TrackType.Ambient));
-        }
-
-        // Use for Unity Events
         public void FadeOutInAmbientMusic()
         {   
             FadeSceneTrack(TrackType.Ambient);
         }
 
-        // Use for Unity Events
         public void FadeOutInCombatMusic()
         {
             FadeSceneTrack(TrackType.Combat);
+        }
+
+        protected override Action OnStart()
+        {
+            return () => audioManager.value.PlayTrack(GetTrack(TrackType.Ambient));
         }
 
         private void FadeSceneTrack(TrackType trackType)
