@@ -1173,7 +1173,6 @@ GameObject:
   m_Component:
   - component: {fileID: 113573301}
   - component: {fileID: 113573300}
-  - component: {fileID: 113573298}
   - component: {fileID: 113573299}
   m_Layer: 0
   m_Name: Guards Reveal Sequence
@@ -1182,18 +1181,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &113573298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113573297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8340451f8691ae246a63bea7f2880399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &113573299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,6 +1212,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1924753427}
+        m_TargetAssemblyTypeName: RPG.Core.ActionScheduler, Assembly-CSharp
+        m_MethodName: CancelCurrentAction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9207,7 +9206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864909694}
-  m_LocalRotation: {x: 0.13346463, y: -0.1235667, z: 0.016773973, w: 0.98317707}
+  m_LocalRotation: {x: 0.1334646, y: -0.12356675, z: 0.016773976, w: 0.98317707}
   m_LocalPosition: {x: 2.5, y: 1.98, z: 19.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19946,7 +19945,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829887584}
-  m_LocalRotation: {x: 0.01044029, y: 0.9584299, z: -0.035365954, w: 0.28293553}
+  m_LocalRotation: {x: 0.010440284, y: 0.9584299, z: -0.035365943, w: 0.28293553}
   m_LocalPosition: {x: 21.55452, y: 2.6721392, z: -1.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20714,6 +20713,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05c41fe4e6283ea468771e156b1d9aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1924753427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4011259912626374145, guid: b52fb5d54be7b2145b1631437eb0d35d,
+    type: 3}
+  m_PrefabInstance: {fileID: 202796232159574231}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f3f6e86c041f74fb31d0dee4458f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1928445666
@@ -21815,7 +21826,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 113573298}
+      objectReference: {fileID: 113573300}
     - target: {fileID: 4595432854859828062, guid: 71f2eda3cdcb72c4dafcec1348d4fa9a,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -21824,12 +21835,12 @@ PrefabInstance:
     - target: {fileID: 4595432854859828062, guid: 71f2eda3cdcb72c4dafcec1348d4fa9a,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayCinematic
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 4595432854859828062, guid: 71f2eda3cdcb72c4dafcec1348d4fa9a,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RPG.Cinematics.CinematicTrigger, Assembly-CSharp
+      value: UnityEngine.Playables.PlayableDirector, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4595432854859828062, guid: 71f2eda3cdcb72c4dafcec1348d4fa9a,
         type: 3}
@@ -25226,7 +25237,7 @@ PrefabInstance:
     - target: {fileID: 2014970319840791850, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.7493
+      value: -570.75006
       objectReference: {fileID: 0}
     - target: {fileID: 2015295741027669098, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}

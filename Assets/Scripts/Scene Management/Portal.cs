@@ -25,8 +25,7 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeOutMusicTime = 3;
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifier destination;
-        [SerializeField] Condition condition;
-
+        [SerializeField] Condition unlockCondition;
         IEnumerable<IPredicateEvaluator> predicates;
 
         void Awake()
@@ -74,8 +73,8 @@ namespace RPG.SceneManagement
 
             wrapper.Save();
 
-            yield return new WaitForSeconds(fadeWaitTime);
             yield return audioManager.FadeInMaster(fadeInMusicTime);
+            yield return new WaitForSeconds(fadeWaitTime);
 
             fader.FadeIn(fadeInTime);
 
@@ -121,7 +120,7 @@ namespace RPG.SceneManagement
 
         bool IRaycastable.HandleRaycast(PlayerController callingController)
         {
-            if(condition.Check(predicates))
+            if(unlockCondition.Check(predicates))
             {
                 if(Input.GetMouseButtonDown(0))
                 {
@@ -134,7 +133,7 @@ namespace RPG.SceneManagement
 
         CursorType IRaycastable.GetCursorType()
         {
-            if(condition.Check(predicates))
+            if(unlockCondition.Check(predicates))
             {
                 return CursorType.Door;
             }

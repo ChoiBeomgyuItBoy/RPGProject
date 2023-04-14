@@ -4,17 +4,11 @@ using UnityEngine.Events;
 
 namespace RPG.Cinematics
 {
+    [RequireComponent(typeof(PlayableDirector))]
     public class CinematicEventHandler : MonoBehaviour
     {
         [SerializeField] UnityEvent onCinematicPlayed;
         [SerializeField] UnityEvent onCinematicStopped;
-
-        GameObject player;
-
-        void Awake()
-        {
-            player = GameObject.FindWithTag("Player");
-        }
 
         void OnEnable()
         {

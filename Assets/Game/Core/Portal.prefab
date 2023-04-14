@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8668398088277685827}
-  - component: {fileID: 7839895204174781985}
   - component: {fileID: 9063558172826029959}
   - component: {fileID: 2575496029477307821}
   m_Layer: 2
@@ -66,22 +65,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &7839895204174781985
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8753933316997775986}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &9063558172826029959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,7 +93,10 @@ MonoBehaviour:
   sceneToLoad: 0
   fadeOutTime: 0.5
   fadeInTime: 1
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
+  fadeInMusicTime: 2
+  fadeOutMusicTime: 2
   spawnPoint: {fileID: 1315903416766486715}
   destination: 0
-  raycastable: 0
+  unlockCondition:
+    and: []

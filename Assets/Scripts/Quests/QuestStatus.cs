@@ -47,13 +47,13 @@ namespace RPG.Quests
         {
             foreach(var objective in quest.GetObjectives())
             {
-                if(completedObjectives.Contains(objective.reference))
+                if(!completedObjectives.Contains(objective.reference))
                 {
-                    return true;
+                    return false;
                 }
             }
 
-            return false;
+            return true;
         }
 
         public void CompleteObjective(string objective)

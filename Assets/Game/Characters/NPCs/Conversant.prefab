@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 51748920889891302, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: m_Name
-      value: Messenger
+      value: Conversant
       objectReference: {fileID: 0}
     - target: {fileID: 2213373714675495569, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
@@ -108,20 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e8cd7b13c9e6a4c81866958133aa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 0}
---- !u!114 &6738016842418771151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3929965502715391977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf15ef3cc5905dc47bfbf210153dccdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: 
-  onTrigger:
-    m_PersistentCalls:
-      m_Calls: []
+  quests: []
