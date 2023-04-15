@@ -1,3 +1,4 @@
+using System.Linq;
 using RPG.Quests;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace RPG.UI.Quests
                 Destroy(child.gameObject);
             }
 
-            foreach (QuestStatus questStatus in questList.GetStatuses())
+            foreach (QuestStatus questStatus in questList.GetStatuses().Reverse())
             {
                 QuestItemUI questInstance = Instantiate<QuestItemUI>(questPrefab, transform);
                 questInstance.Setup(questStatus);

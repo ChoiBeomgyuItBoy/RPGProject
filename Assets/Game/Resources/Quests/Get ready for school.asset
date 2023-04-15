@@ -34,8 +34,10 @@ MonoBehaviour:
           - a867d8e7-7a1b-4906-a26b-ac80c58fc907
           negate: 0
   - reference: c
-    description: Talk back to Max once you are done
+    description: Talk back to Leonard once you are done
     usesCondition: 0
     completionCondition:
       and: []
-  rewards: []
+  rewards:
+  - number: 200
+    item: {fileID: 11400000, guid: 1e5892700b7b9924eb0a221709429d7f, type: 2}

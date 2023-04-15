@@ -116,6 +116,7 @@ namespace RPG.SceneManagement
 
             player.GetComponent<ActionScheduler>().CancelCurrentAction();
             player.GetComponent<PlayerController>().enabled = state;
+            Cursor.visible = state;
         }
 
         bool IRaycastable.HandleRaycast(PlayerController callingController)

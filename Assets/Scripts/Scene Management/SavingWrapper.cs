@@ -12,6 +12,7 @@ namespace RPG.SceneManagement
     {
         [SerializeField] private float fadeInTime = 0.2f;
         [SerializeField] float fadeOutTime = 0.2f;
+        [SerializeField] float waitForFadeTime = 0.3f;
         [SerializeField] float fadeOutMusicTime = 3;
         [SerializeField] float fadeInMusicTime = 3;
         [SerializeField] int firstLevelBuildIndex = 1;
@@ -82,11 +83,14 @@ namespace RPG.SceneManagement
         {
             Fader fader = FindObjectOfType<Fader>();
             AudioManager audioManager = FindObjectOfType<AudioManager>();
+            Cursor.visible = false;
+            yield return new WaitForSecondsRealtime(waitForFadeTime);
             audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
             yield return SceneManager.LoadSceneAsync(sceneIndex);
             yield return audioManager.FadeInMaster(fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
+            Cursor.visible = true;
         }
 
         private IEnumerator LoadLastScene()
@@ -94,11 +98,14 @@ namespace RPG.SceneManagement
             Fader fader = FindObjectOfType<Fader>();
             SavingSystem savingSystem = GetComponent<SavingSystem>();
             AudioManager audioManager = FindObjectOfType<AudioManager>();
+            Cursor.visible = false;
+            yield return new WaitForSecondsRealtime(waitForFadeTime);
             audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
             yield return savingSystem.LoadLastScene(GetCurrentSave());
             yield return audioManager.FadeInMaster(fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
+            Cursor.visible = true;
         }
 
 #if UNITY_EDITOR

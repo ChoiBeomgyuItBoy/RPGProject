@@ -63,11 +63,6 @@ namespace RPG.Audio
             audioSource = GetComponent<AudioSource>();
         }
 
-        private IEnumerator Start()
-        {
-            yield return FadeInMaster(initalFadeInTime);
-        }
-
         private void OnEnable()
         {
             globalSettings.onSettingsChanged += UpdateVolume;

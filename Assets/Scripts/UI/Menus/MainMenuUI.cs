@@ -14,6 +14,7 @@ namespace RPG.UI.Menus
         [SerializeField] Button loadButton;
         [SerializeField] Button quitButton;
         [SerializeField] TMP_InputField newGameInput;
+        [SerializeField] int minGameNameLength = 3;
         LazyValue<SavingWrapper> savingWrapper;
 
         void Awake()
@@ -27,9 +28,16 @@ namespace RPG.UI.Menus
             continueButton.onClick.AddListener(ContinueGame);
             newGameButton.onClick.AddListener(NewGame);
             quitButton.onClick.AddListener(Quit);
+            newGameInput.onValueChanged.AddListener(SetNewGameButton);
 
             continueButton.interactable = savingWrapper.value.CanContinue();
             loadButton.interactable = savingWrapper.value.CanLoad();
+            SetNewGameButton(newGameInput.text);
+        }
+
+        void SetNewGameButton(string newGameText)
+        {
+            newGameButton.interactable = newGameText.Length > minGameNameLength;
         }
 
         SavingWrapper GetSavingWrapper()
