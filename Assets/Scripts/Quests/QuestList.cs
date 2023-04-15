@@ -34,12 +34,12 @@ namespace RPG.Quests
 
             if(status != null)
             {
+                status.CompleteObjective(objective);
+                
                 if(status.IsComplete())
                 {
                     GiveReward(quest);
                 }
-
-                status.CompleteObjective(objective);
 
                 onListUpdated?.Invoke();
             }
@@ -86,7 +86,7 @@ namespace RPG.Quests
         private void GiveReward(Quest quest)
         {
             foreach(var reward in quest.GetRewards())
-            {
+            {        
                 bool success = GetComponent<Inventory>().AddToFirstEmptySlot(reward.item, reward.number);
 
                 if(!success)

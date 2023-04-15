@@ -1,10 +1,12 @@
 using System;
+using GameDevTV.Inventories;
 using GameDevTV.Saving;
+using RPG.Inventories;
 using UnityEngine;
 
 namespace RPG.Stats
 {
-    public class Experience : MonoBehaviour, ISaveable
+    public class Experience : MonoBehaviour, ISaveable, IItemStore
     {
         [SerializeField] float experiencePoints = 0f;
 
@@ -31,14 +33,25 @@ namespace RPG.Stats
             experiencePoints = (float) state;
         }
 
-        // DEBUG TOOL
-
+#if UNITY_EDITOR
         private void Update()
         {
             if(Input.GetKey(KeyCode.E))
             {
                 GainExperience(Time.deltaTime * 1000);
             }
+        }
+#endif
+
+        int IItemStore.AddItems(InventoryItem item, int number)
+        {
+            if(item is ExperienceItem)
+            {
+                GainExperience(item.GetPrice() * number);
+                return number;
+            }
+
+            return 0;
         }
     }
 }

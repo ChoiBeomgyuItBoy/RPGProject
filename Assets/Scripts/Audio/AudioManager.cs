@@ -30,7 +30,7 @@ namespace RPG.Audio
 
         public Coroutine FadeInMusic(float time)
         {
-            return StartCoroutine(FadeSnapshot("FadeInLowerMusic", time));
+            return StartCoroutine(FadeSnapshot("FadeInMusic", time));
         }
 
         public Coroutine FadeMusicLowVolume(float time)
