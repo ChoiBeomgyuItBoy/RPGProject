@@ -9,7 +9,13 @@ namespace RPG.Audio
         public void PlayMusic(int trackIndex)
         {
             Track selectedTrack = tracks[trackIndex];
-            StartCoroutine(FadeOutInMusic(selectedTrack));
+            StartCoroutine(FadeOutInMusic(selectedTrack, false));
+        }
+
+        public void PlayMusicInDialogue(int trackIndex)
+        {
+            Track selectedTrack = tracks[trackIndex];
+            StartCoroutine(FadeOutInMusic(selectedTrack, true));
         }
     }
 }

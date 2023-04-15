@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac85af1edccb084691a8046b3fdc1b4, type: 3}
+  m_Name: Get ready for school
+  m_EditorClassIdentifier: 
+  objectives:
+  - reference: a
+    description: Get your homework and equip it
+    usesCondition: 1
+    completionCondition:
+      and:
+      - or:
+        - predicate: HasItemEquiped
+          parameters:
+          - 4d6e15ad-87bc-4bd0-b38d-951adb321947
+          negate: 0
+  - reference: b
+    description: Grab some breakfast
+    usesCondition: 1
+    completionCondition:
+      and:
+      - or:
+        - predicate: HasInventoryItem
+          parameters:
+          - a867d8e7-7a1b-4906-a26b-ac80c58fc907
+          negate: 0
+  - reference: c
+    description: Talk back to Max once you are done
+    usesCondition: 0
+    completionCondition:
+      and: []
+  rewards: []

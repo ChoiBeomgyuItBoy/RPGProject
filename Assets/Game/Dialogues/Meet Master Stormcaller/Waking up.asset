@@ -1,0 +1,972 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9218170966811243478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 7e82d1cd-5377-4818-b60a-dd2ace72f1aa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Get yoursealf ready before we leave dumbhead.
+  rect:
+    serializedVersion: 2
+    x: 1102
+    y: 409
+    width: 200
+    height: 100
+  children:
+  - 4b42938d-20fd-4d00-b4b5-fef3019cc07d
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-9016256453691609505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: efa4a4e8-97e6-4d6e-b36d-9b3608e8ef17
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yup, everything ready
+  rect:
+    serializedVersion: 2
+    x: 463
+    y: 802
+    width: 200
+    height: 100
+  children:
+  - 57f480da-dcae-43c8-8b1c-3dfaa2c11874
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Get ready for school
+        - a
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Get ready for school
+        - b
+        negate: 0
+--- !u!114 &-8819773581544525338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c216a5e5-f049-4e5b-9155-9ee1988ffba6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ready yet?
+  rect:
+    serializedVersion: 2
+    x: 216
+    y: 333
+    width: 200
+    height: 100
+  children:
+  - 945503c8-b53f-4ae5-8868-ba336728a62c
+  - efa4a4e8-97e6-4d6e-b36d-9b3608e8ef17
+  - 0896a050-e7e7-4b40-84c8-d229bb5d25c5
+  onEnterActions:
+  - PlayNoiseAudio
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get ready for school
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Get ready for school
+        negate: 1
+--- !u!114 &-8406459316497994253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 98b1ac2c-4421-4f61-b09c-37cf0c7eed08
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: How can I equip an item?
+  rect:
+    serializedVersion: 2
+    x: 896
+    y: 527
+    width: 200
+    height: 100
+  children:
+  - 71230a7f-3d82-459c-83eb-788290f788ea
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: HasInventoryItem
+        parameters:
+        - 4d6e15ad-87bc-4bd0-b38d-951adb321947
+        negate: 0
+--- !u!114 &-8235594596994276940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c238a29c-d416-449a-98da-e652cb1e221d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What time is it?
+  rect:
+    serializedVersion: 2
+    x: 486
+    y: 187
+    width: 200
+    height: 100
+  children:
+  - 6c4aa45a-92d8-4b20-8ebd-108defdc5c33
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-7457267750612790282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ebb64231-9f87-404a-8ad7-a87f0511270b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hey man, you overslept again! We're going to be late for school.
+  rect:
+    serializedVersion: 2
+    x: 226
+    y: 105
+    width: 200
+    height: 100
+  children:
+  - f1643410-b502-4c3d-ae04-72b00a957a30
+  - c238a29c-d416-449a-98da-e652cb1e221d
+  onEnterActions:
+  - PlayAngryAudio
+  - PlayAmbientAudio
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get ready for school
+        negate: 1
+--- !u!114 &-6544942237970090951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 71230a7f-3d82-459c-83eb-788290f788ea
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Open your inventory with the "I" key, then drag it where it locks inside
+    the Equipment Menu.
+  rect:
+    serializedVersion: 2
+    x: 1115
+    y: 535
+    width: 200
+    height: 100
+  children:
+  - ffaef326-4f94-479f-b7f7-5a09728ba222
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-5792317824556502089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e31f6e6c-1a2a-402e-bee9-d8a61021feb9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Allright, just hurry up will ya?
+  rect:
+    serializedVersion: 2
+    x: 2117
+    y: 614
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-5504698596483709772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 6c4aa45a-92d8-4b20-8ebd-108defdc5c33
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: It's already 7:30, WE SHALL LEAVE NOW!
+  rect:
+    serializedVersion: 2
+    x: 729
+    y: 97
+    width: 200
+    height: 100
+  children:
+  - 4570ffe5-6e7b-4f62-817a-da93a4579e31
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-5487025910696531512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: a9b10dcd-e026-4f08-b863-29dd997ff835
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Not of your business.
+  rect:
+    serializedVersion: 2
+    x: 1183
+    y: 169
+    width: 200
+    height: 100
+  children:
+  - d6496fd8-8ab8-43f7-a463-3c9db6f564f1
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-4584296890297801691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: cd8fb3bb-c2fa-464a-94fd-5a9d3df2ae6b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What's the matter?
+  rect:
+    serializedVersion: 2
+    x: 654
+    y: 475
+    width: 200
+    height: 100
+  children:
+  - 1996594b-8aeb-4437-9b08-2973eab58e9b
+  - 98b1ac2c-4421-4f61-b09c-37cf0c7eed08
+  - 5dd5094a-af54-4900-a9d0-d05f0d696d46
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-4368513923349152820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 57f480da-dcae-43c8-8b1c-3dfaa2c11874
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Finally... you piss me off quite often you know that right?
+  rect:
+    serializedVersion: 2
+    x: 695
+    y: 801
+    width: 200
+    height: 100
+  children:
+  - ed36e8d4-f5d9-4586-a7a6-93658e9a6763
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-2000186034894819487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 4b42938d-20fd-4d00-b4b5-fef3019cc07d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Open your quest list by clicking on the book icon or by pressing the "Q"
+    key, all the information you need is there.
+  rect:
+    serializedVersion: 2
+    x: 1322
+    y: 403
+    width: 200
+    height: 100
+  children:
+  - ffaef326-4f94-479f-b7f7-5a09728ba222
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-1181234796316024668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d6496fd8-8ab8-43f7-a463-3c9db6f564f1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: If you keep this behaviour you'll never get past me, I'll be the greatest
+    sorcerer in the entire world!
+  rect:
+    serializedVersion: 2
+    x: 1409
+    y: 75
+    width: 200
+    height: 100
+  children:
+  - bc69c2b2-d241-4031-a817-f58b8637ff71
+  - 3691fc0e-882c-43af-8f6c-191bf90a1297
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Waking up
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 685119828247223994}
+  - {fileID: 2878812986551623704}
+  - {fileID: -8235594596994276940}
+  - {fileID: -5504698596483709772}
+  - {fileID: -1181234796316024668}
+  - {fileID: 3814848061238059683}
+  - {fileID: 127578806037566871}
+  - {fileID: 9042642283511145620}
+  - {fileID: 3275110649329462556}
+  - {fileID: -9218170966811243478}
+  - {fileID: -8406459316497994253}
+  - {fileID: -6544942237970090951}
+  - {fileID: -2000186034894819487}
+  - {fileID: 387584819037402399}
+  - {fileID: 5778362709161520241}
+  - {fileID: 890639945169758863}
+  - {fileID: 4211042363250803256}
+  - {fileID: 5406846661044137608}
+  - {fileID: -7457267750612790282}
+  - {fileID: -8819773581544525338}
+  - {fileID: -9016256453691609505}
+  - {fileID: -4368513923349152820}
+  - {fileID: 8498945787758721461}
+  - {fileID: 775348625166615439}
+  - {fileID: 3157317249181945973}
+  - {fileID: -4584296890297801691}
+  - {fileID: 7871814939425428940}
+  - {fileID: 7668021850460663869}
+  - {fileID: 2388606090216362721}
+  - {fileID: -5792317824556502089}
+  - {fileID: 1115469800802736882}
+  - {fileID: 2769343169969370336}
+  - {fileID: -5487025910696531512}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &127578806037566871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 945503c8-b53f-4ae5-8868-ba336728a62c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Give a few minutes.
+  rect:
+    serializedVersion: 2
+    x: 478
+    y: 311
+    width: 200
+    height: 100
+  children:
+  - c31b46c6-1a47-4f09-849f-232143d58d5b
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &387584819037402399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 5dd5094a-af54-4900-a9d0-d05f0d696d46
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: How can I eat this apple?
+  rect:
+    serializedVersion: 2
+    x: 893
+    y: 657
+    width: 200
+    height: 100
+  children:
+  - 5db28dc8-1524-4d6f-9e7d-d3030bb84516
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Get ready for school
+        - b
+        negate: 0
+--- !u!114 &685119828247223994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 3abd8125-bd47-4ba5-bdb0-05c33f41ae78
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hey!
+  rect:
+    serializedVersion: 2
+    x: -9
+    y: 241
+    width: 200
+    height: 100
+  children:
+  - ebb64231-9f87-404a-8ad7-a87f0511270b
+  - c216a5e5-f049-4e5b-9155-9ee1988ffba6
+  - 251f21d0-234f-4d13-89cd-6ef8ce7dc1ca
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &775348625166615439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 251f21d0-234f-4d13-89cd-6ef8ce7dc1ca
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: C'mon, I'll meet you there.
+  rect:
+    serializedVersion: 2
+    x: 213
+    y: 504
+    width: 200
+    height: 100
+  children: []
+  onEnterActions:
+  - PlayNoiseAudio
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get ready for school
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Get ready for school
+        negate: 0
+--- !u!114 &890639945169758863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 5a09059c-d24a-46d1-84ac-a81a6a225c1c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'Press the number related to the Action Slot you want to use. '
+  rect:
+    serializedVersion: 2
+    x: 1363
+    y: 668
+    width: 200
+    height: 100
+  children:
+  - ffaef326-4f94-479f-b7f7-5a09728ba222
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &1115469800802736882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 4570ffe5-6e7b-4f62-817a-da93a4579e31
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Can you be a responsible person FOR ONLY ONE DAY!?
+  rect:
+    serializedVersion: 2
+    x: 944
+    y: 95
+    width: 200
+    height: 100
+  children:
+  - 2edef87a-46b6-46b1-ab00-ea43e8932c58
+  - a9b10dcd-e026-4f08-b863-29dd997ff835
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &2388606090216362721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e30fa2ec-957b-4765-b385-a132db96adca
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No.
+  rect:
+    serializedVersion: 2
+    x: 1857
+    y: 614
+    width: 200
+    height: 100
+  children:
+  - e31f6e6c-1a2a-402e-bee9-d8a61021feb9
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &2769343169969370336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 2edef87a-46b6-46b1-ab00-ea43e8932c58
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: C'mon I kept awake doing my homework.
+  rect:
+    serializedVersion: 2
+    x: 1176
+    y: 16
+    width: 200
+    height: 100
+  children:
+  - d6496fd8-8ab8-43f7-a463-3c9db6f564f1
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &2878812986551623704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f1643410-b502-4c3d-ae04-72b00a957a30
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Ughhhh... let me sleep a little more.
+  rect:
+    serializedVersion: 2
+    x: 478
+    y: 44
+    width: 200
+    height: 100
+  children:
+  - 6c4aa45a-92d8-4b20-8ebd-108defdc5c33
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &3157317249181945973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 0896a050-e7e7-4b40-84c8-d229bb5d25c5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I need some help.
+  rect:
+    serializedVersion: 2
+    x: 454
+    y: 476
+    width: 200
+    height: 100
+  children:
+  - cd8fb3bb-c2fa-464a-94fd-5a9d3df2ae6b
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &3275110649329462556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 1996594b-8aeb-4437-9b08-2973eab58e9b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: How can i open the door?
+  rect:
+    serializedVersion: 2
+    x: 887
+    y: 404
+    width: 200
+    height: 100
+  children:
+  - 7e82d1cd-5377-4818-b60a-dd2ace72f1aa
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &3814848061238059683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ccf89f7a-9008-41a3-b883-2ce247cd7eb7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Anyways... hurry up and get ready! I'll wait for you. Don't forget to bring
+    your homework, Master Stormcaller must be expecting us.
+  rect:
+    serializedVersion: 2
+    x: 1931
+    y: 77
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions:
+  - GiveQuest1
+  condition:
+    and: []
+--- !u!114 &4211042363250803256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: bc69c2b2-d241-4031-a817-f58b8637ff71
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Alright...
+  rect:
+    serializedVersion: 2
+    x: 1654
+    y: 26
+    width: 200
+    height: 100
+  children:
+  - ccf89f7a-9008-41a3-b883-2ce247cd7eb7
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &5406846661044137608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 3691fc0e-882c-43af-8f6c-191bf90a1297
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Nope, that'll be me!
+  rect:
+    serializedVersion: 2
+    x: 1658
+    y: 174
+    width: 200
+    height: 100
+  children:
+  - ccf89f7a-9008-41a3-b883-2ce247cd7eb7
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &5778362709161520241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 5db28dc8-1524-4d6f-9e7d-d3030bb84516
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Items such as food, potions, spells, etc. can be used by dragging them into
+    the Action Bar.
+  rect:
+    serializedVersion: 2
+    x: 1139
+    y: 668
+    width: 200
+    height: 100
+  children:
+  - 5a09059c-d24a-46d1-84ac-a81a6a225c1c
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &7668021850460663869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 25c74c15-bbae-4c9b-b975-f985853c026e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yeah.
+  rect:
+    serializedVersion: 2
+    x: 1881
+    y: 465
+    width: 200
+    height: 100
+  children:
+  - cd8fb3bb-c2fa-464a-94fd-5a9d3df2ae6b
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &7871814939425428940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ffaef326-4f94-479f-b7f7-5a09728ba222
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Anything else?
+  rect:
+    serializedVersion: 2
+    x: 1595
+    y: 539
+    width: 200
+    height: 100
+  children:
+  - 25c74c15-bbae-4c9b-b975-f985853c026e
+  - e30fa2ec-957b-4765-b385-a132db96adca
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &8498945787758721461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ed36e8d4-f5d9-4586-a7a6-93658e9a6763
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Anyways, I'll meet you at the academy.
+  rect:
+    serializedVersion: 2
+    x: 955
+    y: 809
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions:
+  - GiveQuest2
+  - CompleteObjective
+  condition:
+    and: []
+--- !u!114 &9042642283511145620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c31b46c6-1a47-4f09-849f-232143d58d5b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: We don't have the entire morning , hurry up!
+  rect:
+    serializedVersion: 2
+    x: 728
+    y: 295
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []

@@ -51,7 +51,7 @@ namespace RPG.Audio
 
             if(track != null)
             {
-                StartCoroutine(FadeOutInMusic(track));
+                StartCoroutine(FadeOutInMusic(track, false));
             }
         }
 

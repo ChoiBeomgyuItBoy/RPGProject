@@ -28,10 +28,23 @@ namespace RPG.Audio
             return StartCoroutine(FadeSnapshot("FadeOutMusic", time));
         }
 
-        public Coroutine FadeInTrack(float time, Track track)
+        public Coroutine FadeInTrack(float time, Track track, bool inDialogue)
         {
             PlayTrack(track);
-            return StartCoroutine(FadeSnapshot("FadeInMusic", time));
+
+            if(inDialogue)
+            {
+                return StartCoroutine(FadeSnapshot("FadeInLowerMusic", time));
+            }
+            else
+            {
+                return StartCoroutine(FadeSnapshot("FadeInMusic", time));
+            }
+        }
+
+        public Coroutine FadeInLowerMusic(float time)
+        {
+            return StartCoroutine(FadeSnapshot("FadeInLowerMusic", time));
         }
 
         public void PlayTrack(Track track)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameDevTV.Utils;
+using RPG.Audio;
 using RPG.Control;
 using RPG.Core;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace RPG.Dialogue
     public class PlayerConversant : MonoBehaviour
     {
         [SerializeField] string playerName = "";
+        [SerializeField] float musicChangeTime = 0.5f;
         Dialogue currentDialogue = null;
         DialogueNode currentNode = null;
         AIConversant currentConversant = null;
@@ -28,6 +30,7 @@ namespace RPG.Dialogue
 
             GetComponent<PlayerController>().enabled = false;
             GetComponent<ActionScheduler>().CancelCurrentAction();
+            FindObjectOfType<AudioManager>().FadeInLowerMusic(musicChangeTime);
         }
 
         public void Quit()
@@ -40,6 +43,7 @@ namespace RPG.Dialogue
             onConversationUpdated?.Invoke();
 
             GetComponent<PlayerController>().enabled = true;
+            FindObjectOfType<AudioManager>().FadeInMaster(musicChangeTime);
         }
 
         public bool IsActive()

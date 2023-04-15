@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!245 &-7673605595487321481
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FadeInLowerMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: b5cfadd3ba47ea9429c5ef5047442b3b
+  m_FloatValues:
+    ac74d821949a7944496ed3b8741dece4: 0
+    800c6ed3d24f99a448b6f456db8064a5: 0
+    451f97064cf475246bfd4c33f6ada940: -10
+  m_TransitionOverrides: {}
 --- !u!245 &-5546505436827543330
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
@@ -61,6 +75,7 @@ AudioMixerController:
   - {fileID: -3507958152196319315}
   - {fileID: 5144863113499715137}
   - {fileID: 4786713529021415258}
+  - {fileID: -7673605595487321481}
   m_StartSnapshot: {fileID: -5546505436827543330}
   m_SuspendThreshold: -80
   m_EnableSuspend: 0
@@ -75,7 +90,7 @@ AudioMixerController:
     - 3608ddaf68def2a489025dac0555623c
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: -3507958152196319315}
+  m_TargetSnapshot: {fileID: -7673605595487321481}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

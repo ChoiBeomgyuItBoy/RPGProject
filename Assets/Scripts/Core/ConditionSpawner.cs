@@ -6,8 +6,7 @@ namespace RPG.Core
 {
     public class ConditionSpawner : MonoBehaviour
     {
-        [SerializeField] GameObject[] objectsToSpawn;
-        [SerializeField] Condition condition;
+        [SerializeField] Condition conditionToSpawn;
         IEnumerable<IPredicateEvaluator> evaluators;
 
         void Awake()
@@ -17,10 +16,7 @@ namespace RPG.Core
         
         void Start()
         {   
-            foreach(var gameObject in objectsToSpawn)
-            {
-                gameObject.SetActive(condition.Check(evaluators));
-            }
+            gameObject.SetActive(conditionToSpawn.Check(evaluators));
         }   
     }
 }

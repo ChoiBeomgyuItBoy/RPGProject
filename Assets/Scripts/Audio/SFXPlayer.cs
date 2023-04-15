@@ -43,11 +43,13 @@ namespace RPG.Audio
         private void OnEnable()
         {
             globalSettings.onSettingsChanged += UpdateVolume;
+            UpdateVolume();
         }
 
         private void OnDisable()
         {
             globalSettings.onSettingsChanged -= UpdateVolume;
+            UpdateVolume();
         }
 
         private void UpdateVolume()
