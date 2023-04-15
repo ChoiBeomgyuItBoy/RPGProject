@@ -30,7 +30,7 @@ namespace RPG.Dialogue
 
             GetComponent<PlayerController>().enabled = false;
             GetComponent<ActionScheduler>().CancelCurrentAction();
-            FindObjectOfType<AudioManager>().FadeInLowerMusic(musicChangeTime);
+            FindObjectOfType<AudioManager>().FadeMusicLowVolume(musicChangeTime);
         }
 
         public void Quit()

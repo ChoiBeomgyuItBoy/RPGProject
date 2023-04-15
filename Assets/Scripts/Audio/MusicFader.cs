@@ -23,20 +23,27 @@ namespace RPG.Audio
             return null;
         }
 
-        protected IEnumerator FadeOutInMusic(Track track, bool inDialogue)
+        protected IEnumerator FadeOutInMusic(Track track, bool lowVolume)
         { 
             yield return FadeOutMusic();
-            yield return FadeInMusic(track, inDialogue);
+            yield return lowVolume? FadeInMusicLowVolume(track) : FadeInMusic(track);
         }
 
-        protected IEnumerator FadeInMusic(Track track, bool inDialogue)
+        protected IEnumerator FadeInMusic(Track track)
         {
-            yield return audioManager.value.FadeInTrack(fadeInMusicTime, track, inDialogue);
+            audioManager.value.PlayTrack(track);
+            yield return audioManager.value.FadeInMusic(fadeInMusicTime);
+        }
+
+        protected IEnumerator FadeInMusicLowVolume(Track track)
+        {
+            audioManager.value.PlayTrack(track);
+            yield return audioManager.value.FadeMusicLowVolume(fadeInMusicTime);
         }
 
         protected IEnumerator FadeOutMusic()
         {
-            yield return audioManager.value.FadeOutTrack(fadeOutMusicTime);
+            yield return audioManager.value.FadeOutMusic(fadeOutMusicTime);
         }
     }
 }

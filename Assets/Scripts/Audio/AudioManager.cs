@@ -23,28 +23,19 @@ namespace RPG.Audio
             return StartCoroutine(FadeSnapshot("FadeInMaster", time));
         }
 
-        public Coroutine FadeOutTrack(float time)
+        public Coroutine FadeOutMusic(float time)
         {
             return StartCoroutine(FadeSnapshot("FadeOutMusic", time));
         }
 
-        public Coroutine FadeInTrack(float time, Track track, bool inDialogue)
-        {
-            PlayTrack(track);
-
-            if(inDialogue)
-            {
-                return StartCoroutine(FadeSnapshot("FadeInLowerMusic", time));
-            }
-            else
-            {
-                return StartCoroutine(FadeSnapshot("FadeInMusic", time));
-            }
-        }
-
-        public Coroutine FadeInLowerMusic(float time)
+        public Coroutine FadeInMusic(float time)
         {
             return StartCoroutine(FadeSnapshot("FadeInLowerMusic", time));
+        }
+
+        public Coroutine FadeMusicLowVolume(float time)
+        {
+            return StartCoroutine(FadeSnapshot("FadeMusicLowVolume", time));
         }
 
         public void PlayTrack(Track track)
