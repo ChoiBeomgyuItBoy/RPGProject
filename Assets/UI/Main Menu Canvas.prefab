@@ -1233,6 +1233,31 @@ PrefabInstance:
       propertyPath: clips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 4844f8709bc6b1749b886611ed3eb342, type: 3}
+    - target: {fileID: 4565417893539974737, guid: f5e5e0fc235aeef4d81f16c5fdd32622,
+        type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565417893539974737, guid: f5e5e0fc235aeef4d81f16c5fdd32622,
+        type: 3}
+      propertyPath: soundEffects.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f3066b243c5528b42bc611b9f6946995, type: 3}
+    - target: {fileID: 4565417893539974737, guid: f5e5e0fc235aeef4d81f16c5fdd32622,
+        type: 3}
+      propertyPath: soundEffects.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4844f8709bc6b1749b886611ed3eb342, type: 3}
+    - target: {fileID: 4565417893539974737, guid: f5e5e0fc235aeef4d81f16c5fdd32622,
+        type: 3}
+      propertyPath: soundEffects.Array.data[0].volumeFraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565417893539974737, guid: f5e5e0fc235aeef4d81f16c5fdd32622,
+        type: 3}
+      propertyPath: soundEffects.Array.data[1].volumeFraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4565417893539974742, guid: f5e5e0fc235aeef4d81f16c5fdd32622,
         type: 3}
       propertyPath: m_RootOrder
@@ -3629,12 +3654,12 @@ PrefabInstance:
     - target: {fileID: 4373750959323671345, guid: 8638014c93f14d7429e276b406663df9,
         type: 3}
       propertyPath: m_Size
-      value: 0.8705065
+      value: 0.8705064
       objectReference: {fileID: 0}
     - target: {fileID: 4373750959323671345, guid: 8638014c93f14d7429e276b406663df9,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 1.0000007
       objectReference: {fileID: 0}
     - target: {fileID: 5759985166876371679, guid: 8638014c93f14d7429e276b406663df9,
         type: 3}

@@ -267,21 +267,31 @@ PrefabInstance:
         type: 3}
       propertyPath: onNoTargets.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3731381487427215465}
+      objectReference: {fileID: 731707207942003169}
     - target: {fileID: 2159941782763991917, guid: 92696e2ca0bbfc046bdbaaa3dfb3b9f9,
         type: 3}
       propertyPath: onNoTargets.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeOutInAmbientMusic
+      value: FadeInAmbientMusic
       objectReference: {fileID: 0}
     - target: {fileID: 2159941782763991917, guid: 92696e2ca0bbfc046bdbaaa3dfb3b9f9,
         type: 3}
       propertyPath: onTargetsAggrevated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3731381487427215465}
+      objectReference: {fileID: 731707207942003169}
     - target: {fileID: 2159941782763991917, guid: 92696e2ca0bbfc046bdbaaa3dfb3b9f9,
         type: 3}
       propertyPath: onTargetsAggrevated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeOutInCombatMusic
+      value: FadeInCombatMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159941782763991917, guid: 92696e2ca0bbfc046bdbaaa3dfb3b9f9,
+        type: 3}
+      propertyPath: onNoTargets.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RPG.Audio.MusicPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159941782763991917, guid: 92696e2ca0bbfc046bdbaaa3dfb3b9f9,
+        type: 3}
+      propertyPath: onTargetsAggrevated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RPG.Audio.MusicPlayer, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4799053745561545438, guid: 92696e2ca0bbfc046bdbaaa3dfb3b9f9,
         type: 3}
@@ -577,7 +587,7 @@ PrefabInstance:
     - target: {fileID: 224338124537362198, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.19385
+      value: -570.74994
       objectReference: {fileID: 0}
     - target: {fileID: 224928911778522548, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
@@ -1327,12 +1337,12 @@ PrefabInstance:
     - target: {fileID: 1693024143934773398, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
       propertyPath: m_Size
-      value: 0.49999994
+      value: 0.94257903
       objectReference: {fileID: 0}
     - target: {fileID: 1693024143934773398, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
       propertyPath: m_Value
-      value: -0.00751048
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1698827580995613597, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
@@ -3997,7 +4007,7 @@ PrefabInstance:
     - target: {fileID: 6263127839363248598, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6284724571729411419, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
@@ -4362,7 +4372,7 @@ PrefabInstance:
     - target: {fileID: 7007384611384344297, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
       propertyPath: m_Value
-      value: 1.0000004
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7041743543315091094, guid: 07dc30b6f1bbb4147acd5fd5555a18f5,
         type: 3}
@@ -5630,21 +5640,21 @@ PrefabInstance:
     - target: {fileID: 4536304152449868559, guid: 5e1b8378481ff2942b18bd600571097a,
         type: 3}
       propertyPath: m_Name
-      value: Scene Music Trigger
+      value: Music Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e1b8378481ff2942b18bd600571097a, type: 3}
---- !u!114 &3731381487427215465 stripped
+--- !u!114 &731707207942003169 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5874957146313246164, guid: 5e1b8378481ff2942b18bd600571097a,
+  m_CorrespondingSourceObject: {fileID: 7522988302028012636, guid: 5e1b8378481ff2942b18bd600571097a,
     type: 3}
   m_PrefabInstance: {fileID: 7079814559106966973}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b25b2ea05848dc459e19955705ba53c, type: 3}
+  m_Script: {fileID: 11500000, guid: 17e9c9f6013016545b390d5f7a689ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &6128879669207131577 stripped

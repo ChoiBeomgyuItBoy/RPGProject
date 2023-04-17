@@ -88,7 +88,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  targets: []
 --- !u!1001 &1726232337313470448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,6 +143,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6031385765046454184, guid: bfa3287448b69de4e917a4d732a4afda,
         type: 3}
+    - target: {fileID: 4948807693289556879, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948807693289556879, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3298d4d468badd044b2ca8930315e21d, type: 3}
+    - target: {fileID: 4948807693289556879, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c67b8f28ccb1a184cba5b958315fb75f, type: 3}
+    - target: {fileID: 4948807693289556879, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.data[0].volumeFraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948807693289556879, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.data[1].volumeFraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: m_RootOrder
@@ -363,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Aurora
+  musicChangeTime: 0.5
 --- !u!114 &2997220086331652442
 MonoBehaviour:
   m_ObjectHideFlags: 0

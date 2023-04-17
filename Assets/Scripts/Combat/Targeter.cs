@@ -10,7 +10,7 @@ namespace RPG.Combat
     {
         [SerializeField] UnityEvent onTargetsAggrevated;
         [SerializeField] UnityEvent onNoTargets;
-        [SerializeField] List<CombatTarget> targets = new List<CombatTarget>();
+        List<CombatTarget> targets = new List<CombatTarget>();
         bool alreadyInCombat = false;
 
         void OnTriggerEnter(Collider other)

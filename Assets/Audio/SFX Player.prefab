@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5273518650120797025
 AudioSource:
@@ -48,7 +48,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -179,5 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalSettings: {fileID: 11400000, guid: 36445edfb088d204fa2335342112ca9e, type: 2}
-  clips: []
-  playFirstClipOnAwake: 0
+  audioSetting: 1
+  soundEffects: []
+  playFirstEffectOnStart: 0

@@ -1,60 +1,26 @@
-using RPG.Core;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Audio
 {
-    public class SFXPlayer : MonoBehaviour
+    public class SFXPlayer : SoundEmitter
     {
-        [SerializeField] GlobalSettings globalSettings;
-        [SerializeField] AudioClip[] clips;
-        [SerializeField] bool playFirstClipOnAwake = false;
-
-        AudioSource audioSource;
+        [SerializeField] AudioConfig[] soundEffects;
+        [SerializeField] UnityEvent onStart;
 
         public void Play(int index)
         {
-            audioSource.clip = clips[index];
-            audioSource.Play();
+            PlayAudio(soundEffects[index]);
         }
 
         public void PlayRandom()
         {
-            int randomIndex = Random.Range(0, clips.Length);
-
-            audioSource.clip = clips[randomIndex];
-            audioSource.Play();
-        }
-
-        private void Awake()
-        {
-            audioSource = GetComponent<AudioSource>();
+            Play(Random.Range(0, soundEffects.Length));
         }
 
         private void Start()
         {
-            UpdateVolume();
-
-            if(playFirstClipOnAwake)
-            {
-                Play(0);
-            }
-        }
-
-        private void OnEnable()
-        {
-            globalSettings.onSettingsChanged += UpdateVolume;
-            UpdateVolume();
-        }
-
-        private void OnDisable()
-        {
-            globalSettings.onSettingsChanged -= UpdateVolume;
-            UpdateVolume();
-        }
-
-        private void UpdateVolume()
-        {
-            audioSource.volume = globalSettings.GetMasterVolume() * globalSettings.GetSFXVolume();
+            onStart?.Invoke();
         }
     }
 }
