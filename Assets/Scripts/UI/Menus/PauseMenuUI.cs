@@ -20,6 +20,7 @@ namespace RPG.UI.Menus
 
         void Start()
         {
+            Time.timeScale = normalTimeScale;
             saveButton.onClick.AddListener(Save);
             saveAndQuitButton.onClick.AddListener(SaveAndQuit);
         }

@@ -37,10 +37,16 @@ namespace RPG.Abilities.Targeting
                 targetingEffectInstance.SetActive(true);
             }
 
-            targetingEffectInstance.transform.localScale = new Vector3(areaAffectRadius * 2, 0, areaAffectRadius * 2);
+            targetingEffectInstance.transform.localScale = new Vector3(areaAffectRadius * 2, 1, areaAffectRadius * 2);
 
             while(!data.IsCancelled())
             {
+                if(Input.GetMouseButtonDown(1))
+                {
+                    data.Cancel();
+                    break;
+                }
+
                 Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
 
                 RaycastHit raycastHit;

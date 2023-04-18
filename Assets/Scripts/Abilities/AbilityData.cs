@@ -52,7 +52,7 @@ namespace RPG.Abilities
             return cancelled;
         }
 
-        void IAction.Cancel()
+        public void Cancel()
         {
             cancelled = true;
         }
