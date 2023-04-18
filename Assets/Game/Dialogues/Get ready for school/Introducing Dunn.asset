@@ -1,0 +1,347 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8776182963932735791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 398170f9-2264-422e-b68a-af10e652b0fc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: We were practicing our spells!
+  rect:
+    serializedVersion: 2
+    x: 521
+    y: 219
+    width: 200
+    height: 100
+  children:
+  - 42cd4945-4453-4360-9d0e-1140ad045338
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-8430063914672974452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: a6d83cd1-5a2f-4020-bc7d-7fe74a2baf23
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Can you repeat it?
+  rect:
+    serializedVersion: 2
+    x: 1802
+    y: 139
+    width: 200
+    height: 100
+  children:
+  - c9ed9bad-190d-473f-be98-57c5d273a091
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-6916764044634327857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: ca689170-da51-4100-815c-ece2e75a4759
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: He overslept.
+  rect:
+    serializedVersion: 2
+    x: 531
+    y: 112
+    width: 200
+    height: 100
+  children:
+  - 42cd4945-4453-4360-9d0e-1140ad045338
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-5783940615035013378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e9277d35-ee7c-4db9-8c82-6149a8b4076d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Where is the academy?
+  rect:
+    serializedVersion: 2
+    x: 1043
+    y: 121
+    width: 200
+    height: 100
+  children:
+  - cfead670-19de-42e0-9793-71f4ffb61295
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-1941308421411084595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e165f3f4-11bc-4c37-b9a8-bb466de3c519
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Bye.
+  rect:
+    serializedVersion: 2
+    x: 1031
+    y: 228
+    width: 200
+    height: 100
+  children:
+  - 580d8674-6bc4-4571-ae33-36e36dc0ca1f
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Introducing Dunn
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2063643841131773197}
+  - {fileID: 339186524654255467}
+  - {fileID: -6916764044634327857}
+  - {fileID: -8776182963932735791}
+  - {fileID: 5078608085813999679}
+  - {fileID: -5783940615035013378}
+  - {fileID: -1941308421411084595}
+  - {fileID: 3681839524080532103}
+  - {fileID: 6599974645413997883}
+  - {fileID: 6345255225062910216}
+  - {fileID: 5587328537701649315}
+  - {fileID: -8430063914672974452}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &339186524654255467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: baa8e64a-3541-412e-bc76-dbc038be5f82
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I saw your friend in an insane hurry, what happened?
+  rect:
+    serializedVersion: 2
+    x: 280
+    y: 142
+    width: 200
+    height: 100
+  children:
+  - ca689170-da51-4100-815c-ece2e75a4759
+  - 398170f9-2264-422e-b68a-af10e652b0fc
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Head to the Academy
+        negate: 0
+--- !u!114 &2063643841131773197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 83e77ea7-5b28-4f1f-be6c-dd156eacef5a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hey there! Good morning.
+  rect:
+    serializedVersion: 2
+    x: 36
+    y: 146
+    width: 200
+    height: 100
+  children:
+  - baa8e64a-3541-412e-bc76-dbc038be5f82
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &3681839524080532103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 580d8674-6bc4-4571-ae33-36e36dc0ca1f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: See you later!
+  rect:
+    serializedVersion: 2
+    x: 1285
+    y: 229
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &5078608085813999679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 42cd4945-4453-4360-9d0e-1140ad045338
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Really? Alright...
+  rect:
+    serializedVersion: 2
+    x: 780
+    y: 164
+    width: 200
+    height: 100
+  children:
+  - e9277d35-ee7c-4db9-8c82-6149a8b4076d
+  - e165f3f4-11bc-4c37-b9a8-bb466de3c519
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &5587328537701649315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 9a3e263e-2409-4c04-8b0e-00870f18bf62
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Thanks!
+  rect:
+    serializedVersion: 2
+    x: 1807
+    y: 38
+    width: 200
+    height: 100
+  children:
+  - 580d8674-6bc4-4571-ae33-36e36dc0ca1f
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &6345255225062910216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c9ed9bad-190d-473f-be98-57c5d273a091
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: It's close to the entrance bridge, looks like a castle with flags.
+  rect:
+    serializedVersion: 2
+    x: 1496
+    y: 37
+    width: 200
+    height: 100
+  children:
+  - 9a3e263e-2409-4c04-8b0e-00870f18bf62
+  - a6d83cd1-5a2f-4020-bc7d-7fe74a2baf23
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &6599974645413997883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: cfead670-19de-42e0-9793-71f4ffb61295
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'You''ve been attending that school for almost a year and you don''t remember? '
+  rect:
+    serializedVersion: 2
+    x: 1277
+    y: 40
+    width: 200
+    height: 100
+  children:
+  - c9ed9bad-190d-473f-be98-57c5d273a091
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []

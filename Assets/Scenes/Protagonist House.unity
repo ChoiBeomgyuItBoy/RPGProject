@@ -1375,6 +1375,58 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 287641c6816a5d6439b3abd4dbe279ed, type: 3}
+--- !u!1 &765237265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 765237267}
+  - component: {fileID: 765237266}
+  m_Layer: 0
+  m_Name: 'Quest: Get ready for school'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &765237266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765237265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34bcca4b1fbfd540b300c9ce3f7c630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditionToSpawn:
+    and:
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Get ready for school
+        negate: 1
+--- !u!4 &765237267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765237265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1546583262}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &796248344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2658,7 +2710,7 @@ PrefabInstance:
     - target: {fileID: 2014970319840791850, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.7491
+      value: -570.74994
       objectReference: {fileID: 0}
     - target: {fileID: 2015295741027669098, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
@@ -5538,29 +5590,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1546583283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546583260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e34bcca4b1fbfd540b300c9ce3f7c630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conditionToSpawn:
-    and:
-    - or:
-      - predicate: HasQuest
-        parameters:
-        - Get ready for school
-        negate: 1
-      - predicate: CompletedQuest
-        parameters:
-        - Get ready for school
-        negate: 1
 --- !u!114 &1546583284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6160,7 +6189,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 765237267}
     m_Modifications:
     - target: {fileID: -5306694157724500449, guid: 32489f9ee455ef14f8f19369ecac849e,
         type: 3}
@@ -6238,7 +6267,7 @@ PrefabInstance:
     - target: {fileID: 9022313842917879236, guid: 32489f9ee455ef14f8f19369ecac849e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9022313842917879236, guid: 32489f9ee455ef14f8f19369ecac849e,
         type: 3}

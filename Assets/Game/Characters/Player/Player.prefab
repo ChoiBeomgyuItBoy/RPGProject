@@ -60,34 +60,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTargetsAggrevated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RPG.Audio.SceneMusicTrigger, Assembly-CSharp
-        m_MethodName: PlayCombatMusic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onNoTargets:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RPG.Audio.SceneMusicTrigger, Assembly-CSharp
-        m_MethodName: PlayAmbientMusic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &1726232337313470448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +81,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 990846870796411178, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 990846870796411178, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 677a588867b19234ba2e66c09d82ba28, type: 3}
+    - target: {fileID: 990846870796411178, guid: 602cc502bade4b444ab927133e956ffd,
+        type: 3}
+      propertyPath: soundEffects.Array.data[0].volumeFraction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1343313970246494077, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
@@ -161,12 +152,12 @@ PrefabInstance:
     - target: {fileID: 4948807693289556879, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: soundEffects.Array.data[0].volumeFraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4948807693289556879, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: soundEffects.Array.data[1].volumeFraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}

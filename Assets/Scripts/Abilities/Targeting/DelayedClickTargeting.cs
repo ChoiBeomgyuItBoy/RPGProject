@@ -15,6 +15,7 @@ namespace RPG.Abilities.Targeting
         [SerializeField] float areaAffectRadius;
         [SerializeField] GameObject targetingEffectPrefab;
         [SerializeField] float heightEffectOffset = 0.31f;
+        [SerializeField] string targetingAnimationTrigger = "";
 
         GameObject targetingEffectInstance = null;
 
@@ -35,6 +36,11 @@ namespace RPG.Abilities.Targeting
             else
             {
                 targetingEffectInstance.SetActive(true);
+            }
+
+            if(targetingAnimationTrigger != "")
+            {
+                data.GetUser().GetComponent<Animator>().SetTrigger(targetingAnimationTrigger);
             }
 
             targetingEffectInstance.transform.localScale = new Vector3(areaAffectRadius * 2, 1, areaAffectRadius * 2);
@@ -73,6 +79,12 @@ namespace RPG.Abilities.Targeting
 
             targetingEffectInstance.gameObject.SetActive(false);
             playerController.enabled = true;
+
+            if(targetingAnimationTrigger != "")
+            {
+                data.GetUser().GetComponent<Animator>().SetTrigger("cancelAbility");
+            }
+            
             finished();
         }
 
