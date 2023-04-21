@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine.AI;
 using GameDevTV.Inventories;
+using RPG.Core;
 
 namespace RPG.Control
 {
@@ -18,6 +19,7 @@ namespace RPG.Control
             public Vector2 hotSpot;
         }
 
+        [SerializeField] PlayerSettings playerSettings;
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float maxNavMeshProjectionDistance = 40;
         [SerializeField] float raycastRadius = 1;
@@ -30,6 +32,11 @@ namespace RPG.Control
         public static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+
+        public PlayerSettings GetPlayerSettings()
+        {
+            return playerSettings;
         }
 
         void Awake()
@@ -85,7 +92,7 @@ namespace RPG.Control
         {
             for (int i = 0; i < actionSlots; i++)
             {
-                if(Input.GetKeyDown(KeyCode.Alpha1 + i))
+                if(Input.GetKey(KeyCode.Alpha1 + i))
                 {
                     actionStore.Use(i, gameObject);
                 }
@@ -138,7 +145,7 @@ namespace RPG.Control
             {
                 if(!GetComponent<Mover>().CanMoveTo(target)) return false;
 
-                if(Input.GetMouseButton(0))
+                if(Input.GetKey(playerSettings.GetMovementKey()))
                 {
                     GetComponent<Mover>().StartMoveAction(target, 1f);
                 }

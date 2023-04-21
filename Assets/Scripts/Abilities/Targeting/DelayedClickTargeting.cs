@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Control;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Abilities.Targeting
@@ -27,6 +28,8 @@ namespace RPG.Abilities.Targeting
 
         private IEnumerator Targeting(AbilityData data, PlayerController playerController, Action finished)
         {
+            Animator animator = playerController.GetComponent<Animator>();
+            PlayerSettings playerSettings = playerController.GetPlayerSettings();
             playerController.enabled = false;
 
             if(targetingEffectInstance == null)
@@ -40,14 +43,15 @@ namespace RPG.Abilities.Targeting
 
             if(targetingAnimationTrigger != "")
             {
-                data.GetUser().GetComponent<Animator>().SetTrigger(targetingAnimationTrigger);
+                animator.SetTrigger(targetingAnimationTrigger);
+                animator.ResetTrigger("cancelAbility");
             }
 
             targetingEffectInstance.transform.localScale = new Vector3(areaAffectRadius * 2, 1, areaAffectRadius * 2);
 
             while(!data.IsCancelled())
             {
-                if(Input.GetMouseButtonDown(1))
+                if(Input.GetKeyDown(playerSettings.GetMovementKey()))
                 {
                     data.Cancel();
                     break;
@@ -62,10 +66,9 @@ namespace RPG.Abilities.Targeting
                     Vector3 targetingEffectOffset = Vector3.up * heightEffectOffset;
                     targetingEffectInstance.transform.position = raycastHit.point + targetingEffectOffset;
 
-                    if(Input.GetMouseButtonDown(0))
+                    if(Input.GetKeyDown(playerSettings.GetInteractionKey()))
                     {
-                        // Get track of mouse click while in this condition
-                        yield return new WaitWhile(() => Input.GetMouseButton(0));
+                        yield return new WaitWhile(() => Input.GetKey(playerSettings.GetMovementKey()));
 
                         data.SetTargetedPoint(raycastHit.point);
                         data.SetTargets(GetGameObjectsInRadius(raycastHit.point));      
@@ -82,7 +85,7 @@ namespace RPG.Abilities.Targeting
 
             if(targetingAnimationTrigger != "")
             {
-                data.GetUser().GetComponent<Animator>().SetTrigger("cancelAbility");
+                animator.SetTrigger("cancelAbility");
             }
             
             finished();
@@ -90,7 +93,6 @@ namespace RPG.Abilities.Targeting
 
         private IEnumerable<GameObject> GetGameObjectsInRadius(Vector3 point)
         {
-
             RaycastHit[] hits = Physics.SphereCastAll(point, areaAffectRadius, Vector3.up, 0);
 
             foreach(var hit in hits)

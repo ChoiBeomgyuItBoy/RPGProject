@@ -36,7 +36,7 @@ namespace RPG.Dialogue
                 return false;
             }
 
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetKeyDown(callingController.GetPlayerSettings().GetInteractionKey()))
             {
                 ShowDialogue(callingController);
             }

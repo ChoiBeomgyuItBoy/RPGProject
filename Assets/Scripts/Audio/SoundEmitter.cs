@@ -4,9 +4,9 @@ using UnityEngine;
 namespace RPG.Audio
 {
     [RequireComponent(typeof(AudioSource))]
-    public class SoundEmitter : MonoBehaviour
+    public abstract class SoundEmitter : MonoBehaviour
     {
-        [SerializeField] GlobalSettings globalSettings;
+        [SerializeField] PlayerSettings playerSettings;
         [SerializeField] AudioSetting audioSetting;
         AudioConfig currentAudio = null;
         AudioSource audioSource;
@@ -46,27 +46,27 @@ namespace RPG.Audio
 
         void OnEnable()
         {
-            globalSettings.onSettingsChanged += UpdateVolume;
+            playerSettings.onSettingsChanged += UpdateVolume;
         }
 
         void OnDisable()
         {
-            globalSettings.onSettingsChanged -= UpdateVolume;
+            playerSettings.onSettingsChanged -= UpdateVolume;
         }
 
         void UpdateVolume()
         {
             if(currentAudio == null) return;
 
-            float baseVolume = globalSettings.GetMasterVolume() * currentAudio.GetVolumeFraction();
+            float baseVolume = playerSettings.GetMasterVolume() * currentAudio.GetVolumeFraction();
 
             switch(audioSetting)
             {
                 case AudioSetting.Music:
-                    audioSource.volume = globalSettings.GetMusicVolume() * baseVolume;
+                    audioSource.volume = playerSettings.GetMusicVolume() * baseVolume;
                     break;
                 case AudioSetting.SFX:
-                    audioSource.volume = globalSettings.GetSFXVolume() * baseVolume;
+                    audioSource.volume = playerSettings.GetSFXVolume() * baseVolume;
                     break;
             }
         }

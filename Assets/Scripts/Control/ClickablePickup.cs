@@ -27,7 +27,7 @@ namespace RPG.Control
 
         bool IRaycastable.HandleRaycast(PlayerController callingController)
         {
-            if(Input.GetMouseButton(0))
+            if(Input.GetKeyDown(callingController.GetPlayerSettings().GetInteractionKey()))
             {
                 pickup.PickupItem();
             }

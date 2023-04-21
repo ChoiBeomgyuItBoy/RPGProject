@@ -7,7 +7,7 @@ namespace RPG.UI.Menus
 {
     public class SettingsMenuUI : MonoBehaviour
     {
-        [SerializeField] GlobalSettings globalSettings;
+        [SerializeField] PlayerSettings playerSettings;
         [SerializeField] Slider masterVolumeSlider;
         [SerializeField] Slider musicVolumeSlider;
         [SerializeField] Slider sfxVolumeSlider;
@@ -23,23 +23,23 @@ namespace RPG.UI.Menus
         {
             SetupSliders();
 
-            masterVolumeSlider.onValueChanged.AddListener(globalSettings.SetMasterVolume);
-            musicVolumeSlider.onValueChanged.AddListener(globalSettings.SetMusicVolume);
-            sfxVolumeSlider.onValueChanged.AddListener(globalSettings.SetSFXVolume);
+            masterVolumeSlider.onValueChanged.AddListener(playerSettings.SetMasterVolume);
+            musicVolumeSlider.onValueChanged.AddListener(playerSettings.SetMusicVolume);
+            sfxVolumeSlider.onValueChanged.AddListener(playerSettings.SetSFXVolume);
         }
 
         void OnDisable()
         {
-            masterVolumeSlider.onValueChanged.RemoveListener(globalSettings.SetMasterVolume);
-            musicVolumeSlider.onValueChanged.RemoveListener(globalSettings.SetMusicVolume);
-            sfxVolumeSlider.onValueChanged.RemoveListener(globalSettings.SetSFXVolume);
+            masterVolumeSlider.onValueChanged.RemoveListener(playerSettings.SetMasterVolume);
+            musicVolumeSlider.onValueChanged.RemoveListener(playerSettings.SetMusicVolume);
+            sfxVolumeSlider.onValueChanged.RemoveListener(playerSettings.SetSFXVolume);
         }
 
         void SetupSliders()
         {
-            masterVolumeSlider.value = globalSettings.GetMasterVolume();
-            musicVolumeSlider.value = globalSettings.GetMusicVolume();
-            sfxVolumeSlider.value = globalSettings.GetSFXVolume();
+            masterVolumeSlider.value = playerSettings.GetMasterVolume();
+            musicVolumeSlider.value = playerSettings.GetMusicVolume();
+            sfxVolumeSlider.value = playerSettings.GetSFXVolume();
         }
     }
 }
