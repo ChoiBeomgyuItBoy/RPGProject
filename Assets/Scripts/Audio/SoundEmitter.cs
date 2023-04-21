@@ -6,7 +6,7 @@ namespace RPG.Audio
     [RequireComponent(typeof(AudioSource))]
     public abstract class SoundEmitter : MonoBehaviour
     {
-        [SerializeField] PlayerSettings playerSettings;
+        [SerializeField] SettingsMenu settings;
         [SerializeField] AudioSetting audioSetting;
         AudioConfig currentAudio = null;
         AudioSource audioSource;
@@ -46,27 +46,27 @@ namespace RPG.Audio
 
         void OnEnable()
         {
-            playerSettings.onSettingsChanged += UpdateVolume;
+            settings.onSettingsChanged += UpdateVolume;
         }
 
         void OnDisable()
         {
-            playerSettings.onSettingsChanged -= UpdateVolume;
+            settings.onSettingsChanged -= UpdateVolume;
         }
 
         void UpdateVolume()
         {
             if(currentAudio == null) return;
 
-            float baseVolume = playerSettings.GetMasterVolume() * currentAudio.GetVolumeFraction();
+            float baseVolume = settings.GetMasterVolume() * currentAudio.GetVolumeFraction();
 
             switch(audioSetting)
             {
                 case AudioSetting.Music:
-                    audioSource.volume = playerSettings.GetMusicVolume() * baseVolume;
+                    audioSource.volume = settings.GetMusicVolume() * baseVolume;
                     break;
                 case AudioSetting.SFX:
-                    audioSource.volume = playerSettings.GetSFXVolume() * baseVolume;
+                    audioSource.volume = settings.GetSFXVolume() * baseVolume;
                     break;
             }
         }

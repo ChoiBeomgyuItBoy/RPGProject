@@ -3,21 +3,13 @@ using UnityEngine;
 
 namespace RPG.Core
 {
-    [CreateAssetMenu(menuName = "RPG/Settings/New Player Settings")]
-    public class PlayerSettings : ScriptableObject
+    [CreateAssetMenu(menuName = "RPG/New Settings")]
+    public class SettingsMenu : ScriptableObject
     {  
         [Header("Audio")]
         [SerializeField] [Range(0,1)] float masterVolume = 1;
         [SerializeField] [Range(0,1)] float musicVolume = 1;
         [SerializeField] [Range(0,1)] float sfxVolume = 1;
-
-        [Header("Key Bindings")]
-        [SerializeField] KeyCode movementKey = KeyCode.Mouse0;
-        [SerializeField] KeyCode interactionKey = KeyCode.Mouse0;
-        [SerializeField] KeyCode inventoryKey = KeyCode.I;
-        [SerializeField] KeyCode questsKey = KeyCode.Q;
-        [SerializeField] KeyCode traitsKey = KeyCode.T;
-        [SerializeField] KeyCode pauseKey = KeyCode.Escape;
 
         public event Action onSettingsChanged;
 
@@ -25,12 +17,6 @@ namespace RPG.Core
         public float GetMusicVolume() => musicVolume;
         public float GetSFXVolume() => sfxVolume;
 
-        public KeyCode GetMovementKey() => movementKey;
-        public KeyCode GetInteractionKey() => interactionKey;
-        public KeyCode GetInventoryKey() => inventoryKey;
-        public KeyCode GetQuestsKey() => questsKey;
-        public KeyCode GetTraitsKey() => traitsKey;
-        public KeyCode GetPauseKey() => pauseKey;
 
         public void SetMasterVolume(float masterVolume)
         {

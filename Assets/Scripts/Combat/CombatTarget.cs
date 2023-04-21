@@ -21,7 +21,7 @@ namespace RPG.Combat
                 return false;
             }
 
-            if(Input.GetKeyDown(callingController.GetPlayerSettings().GetInteractionKey()))
+            if(Input.GetKeyDown(callingController.GetInputReader().GetInteractionKey()))
             {
                 callingController.GetComponent<Fighter>().Attack(gameObject);
             }

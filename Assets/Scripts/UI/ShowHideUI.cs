@@ -1,11 +1,11 @@
-﻿using RPG.Core;
+﻿using RPG.Control;
 using UnityEngine;
 
 namespace RPG.UI
 {
     public class ShowHideUI : MonoBehaviour
     {
-        [SerializeField] PlayerSettings playerSettings;
+        [SerializeField] InputReader inputReader;
         [SerializeField] MenuType menuType = default;
         [SerializeField] GameObject uiContainer = null;
 
@@ -24,24 +24,24 @@ namespace RPG.UI
 
         void Update()
         {
-            if (Input.GetKeyDown(GetUIKey()))
+            if (Input.GetKeyDown(GetKey()))
             {
                 Toggle();
             }
         }
 
-        KeyCode GetUIKey()
+        KeyCode GetKey()
         {
             switch(menuType)
             {
                 case MenuType.Pause:
-                    return playerSettings.GetPauseKey();
+                    return inputReader.GetPauseKey();
                 case MenuType.Inventory:
-                    return playerSettings.GetInventoryKey();
+                    return inputReader.GetInventoryKey();
                 case MenuType.Quests:
-                    return playerSettings.GetQuestsKey();
+                    return inputReader.GetQuestsKey();
                 case MenuType.Traits:
-                    return playerSettings.GetTraitsKey();
+                    return inputReader.GetTraitsKey();
             }
 
             return default;

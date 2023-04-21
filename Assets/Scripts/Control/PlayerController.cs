@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine.AI;
 using GameDevTV.Inventories;
-using RPG.Core;
 
 namespace RPG.Control
 {
@@ -19,7 +18,7 @@ namespace RPG.Control
             public Vector2 hotSpot;
         }
 
-        [SerializeField] PlayerSettings playerSettings;
+        [SerializeField] InputReader inputReader;
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float maxNavMeshProjectionDistance = 40;
         [SerializeField] float raycastRadius = 1;
@@ -34,9 +33,9 @@ namespace RPG.Control
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
 
-        public PlayerSettings GetPlayerSettings()
+        public InputReader GetInputReader()
         {
-            return playerSettings;
+            return inputReader;
         }
 
         void Awake()
@@ -90,12 +89,29 @@ namespace RPG.Control
 
         void UseAbilites()
         {
-            for (int i = 0; i < actionSlots; i++)
+            if(Input.GetKeyDown(inputReader.GetFirstAbilityKey()))
             {
-                if(Input.GetKey(KeyCode.Alpha1 + i))
-                {
-                    actionStore.Use(i, gameObject);
-                }
+                actionStore.Use(0, gameObject);
+            }
+            if(Input.GetKeyDown(inputReader.GetSecondAbilityKey()))
+            {
+                actionStore.Use(1, gameObject);
+            }
+            if(Input.GetKeyDown(inputReader.GetThirdAbilityKey()))
+            {
+                actionStore.Use(2, gameObject);
+            }
+            if(Input.GetKeyDown(inputReader.GetFourthAbilityKey()))
+            {
+                actionStore.Use(3, gameObject);
+            }
+            if(Input.GetKeyDown(inputReader.GetFifthAbilityKey()))
+            {
+                actionStore.Use(4, gameObject);
+            }
+            if(Input.GetKeyDown(inputReader.GetSixthAbilityKey()))
+            {
+                actionStore.Use(5, gameObject);
             }
         }
 
@@ -145,7 +161,7 @@ namespace RPG.Control
             {
                 if(!GetComponent<Mover>().CanMoveTo(target)) return false;
 
-                if(Input.GetKey(playerSettings.GetMovementKey()))
+                if(Input.GetKey(inputReader.GetMovementKey()))
                 {
                     GetComponent<Mover>().StartMoveAction(target, 1f);
                 }

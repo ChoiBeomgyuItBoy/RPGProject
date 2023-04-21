@@ -55,7 +55,7 @@ namespace RPG.Combat
 
         bool IRaycastable.HandleRaycast(PlayerController callingController)
         {           
-            if(Input.GetKeyDown(callingController.GetPlayerSettings().GetInteractionKey()))
+            if(Input.GetKeyDown(callingController.GetInputReader().GetInteractionKey()))
             {
                 Pickup(callingController.gameObject);
             }
