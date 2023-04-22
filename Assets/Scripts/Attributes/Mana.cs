@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RPG.Attributes
 {
-    public class Mana : MonoBehaviour, ISaveable
+    public class Mana : MonoBehaviour, ISaveable, IValueProvider
     {
         LazyValue<float> mana;
 
@@ -72,6 +72,16 @@ namespace RPG.Attributes
         void ISaveable.RestoreState(object state)
         {
             mana.value = (float) state;
+        }
+
+        float IValueProvider.GetCurrentValue()
+        {
+            return GetMana();
+        }
+
+        float IValueProvider.GetMaxValue()
+        {
+            return GetMaxMana();
         }
     }
 }

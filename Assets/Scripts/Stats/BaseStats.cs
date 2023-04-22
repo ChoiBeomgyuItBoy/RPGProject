@@ -1,10 +1,11 @@
 using System;
 using GameDevTV.Utils;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Stats
 {
-    public class BaseStats : MonoBehaviour
+    public class BaseStats : MonoBehaviour, IValueProvider
     {
         [Range(1, 99)]
         [SerializeField] int startingLevel = 1;
@@ -134,6 +135,16 @@ namespace RPG.Stats
             }
 
             return penultimateLevel + 1;
+        }
+
+        float IValueProvider.GetMaxValue()
+        {
+            return progression.GetLevels(Stat.ExperienceToLevelUp, characterClass) + 1;
+        }
+
+        float IValueProvider.GetCurrentValue()
+        {
+            return GetLevel();
         }
     }
 }

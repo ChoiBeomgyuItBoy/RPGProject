@@ -19,6 +19,8 @@ namespace RPG.Control
         [SerializeField] float waypointDwellTime = 3f;
         [SerializeField] float shoutDistance = 5f;
         [SerializeField] [Range(0f,1f)] float patrolSpeedFraction = 0.2f;
+        [SerializeField] public UnityEvent onAggrevated;
+        [SerializeField] public UnityEvent onPacified;
 
         Fighter fighter;
         Mover mover;
@@ -34,8 +36,6 @@ namespace RPG.Control
         float timeSinceAggrevated = Mathf.Infinity;
 
         int currentWaypointIndex = 0;
-
-        public event Action onAggrevated;
 
         public void Aggrevate()
         {
@@ -81,6 +81,7 @@ namespace RPG.Control
             }
             else
             {
+                onPacified?.Invoke();
                 PatrolBehaviour();
             }
             
@@ -119,7 +120,7 @@ namespace RPG.Control
             {
                 AIController controller = hit.transform.GetComponent<AIController>();
 
-                if(controller != null)
+                if(controller != null && !controller.GetComponent<Health>().IsDead)
                 {
                     controller.Aggrevate();
                 }

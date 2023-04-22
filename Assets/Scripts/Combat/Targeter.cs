@@ -42,7 +42,7 @@ namespace RPG.Combat
             {
                 targets.Add(target);
                 health.onDie.AddListener(() => RemoveTarget(target));
-                controller.onAggrevated += OnAggrevated;
+                controller.onAggrevated.AddListener(OnAggrevated);
             }
         }
 
@@ -55,7 +55,7 @@ namespace RPG.Combat
             {
                 targets.Remove(target);
                 health.onDie.RemoveListener(() => RemoveTarget(target));
-                controller.onAggrevated -= OnAggrevated;
+                controller.onAggrevated.RemoveListener(OnAggrevated);
 
                 if(targets.Count == 0 && alreadyInCombat)
                 {

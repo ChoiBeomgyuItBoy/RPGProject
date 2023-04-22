@@ -1,12 +1,13 @@
 using System;
 using GameDevTV.Inventories;
 using GameDevTV.Saving;
+using RPG.Attributes;
 using RPG.Inventories;
 using UnityEngine;
 
 namespace RPG.Stats
 {
-    public class Experience : MonoBehaviour, ISaveable, IItemStore
+    public class Experience : MonoBehaviour, ISaveable, IItemStore, IValueProvider
     {
         [SerializeField] float experiencePoints = 0f;
 
@@ -52,6 +53,16 @@ namespace RPG.Stats
             }
 
             return 0;
+        }
+
+        float IValueProvider.GetMaxValue()
+        {
+            return 0;
+        }
+
+        float IValueProvider.GetCurrentValue()
+        {
+            return GetPoints();
         }
     }
 }

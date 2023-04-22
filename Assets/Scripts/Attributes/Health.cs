@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
-    public class Health : MonoBehaviour, ISaveable
+    public class Health : MonoBehaviour, ISaveable, IValueProvider
     {
         [SerializeField] private float regenerationPercentage = 100f;
         [SerializeField] public UnityEvent<float> onDamageTaken;
@@ -37,7 +37,6 @@ namespace RPG.Attributes
             return health.value / GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        
         public void TakeDamage(GameObject instigator, float damage)
         {
             if(IsDead) return;
@@ -133,6 +132,16 @@ namespace RPG.Attributes
             health.value = (float) state;
 
             UpdateState();
+        }
+
+        float IValueProvider.GetCurrentValue()
+        {
+            return GetCurrentHealth();
+        }
+
+        float IValueProvider.GetMaxValue()
+        {
+            return GetMaxHealth();
         }
     }
 }
