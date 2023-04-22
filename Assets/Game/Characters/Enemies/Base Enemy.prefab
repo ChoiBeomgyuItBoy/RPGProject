@@ -101,11 +101,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
-      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5620924902644850001}
-    - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
-        type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 8818086873557907835}
@@ -113,11 +108,6 @@ PrefabInstance:
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
-        type: 3}
-      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayRandom
       objectReference: {fileID: 0}
     - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
@@ -146,11 +136,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
-      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RPG.Audio.SFXPlayer, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
-        type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: RPG.Inventories.RandomDropper, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -158,11 +143,6 @@ PrefabInstance:
         type: 3}
       propertyPath: onDamageTaken.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: RPG.Control.AIController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
-        type: 3}
-      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9097565465805572420, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
@@ -255,16 +235,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropDistance: 1
   dropLibrary: {fileID: 11400000, guid: d6ea84d4dce1e994fa9dd05cdf74688d, type: 2}
---- !u!114 &5620924902644850001 stripped
+--- !u!114 &4397078506067838463 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7406272508526864328, guid: 602cc502bade4b444ab927133e956ffd,
+  m_CorrespondingSourceObject: {fileID: 1570730885108137830, guid: 602cc502bade4b444ab927133e956ffd,
     type: 3}
   m_PrefabInstance: {fileID: 2939114360153782937}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2917784652512093055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14fbc39cb4f88d54a886102a8077d392, type: 3}
+  m_Script: {fileID: 11500000, guid: 05ee6697eb38eda4bb336cd003c68b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6235479318257267677 stripped
@@ -353,6 +333,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5793317045558245769, guid: 69b664923186a854b8dee875f16cd062,
+        type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 4397078506067838463}
     - target: {fileID: 9120510285940056420, guid: 69b664923186a854b8dee875f16cd062,
         type: 3}
       propertyPath: health

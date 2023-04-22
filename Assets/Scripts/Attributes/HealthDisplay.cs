@@ -6,13 +6,12 @@ namespace RPG.Attributes
     public class HealthDisplay : MonoBehaviour
     {
         [SerializeField] float colorChangeTreshold = 40;
-        Health health;
+        [SerializeField] Health health;
         TMP_Text healthValueText;
         Color defaultTextColor;
 
         void Awake()
         {
-            health = GameObject.FindWithTag("Player").GetComponent<Health>();
             healthValueText = GetComponent<TMP_Text>();
             defaultTextColor = healthValueText.color;
         }

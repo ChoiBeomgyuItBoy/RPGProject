@@ -6,19 +6,17 @@ namespace RPG.Attributes
 {
     public class LevelDisplay : MonoBehaviour
     {
-        BaseStats stats;
-
+        [SerializeField] BaseStats baseStats;
         TMP_Text experienceValueText;
 
         void Awake()
         {
-            stats = GameObject.FindWithTag("Player").GetComponent<BaseStats>();
             experienceValueText = GetComponent<TMP_Text>();
         }
 
         void Update()
         {
-            experienceValueText.text = string.Format("{0:0}", stats.GetLevel());
+            experienceValueText.text = string.Format("{0:0}", baseStats.GetLevel());
         }
     }
 }
