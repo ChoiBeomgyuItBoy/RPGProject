@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b6a7fac6e2d604a8e529f6dddf65b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSettings: {fileID: 11400000, guid: 726113d6c947b954086bca5ad184017f, type: 2}
+  inputReader: {fileID: 0}
   menuType: 2
   uiContainer: {fileID: 5688332586610250357}
 --- !u!1 &1555973867242421028
@@ -488,8 +488,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4946488364464562906}
   m_HandleRect: {fileID: 2163604485026620910}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.84292805
+  m_Value: 1.0000004
+  m_Size: 0.7232587
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2429,6 +2429,31 @@ PrefabInstance:
     - target: {fileID: 3387476353899647353, guid: 5471080056d196a42b72f7dba08d4abb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715340922575819653, guid: 5471080056d196a42b72f7dba08d4abb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715340922575819653, guid: 5471080056d196a42b72f7dba08d4abb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715340922575819653, guid: 5471080056d196a42b72f7dba08d4abb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715340922575819653, guid: 5471080056d196a42b72f7dba08d4abb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715340922575819653, guid: 5471080056d196a42b72f7dba08d4abb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4717248381876527705, guid: 5471080056d196a42b72f7dba08d4abb,

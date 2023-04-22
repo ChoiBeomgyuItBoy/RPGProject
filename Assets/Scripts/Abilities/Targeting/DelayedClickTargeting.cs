@@ -51,7 +51,7 @@ namespace RPG.Abilities.Targeting
 
             while(!data.IsCancelled())
             {
-                if(Input.GetKeyDown(inputReader.GetMovementKey()))
+                if(Input.GetKeyDown(inputReader.GetCancelKey()))
                 {
                     data.Cancel();
                     break;
@@ -66,7 +66,7 @@ namespace RPG.Abilities.Targeting
                     Vector3 targetingEffectOffset = Vector3.up * heightEffectOffset;
                     targetingEffectInstance.transform.position = raycastHit.point + targetingEffectOffset;
 
-                    if(Input.GetKeyDown(inputReader.GetInteractionKey()))
+                    if(Input.GetKeyDown(inputReader.GetMovementKey()))
                     {
                         yield return new WaitWhile(() => Input.GetKey(inputReader.GetMovementKey()));
 

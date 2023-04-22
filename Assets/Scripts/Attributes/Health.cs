@@ -10,7 +10,7 @@ namespace RPG.Attributes
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] private float regenerationPercentage = 100f;
-        [SerializeField] private UnityEvent<float> onDamageTaken;
+        [SerializeField] public UnityEvent<float> onDamageTaken;
         [SerializeField] public UnityEvent onDie;
         private LazyValue<float> health;
         private readonly int DeadHash = Animator.StringToHash("die");

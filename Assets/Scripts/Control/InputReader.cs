@@ -7,7 +7,8 @@ namespace RPG.Control
     {
         [Header("Actions")]
         [SerializeField] KeyCode movementKey = KeyCode.Mouse0;
-        [SerializeField] KeyCode interactionKey = KeyCode.Mouse0;       
+        [SerializeField] KeyCode interactionKey = KeyCode.Mouse0;
+        [SerializeField] KeyCode cancelKey = KeyCode.Mouse1;       
         [SerializeField] KeyCode firstAbilityKey = KeyCode.Alpha1;
         [SerializeField] KeyCode secondAbilityKey = KeyCode.Alpha2;
         [SerializeField] KeyCode thirdAbilityKey = KeyCode.Alpha3;
@@ -23,6 +24,7 @@ namespace RPG.Control
 
         public KeyCode GetMovementKey() => movementKey;
         public KeyCode GetInteractionKey() => interactionKey;
+        public KeyCode GetCancelKey() => cancelKey;
         public KeyCode GetInventoryKey() => inventoryKey;
         public KeyCode GetQuestsKey() => questsKey;
         public KeyCode GetTraitsKey() => traitsKey;

@@ -1,5 +1,6 @@
 using RPG.Control;
 using RPG.Core;
+using RPG.Dialogue;
 using RPG.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,7 +39,11 @@ namespace RPG.UI.Menus
             if(playerController == null) return;
             
             Time.timeScale = normalTimeScale;
-            playerController.enabled = true;
+
+            if(!playerController.GetComponent<PlayerConversant>().IsActive())
+            {
+                playerController.enabled = true;
+            }
         }
 
         void Save()

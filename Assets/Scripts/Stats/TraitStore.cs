@@ -26,28 +26,6 @@ namespace RPG.Stats
             public float percentageBonusPerPoint = 0;
         }
 
-        private void Awake()
-        {
-            additiveBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
-            percentageBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
-
-            foreach(var bonus in bonusConfig)
-            {
-                if(!additiveBonusCache.ContainsKey(bonus.stat))
-                {
-                    additiveBonusCache[bonus.stat] = new Dictionary<Trait, float>();
-                }
-
-                if(!percentageBonusCache.ContainsKey(bonus.stat))
-                {
-                    percentageBonusCache[bonus.stat] = new Dictionary<Trait, float>();
-                }
-
-                additiveBonusCache[bonus.stat][bonus.trait] = bonus.additiveBonusPerPoint;
-                percentageBonusCache[bonus.stat][bonus.trait] = bonus.percentageBonusPerPoint;
-            }
-        }
-
         public int GetUnassignedPoints()
         {
             return GetAssignablePoints() - GetTotalProposedPoints();
@@ -114,6 +92,28 @@ namespace RPG.Stats
         public int GetAssignablePoints()
         {
             return (int) GetComponent<BaseStats>().GetStat(Stat.TotalTraitPoints);
+        }
+
+        private void Awake()
+        {
+            additiveBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
+            percentageBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
+
+            foreach(var bonus in bonusConfig)
+            {
+                if(!additiveBonusCache.ContainsKey(bonus.stat))
+                {
+                    additiveBonusCache[bonus.stat] = new Dictionary<Trait, float>();
+                }
+
+                if(!percentageBonusCache.ContainsKey(bonus.stat))
+                {
+                    percentageBonusCache[bonus.stat] = new Dictionary<Trait, float>();
+                }
+
+                additiveBonusCache[bonus.stat][bonus.trait] = bonus.additiveBonusPerPoint;
+                percentageBonusCache[bonus.stat][bonus.trait] = bonus.percentageBonusPerPoint;
+            }
         }
 
         public IEnumerable<float> GetAdditiveModifiers(Stat stat)

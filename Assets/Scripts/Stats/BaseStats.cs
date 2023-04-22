@@ -7,17 +7,30 @@ namespace RPG.Stats
     public class BaseStats : MonoBehaviour
     {
         [Range(1, 99)]
-        [SerializeField] private int startingLevel = 1;
-        [SerializeField] private CharacterClass characterClass;
-        [SerializeField] private Progression progression = null;
-        [SerializeField] private GameObject levelUpParticleEffect = null;
-        [SerializeField] private bool shouldUseModifiers = false;
+        [SerializeField] int startingLevel = 1;
+        [SerializeField] CharacterClass characterClass;
+        [SerializeField] Progression progression = null;
+        [SerializeField] GameObject levelUpParticleEffect = null;
+        [SerializeField] bool shouldUseModifiers = false;
 
-        private Experience experience;
-
-        private LazyValue<int> currentLevel;
-
+        Experience experience;
+        static LazyValue<int> currentLevel;
         public event Action onLevelUp;
+
+        public float GetStat(Stat stat)
+        {
+            return (GetBaseStat(stat) + GetAdditiveModifiers(stat)) * (1 + GetPercentageModifier(stat) / 100);
+        }
+
+        public int GetLevel()
+        {
+            return currentLevel.value;
+        }
+
+        public CharacterClass GetCharacterClass()
+        {
+            return characterClass;
+        }
 
         private void Awake()
         {
@@ -62,16 +75,6 @@ namespace RPG.Stats
         private void LevelUpEffect()
         {
             Instantiate(levelUpParticleEffect, transform);
-        }
-
-        public float GetStat(Stat stat)
-        {
-            return (GetBaseStat(stat) + GetAdditiveModifiers(stat)) * (1 + GetPercentageModifier(stat) / 100);
-        }
-
-        public int GetLevel()
-        {
-            return currentLevel.value;
         }
 
         private float GetBaseStat(Stat stat)

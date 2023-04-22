@@ -20,6 +20,11 @@ namespace RPG.Attributes
             return GetComponent<BaseStats>().GetStat(Stat.Mana);
         }
 
+        public float GetFraction()
+        {
+            return mana.value / GetMaxMana();
+        }
+
         public bool UseMana(float manaToUse)
         {
             if(manaToUse > mana.value)
