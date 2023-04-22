@@ -7,6 +7,7 @@ namespace RPG.UI.Shops
 {
     public class RowUI : MonoBehaviour
     {
+        [SerializeField] ItemHolder itemHolder;
         [SerializeField] Image image;
         [SerializeField] TextMeshProUGUI nameField;
         [SerializeField] TextMeshProUGUI availabilityField;
@@ -23,6 +24,7 @@ namespace RPG.UI.Shops
             this.currentShop = currentShop;
             this.item = item;
 
+            itemHolder.Setup(item.GetInventoryItem());
             image.sprite = item.GetIcon();
             nameField.text = item.GetName();
             availabilityField.text = $"{item.GetAvailability()}";
