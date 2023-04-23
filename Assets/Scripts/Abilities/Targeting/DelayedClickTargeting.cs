@@ -66,7 +66,7 @@ namespace RPG.Abilities.Targeting
                     Vector3 targetingEffectOffset = Vector3.up * heightEffectOffset;
                     targetingEffectInstance.transform.position = raycastHit.point + targetingEffectOffset;
 
-                    if(Input.GetKeyDown(inputReader.GetMovementKey()))
+                    if(Input.GetKeyDown(inputReader.GetInteractionKey()))
                     {
                         yield return new WaitWhile(() => Input.GetKey(inputReader.GetMovementKey()));
 

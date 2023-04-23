@@ -11,7 +11,6 @@ namespace RPG.UI
         [SerializeField] ProgressBarData progressBarData = null;
         [SerializeField] DisplayTextData displayTextData = null;
         IValueProvider valueProvider;
-        float initalValue = 0;
 
         [System.Serializable]
         class ProgressBarData
@@ -30,11 +29,6 @@ namespace RPG.UI
         void Awake()
         {
             valueProvider = valueProviderBehaviour as IValueProvider;
-        }
-
-        void Start()
-        {
-            initalValue = valueProvider.GetCurrentValue();
         }
 
         void Update()
