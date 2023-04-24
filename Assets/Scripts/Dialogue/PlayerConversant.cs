@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameDevTV.Utils;
-using RPG.Audio;
-using RPG.Control;
-using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -27,10 +24,6 @@ namespace RPG.Dialogue
             currentNode = currentDialogue.GetRootNode();
             TriggerEnterAction();
             onConversationUpdated?.Invoke();
-
-            GetComponent<PlayerController>().enabled = false;
-            GetComponent<ActionScheduler>().CancelCurrentAction();
-            FindObjectOfType<AudioFader>().FadeMusicLowVolume(musicChangeTime);
         }
 
         public void Quit()
@@ -41,9 +34,6 @@ namespace RPG.Dialogue
             isChoosing = false;
             currentConversant = null;
             onConversationUpdated?.Invoke();
-
-            GetComponent<PlayerController>().enabled = true;
-            FindObjectOfType<AudioFader>().FadeInMusic(musicChangeTime);
         }
 
         public bool IsActive()
