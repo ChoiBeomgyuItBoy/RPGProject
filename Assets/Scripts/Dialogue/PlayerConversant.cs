@@ -9,7 +9,6 @@ namespace RPG.Dialogue
     public class PlayerConversant : MonoBehaviour
     {
         [SerializeField] string playerName = "";
-        [SerializeField] float musicChangeTime = 0.5f;
         Dialogue currentDialogue = null;
         DialogueNode currentNode = null;
         AIConversant currentConversant = null;

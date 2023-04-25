@@ -13,7 +13,7 @@ namespace RPG.Control
         bool isChoosing = false;
 
         [System.Serializable]
-        public class InputAction
+        class InputAction
         {
             public PlayerAction action = default;
             public KeyCode keyCode = default;

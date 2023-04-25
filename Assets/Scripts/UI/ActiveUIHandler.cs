@@ -7,7 +7,6 @@ namespace RPG.Core
     public class ActiveUIHandler : MonoBehaviour
     {
         [SerializeField] bool toggleControls = false;
-        [SerializeField] bool lowerMusicVolume = false;
         PlayerController playerController;
         AudioFader audioFader;
 

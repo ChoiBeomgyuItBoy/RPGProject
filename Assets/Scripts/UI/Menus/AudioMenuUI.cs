@@ -1,4 +1,4 @@
-using RPG.Core;
+using RPG.Settings;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +6,7 @@ namespace RPG.UI.Menus
 {
     public class AudioMenuUI : MonoBehaviour
     {
-        [SerializeField] SettingsMenu settings;
+        [SerializeField] AudioSettingsSO audioSettings;
         [SerializeField] Slider masterVolumeSlider;
         [SerializeField] Slider musicVolumeSlider;
         [SerializeField] Slider sfxVolumeSlider;
@@ -15,16 +15,16 @@ namespace RPG.UI.Menus
         {
             SetupSliders();
 
-            masterVolumeSlider.onValueChanged.AddListener(settings.SetMasterVolume);
-            musicVolumeSlider.onValueChanged.AddListener(settings.SetMusicVolume);
-            sfxVolumeSlider.onValueChanged.AddListener(settings.SetSFXVolume);
+            masterVolumeSlider.onValueChanged.AddListener(audioSettings.SetMasterVolume);
+            musicVolumeSlider.onValueChanged.AddListener(audioSettings.SetMusicVolume);
+            sfxVolumeSlider.onValueChanged.AddListener(audioSettings.SetSFXVolume);
         }
 
         void SetupSliders()
         {
-            masterVolumeSlider.value = settings.GetMasterVolume();
-            musicVolumeSlider.value = settings.GetMusicVolume();
-            sfxVolumeSlider.value = settings.GetSFXVolume();
+            masterVolumeSlider.value = audioSettings.GetMasterVolume();
+            musicVolumeSlider.value = audioSettings.GetMusicVolume();
+            sfxVolumeSlider.value = audioSettings.GetSFXVolume();
         }
     }
 }

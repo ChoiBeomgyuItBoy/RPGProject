@@ -12,16 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55773992f50edd044a038148559f6bd6, type: 3}
   m_Name: Input Reader
   m_EditorClassIdentifier: 
-  movementKey: 323
-  interactionKey: 323
-  cancelKey: 324
-  firstAbilityKey: 49
-  secondAbilityKey: 50
-  thirdAbilityKey: 51
-  fourthAbilityKey: 52
-  fifthAbilityKey: 53
-  sixthAbilityKey: 54
-  inventoryKey: 105
-  questsKey: 113
-  traitsKey: 116
-  pauseKey: 27
+  inputActions:
+  - action: 0
+    keyCode: 323
+  - action: 1
+    keyCode: 324
+  - action: 2
+    keyCode: 49
+  - action: 3
+    keyCode: 50
+  - action: 4
+    keyCode: 51
+  - action: 5
+    keyCode: 52
+  - action: 6
+    keyCode: 53
+  - action: 7
+    keyCode: 54
+  - action: 8
+    keyCode: 105
+  - action: 9
+    keyCode: 113
+  - action: 10
+    keyCode: 116
+  - action: 11
+    keyCode: 27

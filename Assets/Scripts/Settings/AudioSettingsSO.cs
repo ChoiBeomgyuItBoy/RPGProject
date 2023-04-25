@@ -1,45 +1,43 @@
 using System;
 using UnityEngine;
 
-namespace RPG.Core
+namespace RPG.Settings
 {
-    [CreateAssetMenu(menuName = "RPG/New Settings")]
-    public class SettingsMenu : ScriptableObject
+    [CreateAssetMenu(menuName = "RPG/Settings/New Audio Settings")]
+    public class AudioSettingsSO : ScriptableObject
     {  
-        [Header("Audio")]
         [SerializeField] [Range(0,1)] float masterVolume = 1;
         [SerializeField] [Range(0,1)] float musicVolume = 1;
         [SerializeField] [Range(0,1)] float sfxVolume = 1;
 
-        public event Action onSettingsChanged;
+        public event Action onChange;
 
         public float GetMasterVolume() => masterVolume;
         public float GetMusicVolume() => musicVolume;
         public float GetSFXVolume() => sfxVolume;
 
-
         public void SetMasterVolume(float masterVolume)
         {
             this.masterVolume = masterVolume;
-            onSettingsChanged?.Invoke();
+            onChange?.Invoke();
         }
 
         public void SetMusicVolume(float musicVolume)
         {
             this.musicVolume = musicVolume;
-            onSettingsChanged?.Invoke();
+            onChange?.Invoke();
         }
 
         public void SetSFXVolume(float sfxVolume)
         {
             this.sfxVolume = sfxVolume;
-            onSettingsChanged?.Invoke();
+            onChange?.Invoke();
         }
 
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            onSettingsChanged?.Invoke();
+            onChange?.Invoke();
         }
 #endif
     }
