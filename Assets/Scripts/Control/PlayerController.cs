@@ -33,9 +33,14 @@ namespace RPG.Control
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
 
-        public InputReader GetInputReader()
+        public KeyCode GetInteractionKey()
         {
-            return inputReader;
+            return inputReader.GetKeyCode(PlayerAction.Interaction);
+        }
+
+        public KeyCode GetCancelKey()
+        {
+            return inputReader.GetKeyCode(PlayerAction.Cancel);
         }
 
         void Awake()
@@ -89,29 +94,12 @@ namespace RPG.Control
 
         void UseAbilites()
         {
-            if(Input.GetKeyDown(inputReader.GetFirstAbilityKey()))
+            for (int i = 0; i < actionSlots; i++)
             {
-                actionStore.Use(0, gameObject);
-            }
-            if(Input.GetKeyDown(inputReader.GetSecondAbilityKey()))
-            {
-                actionStore.Use(1, gameObject);
-            }
-            if(Input.GetKeyDown(inputReader.GetThirdAbilityKey()))
-            {
-                actionStore.Use(2, gameObject);
-            }
-            if(Input.GetKeyDown(inputReader.GetFourthAbilityKey()))
-            {
-                actionStore.Use(3, gameObject);
-            }
-            if(Input.GetKeyDown(inputReader.GetFifthAbilityKey()))
-            {
-                actionStore.Use(4, gameObject);
-            }
-            if(Input.GetKeyDown(inputReader.GetSixthAbilityKey()))
-            {
-                actionStore.Use(5, gameObject);
+                if(Input.GetKeyDown(inputReader.GetKeyCode(PlayerAction.Ability1) + i))
+                {
+                    actionStore.Use(i, gameObject);
+                }
             }
         }
 
@@ -161,7 +149,7 @@ namespace RPG.Control
             {
                 if(!GetComponent<Mover>().CanMoveTo(target)) return false;
 
-                if(Input.GetKey(inputReader.GetMovementKey()))
+                if(Input.GetKey(inputReader.GetKeyCode(PlayerAction.Interaction)))
                 {
                     GetComponent<Mover>().StartMoveAction(target, 1f);
                 }

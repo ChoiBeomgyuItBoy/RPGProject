@@ -3,7 +3,6 @@ using RPG.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 namespace RPG.UI.Menus
 {

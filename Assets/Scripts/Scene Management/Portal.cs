@@ -123,7 +123,7 @@ namespace RPG.SceneManagement
         {
             if(unlockCondition.Check(predicates))
             {
-                if(Input.GetKeyDown(callingController.GetInputReader().GetInteractionKey()))
+                if(Input.GetKeyDown(callingController.GetInteractionKey()))
                 {
                     StartCoroutine(Transition());
                 }

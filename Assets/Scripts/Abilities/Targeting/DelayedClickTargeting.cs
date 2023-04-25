@@ -29,7 +29,6 @@ namespace RPG.Abilities.Targeting
         private IEnumerator Targeting(AbilityData data, PlayerController playerController, Action finished)
         {
             Animator animator = playerController.GetComponent<Animator>();
-            InputReader inputReader = playerController.GetInputReader();
             playerController.enabled = false;
 
             if(targetingEffectInstance == null)
@@ -51,7 +50,7 @@ namespace RPG.Abilities.Targeting
 
             while(!data.IsCancelled())
             {
-                if(Input.GetKeyDown(inputReader.GetCancelKey()))
+                if(Input.GetKeyDown(playerController.GetCancelKey()))
                 {
                     data.Cancel();
                     break;
@@ -66,9 +65,9 @@ namespace RPG.Abilities.Targeting
                     Vector3 targetingEffectOffset = Vector3.up * heightEffectOffset;
                     targetingEffectInstance.transform.position = raycastHit.point + targetingEffectOffset;
 
-                    if(Input.GetKeyDown(inputReader.GetInteractionKey()))
+                    if(Input.GetKeyDown(playerController.GetInteractionKey()))
                     {
-                        yield return new WaitWhile(() => Input.GetKey(inputReader.GetMovementKey()));
+                        yield return new WaitWhile(() => Input.GetKey(playerController.GetInteractionKey()));
 
                         data.SetTargetedPoint(raycastHit.point);
                         data.SetTargets(GetGameObjectsInRadius(raycastHit.point));      

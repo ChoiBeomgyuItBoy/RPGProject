@@ -6,16 +6,8 @@ namespace RPG.UI
     public class ShowHideUI : MonoBehaviour
     {
         [SerializeField] InputReader inputReader;
-        [SerializeField] MenuType menuType = default;
+        [SerializeField] PlayerAction toggleAction = default;
         [SerializeField] GameObject uiContainer = null;
-
-        enum MenuType
-        {
-            Pause,
-            Inventory,
-            Quests,
-            Traits
-        }
 
         void Start()
         {
@@ -24,27 +16,10 @@ namespace RPG.UI
 
         void Update()
         {
-            if (Input.GetKeyDown(GetKey()))
+            if (Input.GetKeyDown(inputReader.GetKeyCode(toggleAction)))
             {
                 Toggle();
             }
-        }
-
-        KeyCode GetKey()
-        {
-            switch(menuType)
-            {
-                case MenuType.Pause:
-                    return inputReader.GetPauseKey();
-                case MenuType.Inventory:
-                    return inputReader.GetInventoryKey();
-                case MenuType.Quests:
-                    return inputReader.GetQuestsKey();
-                case MenuType.Traits:
-                    return inputReader.GetTraitsKey();
-            }
-
-            return default;
         }
 
         public void Toggle()

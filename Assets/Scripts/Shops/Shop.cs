@@ -370,7 +370,7 @@ namespace RPG.Shops
         {
             if(!raycastable) return false;
 
-            if(Input.GetKeyDown(callingController.GetInputReader().GetInteractionKey()))
+            if(Input.GetKeyDown(callingController.GetInteractionKey()))
             {
                 callingController.GetComponent<Shopper>().SetActiveShop(this);
             }

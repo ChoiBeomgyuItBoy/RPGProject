@@ -1,5 +1,3 @@
-using RPG.Control;
-using RPG.Dialogue;
 using RPG.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
