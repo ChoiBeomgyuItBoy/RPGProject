@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -11,124 +12,133 @@ namespace RPG.Settings
         
         [Header("Screen")]
         [SerializeField] FullScreenMode fullScreenMode = FullScreenMode.FullScreenWindow;
-        [SerializeField] Vector2[] resolutionProfiles;
+        [SerializeField] Vector2Int[] resolutionProfiles;
         [SerializeField] [Range(-2, 0.5f)] float brightness = 0; 
 
         [Header("Graphics")]
-        [SerializeField] Mode vSync = default;
+        [SerializeField] VSyncMode vSyncMode = default;
         [SerializeField] UnityEngine.ShadowResolution shadowResolution = default;
-        [SerializeField] AntiAliasingMode antiAliasingMode = default;
+        [SerializeField] AntialiasingMode antialiasingMode = default;
         [SerializeField] MotionBlurQuality motionBlurQuality = default;
-        [SerializeField] Quality bloom = default;
-        [SerializeField] Mode vignette = default;
+        [SerializeField] BloomMode bloomMode = default;
+        [SerializeField] VignetteMode vignetteMode = default;
         [SerializeField] DepthOfFieldMode depthOfFieldMode = default;
+        [SerializeField] float vignetteMaxValue = 0.3f;
 
-        enum Mode
+        Vector2Int currentResolution;
+
+        public enum VSyncMode
         {
-            On, Off
+            Off = 0,
+            On = 1
         }
 
-        enum Quality
+        public enum BloomMode
         {
-            High, Medium, Low
+            Off = 0,
+            Low = 3,
+            Medium = 6,
+            High = 10
         }
 
-        enum AntiAliasingMode
+        public enum VignetteMode
         {
-            None, TAA, MSAA
+            Off = 0,
+            On = 1
         }
 
-        void ApplyChanges()
+        public FullScreenMode GetFullScreenMode() => fullScreenMode;
+        public IEnumerable<Vector2Int> GetResolutionProfiles() => resolutionProfiles;
+        public float GetBrightness() => brightness;
+        public VSyncMode GetVSyncMode() => vSyncMode;
+        public UnityEngine.ShadowResolution GetShadowResolution() => shadowResolution;
+        public AntialiasingMode GetAntialiasingMode() => antialiasingMode;
+        public MotionBlurQuality GetMotionBlurQuality() => motionBlurQuality;
+        public BloomMode GetBloomMode() => bloomMode;
+        public VignetteMode GetVignetteMode() => vignetteMode;
+        public DepthOfFieldMode GetDepthOfFieldMode() => depthOfFieldMode;
+
+        public void SetResolution(Vector2Int resolution)
         {
-            SetScreenSettings();
-            SetBrightness();
-            SetVignette();
-            SetDepthOfField();
-            SetMotionBlur();
-            SetBloom();
+            currentResolution = resolution;
         }
 
-        void SetScreenSettings()
+        public void SetFullScreenMode(FullScreenMode fullScreenMode)
+        {
+            this.fullScreenMode = fullScreenMode;
+        }
+
+        public void SetBrightness(float brightness)
+        {
+            this.brightness = brightness;
+        }
+
+        public void SetVSyncMode(VSyncMode vSyncMode)
+        {
+            this.vSyncMode = vSyncMode;
+        }
+
+        public void SetShadowResolution(UnityEngine.ShadowResolution shadowResolution)
+        {
+            this.shadowResolution = shadowResolution;
+        }
+
+        public void SetAntialisingMode(AntialiasingMode antialiasingMode)
+        {
+            this.antialiasingMode = antialiasingMode;
+        }
+
+        public void SetMotionBlurQuality(MotionBlurQuality motionBlurQuality)
+        {
+            this.motionBlurQuality = motionBlurQuality;
+        }
+
+        public void SetBloomMode(BloomMode bloomMode)
+        {
+            this.bloomMode = bloomMode;
+        }
+
+        public void SetVignetteMode(VignetteMode vignetteMode)
+        {
+            this.vignetteMode = vignetteMode;
+        }
+
+        public void SetDepthOfFieldMode(DepthOfFieldMode depthOfFieldMode)
+        {
+            this.depthOfFieldMode = depthOfFieldMode;
+        }
+
+        public void ApplyChanges()
         {
             Screen.fullScreenMode = fullScreenMode;
+            Screen.SetResolution(currentResolution.x, currentResolution.y, true);
+            QualitySettings.vSyncCount = (int) vSyncMode;
             QualitySettings.shadowResolution = shadowResolution;
-            QualitySettings.vSyncCount = vSync == Mode.On? 1 : 0;
-        }
+            QualitySettings.antiAliasing = (int) antialiasingMode;
 
-        void SetBrightness()
-        {
             if(volumeProfile.TryGet(out ColorAdjustments colorAdjustments))
             {
                 colorAdjustments.postExposure.value = brightness;
             }
-        }
 
-        void SetVignette()
-        {
-            if(volumeProfile.TryGet(out Vignette vignette))
-            {
-                if(this.vignette == Mode.Off)
-                {
-                    vignette.intensity.value = 0;
-                }
-                if(this.vignette == Mode.On)
-                {
-                    vignette.intensity.value = 0.5f;
-                }
-            }
-        }
-
-        void SetAntiAliasing()
-        {
-            if(antiAliasingMode == AntiAliasingMode.None)
-            {
-                QualitySettings.antiAliasing = 0;
-            }
-            if(antiAliasingMode == AntiAliasingMode.TAA)
-            {
-                QualitySettings.antiAliasing = 1;
-            }
-            if(antiAliasingMode == AntiAliasingMode.MSAA)
-            {
-                QualitySettings.antiAliasing = 4;
-            }
-        }
-
-        void SetDepthOfField()
-        {
-            if(volumeProfile.TryGet(out DepthOfField depthOfField))
-            {
-                depthOfField.mode = new DepthOfFieldModeParameter(depthOfFieldMode);
-            }
-        }
-
-        void SetMotionBlur()
-        {
             if(volumeProfile.TryGet(out MotionBlur motionBlur))
             {
-                motionBlur.quality = new MotionBlurQualityParameter(motionBlurQuality);
+                motionBlur.quality.value = motionBlurQuality;
             }
-        }
 
-        void SetBloom()
-        {
             if(volumeProfile.TryGet(out Bloom bloom))
             {
-                float bloomIntensity = 0;
+                bloom.intensity.value = (int) bloomMode;
+            }
 
-                if(this.bloom == Quality.High)
-                {
-                    bloomIntensity = 10;
-                }
-                if(this.bloom == Quality.Medium)
-                {
-                    bloomIntensity = 6;
-                }
-                if(this.bloom == Quality.Low)
-                {
-                    bloomIntensity = 3;
-                }
-                bloom.intensity.value = bloomIntensity;
+            if(volumeProfile.TryGet(out Vignette vignette))
+            {
+                vignette.intensity.value = vignetteMode == VignetteMode.Off? 0 : vignetteMaxValue;
+            }
+
+            if(volumeProfile.TryGet(out DepthOfField depthOfField))
+            {
+                depthOfField.mode.value = depthOfFieldMode;
             }
         }
 
