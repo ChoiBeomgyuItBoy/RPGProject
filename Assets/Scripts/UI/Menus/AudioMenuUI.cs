@@ -1,30 +1,31 @@
-using RPG.Settings;
+using RPG.Audio;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RPG.UI.Menus
 {
     public class AudioMenuUI : MonoBehaviour
     {
-        [SerializeField] AudioSettingsSO audioSettings;
-        [SerializeField] Slider masterVolumeSlider;
-        [SerializeField] Slider musicVolumeSlider;
-        [SerializeField] Slider sfxVolumeSlider;
+        [SerializeField] AudioSettingsSO audioSettingsSO;    
+        [SerializeField] Transform listRoot;
+        [SerializeField] AudioRowUI audioRowPrefab;
 
         void Start()
         {
-            SetupSliders();
+            Redraw();
+        }   
 
-            masterVolumeSlider.onValueChanged.AddListener(audioSettings.SetMasterVolume);
-            musicVolumeSlider.onValueChanged.AddListener(audioSettings.SetMusicVolume);
-            sfxVolumeSlider.onValueChanged.AddListener(audioSettings.SetSFXVolume);
-        }
-
-        void SetupSliders()
+        void Redraw()
         {
-            masterVolumeSlider.value = audioSettings.GetMasterVolume();
-            musicVolumeSlider.value = audioSettings.GetMusicVolume();
-            sfxVolumeSlider.value = audioSettings.GetSFXVolume();
+            foreach(Transform child in listRoot)
+            {
+                Destroy(child.gameObject);
+            }
+
+            foreach(var audioPair in audioSettingsSO.GetAudioPair())
+            {
+                var rowInstance = Instantiate(audioRowPrefab, listRoot);
+                rowInstance.Setup(audioSettingsSO, audioPair.Key, audioPair.Value);
+            }
         }
     }
 }

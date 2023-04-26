@@ -10,7 +10,7 @@ namespace RPG.Control
         [SerializeField] InputAction[] inputActions;
         Dictionary<PlayerAction, KeyCode> keyLookup;
         public event Action onChange;
-        bool isChoosing = false;
+        bool isActive = false;
 
         [System.Serializable]
         class InputAction
@@ -31,7 +31,7 @@ namespace RPG.Control
 
         public KeyCode GetKeyCode(PlayerAction action)
         {
-            if(isChoosing)
+            if(isActive)
             {
                 return KeyCode.None;
             }
@@ -89,14 +89,14 @@ namespace RPG.Control
             return false;
         }       
 
-        public void SetChoosing(bool isChoosing)
+        public void SetActive(bool isActive)
         {
-            this.isChoosing = isChoosing;
+            this.isActive = isActive;
         }
 
-        public bool IsChoosing()
+        public bool IsActive()
         {
-            return isChoosing;
+            return isActive;
         }
 
         private void BuildLookup()

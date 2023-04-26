@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace RPG.Settings
+namespace RPG.Graphics
 {
     [CreateAssetMenu(menuName = "RPG/Settings/New Graphics Settings")]
     public class GraphicsSettingsSO : ScriptableObject
@@ -23,6 +23,7 @@ namespace RPG.Settings
         [SerializeField] BloomMode bloomMode = default;
         [SerializeField] VignetteMode vignetteMode = default;
         [SerializeField] DepthOfFieldMode depthOfFieldMode = default;
+        [SerializeField] bool useMotionBlur = false;
         [SerializeField] float vignetteMaxValue = 0.3f;
 
         Vector2Int currentResolution;
@@ -123,6 +124,7 @@ namespace RPG.Settings
 
             if(volumeProfile.TryGet(out MotionBlur motionBlur))
             {
+                motionBlur.active = useMotionBlur;
                 motionBlur.quality.value = motionBlurQuality;
             }
 

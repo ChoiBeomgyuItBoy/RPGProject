@@ -1,4 +1,3 @@
-using RPG.Settings;
 using UnityEngine;
 
 namespace RPG.Audio
@@ -10,12 +9,6 @@ namespace RPG.Audio
         [SerializeField] AudioSetting audioSetting;
         AudioConfig currentAudio = null;
         AudioSource audioSource;
-
-        enum AudioSetting
-        {
-            Music,
-            SFX
-        }
 
         public void PlayAudio(AudioConfig audioConfig)
         {
@@ -56,19 +49,7 @@ namespace RPG.Audio
 
         void UpdateVolume()
         {
-            if(currentAudio == null) return;
-
-            float baseVolume = audioSettings.GetMasterVolume() * currentAudio.GetVolumeFraction();
-
-            switch(audioSetting)
-            {
-                case AudioSetting.Music:
-                    audioSource.volume = audioSettings.GetMusicVolume() * baseVolume;
-                    break;
-                case AudioSetting.SFX:
-                    audioSource.volume = audioSettings.GetSFXVolume() * baseVolume;
-                    break;
-            }
+            audioSource.volume = audioSettings.GetVolume(audioSetting);
         }
     }
 }

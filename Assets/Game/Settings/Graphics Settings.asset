@@ -17,13 +17,15 @@ MonoBehaviour:
   resolutionProfiles:
   - {x: 1920, y: 1080}
   - {x: 2560, y: 1440}
-  - {x: 3840, y: 2160}
+  - {x: 1280, y: 720}
   - {x: 3440, y: 1440}
-  brightness: -0.73
-  vSync: 1
+  brightness: 0.5
+  vSyncMode: 0
   shadowResolution: 0
-  antiAliasingMode: 0
+  antialiasingMode: 1
   motionBlurQuality: 0
-  bloom: 2
-  vignette: 1
+  bloomMode: 6
+  vignetteMode: 1
   depthOfFieldMode: 0
+  useMotionBlur: 0
+  vignetteMaxValue: 0.4
