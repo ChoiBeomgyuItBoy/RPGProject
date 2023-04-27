@@ -58,7 +58,7 @@ namespace RPG.UI.Menus
 
         void FillDropdown(TMP_Dropdown dropdown, Type enumType)
         {
-            dropdown.options.Clear();
+            dropdown.ClearOptions();
 
             foreach(var value in Enum.GetValues(enumType))
             {
@@ -68,7 +68,7 @@ namespace RPG.UI.Menus
 
         void FillDropdown<T>(TMP_Dropdown dropdown, IEnumerable<T> values)
         {
-            dropdown.options.Clear();
+            dropdown.ClearOptions();
 
             foreach(var value in values)
             {
