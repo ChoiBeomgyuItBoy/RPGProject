@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using GameDevTV.Inventories;
 using RPG.Attributes;
+using RPG.Control;
 using RPG.Core;
 using UnityEngine;
 
@@ -13,6 +15,11 @@ namespace RPG.Abilities
         [SerializeField] EffectStrategy[] effectStrategies;
         [SerializeField] float coolDownTime = 0;
         [SerializeField] float manaCost = 0;
+
+        public IEnumerable<EffectStrategy> GetEffects()
+        {
+            return effectStrategies;
+        }
 
         public override bool Use(GameObject user)
         {

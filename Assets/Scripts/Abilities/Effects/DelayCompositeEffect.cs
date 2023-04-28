@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Abilities.Effects
@@ -14,6 +15,19 @@ namespace RPG.Abilities.Effects
         public override void StartEffect(AbilityData data, Action finished)
         {
             data.StartCoroutine(DelayedEffects(data, finished));
+        }
+
+        public override IEnumerable<string> GetEffectInfo()
+        {
+            foreach(var effect in delayedEffects)
+            {
+                if(effect.GetEffectInfo() == null) continue;
+                
+                foreach(var info in effect.GetEffectInfo())
+                {
+                    yield return info;
+                }
+            }
         }
 
         private IEnumerator DelayedEffects(AbilityData data, Action finished)

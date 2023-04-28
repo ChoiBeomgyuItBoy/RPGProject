@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Abilities
@@ -6,6 +7,11 @@ namespace RPG.Abilities
     public abstract class EffectStrategy : ScriptableObject
     {
         public abstract void StartEffect(AbilityData data, Action finished);
+
+        public virtual IEnumerable<string> GetEffectInfo()
+        {
+            return null;
+        }
     }
 }
 

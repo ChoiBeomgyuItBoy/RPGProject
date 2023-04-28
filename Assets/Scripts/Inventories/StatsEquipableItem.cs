@@ -9,7 +9,7 @@ namespace RPG.Inventories
     public class StatsEquipableItem : EquipableItem, IModifierProvider
     {
         [System.Serializable]
-        struct Modifier
+        public struct Modifier
         {
             public Stat stat;
             public float value;
@@ -17,6 +17,16 @@ namespace RPG.Inventories
 
         [SerializeField] Modifier[] additiveModifiers;
         [SerializeField] Modifier[] percentageModifiers;
+
+        public IEnumerable<Modifier> GetAdditiveModifiers()
+        {
+            return additiveModifiers;
+        }
+
+        public IEnumerable<Modifier> GetPercentageModifiers()
+        {
+            return percentageModifiers;
+        }
 
         public IEnumerable<float> GetAdditiveModifiers(Stat stat)
         {   

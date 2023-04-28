@@ -49,7 +49,7 @@ namespace RPG.Audio
 
         void UpdateVolume()
         {
-            audioSource.volume = audioSettings.GetVolume(audioSetting);
+            audioSource.volume = audioSettings.GetVolume(audioSetting) * audioSettings.GetVolume(AudioSetting.Master);
         }
     }
 }

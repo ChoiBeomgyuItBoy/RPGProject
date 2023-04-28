@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RPG.Attributes;
 using UnityEngine;
 
@@ -29,6 +30,18 @@ namespace RPG.Abilities.Effects
             }
 
             finished();
+        }
+
+        public override IEnumerable<string> GetEffectInfo()
+        {
+            if(healthChange > 0)
+            {
+                yield return $"{healthChange} HP increase";
+            }
+            else
+            {
+                yield return $"{-healthChange} HP damage on aquired targets";
+            }
         }
     }
 }

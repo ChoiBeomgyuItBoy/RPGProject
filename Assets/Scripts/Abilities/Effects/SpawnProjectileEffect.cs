@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RPG.Attributes;
 using RPG.Combat;
 using UnityEngine;
@@ -12,7 +13,6 @@ namespace RPG.Abilities.Effects
         [SerializeField] float damage = 10;
         [SerializeField] bool isRightHanded = true;
         [SerializeField] bool useTargetPoint = true;
-
 
         public override void StartEffect(AbilityData data, Action finished)
         {
@@ -29,6 +29,12 @@ namespace RPG.Abilities.Effects
             }
 
             finished();
+        }
+
+        public override IEnumerable<string> GetEffectInfo()
+        {
+            yield return $"{projectilePrefab.GetDisplayName()} projectile spawn";
+            yield return $"{damage} HP damage on aquired targets";
         }
 
         private void SpawnProjectileForTargetPoint(AbilityData data, Vector3 spawnPosition)

@@ -37,7 +37,7 @@ namespace RPG.Audio
                 return 0;
             }
 
-            return audioSettingLookup[audioSetting] * audioSettingLookup[AudioSetting.Master];
+            return audioSettingLookup[audioSetting];
         }
 
         public void SetVolume(AudioSetting audioSetting, float volume)

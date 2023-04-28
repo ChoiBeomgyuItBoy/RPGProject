@@ -22,15 +22,14 @@ namespace RPG.UI.Menus
 
         private void Start()
         {
-            SetVolume(audioSettingsSO.GetVolume(audioSetting));
+            volumeSlider.value = audioSettingsSO.GetVolume(audioSetting);
+            audioSettingText.text = $"{audioSetting.ToString()} volume";
             volumeSlider.onValueChanged.AddListener(SetVolume);
         }
 
         private void SetVolume(float volume)
         {
             audioSettingsSO.SetVolume(audioSetting, volume);
-            volumeSlider.value = volume;
-            audioSettingText.text = $"{audioSetting.ToString()} volume";
         }
     }
 }

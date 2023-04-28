@@ -60,7 +60,7 @@ namespace RPG.Movement
             agent.enabled = !health.IsDead;
         }
 
-        private void MoveTo(Vector3 destination, float speedFraction)
+        public void MoveTo(Vector3 destination, float speedFraction)
         {
             agent.destination = destination;
             agent.speed = maxSpeed * Mathf.Clamp01(speedFraction);

@@ -15,6 +15,7 @@ namespace RPG.Combat
         
         [Tooltip("If projectile will always follow its target")]
         [SerializeField] bool isHoming = false;
+        [SerializeField] string displayName = "";
 
         Health target = null;
         Vector3 targetPoint;
@@ -23,6 +24,11 @@ namespace RPG.Combat
         float damage = 0f;
 
         [SerializeField] UnityEvent onHit;
+
+        public string GetDisplayName()
+        {
+            return displayName;
+        }
 
         public void SetProjectileInfo(Health target, GameObject instigator, float damage)
         {
