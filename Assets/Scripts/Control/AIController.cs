@@ -6,6 +6,8 @@ using RPG.Attributes;
 using GameDevTV.Utils;
 using System;
 using UnityEngine.Events;
+using GameDevTV.Inventories;
+using RPG.Abilities;
 
 namespace RPG.Control
 {
@@ -19,6 +21,7 @@ namespace RPG.Control
         [SerializeField] float waypointDwellTime = 3f;
         [SerializeField] float shoutDistance = 5f;
         [SerializeField] [Range(0f,1f)] float patrolSpeedFraction = 0.2f;
+        [SerializeField] Ability[] abilities;
         [SerializeField] public UnityEvent onAggrevated;
         [SerializeField] public UnityEvent onPacified;
 
@@ -26,8 +29,8 @@ namespace RPG.Control
         Mover mover;
         ActionScheduler scheduler;
         Health health;
+        ActionStore actionStore;
         GameObject player;
-
         LazyValue<Vector3> guardPosition;
         Vector3 currentWaypoint;
 
@@ -57,14 +60,19 @@ namespace RPG.Control
             mover = GetComponent<Mover>();
             scheduler = GetComponent<ActionScheduler>();
             health = GetComponent<Health>();
-
-            guardPosition = new LazyValue<Vector3>(GetInitialPosition);
+            actionStore = GetComponent<ActionStore>();
+            guardPosition = new LazyValue<Vector3>(() => transform.position);
             guardPosition.ForceInit();
         }
 
-        private Vector3 GetInitialPosition()
+        private void Start()
         {
-            return transform.position;
+            if(actionStore == null) return;
+
+            for (int i = 0; i < abilities.Length; i++)
+            {
+                actionStore.AddAction(abilities[i], i, 1);
+            }
         }
 
         private void Update()
@@ -103,12 +111,25 @@ namespace RPG.Control
             currentWaypointIndex = 0;
         }
 
+        private void AbilitiesBehaviour()
+        {
+            actionStore.Use(0, gameObject);
+        }
+
         private void AttackBehaviour()
         {
             if(!GetComponent<Fighter>().enabled) return;
-            timeSinceLastSawPlayer = 0f;
-            fighter.Attack(player);
 
+            if(actionStore != null && actionStore.Use(0, gameObject)) 
+            {
+                onAggrevated?.Invoke();
+            }
+            else
+            {
+                fighter.Attack(player);
+            }
+            
+            timeSinceLastSawPlayer = 0f;
             AggrevateNearbyEnemies();
         }
 

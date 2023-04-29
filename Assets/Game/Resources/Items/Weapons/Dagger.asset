@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: a9d2ab8f-684e-4110-ae34-606b50dbe97d
   displayName: Dagger
-  description: '(Weapon)
-
-    Better than you wrists.'
+  description: Better than your wrists.
   icon: {fileID: 21300000, guid: d19901b0ee3c38743a7d383bd484b0b5, type: 3}
   pickup: {fileID: 2699501989834438182, guid: 0588447d89856e842800581944639ff1, type: 3}
   stackable: 0
   price: 180
   category: 2
+  equipCondition:
+    and: []
   allowedEquipLocation: 5
   animatorOverride: {fileID: 22100000, guid: c7b8b11c4bab83a428938c655982ea2b, type: 2}
   equippedWeaponPrefab: {fileID: 4396510055607372673, guid: c928fe0694c50d94e8b3d9b4e7ce62b0,

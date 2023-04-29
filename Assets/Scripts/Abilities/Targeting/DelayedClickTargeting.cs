@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Control;
-using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Abilities.Targeting
@@ -40,7 +39,7 @@ namespace RPG.Abilities.Targeting
                 targetingEffectInstance.SetActive(true);
             }
 
-            if(targetingAnimationTrigger != "")
+            if(!animator.IsInTransition(0) && targetingAnimationTrigger != "")
             {
                 animator.SetTrigger(targetingAnimationTrigger);
                 animator.ResetTrigger("cancelAbility");

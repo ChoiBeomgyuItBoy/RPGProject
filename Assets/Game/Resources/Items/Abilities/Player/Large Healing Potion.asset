@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Large Healing Potion
   m_EditorClassIdentifier: 
   itemID: ac6ff0c6-3a3b-4dd2-ade8-70e042a1aff8
-  displayName: Health Potion
-  description: 'A magic elixir that regenerates life.
-
-    +100 HP'
+  displayName: Large Healing Potion
+  description: Magic elixir that regenerates wounds and injuries.
   icon: {fileID: 21300000, guid: f1dd815974b2d4240a6bc912d6585497, type: 3}
   pickup: {fileID: 8063493189960858902, guid: 47c9c4bd3629cad4db8e1920a955f997, type: 3}
   stackable: 1
@@ -26,8 +24,8 @@ MonoBehaviour:
   targetingStrategy: {fileID: 11400000, guid: 3b84493648a20ff46a0013da05fd3434, type: 2}
   filterStrategies: []
   effectStrategies:
-  - {fileID: 11400000, guid: 8929dde1f560e0e4a939824a89d527a2, type: 2}
-  - {fileID: 11400000, guid: d7a02d2a3ef3bad49bcfa642ba3ff971, type: 2}
-  - {fileID: 11400000, guid: f2153cfacd696484e9423f493dc35b02, type: 2}
+  - {fileID: 11400000, guid: 4b797c259ad22fe408b6635d11babbc3, type: 2}
+  - {fileID: 11400000, guid: 1fb8e83c7d38d5d45b7c3b0cd7f94e9d, type: 2}
+  - {fileID: 11400000, guid: 71106fa9ddbba234caeb82eb9a42a23d, type: 2}
   coolDownTime: 10
   manaCost: 0
