@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Cinemachine;
 using RPG.Attributes;
+using RPG.Audio;
 using RPG.Movement;
 using RPG.SceneManagement;
 using UnityEngine;
@@ -13,7 +14,8 @@ namespace RPG.Control
     {
         [SerializeField] Transform respawnLocation;
         [SerializeField] float respawnDelay = 2;
-        [SerializeField] float fadeTime = 0.2f;
+        [SerializeField] float fadeTime = 0.5f;
+        [SerializeField] float fadeMusicTime = 2f;
         [SerializeField][Range(0,100)] float playerHealthRegenPercentage = 20;
         [SerializeField][Range(0,100)] float enemyHealthRegenPercentage = 20;
 
@@ -45,14 +47,17 @@ namespace RPG.Control
             yield return new WaitForSeconds(respawnDelay);
 
             Fader fader = FindObjectOfType<Fader>();
+            AudioFader audioFader = FindObjectOfType<AudioFader>();
             
             yield return fader.FadeOut(fadeTime);
+            yield return audioFader.FadeOutMaster(fadeMusicTime);
 
             RespawnPlayer();
             ResetEnemies();
 
             savingWrapper.Save();
 
+            yield return audioFader.FadeInMaster(fadeMusicTime);
             yield return fader.FadeIn(fadeTime);
         }
 

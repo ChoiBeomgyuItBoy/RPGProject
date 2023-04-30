@@ -8,6 +8,7 @@ using System;
 using UnityEngine.Events;
 using GameDevTV.Inventories;
 using RPG.Abilities;
+using System.Collections.Generic;
 
 namespace RPG.Control
 {
@@ -21,7 +22,7 @@ namespace RPG.Control
         [SerializeField] float waypointDwellTime = 3f;
         [SerializeField] float shoutDistance = 5f;
         [SerializeField] [Range(0f,1f)] float patrolSpeedFraction = 0.2f;
-        [SerializeField] AbilitySequenceData[] abilitiesSequence;
+        [SerializeField] AbilitySequence[] abilitiesSequence;
         [SerializeField] public UnityEvent onAggrevated;
         [SerializeField] public UnityEvent onPacified;
 
@@ -39,9 +40,19 @@ namespace RPG.Control
 
         int currentWaypointIndex = 0;
         int currentAbilityIndex = 0;
+        int currentAbilityUsage = 0;
+        AbilityData[] currentAbilitySequence;
 
         [System.Serializable]
-        class AbilitySequenceData
+        class AbilitySequence
+        {
+            [Range(0,1)] public float maxHealthFraction;
+            [Range(0,1)] public float minHealthFraction;
+            public AbilityData[] abilities;
+        }
+
+        [System.Serializable]
+        class AbilityData
         {
             public Ability ability;
             public int timesToUse;
@@ -69,6 +80,40 @@ namespace RPG.Control
             health = GetComponent<Health>();
             guardPosition = new LazyValue<Vector3>(() => transform.position);
             guardPosition.ForceInit();
+        }
+
+        private void Start()
+        {
+            SelectAbilitySequence(0);
+        }
+
+        private void OnEnable()
+        {
+            health.onDamageTaken.AddListener(SelectAbilitySequence);
+        }
+
+        private void OnDisable()
+        {
+            health.onDamageTaken.RemoveListener(SelectAbilitySequence);
+        }
+
+        private void SelectAbilitySequence(float damage)
+        {
+            if(abilitiesSequence.Length == 0) return;
+
+            foreach(var sequence in abilitiesSequence)
+            {
+                if(sequence.abilities == currentAbilitySequence) continue;
+
+                if(health.GetFraction() >= sequence.minHealthFraction && health.GetFraction() <= sequence.maxHealthFraction)
+                {
+                    mover.StartMoveAction(Vector3.zero, 0);
+                    currentAbilitySequence = sequence.abilities;
+                    currentAbilityUsage = 0;
+                    currentAbilityIndex = 0;
+                    return;
+                }
+            }
         }
 
         private void Update()
@@ -124,29 +169,27 @@ namespace RPG.Control
             AggrevateNearbyEnemies();
         }
 
-        int usedTimes = 0;
-
         private void UseAbilities()
         {
-            var selectedAbilityData = abilitiesSequence[currentAbilityIndex];
+            var selectedAbilityData = currentAbilitySequence[currentAbilityIndex];
 
-            if(usedTimes < selectedAbilityData.timesToUse)
+            if(currentAbilityUsage < selectedAbilityData.timesToUse)
             {
                 if(selectedAbilityData.ability.Use(gameObject))
                 {
-                    usedTimes++;
+                    currentAbilityUsage++;
                 }
 
                 return;
             }
         
-            usedTimes = 0;
+            currentAbilityUsage = 0;
             currentAbilityIndex = GetNextAbilityIndex();
         }
 
         private int GetNextAbilityIndex()
         {
-            if(currentAbilityIndex == abilitiesSequence.Length - 1)
+            if(currentAbilityIndex == currentAbilitySequence.Length - 1)
             {
                 return 0;
             }
@@ -201,12 +244,12 @@ namespace RPG.Control
             return IsInRange(transform.position, GetCurrentWaypoint(), waypointTolerance);
         }
 
-        private void CycleWaypoint()
+        public void CycleWaypoint()
         {
             currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
         }
 
-        private Vector3 GetCurrentWaypoint()
+        public Vector3 GetCurrentWaypoint()
         {
             return patrolPath.GetWaypoint(currentWaypointIndex);
         }

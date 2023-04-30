@@ -6,6 +6,7 @@ namespace RPG.Stats
         Soldier,
         Knight,
         Mage,
-        Archer
+        Archer,
+        Boss
     }
 }
