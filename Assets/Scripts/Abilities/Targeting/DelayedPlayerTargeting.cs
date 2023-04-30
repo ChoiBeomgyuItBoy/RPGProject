@@ -13,6 +13,7 @@ namespace RPG.Abilities.Targeting
         [SerializeField] float areaAffectRadius = 5;
         [SerializeField] float heightEffectOffset = 0.31f;
         [SerializeField] float timeToBlast = 5;
+        [SerializeField] string targetingAnimationTrigger = "";
 
         GameObject targetingEffectInstance = null;
         GameObject playerReference = null;
@@ -36,7 +37,10 @@ namespace RPG.Abilities.Targeting
                 targetingEffectInstance.SetActive(true);
             }
 
-            data.GetUser().GetComponent<Animator>().SetTrigger("abilityIdle");
+            if(targetingAnimationTrigger != "")
+            {
+                data.GetUser().GetComponent<Animator>().SetTrigger(targetingAnimationTrigger);
+            }
 
             targetingEffectInstance.transform.localScale = new Vector3(areaAffectRadius * 2, 1, areaAffectRadius * 2);
 

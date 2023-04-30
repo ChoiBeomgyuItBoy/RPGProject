@@ -6,23 +6,18 @@ using UnityEngine;
 
 namespace RPG.Attributes
 {
-    public class Mana : MonoBehaviour, ISaveable, IValueProvider
+    public class Mana : MonoBehaviour, ISaveable, IStatsProvider
     {
         LazyValue<float> mana;
 
-        public float GetMana()
+        public float GetCurrentValue()
         {
             return mana.value;
         }
 
-        public float GetMaxMana()
+        public float GetMaxValue()
         {
             return GetComponent<BaseStats>().GetStat(Stat.Mana);
-        }
-
-        public float GetFraction()
-        {
-            return mana.value / GetMaxMana();
         }
 
         public bool UseMana(float manaToUse)
@@ -38,7 +33,7 @@ namespace RPG.Attributes
 
         void Awake()
         {
-            mana = new LazyValue<float>(GetMaxMana);
+            mana = new LazyValue<float>(GetMaxValue);
         }
 
         void Start()
@@ -48,13 +43,13 @@ namespace RPG.Attributes
 
         void Update()
         {
-            if(mana.value < GetMaxMana())
+            if(mana.value < GetMaxValue())
             {
                 mana.value += Time.deltaTime * GetRegenRate();
 
-                if(mana.value > GetMaxMana())
+                if(mana.value > GetMaxValue())
                 {
-                    mana.value = GetMaxMana();
+                    mana.value = GetMaxValue();
                 }
             }
         }
@@ -72,16 +67,6 @@ namespace RPG.Attributes
         void ISaveable.RestoreState(object state)
         {
             mana.value = (float) state;
-        }
-
-        float IValueProvider.GetCurrentValue()
-        {
-            return GetMana();
-        }
-
-        float IValueProvider.GetMaxValue()
-        {
-            return GetMaxMana();
         }
     }
 }

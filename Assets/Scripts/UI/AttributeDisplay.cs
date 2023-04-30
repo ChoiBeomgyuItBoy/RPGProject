@@ -6,11 +6,11 @@ namespace RPG.UI
 {
     public class AttributeDisplay : MonoBehaviour
     {
-        [Tooltip("Component implementing <IValueProvider> interface")]
+        [Tooltip("Component implementing <IStatsProvider> interface")]
         [SerializeField] Behaviour valueProviderBehaviour;
         [SerializeField] ProgressBarData progressBarData = null;
         [SerializeField] DisplayTextData displayTextData = null;
-        IValueProvider valueProvider;
+        IStatsProvider statsProvider;
 
         [System.Serializable]
         class ProgressBarData
@@ -28,7 +28,7 @@ namespace RPG.UI
 
         void Awake()
         {
-            valueProvider = valueProviderBehaviour as IValueProvider;
+            statsProvider = valueProviderBehaviour as IStatsProvider;
         }
 
         void Update()
@@ -48,16 +48,16 @@ namespace RPG.UI
         {
             if(displayTextData.displayCurrentAndMaxValues)
             {
-                displayTextData.displayText.text = string.Format("{0:0}/{1:0}", valueProvider.GetCurrentValue(), valueProvider.GetMaxValue());
+                displayTextData.displayText.text = string.Format("{0:0}/{1:0}", statsProvider.GetCurrentValue(), statsProvider.GetMaxValue());
             }
             else
             {
-                displayTextData.displayText.text = string.Format("{0:0}", valueProvider.GetCurrentValue());
+                displayTextData.displayText.text = string.Format("{0:0}", statsProvider.GetCurrentValue());
             }
 
             if(displayTextData.displayAsCurrency)
             {
-                displayTextData.displayText.text = $"${valueProvider.GetCurrentValue():N2}";
+                displayTextData.displayText.text = $"${statsProvider.GetCurrentValue():N2}";
             }
             
 
@@ -70,7 +70,7 @@ namespace RPG.UI
 
         float GetFraction()
         {
-            return valueProvider.GetCurrentValue() / valueProvider.GetMaxValue();
+            return statsProvider.GetCurrentValue() / statsProvider.GetMaxValue();
         }
     }
 }

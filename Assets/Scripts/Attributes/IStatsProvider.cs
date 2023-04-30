@@ -1,8 +1,6 @@
-using System;
-
 namespace RPG.Attributes
 {
-    public interface IValueProvider 
+    public interface IStatsProvider 
     {   
         float GetMaxValue();
         float GetCurrentValue();

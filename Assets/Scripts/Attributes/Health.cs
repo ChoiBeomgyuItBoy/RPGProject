@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
-    public class Health : MonoBehaviour, ISaveable, IValueProvider
+    public class Health : MonoBehaviour, ISaveable, IStatsProvider
     {
         [SerializeField] private float regenerationPercentage = 100f;
         [SerializeField] public UnityEvent<float> onDamageTaken;
@@ -17,12 +17,12 @@ namespace RPG.Attributes
         private bool wasDeadLastFrame = false;
         public bool IsDead => health.value <= 0;
 
-        public float GetCurrentHealth()
+        public float GetCurrentValue()
         {
             return health.value;
         }
 
-        public float GetMaxHealth()
+        public float GetMaxValue()
         {
             return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
@@ -58,7 +58,7 @@ namespace RPG.Attributes
 
         public void Heal(float amount)
         {
-            health.value = Mathf.Min(health.value + amount, GetMaxHealth());
+            health.value = Mathf.Min(health.value + amount, GetMaxValue());
             UpdateState();
         }
 
@@ -71,7 +71,6 @@ namespace RPG.Attributes
         {
             health.ForceInit();
         }
-
 
         private float GetInitialHealth()
         {
@@ -132,16 +131,6 @@ namespace RPG.Attributes
             health.value = (float) state;
 
             UpdateState();
-        }
-
-        float IValueProvider.GetCurrentValue()
-        {
-            return GetCurrentHealth();
-        }
-
-        float IValueProvider.GetMaxValue()
-        {
-            return GetMaxHealth();
         }
     }
 }

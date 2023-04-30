@@ -25,7 +25,7 @@ namespace RPG.Abilities
         {
             Mana mana = user.GetComponent<Mana>();
 
-            if(mana.GetMana() < manaCost) 
+            if(mana.GetMaxValue() < manaCost) 
             {
                 return false;
             }

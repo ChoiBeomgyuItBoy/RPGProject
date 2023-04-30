@@ -19,19 +19,25 @@ namespace RPG.Abilities.Effects
         private IEnumerator WaitForAnimationFinished(AbilityData data)
         {
             Animator animator = data.GetUser().GetComponent<Animator>();
-            PlayerController playerController = data.GetUser().GetComponent<PlayerController>();
+            Controller controller = data.GetUser().GetComponent<Controller>();
 
-            animator.ResetTrigger("cancelAbility");
+            if(controller is PlayerController)
+            {
+                animator.ResetTrigger("cancelAbility");
+            }
 
             while(!FinishedPlaying(animator) && !data.IsCancelled())
             {
-                playerController.enabled = false;
+                controller.enabled = false;
                 yield return null;
             }
 
-            animator.SetTrigger("cancelAbility");
+            if(controller is PlayerController)
+            {
+                animator.SetTrigger("cancelAbility");
+            }
 
-            playerController.enabled = true;
+            controller.enabled = true;
         }
 
         private bool FinishedPlaying(Animator animator)

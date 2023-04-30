@@ -8,7 +8,7 @@ using GameDevTV.Inventories;
 
 namespace RPG.Control
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Controller
     {
         [System.Serializable]
         struct CursorMapping

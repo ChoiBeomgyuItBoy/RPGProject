@@ -11,7 +11,7 @@ using RPG.Abilities;
 
 namespace RPG.Control
 {
-    public class AIController : MonoBehaviour
+    public class AIController : Controller
     {
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float chaseDistance = 5f;
@@ -21,7 +21,7 @@ namespace RPG.Control
         [SerializeField] float waypointDwellTime = 3f;
         [SerializeField] float shoutDistance = 5f;
         [SerializeField] [Range(0f,1f)] float patrolSpeedFraction = 0.2f;
-        [SerializeField] Ability[] abilities;
+        [SerializeField] AbilitySequenceData[] abilitiesSequence;
         [SerializeField] public UnityEvent onAggrevated;
         [SerializeField] public UnityEvent onPacified;
 
@@ -29,7 +29,6 @@ namespace RPG.Control
         Mover mover;
         ActionScheduler scheduler;
         Health health;
-        ActionStore actionStore;
         GameObject player;
         LazyValue<Vector3> guardPosition;
         Vector3 currentWaypoint;
@@ -39,6 +38,14 @@ namespace RPG.Control
         float timeSinceAggrevated = Mathf.Infinity;
 
         int currentWaypointIndex = 0;
+        int currentAbilityIndex = 0;
+
+        [System.Serializable]
+        class AbilitySequenceData
+        {
+            public Ability ability;
+            public int timesToUse;
+        }
 
         public void Aggrevate()
         {
@@ -60,19 +67,8 @@ namespace RPG.Control
             mover = GetComponent<Mover>();
             scheduler = GetComponent<ActionScheduler>();
             health = GetComponent<Health>();
-            actionStore = GetComponent<ActionStore>();
             guardPosition = new LazyValue<Vector3>(() => transform.position);
             guardPosition.ForceInit();
-        }
-
-        private void Start()
-        {
-            if(actionStore == null) return;
-
-            for (int i = 0; i < abilities.Length; i++)
-            {
-                actionStore.AddAction(abilities[i], i, 1);
-            }
         }
 
         private void Update()
@@ -111,18 +107,13 @@ namespace RPG.Control
             currentWaypointIndex = 0;
         }
 
-        private void AbilitiesBehaviour()
-        {
-            actionStore.Use(0, gameObject);
-        }
-
         private void AttackBehaviour()
         {
             if(!GetComponent<Fighter>().enabled) return;
 
-            if(actionStore != null && actionStore.Use(0, gameObject)) 
+            if(abilitiesSequence.Length > 0)
             {
-                onAggrevated?.Invoke();
+                UseAbilities();
             }
             else
             {
@@ -131,6 +122,36 @@ namespace RPG.Control
             
             timeSinceLastSawPlayer = 0f;
             AggrevateNearbyEnemies();
+        }
+
+        int usedTimes = 0;
+
+        private void UseAbilities()
+        {
+            var selectedAbilityData = abilitiesSequence[currentAbilityIndex];
+
+            if(usedTimes < selectedAbilityData.timesToUse)
+            {
+                if(selectedAbilityData.ability.Use(gameObject))
+                {
+                    usedTimes++;
+                }
+
+                return;
+            }
+        
+            usedTimes = 0;
+            currentAbilityIndex = GetNextAbilityIndex();
+        }
+
+        private int GetNextAbilityIndex()
+        {
+            if(currentAbilityIndex == abilitiesSequence.Length - 1)
+            {
+                return 0;
+            }
+
+            return currentAbilityIndex + 1;
         }
 
         private void AggrevateNearbyEnemies()

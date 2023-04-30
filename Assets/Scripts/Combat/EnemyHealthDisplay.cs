@@ -29,7 +29,7 @@ namespace RPG.Combat
             enemyClassText.enabled = true;
             healthValueText.enabled = true;
             Health targetHealth = fighter.GetTarget();
-            healthValueText.text = string.Format("{0:0}/{1:0}", targetHealth.GetCurrentHealth(), targetHealth.GetMaxHealth());
+            healthValueText.text = string.Format("{0:0}/{1:0}", targetHealth.GetCurrentValue(), targetHealth.GetMaxValue());
             enemyClassText.text = targetHealth.GetComponent<BaseStats>().GetCharacterClass().ToString() + ": ";
         }
     }   
