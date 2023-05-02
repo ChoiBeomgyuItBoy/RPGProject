@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RPG.Attributes
 {
-    public class Mana : MonoBehaviour, ISaveable, IStatsProvider
+    public class Mana : MonoBehaviour, ISaveable, IAttributeProvider
     {
         LazyValue<float> mana;
 

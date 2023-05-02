@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RPG.Stats
 {
-    public class BaseStats : MonoBehaviour, IStatsProvider
+    public class BaseStats : MonoBehaviour, IAttributeProvider
     {
         [Range(1, 99)]
         [SerializeField] int startingLevel = 1;
@@ -137,12 +137,12 @@ namespace RPG.Stats
             return penultimateLevel + 1;
         }
 
-        float IStatsProvider.GetMaxValue()
+        float IAttributeProvider.GetMaxValue()
         {
             return progression.GetLevels(Stat.ExperienceToLevelUp, characterClass) + 1;
         }
 
-        float IStatsProvider.GetCurrentValue()
+        float IAttributeProvider.GetCurrentValue()
         {
             return GetLevel();
         }

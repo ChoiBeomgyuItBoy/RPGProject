@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
-    public class Health : MonoBehaviour, ISaveable, IStatsProvider
+    public class Health : MonoBehaviour, ISaveable, IAttributeProvider
     {
         [SerializeField] private float regenerationPercentage = 100f;
         [SerializeField] public UnityEvent<float> onDamageTaken;

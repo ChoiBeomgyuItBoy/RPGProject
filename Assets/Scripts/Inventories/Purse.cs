@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RPG.Inventories
 {
-    public class Purse : MonoBehaviour, ISaveable, IItemStore, IStatsProvider
+    public class Purse : MonoBehaviour, ISaveable, IItemStore, IAttributeProvider
     {
         [SerializeField] float startingBalance = 400;
         float balance = 0;
@@ -46,12 +46,12 @@ namespace RPG.Inventories
             return 0;
         }
 
-        float IStatsProvider.GetMaxValue()
+        float IAttributeProvider.GetMaxValue()
         {
             return 0;
         }
 
-        float IStatsProvider.GetCurrentValue()
+        float IAttributeProvider.GetCurrentValue()
         {
             return GetBalance();
         }

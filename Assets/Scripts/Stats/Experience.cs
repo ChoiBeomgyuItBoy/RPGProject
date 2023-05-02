@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace RPG.Stats
 {
-    public class Experience : MonoBehaviour, ISaveable, IItemStore, IStatsProvider
+    public class Experience : MonoBehaviour, ISaveable, IItemStore, IAttributeProvider
     {
         [SerializeField] float experiencePoints = 0f;
 
@@ -55,12 +55,12 @@ namespace RPG.Stats
             return 0;
         }
 
-        float IStatsProvider.GetMaxValue()
+        float IAttributeProvider.GetMaxValue()
         {
             return 0;
         }
 
-        float IStatsProvider.GetCurrentValue()
+        float IAttributeProvider.GetCurrentValue()
         {
             return GetPoints();
         }

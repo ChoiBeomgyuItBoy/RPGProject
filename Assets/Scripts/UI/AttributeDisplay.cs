@@ -1,3 +1,4 @@
+using System;
 using RPG.Attributes;
 using TMPro;
 using UnityEngine;
@@ -6,11 +7,11 @@ namespace RPG.UI
 {
     public class AttributeDisplay : MonoBehaviour
     {
-        [Tooltip("Component implementing <IStatsProvider> interface")]
+        [Tooltip("Component implementing <IAttributeProvider> interface")]
         [SerializeField] Behaviour valueProviderBehaviour;
         [SerializeField] ProgressBarData progressBarData = null;
         [SerializeField] DisplayTextData displayTextData = null;
-        IStatsProvider statsProvider;
+        IAttributeProvider statsProvider;
 
         [System.Serializable]
         class ProgressBarData
@@ -22,13 +23,20 @@ namespace RPG.UI
         class DisplayTextData
         {
             public TMP_Text displayText = null;   
-            public bool displayAsCurrency = false;
-            public bool displayCurrentAndMaxValues = true;
+            public DisplayType displayType = DisplayType.CurrentInt;
+        }
+
+        enum DisplayType
+        {
+            CurrentInt,
+            CurrentAndMaxInt,
+            Currency,
+            Time
         }
 
         void Awake()
         {
-            statsProvider = valueProviderBehaviour as IStatsProvider;
+            statsProvider = valueProviderBehaviour as IAttributeProvider;
         }
 
         void Update()
@@ -46,21 +54,25 @@ namespace RPG.UI
 
         void FillText()
         {
-            if(displayTextData.displayCurrentAndMaxValues)
+            switch(displayTextData.displayType)
             {
-                displayTextData.displayText.text = string.Format("{0:0}/{1:0}", statsProvider.GetCurrentValue(), statsProvider.GetMaxValue());
-            }
-            else
-            {
-                displayTextData.displayText.text = string.Format("{0:0}", statsProvider.GetCurrentValue());
-            }
+                case DisplayType.CurrentAndMaxInt:
+                    displayTextData.displayText.text = string.Format("{0:0}/{1:0}", statsProvider.GetCurrentValue(), statsProvider.GetMaxValue());
+                    break;
+                case DisplayType.CurrentInt:
+                    displayTextData.displayText.text = string.Format("{0:0}", statsProvider.GetCurrentValue());
+                    break;
+                case DisplayType.Currency:
+                    displayTextData.displayText.text = $"${statsProvider.GetCurrentValue():N2}";
+                    break;
+                case DisplayType.Time:
+                    string hour = DateTime.FromOADate(statsProvider.GetCurrentValue() * 1.0 / 24).
+                        ToString(@"hh: mm tt", System.Globalization.CultureInfo.InvariantCulture).Replace(".", "");
+                    hour = hour.Replace("AM", "am").Replace("PM", "pm");
+                    displayTextData.displayText.text = hour;
+                    break;
 
-            if(displayTextData.displayAsCurrency)
-            {
-                displayTextData.displayText.text = $"${statsProvider.GetCurrentValue():N2}";
             }
-            
-
         }
 
         void FillProgressBar()

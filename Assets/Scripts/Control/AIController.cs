@@ -6,9 +6,7 @@ using RPG.Attributes;
 using GameDevTV.Utils;
 using System;
 using UnityEngine.Events;
-using GameDevTV.Inventories;
 using RPG.Abilities;
-using System.Collections.Generic;
 
 namespace RPG.Control
 {
@@ -32,7 +30,6 @@ namespace RPG.Control
         Health health;
         GameObject player;
         LazyValue<Vector3> guardPosition;
-        Vector3 currentWaypoint;
 
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArrivedWaypoint = Mathf.Infinity;
