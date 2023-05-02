@@ -79,6 +79,8 @@ namespace RPG.Dialogue
 
             DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
 
+            if(children.Length == 0) return;
+
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
 
             TriggerExitAction();

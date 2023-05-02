@@ -131,6 +131,8 @@ namespace RPG.Quests
 
         bool? IPredicateEvaluator.Evaluate(string predicate, string[] parameters)
         {
+            if(parameters.Length == 0) return null;
+            
             QuestStatus status = GetQuestStatus(Quest.GetByName(parameters[0]));
 
             switch(predicate)

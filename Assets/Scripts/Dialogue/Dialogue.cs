@@ -19,6 +19,7 @@ namespace RPG.Dialogue
 
             foreach(DialogueNode node in GetAllNodes())
             {
+                if(node == null) continue;
                 nodeLookup[node.name] = node;
             }
         }
