@@ -12,21 +12,21 @@ namespace RPG.Audio
 
         public void PlayAudio(AudioConfig audioConfig)
         {
+            if(currentAudio != null && currentAudio.HasToResume())
+            {
+                currentAudio.SetResumeTime(audioSource.time);
+            }
+
             if(audioConfig == null)
             {
                 audioSource.clip = null;
                 return;
             }
 
-            if(currentAudio != null && currentAudio.HasToResume())
-            {
-                currentAudio.SetResumeTime(audioSource.time);
-            }
-
             currentAudio = audioConfig;
             audioSource.Stop();
-            audioSource.time = currentAudio.GetResumeTime();
             audioSource.clip = currentAudio.GetClip();
+            audioSource.time = currentAudio.GetResumeTime();
             audioSource.loop = currentAudio.HasToLoop();
             audioSource.Play();
             UpdateVolume();
@@ -49,7 +49,10 @@ namespace RPG.Audio
 
         void UpdateVolume()
         {
-            audioSource.volume = audioSettings.GetVolume(audioSetting) * audioSettings.GetVolume(AudioSetting.Master);
+            if(currentAudio == null) return;
+            audioSource.volume = audioSettings.GetVolume(audioSetting) * 
+            audioSettings.GetVolume(AudioSetting.Master) * 
+            currentAudio.GetVolumeFraction();
         }
     }
 }
