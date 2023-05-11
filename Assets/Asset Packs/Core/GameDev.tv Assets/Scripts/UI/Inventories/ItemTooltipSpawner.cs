@@ -26,6 +26,8 @@ namespace GameDevTV.UI.Inventories
 
             var item = GetComponent<IItemHolder>().GetItem();
 
+            if(item == null) return;
+
             itemTooltip.Setup(item);
         }
     }

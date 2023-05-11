@@ -4,6 +4,7 @@ using GameDevTV.Saving;
 using RPG.Core;
 using System.Collections.Generic;
 using GameDevTV.Utils;
+using RPG.Inventories;
 
 namespace GameDevTV.Inventories
 {
@@ -34,6 +35,7 @@ namespace GameDevTV.Inventories
         /// Broadcasts when the items in the slots are added/removed.
         /// </summary>
         public event Action inventoryUpdated;
+        public event Action<InventoryItem, int> onItemAdded;
 
         /// <summary>
         /// Convenience for getting the player's inventory.
@@ -49,6 +51,11 @@ namespace GameDevTV.Inventories
         /// </summary>
         public bool HasSpaceFor(InventoryItem item)
         {
+            if(item is CurrencyItem)
+            {
+                return true;
+            }
+            
             return FindSlot(item) >= 0;
         }
 
@@ -104,6 +111,14 @@ namespace GameDevTV.Inventories
         /// <returns>Whether or not the item could be added.</returns>
         public bool AddToFirstEmptySlot(InventoryItem item, int number)
         {
+            if(item is CurrencyItem)
+            {
+                if (onItemAdded != null)
+                {
+                    onItemAdded(item, number);
+                }
+            }
+
             foreach(var store in GetComponents<IItemStore>())
             {
                 number -= store.AddItems(item, number);
@@ -120,10 +135,17 @@ namespace GameDevTV.Inventories
 
             slots[i].item = item;
             slots[i].number += number;
+
+            if (onItemAdded != null)
+            {
+                onItemAdded(item, number);
+            }
+
             if (inventoryUpdated != null)
             {
                 inventoryUpdated();
             }
+
             return true;
         }
 
