@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac85af1edccb084691a8046b3fdc1b4, type: 3}
   m_Name: Head to the Academy
   m_EditorClassIdentifier: 
+  description: Leonard told you to meet him at the Sorcer's Academy, must get in
+    time.
   objectives:
   - reference: a
-    description: Meet Leonard at the Sorcerer's Academy
+    description: Meet Leonard
     usesCondition: 0
     completionCondition:
       and: []
-  rewards: []
+  rewards:
+  - number: 300
+    item: {fileID: 11400000, guid: 1e5892700b7b9924eb0a221709429d7f, type: 2}
+  - number: 300
+    item: {fileID: 11400000, guid: 95a25eed5b59b284abf8c30447469c8c, type: 2}

@@ -5,7 +5,7 @@ namespace RPG.UI
 {
     public class ItemListUI : MonoBehaviour
     {
-        [SerializeField] GameObject title;
+        [SerializeField] Transform container;
         [SerializeField] Transform listRoot;
         [SerializeField] ItemRowUI itemRowPrefab;
         Inventory playerInventory;
@@ -17,7 +17,7 @@ namespace RPG.UI
 
         void Start()
         {
-            title.SetActive(false);
+            container.gameObject.SetActive(false);
 
             foreach(Transform child in listRoot)
             {
@@ -29,7 +29,7 @@ namespace RPG.UI
 
         void AddItem(InventoryItem item, int number)
         {
-            title.SetActive(true);
+            container.gameObject.SetActive(true);
             var itemRowInstance = Instantiate(itemRowPrefab, listRoot);
             itemRowInstance.Setup(item, number);
             itemRowInstance.onRemoved += CheckIfEmpty;
@@ -37,7 +37,7 @@ namespace RPG.UI
 
         void CheckIfEmpty()
         {
-            title.SetActive(listRoot.childCount > 1);
+            container.gameObject.SetActive(listRoot.childCount > 1);
         }
     }
 }

@@ -4,6 +4,7 @@ using GameDevTV.Inventories;
 using GameDevTV.Saving;
 using RPG.Control;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Inventories
 {
@@ -11,6 +12,7 @@ namespace RPG.Inventories
     {
         [SerializeField] LootConfig[] loot;
         [SerializeField] float delayBetweenItems = 0.2f;
+        [SerializeField] UnityEvent onChestOpen;
         Inventory playerInventory;
         Boolean alreadyLooted = false;
 
@@ -48,6 +50,7 @@ namespace RPG.Inventories
             {
                 if(Input.GetKeyDown(callingController.GetInteractionKey()))
                 {
+                    onChestOpen?.Invoke();
                     GetComponent<Animation>().Play();
                     StartCoroutine(LootChest());
                 }

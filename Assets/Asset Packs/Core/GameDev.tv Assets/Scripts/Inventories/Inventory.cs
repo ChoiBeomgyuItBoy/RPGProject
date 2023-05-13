@@ -111,7 +111,7 @@ namespace GameDevTV.Inventories
         /// <returns>Whether or not the item could be added.</returns>
         public bool AddToFirstEmptySlot(InventoryItem item, int number)
         {
-            if(item is CurrencyItem)
+            if(item is CurrencyItem || item is ExperienceItem)
             {
                 if (onItemAdded != null)
                 {

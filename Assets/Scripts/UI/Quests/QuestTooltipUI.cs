@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using RPG.Quests;
 using TMPro;
 using UnityEngine;
@@ -9,22 +7,38 @@ namespace RPG.UI.Quests
     public class QuestTooltipUI : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI title;
+        [SerializeField] TextMeshProUGUI description;
         [SerializeField] Transform objectiveContainer;
         [SerializeField] GameObject objectivePrefab;
         [SerializeField] GameObject objectiveIncompletePrefab;
-        [SerializeField] TextMeshProUGUI rewardText;
+        [SerializeField] Transform rewardsContainer;
+        [SerializeField] QuestRewardUI rewardPrefab;
+        QuestStatus status;
 
         public void Setup(QuestStatus status)
         {   
+            this.status = status;
             Quest quest = status.GetQuest();
             title.text = quest.GetTitle();
-            
+            description.text = quest.GetDescription();
+            FillObjectives();
+            FillRewards();
+        }
+
+        private void OnEnable()
+        {
+            if(status == null) return;
+            FillObjectives();
+        }
+
+        private void FillObjectives()
+        {
             foreach(Transform child in objectiveContainer)
             {
                 Destroy(child.gameObject);
             }
 
-            foreach(var objective in quest.GetObjectives())
+            foreach(var objective in status.GetQuest().GetObjectives())
             {
                 GameObject prefab = objectiveIncompletePrefab;
 
@@ -36,37 +50,20 @@ namespace RPG.UI.Quests
                 GameObject objectiveInstance = Instantiate(prefab, objectiveContainer);
                 objectiveInstance.GetComponentInChildren<TextMeshProUGUI>().text = objective.description;
             }
-
-            rewardText.text = GetRewardText(quest);
         }
 
-        private string GetRewardText(Quest quest)
+        private void FillRewards()
         {
-            string rewardText = "";
-
-            foreach(var reward in quest.GetRewards())
+            foreach(Transform child in rewardsContainer)
             {
-                if(rewardText != "")
-                {
-                    rewardText += ", ";
-                }
-
-                if(reward.number > 1)
-                {
-                    rewardText += reward.number + " ";
-                }
-
-                rewardText += reward.item.GetDisplayName();
+                Destroy(child.gameObject);
             }
 
-            if(rewardText == "")
+            foreach(var reward in status.GetQuest().GetRewards())
             {
-                rewardText = "No reward";
+                var rewardInstance = Instantiate(rewardPrefab, rewardsContainer);
+                rewardInstance.Setup(reward.item, reward.number);
             }
-
-            rewardText += ".";
-
-            return rewardText;
         }
     }   
 }

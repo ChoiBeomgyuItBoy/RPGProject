@@ -28,6 +28,11 @@ namespace RPG.Quests
             return statuses;
         }
 
+        public QuestStatus GetLastStatus()
+        {
+            return statuses[statuses.Count - 1];
+        }
+
         public void CompleteObjective(Quest quest, string objective)
         {
             QuestStatus status = GetQuestStatus(quest);

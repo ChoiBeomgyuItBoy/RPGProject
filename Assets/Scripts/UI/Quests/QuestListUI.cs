@@ -1,6 +1,5 @@
 using System.Linq;
 using RPG.Quests;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,7 @@ namespace RPG.UI.Quests
 {
     public class QuestListUI : MonoBehaviour
     {
+        [SerializeField] QuestTooltipUI questTooltip;
         [SerializeField] Transform listRoot;
         [SerializeField] Button allQuestsButton;
         [SerializeField] Button pendingQuestsButton;
@@ -23,6 +23,19 @@ namespace RPG.UI.Quests
             pendingQuestsButton.onClick.AddListener(TogglePendingQuests);
             completedQuestsButton.onClick.AddListener(ToggleCompletedQuests);
             Redraw();
+            InitTooltip();
+        }
+
+        void InitTooltip()
+        {
+            if(questList.GetStatuses().Count() > 0)
+            {
+                questTooltip.Setup(questList.GetLastStatus());
+            }
+            else
+            {
+                questTooltip.gameObject.SetActive(false);
+            }
         }
 
         void Redraw()
@@ -38,7 +51,7 @@ namespace RPG.UI.Quests
                 if(!pendingQuestsButton.IsInteractable() && questStatus.IsComplete()) continue;
 
                 QuestItemUI questInstance = Instantiate<QuestItemUI>(questPrefab, listRoot);
-                questInstance.Setup(questStatus);
+                questInstance.Setup(questStatus, questTooltip);
             }
         }
 

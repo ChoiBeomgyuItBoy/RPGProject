@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 414324845538642277}
   - component: {fileID: 5133937589515384398}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: Rare Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,14 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41e21e7edb707b48a135fb2b68c2d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loot:
-  - item: {fileID: 11400000, guid: 7c022264cc36c4d40bdcc5d32db97df3, type: 2}
-    number: 1
-  - item: {fileID: 11400000, guid: c7fd5ddefa82ba84abbc0b9bdfe1e568, type: 2}
-    number: 6
-  - item: {fileID: 11400000, guid: f7f0b91414105cc42b8761e766578a3c, type: 2}
-    number: 1
+  loot: []
   delayBetweenItems: 0.1
+  onChestOpen:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3346807608239358227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +182,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gold Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150729518734284287, guid: 0ba1573e0923cf0419e46253abd27b17,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4150729518734284287, guid: 0ba1573e0923cf0419e46253abd27b17,
         type: 3}

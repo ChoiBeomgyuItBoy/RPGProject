@@ -8,6 +8,7 @@ namespace RPG.Quests
     [CreateAssetMenu(menuName = "RPG/Quests/New Quest")]
     public class Quest : ScriptableObject
     {
+        [SerializeField] [TextArea] string description = "";
         [SerializeField] List<Objective> objectives = new List<Objective>();
         [SerializeField] List<Reward> rewards = new List<Reward>();
 
@@ -25,6 +26,11 @@ namespace RPG.Quests
         {         
             [Min(1)] public int number;
             public InventoryItem item;
+        }
+
+        public string GetDescription()
+        {
+            return description;
         }
 
         public static Quest GetByName(string questName)
