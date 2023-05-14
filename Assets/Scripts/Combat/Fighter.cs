@@ -6,6 +6,7 @@ using RPG.Stats;
 using System.Collections.Generic;
 using GameDevTV.Utils;
 using GameDevTV.Inventories;
+using System;
 
 namespace RPG.Combat
 {
@@ -28,6 +29,8 @@ namespace RPG.Combat
         WeaponConfig currentWeaponConfig;
 
         LazyValue<Weapon> currentWeapon;
+
+        public event Action<WeaponConfig> onWeaponUpdated;
 
         public void Attack(GameObject combatTarget)
         {
@@ -133,10 +136,13 @@ namespace RPG.Combat
             if(weapon == null)
             {
                 EquipWeapon(defaultWeapon);
-                return;
+                onWeaponUpdated?.Invoke(defaultWeapon);
             }
-
-            EquipWeapon(weapon);
+            else
+            {
+                EquipWeapon(weapon);
+                onWeaponUpdated?.Invoke(weapon);
+            }
         }
 
         private Weapon AttachWeapon(WeaponConfig weapon)
