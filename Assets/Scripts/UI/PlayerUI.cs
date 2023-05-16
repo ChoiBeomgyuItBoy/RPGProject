@@ -1,10 +1,12 @@
-using RPG.Combat;
+using GameDevTV.Inventories;
 using UnityEngine;
 
 public class PlayerUI : MonoBehaviour
 {
     void Awake()
     {
-        GameObject.FindWithTag("Player").GetComponent<Fighter>().onWeaponUpdated += GetComponent<Fighter>().EquipWeapon;
+        GameObject player = GameObject.FindWithTag("Player");
+        player.GetComponent<Equipment>().onItemAdded += GetComponent<Equipment>().AddItem;
+        player.GetComponent<Equipment>().onItemRemoved += GetComponent<Equipment>().RemoveItem;
     }
 }

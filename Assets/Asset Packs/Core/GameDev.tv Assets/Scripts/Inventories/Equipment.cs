@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameDevTV.Saving;
 using GameDevTV.Utils;
+using PsychoticLab;
 
 namespace GameDevTV.Inventories
 {
@@ -16,6 +17,7 @@ namespace GameDevTV.Inventories
     {
         // STATE
         Dictionary<EquipLocation, EquipableItem> equippedItems = new Dictionary<EquipLocation, EquipableItem>();
+        CharacterCustomizer customizer;
 
         // PUBLIC
 
@@ -23,6 +25,8 @@ namespace GameDevTV.Inventories
         /// Broadcasts when the items in the slots are added/removed.
         /// </summary>
         public event Action equipmentUpdated;
+        public event Action<EquipLocation, EquipableItem> onItemAdded;
+        public event Action<EquipLocation> onItemRemoved;
 
         /// <summary>
         /// Return the item in the given equip location.
@@ -47,10 +51,10 @@ namespace GameDevTV.Inventories
 
             equippedItems[slot] = item;
 
-            if (equipmentUpdated != null)
-            {
-                equipmentUpdated();
-            }
+            item.ToggleCharacterParts(customizer, true);
+
+            equipmentUpdated?.Invoke();
+            onItemAdded?.Invoke(slot, item);
         }
 
         /// <summary>
@@ -58,11 +62,12 @@ namespace GameDevTV.Inventories
         /// </summary>
         public void RemoveItem(EquipLocation slot)
         {
+            GetItemInSlot(slot).ToggleCharacterParts(customizer, false);
+
             equippedItems.Remove(slot);
-            if (equipmentUpdated != null)
-            {
-                equipmentUpdated();
-            }
+
+            equipmentUpdated?.Invoke();
+            onItemRemoved?.Invoke(slot);
         }
 
         /// <summary>
@@ -74,6 +79,11 @@ namespace GameDevTV.Inventories
         }
 
         // PRIVATE
+
+        void Awake()
+        {
+            customizer = GetComponent<CharacterCustomizer>();
+        }
 
         object ISaveable.CaptureState()
         {
@@ -96,7 +106,7 @@ namespace GameDevTV.Inventories
                 var item = (EquipableItem)InventoryItem.GetFromID(pair.Value);
                 if (item != null)
                 {
-                    equippedItems[pair.Key] = item;
+                    AddItem(item.GetAllowedEquipLocation(), item);
                 }
             }
 

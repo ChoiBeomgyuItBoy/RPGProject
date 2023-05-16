@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953f2f19c0286ef44ab11fbe1a2868e3, type: 3}
   m_Name: Heavy Sword
   m_EditorClassIdentifier: 
-  itemID: ade66768-a581-4ef2-8956-f82a7df9db0b
-  displayName: Iron Sword
-  description: Sharp, large, and pointy. Perfect for close range battles!
-  icon: {fileID: 21300000, guid: a332f9cc2040f6042a04c65fa9e4a000, type: 3}
+  itemID: 6f905af6-186f-40b0-b16e-4449c31eff24
+  displayName: Heavy Sword
+  description: Used by the King's Guardians, feels heavy & powerful!
+  icon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
   pickup: {fileID: 2699501989834438182, guid: 808584e255191cc44855e7dc13d591b6, type: 3}
   stackable: 0
   price: 360
@@ -23,11 +23,12 @@ MonoBehaviour:
   equipCondition:
     and: []
   allowedEquipLocation: 5
-  animatorOverride: {fileID: 22100000, guid: c7b8b11c4bab83a428938c655982ea2b, type: 2}
-  equippedWeaponPrefab: {fileID: 4396510055607372673, guid: 34d03633752ced24098728ba83f9f05e,
+  characterParts: []
+  animatorOverride: {fileID: 22100000, guid: 37dfa66f87f815441a188db16288ed99, type: 2}
+  equippedWeaponPrefab: {fileID: 4396510055607372673, guid: 4952731c31f59a64c85dd21767aa1dd3,
     type: 3}
   projectile: {fileID: 0}
   weaponRange: 3
-  weaponDamage: 20
+  weaponDamage: 100
   percentageBonus: 10
   isRightHanded: 1

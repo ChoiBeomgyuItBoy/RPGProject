@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using GameDevTV.Utils;
+using PsychoticLab;
 using UnityEngine;
 
 namespace GameDevTV.Inventories
@@ -14,6 +16,7 @@ namespace GameDevTV.Inventories
         [Tooltip("Where are we allowed to put this item.")]
         [SerializeField] Condition equipCondition;
         [SerializeField] EquipLocation allowedEquipLocation = EquipLocation.Weapon;
+        [SerializeField] CharacterPartPath[] characterParts;
 
         // PUBLIC
 
@@ -27,6 +30,16 @@ namespace GameDevTV.Inventories
         public EquipLocation GetAllowedEquipLocation()
         {
             return allowedEquipLocation;
+        }
+
+        public void ToggleCharacterParts(CharacterCustomizer customizer, bool enabled)
+        {
+            if(characterParts == null) return;
+
+            foreach(var part in characterParts)
+            {
+                customizer.SetCharacterPart(part, enabled);
+            }
         }
     }
 }

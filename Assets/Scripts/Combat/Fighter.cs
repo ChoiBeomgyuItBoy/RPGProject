@@ -30,8 +30,6 @@ namespace RPG.Combat
 
         LazyValue<Weapon> currentWeapon;
 
-        public event Action<WeaponConfig> onWeaponUpdated;
-
         public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
@@ -136,12 +134,10 @@ namespace RPG.Combat
             if(weapon == null)
             {
                 EquipWeapon(defaultWeapon);
-                onWeaponUpdated?.Invoke(defaultWeapon);
             }
             else
             {
                 EquipWeapon(weapon);
-                onWeaponUpdated?.Invoke(weapon);
             }
         }
 
