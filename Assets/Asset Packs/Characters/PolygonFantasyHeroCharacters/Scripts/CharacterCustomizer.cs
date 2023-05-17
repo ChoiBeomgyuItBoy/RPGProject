@@ -7,26 +7,23 @@ namespace PsychoticLab
 {
     public class CharacterCustomizer : MonoBehaviour
     {
-        [SerializeField] CharacterPartPath[] defaultCharacterParts;
-        Dictionary<string, Dictionary<string, Transform>> characterPartLookup = null;
+        [SerializeField] string[] defaultCharacterParts;
+        Dictionary<string, Transform> characterPartLookup = null;
 
-        public void SetCharacterPart(CharacterPartPath part, bool state)
+        public void SetCharacterPart(string partName, bool state)
         {
             if(characterPartLookup == null) 
             {
                 BuildLookup();
             }
 
-            string rootName = part.GetRootName();
-            string partName = part.GetPartName();
-
-            if(!characterPartLookup[rootName].ContainsKey(partName))
+            if(!characterPartLookup.ContainsKey(partName))
             {
                 Debug.LogError($"Character part {partName} not found");
                 return;
             }
 
-            Transform selectedPart = characterPartLookup[rootName][partName];
+            Transform selectedPart = characterPartLookup[partName];
 
             selectedPart.gameObject.SetActive(state);
         }
@@ -41,7 +38,7 @@ namespace PsychoticLab
 
         void BuildLookup()
         {
-            characterPartLookup = new Dictionary<string, Dictionary<string, Transform>>();
+            characterPartLookup = new Dictionary<string, Transform>();
 
             // Male Parts
             AddToLookup("Male_Head_All_Elements");
@@ -91,6 +88,9 @@ namespace PsychoticLab
             AddToLookup("All_10_Knee_Attachement_Right");
             AddToLookup("All_11_Knee_Attachement_Left");
             AddToLookup("Elf_Ear");
+
+            // Other
+            AddToLookup("All_Shields");
         }
 
         void AddToLookup(string rootName)
@@ -99,33 +99,23 @@ namespace PsychoticLab
             {
                 if(root.name != rootName) continue;
 
-                var innerLookup = new Dictionary<string, Transform>();
-
                 foreach(Transform child in root)
                 {
+                    if(characterPartLookup.ContainsKey(child.name))
+                    {
+                        Debug.LogError($"Duplicated character part name: {child.name}");
+                        return;
+                    }
+
+                    characterPartLookup[child.name] = child;
                     child.gameObject.SetActive(false);
-                    innerLookup[child.name] = child;
+
+                    if(rootName == "Shield")
+                    {
+                        print(characterPartLookup[child.name]);
+                    }
                 }
-
-                characterPartLookup[root.name] = innerLookup;
             }
-        }
-    }
-
-    [System.Serializable]
-    public class CharacterPartPath
-    {
-        [SerializeField] string rootName = "";
-        [SerializeField] string partName = "";
-
-        public string GetRootName()
-        {
-            return rootName;
-        }
-
-        public string GetPartName()
-        {
-            return partName;
         }
     }
 }

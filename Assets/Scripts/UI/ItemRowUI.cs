@@ -18,6 +18,8 @@ namespace RPG.UI
         
         public void Setup(InventoryItem item, int number)
         {
+            if(item == null) return;
+
             this.item = item;
             itemNameText.text = $"{item.GetDisplayName()} x {number}";
             itemIcon.sprite = item.GetIcon();

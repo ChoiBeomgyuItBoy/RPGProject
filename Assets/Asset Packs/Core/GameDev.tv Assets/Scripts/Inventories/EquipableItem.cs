@@ -16,7 +16,7 @@ namespace GameDevTV.Inventories
         [Tooltip("Where are we allowed to put this item.")]
         [SerializeField] Condition equipCondition;
         [SerializeField] EquipLocation allowedEquipLocation = EquipLocation.Weapon;
-        [SerializeField] CharacterPartPath[] characterParts;
+        [SerializeField] string[] characterParts;
 
         // PUBLIC
 

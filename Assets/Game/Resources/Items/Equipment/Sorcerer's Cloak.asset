@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Sorcerer's Cloak
   m_EditorClassIdentifier: 
   itemID: 4a61bebf-c5ac-446c-8bff-b0d50b6538cf
-  displayName: Sorcerer's Cloak
+  displayName: Sorcerer's Jacket
   description: Mortem's Sorcer's aprentice insignia... it looks cool too.
-  icon: {fileID: 21300000, guid: 6fc27c9d7fc2d9448af6851bf935e6d2, type: 3}
+  icon: {fileID: 21300000, guid: 7bcee3dac4c974d43b329ee45aef4c99, type: 3}
   pickup: {fileID: 8063493189960858902, guid: 47c9c4bd3629cad4db8e1920a955f997, type: 3}
   stackable: 0
   price: 0
@@ -24,8 +24,9 @@ MonoBehaviour:
     and: []
   allowedEquipLocation: 2
   characterParts:
-  - rootName: All_04_Back_Attachment
-    partName: Chr_BackAttachment_06
+  - Chr_Torso_Male_27
+  - Chr_ArmUpperRight_Male_20
+  - Chr_ArmUpperLeft_Male_20
   additiveModifiers:
   - stat: 5
     value: 5

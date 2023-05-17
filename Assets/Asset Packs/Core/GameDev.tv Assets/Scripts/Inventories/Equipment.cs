@@ -15,8 +15,11 @@ namespace GameDevTV.Inventories
     /// </summary>
     public class Equipment : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
+        [SerializeField] DefaultMeshLocation[] defaultMeshes;
+
         // STATE
         Dictionary<EquipLocation, EquipableItem> equippedItems = new Dictionary<EquipLocation, EquipableItem>();
+        Dictionary<EquipLocation, string[]> defaultMeshesLookup = new Dictionary<EquipLocation, string[]>();
         CharacterCustomizer customizer;
 
         // PUBLIC
@@ -51,6 +54,8 @@ namespace GameDevTV.Inventories
 
             equippedItems[slot] = item;
 
+            SetDefaultMesh(slot, false);
+
             item.ToggleCharacterParts(customizer, true);
 
             equipmentUpdated?.Invoke();
@@ -66,6 +71,8 @@ namespace GameDevTV.Inventories
 
             equippedItems.Remove(slot);
 
+            SetDefaultMesh(slot, true);
+
             equipmentUpdated?.Invoke();
             onItemRemoved?.Invoke(slot);
         }
@@ -80,9 +87,35 @@ namespace GameDevTV.Inventories
 
         // PRIVATE
 
+        [System.Serializable]
+        class DefaultMeshLocation
+        {
+            public EquipLocation slot;
+            public string[] characterParts;
+        }
+
         void Awake()
         {
             customizer = GetComponent<CharacterCustomizer>();
+        }
+
+        void Start()
+        {
+            foreach(var mesh in defaultMeshes)
+            {
+                defaultMeshesLookup[mesh.slot] = mesh.characterParts;
+                SetDefaultMesh(mesh.slot, true);
+            }
+        }
+
+        void SetDefaultMesh(EquipLocation slot, bool enabled)
+        {
+            if(!defaultMeshesLookup.ContainsKey(slot)) return;
+            
+            foreach(string part in defaultMeshesLookup[slot])
+            {
+                customizer.SetCharacterPart(part, enabled);
+            }
         }
 
         object ISaveable.CaptureState()
