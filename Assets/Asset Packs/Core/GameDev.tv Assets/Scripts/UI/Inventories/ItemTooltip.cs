@@ -5,6 +5,7 @@ using RPG.Combat;
 using RPG.Inventories;
 using UnityEngine.UI;
 using RPG.Abilities;
+using System;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -16,8 +17,11 @@ namespace GameDevTV.UI.Inventories
         // CONFIG DATA
         [SerializeField] TextMeshProUGUI itemNameText = null;
         [SerializeField] Image itemIcon = null;
+        [SerializeField] Image rarityImage = null;
         [SerializeField] TextMeshProUGUI itemDescriptionText = null;
         [SerializeField] TextMeshProUGUI itemInfoText = null;
+        [SerializeField] TextMeshProUGUI itemRarityText = null;
+        [SerializeField] RarityColor[] rarityColorConfig = null;
 
         // PUBLIC
 
@@ -28,9 +32,33 @@ namespace GameDevTV.UI.Inventories
             itemDescriptionText.text = item.GetDescription();
             itemInfoText.text = "";
 
+            SetRarity(item);
             CheckIfWeapon(item);
             CheckIfStatsEquipableItem(item);
             CheckIfAbility(item);
+        }
+
+        // PRIVATE
+
+        [System.Serializable]
+        class RarityColor
+        {
+            public ItemRarity rarity;
+            public Color color;
+        }
+
+        void SetRarity(InventoryItem item)
+        {
+            itemRarityText.text = $"{item.GetRarity()}";
+
+            foreach(var config in rarityColorConfig)
+            {
+                if(config.rarity == item.GetRarity())
+                {
+                    rarityImage.color = config.color;
+                    return;
+                }
+            }
         }
 
         void CheckIfWeapon(InventoryItem item)
@@ -39,10 +67,9 @@ namespace GameDevTV.UI.Inventories
 
             if (weapon != null)
             {
-                itemInfoText.text = $"Weapon Stats:";
-                itemInfoText.text += $"\n   - Base Damage: {weapon.GetDamage()} HP.";
-                itemInfoText.text += $"\n   - Bonus Damage: {weapon.GetPercentageBonus()}%";
-                itemInfoText.text += $"\n   - Range: {weapon.GetRange()}m.";
+                itemInfoText.text += $"- Base Damage: {weapon.GetDamage()} HP\n";
+                itemInfoText.text += $"- Bonus Damage: {weapon.GetPercentageBonus()}%\n";
+                itemInfoText.text += $"- Range: {weapon.GetRange()}m\n";
             }
         }
 
@@ -52,13 +79,11 @@ namespace GameDevTV.UI.Inventories
 
             if (statsEquipableItem != null)
             {
-                itemInfoText.text = $"Modifiers: ";
-
                 if(statsEquipableItem.GetAdditiveModifiers() != null)
                 {
                     foreach (var additiveModifier in statsEquipableItem.GetAdditiveModifiers())
                     {
-                        itemInfoText.text += $"\n   +{additiveModifier.value} {additiveModifier.stat}";
+                        itemInfoText.text += $"- {additiveModifier.stat}+{additiveModifier.value}\n";
                     }
                 }
 
@@ -66,7 +91,7 @@ namespace GameDevTV.UI.Inventories
                 {
                     foreach (var percentageModifier in statsEquipableItem.GetPercentageModifiers())
                     {
-                        itemInfoText.text += $"\n   +{percentageModifier.value}% {percentageModifier.stat}";
+                        itemInfoText.text += $"- {percentageModifier.stat}+{percentageModifier.value}%\n";
                     }
                 }
             }
@@ -78,15 +103,13 @@ namespace GameDevTV.UI.Inventories
 
             if(ability != null)
             {
-                itemInfoText.text = $"Effects:";
-
                 foreach(var effect in ability.GetEffects())
                 {
                     if(effect.GetEffectInfo() == null) continue;
 
                     foreach(var info in effect.GetEffectInfo())
                     {
-                        itemInfoText.text += $"\n   - {info}";
+                        itemInfoText.text += $"- {info}\n";
                     }
                 }
             }

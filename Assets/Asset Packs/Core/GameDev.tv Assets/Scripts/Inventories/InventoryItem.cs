@@ -36,8 +36,12 @@ namespace GameDevTV.Inventories
         [Tooltip("The price for this item in all shops")]
         [SerializeField] float price = 0;
 
-        [Tooltip("The category for this item in all shops")]
+        [Tooltip("Allow to fliter large ammount of items")]
         [SerializeField] ItemCategory category = ItemCategory.None;
+
+        [Tooltip("How rare to get this item should be")]
+        [SerializeField] ItemRarity rarity = ItemRarity.Common;
+        
 
         // STATE
         static Dictionary<string, InventoryItem> itemLookupCache;
@@ -122,6 +126,11 @@ namespace GameDevTV.Inventories
         public ItemCategory GetItemCategory()
         {
             return category;
+        }
+
+        public ItemRarity GetRarity()
+        {
+            return rarity;
         }
 
         // PRIVATE

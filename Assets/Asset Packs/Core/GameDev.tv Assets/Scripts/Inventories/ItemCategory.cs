@@ -7,6 +7,7 @@ namespace GameDevTV.Inventories
         Weapons,
         Potions,
         Special,
-        Abilities
+        Abilities,
+        Food
     }
 }

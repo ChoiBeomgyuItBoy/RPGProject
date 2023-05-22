@@ -36,11 +36,11 @@ namespace RPG.Abilities.Effects
         {
             if(healthChange > 0)
             {
-                yield return $"{healthChange} HP increase";
+                yield return $"Restores {healthChange} HP";
             }
             else
             {
-                yield return $"{-healthChange} HP damage on aquired targets";
+                yield return $"Reduces {-healthChange} HP on aquired targets";
             }
         }
     }
