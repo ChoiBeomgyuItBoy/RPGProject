@@ -9,27 +9,27 @@ namespace RPG.UI.Menus
     {
         [SerializeField] Slider volumeSlider;
         [SerializeField] TMP_Text audioSettingText;
-        AudioSettingsSO audioSettingsSO;
+        AudioManager audioManager;
         AudioSetting audioSetting;
         float volume;
 
-        public void Setup(AudioSettingsSO audioSettingsSO, AudioSetting audioSetting, float volume)
+        public void Setup(AudioManager audioManager, AudioSetting audioSetting, float volume)
         {
-            this.audioSettingsSO = audioSettingsSO;
+            this.audioManager = audioManager;
             this.audioSetting = audioSetting;
             this.volume = volume;
         }
 
         private void Start()
         {
-            volumeSlider.value = audioSettingsSO.GetVolume(audioSetting);
+            volumeSlider.value = audioManager.GetVolume(audioSetting);
             audioSettingText.text = $"{audioSetting.ToString()} volume";
             volumeSlider.onValueChanged.AddListener(SetVolume);
         }
 
         private void SetVolume(float volume)
         {
-            audioSettingsSO.SetVolume(audioSetting, volume);
+            audioManager.SetVolume(audioSetting, volume);
         }
     }
 }

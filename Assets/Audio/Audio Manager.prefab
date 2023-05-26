@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 229404812851819859}
+  - component: {fileID: -6689822684953845390}
   - component: {fileID: 5592047061462028290}
+  - component: {fileID: 8041629591721638843}
   m_Layer: 0
-  m_Name: Audio Fader
+  m_Name: Audio Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6689822684953845390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001874936025784341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: audio
 --- !u!114 &5592047061462028290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,3 +60,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: e6c1afd81ed416844b59303d19bcd4f6, type: 2}
+--- !u!114 &8041629591721638843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001874936025784341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08c01cd404c91a488d52ef2aa5c8611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSettingsData:
+  - audioSetting: 0
+    volume: 0.62
+  - audioSetting: 1
+    volume: 0.602
+  - audioSetting: 2
+    volume: 0.534

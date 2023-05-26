@@ -1,22 +1,14 @@
 using System;
 using System.Collections.Generic;
+using GameDevTV.Saving;
 using UnityEngine;
 
 namespace RPG.Audio
 {
-    [CreateAssetMenu(menuName = "RPG/Settings/New Audio Settings")]
-    public class AudioSettingsSO : ScriptableObject
-    {  
+    public class AudioManager : MonoBehaviour, ISaveable
+    {
         [SerializeField] AudioSettingData[] audioSettingsData;
         Dictionary<AudioSetting, float> audioSettingLookup;
-
-        [System.Serializable]
-        class AudioSettingData
-        {
-            public AudioSetting audioSetting;
-            [Range(0,1)] public float volume;
-        }
-
         public event Action onChange;
 
         public IEnumerable<KeyValuePair<AudioSetting, float>> GetAudioPair()
@@ -54,13 +46,20 @@ namespace RPG.Audio
             }
 
             audioSettingLookup[audioSetting] = volume;
-            SaveChanges();
             onChange?.Invoke();
         }
 
-        private void BuildLookup()
+        [System.Serializable]
+        class AudioSettingData
+        {
+            public AudioSetting audioSetting;
+            [Range(0,1)] public float volume;
+        }
+
+        void BuildLookup()
         {
             audioSettingLookup = new Dictionary<AudioSetting, float>();
+
             foreach(var settingData in audioSettingsData)
             {
                 if(audioSettingLookup.ContainsKey(settingData.audioSetting))
@@ -72,20 +71,28 @@ namespace RPG.Audio
             }
         }
 
-        private void SaveChanges()
+        object ISaveable.CaptureState()
         {
-            for (int i = 0; i < audioSettingsData.Length; i++)
+            Dictionary<int, float> saveObject = new Dictionary<int, float>();
+
+            foreach(var pair in audioSettingLookup)
             {
-                AudioSettingData selectedData = audioSettingsData[i];
-                selectedData.volume = audioSettingLookup[selectedData.audioSetting];
+                saveObject[(int) pair.Key] = pair.Value;
             }
+
+            return saveObject;
         }
 
-#if UNITY_EDITOR
-        private void OnValidate()
+        void ISaveable.RestoreState(object state)
         {
+            Dictionary<int, float> saveObject = (Dictionary<int, float>) state;
+
+            foreach(var pair in saveObject)
+            {
+                audioSettingLookup[(AudioSetting) pair.Key] = pair.Value;
+            }
+
             onChange?.Invoke();
         }
-#endif
     }
 }

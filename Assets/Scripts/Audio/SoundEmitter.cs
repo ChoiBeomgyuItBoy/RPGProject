@@ -1,3 +1,4 @@
+using GameDevTV.Utils;
 using UnityEngine;
 
 namespace RPG.Audio
@@ -5,10 +6,10 @@ namespace RPG.Audio
     [RequireComponent(typeof(AudioSource))]
     public abstract class SoundEmitter : MonoBehaviour
     {
-        [SerializeField] AudioSettingsSO audioSettings;
         [SerializeField] AudioSetting audioSetting;
         AudioConfig currentAudio = null;
         AudioSource audioSource;
+        LazyValue<AudioManager> audioManager;
 
         public void PlayAudio(AudioConfig audioConfig)
         {
@@ -32,26 +33,27 @@ namespace RPG.Audio
             UpdateVolume();
         }
 
+        public abstract void OnStartAction();
+
         void Awake()
         {
             audioSource = GetComponent<AudioSource>();
         }
 
-        void OnEnable()
+        void Start()
         {
-            audioSettings.onChange += UpdateVolume;
-        }
-
-        void OnDisable()
-        {
-            audioSettings.onChange -= UpdateVolume;
+            audioManager = new LazyValue<AudioManager>( () => FindObjectOfType<AudioManager>() );
+            audioManager.ForceInit();
+            audioManager.value.onChange += UpdateVolume;
+            OnStartAction();
         }
 
         void UpdateVolume()
         {
             if(currentAudio == null) return;
-            audioSource.volume = audioSettings.GetVolume(audioSetting) * 
-            audioSettings.GetVolume(AudioSetting.Master) * 
+            if(audioSource == null) return;
+            audioSource.volume = audioManager.value.GetVolume(audioSetting) * 
+            audioManager.value.GetVolume(AudioSetting.Master) * 
             currentAudio.GetVolumeFraction();
         }
     }

@@ -28,6 +28,12 @@ namespace RPG.Audio
             public Condition playCondition;
         }
 
+        public override void OnStartAction()
+        {
+            audioFader = FindObjectOfType<AudioFader>();
+            PlayAudio(GetValidMusic(thisSceneMusic.ambientMusic));
+        }
+
         public void FadeInAmbientMusic()
         {
             var validMusic = GetValidMusic(thisSceneMusic.ambientMusic);
@@ -43,12 +49,6 @@ namespace RPG.Audio
         public void FadeInAdditionalMusic(int index)
         {
             StartCoroutine(FadeOutInMusic(additionalMusic[index]));
-        }
-
-        private void Start()
-        {
-            audioFader = FindObjectOfType<AudioFader>();
-            PlayAudio(GetValidMusic(thisSceneMusic.ambientMusic));
         }
 
         private AudioConfig GetValidMusic(ConditionalMusic[] conditionalMusic)
