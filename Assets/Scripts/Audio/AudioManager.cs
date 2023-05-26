@@ -124,6 +124,8 @@ namespace RPG.Audio
         {
             Dictionary<int, float> saveObject = (Dictionary<int, float>) state;
 
+            audioSettingLookup.Clear();
+
             foreach(var pair in saveObject)
             {
                 audioSettingLookup[(AudioSetting) pair.Key] = pair.Value;

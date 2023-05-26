@@ -39,7 +39,7 @@ namespace RPG.UI.Menus
 
             actionText.text = formattedText;
             buttonText.text = keyCode.ToString();
-            choosingText.SetActive(inputReader.IsActive());
+            choosingText.SetActive(false);
 
             if(inputReader.HasRepeatedKeyCode(keyCode))
             {
@@ -54,9 +54,9 @@ namespace RPG.UI.Menus
 
         private IEnumerator WaitForKeyPress()
         {
-            inputReader.SetActive(true);
+            inputReader.enabled = false;
             keyBindButton.interactable = false;
-            choosingText.SetActive(inputReader.IsActive());
+            choosingText.SetActive(true);
             
             while(true)
             {
@@ -64,7 +64,7 @@ namespace RPG.UI.Menus
                 {
                     if(Input.GetKeyDown(candidate))
                     {
-                        inputReader.SetActive(false);
+                        inputReader.enabled = true;
                         keyBindButton.interactable = true; 
                         inputReader.SetKeyCode(playerAction, candidate);       
                         yield break;

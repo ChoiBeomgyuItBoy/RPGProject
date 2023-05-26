@@ -1,22 +1,19 @@
 using System;
 using System.Collections.Generic;
+using GameDevTV.Saving;
 using UnityEngine;
 
 namespace RPG.Control
 {
-    [CreateAssetMenu(menuName = "RPG/New Input Reader")]
-    public class InputReader : ScriptableObject
+    public class InputReader : MonoBehaviour, ISaveable
     {
         [SerializeField] InputAction[] inputActions;
         Dictionary<PlayerAction, KeyCode> keyLookup;
         public event Action onChange;
-        bool isActive = false;
 
-        [System.Serializable]
-        class InputAction
+        public static InputReader GetPlayerInputReader()
         {
-            public PlayerAction action = default;
-            public KeyCode keyCode = default;
+            return GameObject.FindWithTag("Player").GetComponent<InputReader>();
         }
 
         public IEnumerable<KeyValuePair<PlayerAction, KeyCode>> GetActionPairs()
@@ -31,14 +28,14 @@ namespace RPG.Control
 
         public KeyCode GetKeyCode(PlayerAction action)
         {
-            if(isActive)
-            {
-                return KeyCode.None;
-            }
-
             if(keyLookup == null)
             {
                 BuildLookup();
+            }
+
+            if(!isActiveAndEnabled)
+            {
+                return KeyCode.None;
             }
 
             if(!keyLookup.ContainsKey(action)) 
@@ -64,7 +61,6 @@ namespace RPG.Control
             }
             
             keyLookup[action] = keyCode;
-            SaveChanges();
             onChange?.Invoke();
         }
 
@@ -89,14 +85,11 @@ namespace RPG.Control
             return false;
         }       
 
-        public void SetActive(bool isActive)
+        [System.Serializable]
+        private class InputAction
         {
-            this.isActive = isActive;
-        }
-
-        public bool IsActive()
-        {
-            return isActive;
+            public PlayerAction action = default;
+            public KeyCode keyCode = default;
         }
 
         private void BuildLookup()
@@ -113,20 +106,30 @@ namespace RPG.Control
             }
         }
 
-        private void SaveChanges()
+        object ISaveable.CaptureState()
         {
-            for (int i = 0; i < inputActions.Length; i++)
+            var saveObject = new Dictionary<int, int>();
+
+            foreach(var pair in keyLookup)
             {
-                InputAction selectedAction = inputActions[i];
-                selectedAction.keyCode = keyLookup[selectedAction.action];
+                saveObject[(int) pair.Key] = (int) pair.Value;
             }
+
+            return saveObject;
         }
-        
-#if UNITY_EDITOR
-        private void OnValidate()
+
+        void ISaveable.RestoreState(object state)
         {
+            var saveObject = (Dictionary<int, int>) state;
+
+            keyLookup = new Dictionary<PlayerAction, KeyCode>();
+
+            foreach(var pair in saveObject)
+            {
+                keyLookup[(PlayerAction) pair.Key] = (KeyCode) pair.Value;
+            }
+
             onChange?.Invoke();
         }
-#endif
     }
 }

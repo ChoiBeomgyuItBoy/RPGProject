@@ -10,15 +10,6 @@ namespace RPG.Control
 {
     public class PlayerController : Controller
     {
-        [System.Serializable]
-        struct CursorMapping
-        {
-            public CursorType type;
-            public Texture2D texture;
-            public Vector2 hotSpot;
-        }
-
-        [SerializeField] InputReader inputReader;
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float maxNavMeshProjectionDistance = 40;
         [SerializeField] float raycastRadius = 1;
@@ -26,6 +17,7 @@ namespace RPG.Control
         bool isDraggingUI = false;
         Health health = null;
         ActionStore actionStore = null;
+        InputReader inputReader = null;
         const int actionSlots = 6;
 
         public static Ray GetMouseRay()
@@ -43,10 +35,19 @@ namespace RPG.Control
             return inputReader.GetKeyCode(PlayerAction.Cancel);
         }
 
+        [System.Serializable]
+        struct CursorMapping
+        {
+            public CursorType type;
+            public Texture2D texture;
+            public Vector2 hotSpot;
+        }
+
         void Awake()
         {
             health = GetComponent<Health>();
             actionStore = GetComponent<ActionStore>();
+            inputReader = GetComponent<InputReader>();
         }
 
         void Update()

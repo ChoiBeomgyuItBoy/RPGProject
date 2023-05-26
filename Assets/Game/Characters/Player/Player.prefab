@@ -69431,7 +69431,7 @@ PrefabInstance:
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,
         type: 3}
@@ -69669,7 +69669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c41fe4e6283ea468771e156b1d9aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputReader: {fileID: 11400000, guid: 11a66eecd732cf24299076f3aeaea109, type: 2}
   cursorMappings:
   - type: 0
     texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
@@ -69850,6 +69849,43 @@ MonoBehaviour:
     - Chr_ArmLowerLeft_Male_00
     - Chr_HandRight_Male_00
     - Chr_HandLeft_Male_00
+--- !u!114 &9051392523847519822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676208176979660310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55773992f50edd044a038148559f6bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActions:
+  - action: 0
+    keyCode: 323
+  - action: 1
+    keyCode: 324
+  - action: 2
+    keyCode: 257
+  - action: 3
+    keyCode: 258
+  - action: 4
+    keyCode: 259
+  - action: 5
+    keyCode: 260
+  - action: 6
+    keyCode: 261
+  - action: 7
+    keyCode: 262
+  - action: 8
+    keyCode: 105
+  - action: 9
+    keyCode: 113
+  - action: 10
+    keyCode: 116
+  - action: 11
+    keyCode: 27
 --- !u!4 &6700421774421265467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5406678212735441867, guid: 602cc502bade4b444ab927133e956ffd,

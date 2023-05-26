@@ -5,9 +5,14 @@ namespace RPG.UI
 {
     public class ShowHideUI : MonoBehaviour
     {
-        [SerializeField] InputReader inputReader;
         [SerializeField] PlayerAction toggleAction = default;
         [SerializeField] GameObject uiContainer = null;
+        InputReader inputReader;
+
+        void Awake()
+        {
+            inputReader = InputReader.GetPlayerInputReader();
+        }
 
         void Start()
         {

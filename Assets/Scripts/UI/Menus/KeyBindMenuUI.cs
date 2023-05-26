@@ -6,13 +6,14 @@ namespace RPG.UI.Menus
 {
     public class KeyBindMenuUI : MonoBehaviour
     {
-        [SerializeField] InputReader inputReader;
         [SerializeField] KeyBindRowUI keyBindRowPrefab;
         [SerializeField] Transform listRoot;
         [SerializeField] GameObject choosingText;
+        InputReader inputReader;
 
         void Start()
         {
+            inputReader = InputReader.GetPlayerInputReader();
             inputReader.onChange += Redraw;
             Redraw();
         }
