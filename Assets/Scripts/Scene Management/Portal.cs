@@ -52,13 +52,13 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
-            AudioFader audioFader = FindObjectOfType<AudioFader>();
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
             SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
 
             ToggleControl(false);
 
             yield return fader.FadeOut(fadeOutTime);
-            yield return audioFader.FadeOutMaster(fadeOutMusicTime);
+            yield return audioManager.FadeOutMaster(fadeOutMusicTime);
 
             wrapper.Save();
 
@@ -73,7 +73,7 @@ namespace RPG.SceneManagement
 
             wrapper.Save();
 
-            yield return audioFader.FadeInMaster(fadeInMusicTime);
+            yield return audioManager.FadeInMaster(fadeInMusicTime);
             yield return new WaitForSeconds(fadeWaitTime);
 
             fader.FadeIn(fadeInTime);

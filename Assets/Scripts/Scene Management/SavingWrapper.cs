@@ -82,7 +82,7 @@ namespace RPG.SceneManagement
         private IEnumerator LoadScene(int sceneIndex)
         {
             Fader fader = FindObjectOfType<Fader>();
-            AudioFader audioFader = FindObjectOfType<AudioFader>();
+            AudioManager audioFader = FindObjectOfType<AudioManager>();
             Cursor.visible = false;
             yield return new WaitForSecondsRealtime(waitForFadeTime);
             audioFader.FadeOutMaster(fadeOutMusicTime);
@@ -97,13 +97,13 @@ namespace RPG.SceneManagement
         {
             Fader fader = FindObjectOfType<Fader>();
             SavingSystem savingSystem = GetComponent<SavingSystem>();
-            AudioFader audioFader = FindObjectOfType<AudioFader>();
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
             Cursor.visible = false;
             yield return new WaitForSecondsRealtime(waitForFadeTime);
-            audioFader.FadeOutMaster(fadeOutMusicTime);
+            audioManager.FadeOutMaster(fadeOutMusicTime);
             yield return fader.FadeOut(fadeOutTime);
             yield return savingSystem.LoadLastScene(GetCurrentSave());
-            yield return audioFader.FadeInMaster(fadeInMusicTime);
+            yield return audioManager.FadeInMaster(fadeInMusicTime);
             yield return fader.FadeIn(fadeInTime);
             Cursor.visible = true;
         }

@@ -47,17 +47,17 @@ namespace RPG.Control
             yield return new WaitForSeconds(respawnDelay);
 
             Fader fader = FindObjectOfType<Fader>();
-            AudioFader audioFader = FindObjectOfType<AudioFader>();
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
             
             yield return fader.FadeOut(fadeTime);
-            yield return audioFader.FadeOutMaster(fadeMusicTime);
+            yield return audioManager.FadeOutMaster(fadeMusicTime);
 
             RespawnPlayer();
             ResetEnemies();
 
             savingWrapper.Save();
 
-            yield return audioFader.FadeInMaster(fadeMusicTime);
+            yield return audioManager.FadeInMaster(fadeMusicTime);
             yield return fader.FadeIn(fadeTime);
         }
 

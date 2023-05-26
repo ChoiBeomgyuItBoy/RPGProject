@@ -8,18 +8,12 @@ namespace RPG.Core
     {
         [SerializeField] bool toggleControls = false;
         PlayerController playerController;
-        AudioFader audioFader;
 
         void Awake()
         {
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         }
-
-        void Start()
-        {
-            audioFader = FindObjectOfType<AudioFader>();
-        }
-
+        
         void OnEnable()
         {
             if(toggleControls)

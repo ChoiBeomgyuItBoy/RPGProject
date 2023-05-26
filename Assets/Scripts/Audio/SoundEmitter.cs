@@ -9,7 +9,7 @@ namespace RPG.Audio
         [SerializeField] AudioSetting audioSetting;
         AudioConfig currentAudio = null;
         AudioSource audioSource;
-        LazyValue<AudioManager> audioManager;
+        protected LazyValue<AudioManager> audioManager;
 
         public void PlayAudio(AudioConfig audioConfig)
         {
@@ -44,7 +44,7 @@ namespace RPG.Audio
         {
             audioManager = new LazyValue<AudioManager>( () => FindObjectOfType<AudioManager>() );
             audioManager.ForceInit();
-            audioManager.value.onChange += UpdateVolume;
+            audioManager.value.onVolumeChange += UpdateVolume;
             OnStartAction();
         }
 

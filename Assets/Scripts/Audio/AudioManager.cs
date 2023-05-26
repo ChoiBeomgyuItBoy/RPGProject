@@ -1,15 +1,18 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using GameDevTV.Saving;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace RPG.Audio
 {
     public class AudioManager : MonoBehaviour, ISaveable
     {
+        [SerializeField] AudioMixer audioMixer;
         [SerializeField] AudioSettingData[] audioSettingsData;
         Dictionary<AudioSetting, float> audioSettingLookup;
-        public event Action onChange;
+        public event Action onVolumeChange;
 
         public IEnumerable<KeyValuePair<AudioSetting, float>> GetAudioPair()
         {
@@ -46,7 +49,41 @@ namespace RPG.Audio
             }
 
             audioSettingLookup[audioSetting] = volume;
-            onChange?.Invoke();
+            onVolumeChange?.Invoke();
+        }
+
+        public Coroutine FadeOutMaster(float time)
+        {
+            return StartCoroutine(FadeSnapshot("FadeOutMaster", time));
+        }
+
+        public Coroutine FadeInMaster(float time)
+        {
+            return StartCoroutine(FadeSnapshot("FadeInMaster", time));
+        }
+
+        public Coroutine FadeOutMusic(float time)
+        {
+            return StartCoroutine(FadeSnapshot("FadeOutMusic", time));
+        }
+
+        public Coroutine FadeInMusic(float time)
+        {
+            return StartCoroutine(FadeSnapshot("FadeInMusic", time));
+        }
+        
+        public IEnumerator FadeSnapshot(string snapshotName, float time)
+        {
+            var snapshot = audioMixer.FindSnapshot(snapshotName);
+
+            if(snapshot == null)
+            {
+                Debug.LogError($"Snapshot '{snapshotName}' not found");
+                yield break;
+            }
+
+            snapshot.TransitionTo(time);
+            yield return new WaitForSeconds(time);
         }
 
         [System.Serializable]
@@ -92,7 +129,7 @@ namespace RPG.Audio
                 audioSettingLookup[(AudioSetting) pair.Key] = pair.Value;
             }
 
-            onChange?.Invoke();
+            onVolumeChange?.Invoke();
         }
     }
 }

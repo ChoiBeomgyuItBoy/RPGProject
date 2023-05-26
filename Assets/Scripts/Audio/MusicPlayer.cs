@@ -11,8 +11,6 @@ namespace RPG.Audio
         [SerializeField] float fadeInMusicTime = 0.5f;
         [SerializeField] SceneMusicData thisSceneMusic;
         [SerializeField] AudioConfig[] additionalMusic;
-        AudioFader audioFader;
-
 
         [System.Serializable]
         class SceneMusicData
@@ -30,7 +28,6 @@ namespace RPG.Audio
 
         public override void OnStartAction()
         {
-            audioFader = FindObjectOfType<AudioFader>();
             PlayAudio(GetValidMusic(thisSceneMusic.ambientMusic));
         }
 
@@ -69,9 +66,9 @@ namespace RPG.Audio
 
         private IEnumerator FadeOutInMusic(AudioConfig audioConfig)
         {
-            yield return audioFader.FadeOutMusic(fadeOutMusicTime);
+            yield return audioManager.value.FadeOutMusic(fadeOutMusicTime);
             PlayAudio(audioConfig);
-            yield return audioFader.FadeInMusic(fadeInMusicTime);
+            yield return audioManager.value.FadeInMusic(fadeInMusicTime);
         }
     }
 }
