@@ -1,100 +1,39 @@
-using System;
-using System.Collections.Generic;
+using GameDevTV.Utils;
 using RPG.Graphics;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
-using static RPG.Graphics.GraphicsSettingsSO;
 
 namespace RPG.UI.Menus
 {
     public class GraphicsMenuUI : MonoBehaviour
     {
-        [SerializeField] GraphicsSettingsSO graphicsSettingsSO;
-        [SerializeField] Slider brightnessSlider;
-        [SerializeField] TMP_Dropdown windowModeDropdown;
-        [SerializeField] TMP_Dropdown resolutionDropdown;
-        [SerializeField] TMP_Dropdown vSyncDropdown;
-        [SerializeField] TMP_Dropdown bloomDropdown;
-        [SerializeField] TMP_Dropdown vignetteDropdown;
-        [SerializeField] TMP_Dropdown depthOfFieldDropdown;
+        [SerializeField] GraphicsRowUI graphicsRowPrefab;
+        [SerializeField] Transform listRoot;
+        LazyValue<GraphicsManager> graphicsManager;
 
         void Start()
         {
-            SetGraphicsSettings();
-
-            brightnessSlider.onValueChanged.AddListener(graphicsSettingsSO.SetBrightness);
-            windowModeDropdown.onValueChanged.AddListener(graphicsSettingsSO.SetFullScreenMode);
-            resolutionDropdown.onValueChanged.AddListener(graphicsSettingsSO.SetResolution);
-            vSyncDropdown.onValueChanged.AddListener(graphicsSettingsSO.SetVSyncMode);
-            bloomDropdown.onValueChanged.AddListener(graphicsSettingsSO.SetBloomMode);
-            vignetteDropdown.onValueChanged.AddListener(graphicsSettingsSO.SetVignetteMode);
-            depthOfFieldDropdown.onValueChanged.AddListener(graphicsSettingsSO.SetDepthOfFieldMode);
+            graphicsManager = new LazyValue<GraphicsManager>(() => FindObjectOfType<GraphicsManager>());
+            graphicsManager.ForceInit();
+            graphicsManager.value.onRestored += Redraw;
+            Redraw();
         }
 
-        void SetGraphicsSettings()
+        void Redraw()
         {
-            brightnessSlider.value = graphicsSettingsSO.GetBrightness();
-
-            FillDropdown
-            (
-                windowModeDropdown, 
-                typeof(FullScreenMode), 
-                (int) graphicsSettingsSO.GetFullScreenMode()
-            );
-            FillDropdown
-            (
-                resolutionDropdown, 
-                graphicsSettingsSO.GetResolutionProfiles(), 
-                graphicsSettingsSO.GetCurrentResolutionProfile()
-            );
-            FillDropdown
-            (
-                vSyncDropdown, 
-                typeof(VSyncMode), 
-                (int) graphicsSettingsSO.GetVSyncMode()
-            );
-            FillDropdown(
-                bloomDropdown, 
-                typeof(BloomMode), 
-                (int) graphicsSettingsSO.GetBloomMode()
-            );
-            FillDropdown(
-                vignetteDropdown,
-                typeof(VignetteMode), 
-                (int) graphicsSettingsSO.GetVignetteMode()
-            );
-            FillDropdown
-            (
-                depthOfFieldDropdown, 
-                typeof(DepthOfFieldMode), 
-                (int) graphicsSettingsSO.GetDepthOfFieldMode()
-            );
-        }
-
-        void FillDropdown(TMP_Dropdown dropdown, Type enumType, int option)
-        {
-            dropdown.ClearOptions();
-        
-            foreach(var value in Enum.GetValues(enumType))
+            foreach(Transform child in listRoot)
             {
-                dropdown.options.Add(new TMP_Dropdown.OptionData(value.ToString()));
+                Destroy(child.gameObject);
             }
 
-            dropdown.value = option > 0? option : 1;
-        }
-
-        void FillDropdown<T>(TMP_Dropdown dropdown, IEnumerable<T> values, int option)
-        {
-            dropdown.ClearOptions();
-
-            foreach(var value in values)
+            foreach(var pair in graphicsManager.value.GetGraphicPairs())
             {
-                dropdown.options.Add(new TMP_Dropdown.OptionData(value.ToString()));
-            }
+                var graphicsRowInstance = Instantiate(graphicsRowPrefab, listRoot);
 
-            dropdown.value = option > 0? option : 1;
+                foreach(var innerPair in pair.Value)
+                {
+                    graphicsRowInstance.Setup(graphicsManager.value, pair.Key, innerPair.Key);
+                }
+            }
         }
     }
 }

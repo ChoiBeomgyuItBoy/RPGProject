@@ -14,6 +14,7 @@ namespace RPG.UI.Menus
         {
             audioManager = new LazyValue<AudioManager>( () => FindObjectOfType<AudioManager>() );
             audioManager.ForceInit();
+            audioManager.value.onRestored += Redraw;
             Redraw();
         }   
 

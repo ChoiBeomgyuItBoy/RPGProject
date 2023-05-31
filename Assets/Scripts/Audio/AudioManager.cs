@@ -13,6 +13,7 @@ namespace RPG.Audio
         [SerializeField] AudioSettingData[] audioSettingsData;
         Dictionary<AudioSetting, float> audioSettingLookup;
         public event Action onVolumeChange;
+        public event Action onRestored;
 
         public IEnumerable<KeyValuePair<AudioSetting, float>> GetAudioPair()
         {
@@ -132,6 +133,7 @@ namespace RPG.Audio
             }
 
             onVolumeChange?.Invoke();
+            onRestored?.Invoke();
         }
     }
 }
