@@ -11,6 +11,7 @@ namespace RPG.Control
         Dialogue,
         Shop,
         Door,
-        Locked
+        Locked,
+        Trait
     }
 }

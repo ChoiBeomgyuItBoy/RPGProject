@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RPG.UI
+namespace RPG.UI.Inventories
 {
     public class ItemRowUI : MonoBehaviour
     {

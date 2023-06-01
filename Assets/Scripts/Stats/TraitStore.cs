@@ -16,6 +16,9 @@ namespace RPG.Stats
         Dictionary<Stat, Dictionary<Trait, float>> additiveBonusCache;
         Dictionary<Stat, Dictionary<Trait, float>> percentageBonusCache;
 
+        TraitEnhancer traitEnhancer = null;
+        public event Action storeUpdated;
+
 
         [System.Serializable]
         class TraitBonus
@@ -87,6 +90,7 @@ namespace RPG.Stats
             }
 
             stagedPoints.Clear();
+            storeUpdated?.Invoke();
         }
 
         public int GetAssignablePoints()
@@ -138,6 +142,17 @@ namespace RPG.Stats
 
                 yield return bonus * GetPoints(trait);
             }
+        }
+
+        public void SetTraitEnhancer(TraitEnhancer traitEnhancer)
+        {
+            this.traitEnhancer = traitEnhancer;
+            storeUpdated?.Invoke();
+        }
+
+        public bool IsActive()
+        {
+           return traitEnhancer != null;
         }
 
         object ISaveable.CaptureState()

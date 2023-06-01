@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464342795498353723}
-  - component: {fileID: 6656061399889317021}
+  - component: {fileID: 2094727149172847026}
   m_Layer: 5
   m_Name: Trait Row
   m_TagString: Untagged
@@ -41,7 +41,7 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00012207031, y: -210}
   m_SizeDelta: {x: -108.9359, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6656061399889317021
+--- !u!114 &2094727149172847026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,9 +50,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8671226834027910858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a124e7be888e0fa4aae0984f2340019e, type: 3}
+  m_Script: {fileID: 11500000, guid: b188a2ad9bd754f4d96214dc794de325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trait: 0
   valueText: {fileID: 1727862087224218717}
   minusButton: {fileID: 6057702989904762474}
   plusButton: {fileID: 3832110052819471240}

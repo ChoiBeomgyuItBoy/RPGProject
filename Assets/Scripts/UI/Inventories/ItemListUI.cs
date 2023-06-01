@@ -1,7 +1,7 @@
 using GameDevTV.Inventories;
 using UnityEngine;
 
-namespace RPG.UI
+namespace RPG.UI.Inventories
 {
     public class ItemListUI : MonoBehaviour
     {
