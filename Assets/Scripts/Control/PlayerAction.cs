@@ -10,9 +10,7 @@ namespace RPG.Control
         Ability4,
         Ability5,
         Ability6,
-        Inventory,
-        Quests,
-        Traits,
+        Clock,
         Pause
     }   
 }

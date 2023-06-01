@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using RPG.Dialogue;
 using TMPro;
 using UnityEngine;
@@ -11,11 +12,12 @@ namespace RPG.UI
         PlayerConversant playerConversant;
         [SerializeField] TextMeshProUGUI AIText;
         [SerializeField] Button nextButton;
-        [SerializeField] Button quitButton;
         [SerializeField] GameObject AIResponse;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] TextMeshProUGUI conversantName;
+        [SerializeField] float displaySpeed = 0.1f;
+        Coroutine displayCoroutine = null;
 
         void Start()
         {
@@ -24,7 +26,6 @@ namespace RPG.UI
             playerConversant.onConversationUpdated += UpdateUI;
 
             nextButton.onClick.AddListener(() => playerConversant.Next());
-            quitButton.onClick.AddListener(() => playerConversant.Quit());
 
             UpdateUI();
         }
@@ -43,17 +44,39 @@ namespace RPG.UI
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 
-            quitButton.gameObject.SetActive(!playerConversant.HasNext());
-
             if(playerConversant.IsChoosing())
             {
                 BuildChoiceList();
             }
             else
             {
-                AIText.text = playerConversant.GetText();
-                nextButton.gameObject.SetActive(playerConversant.HasNext());
+                DisplayResponse();
             }
+        }
+
+        void DisplayResponse()
+        {
+            if(displayCoroutine != null)
+            {
+                StopCoroutine(displayCoroutine);
+            }
+
+            AIText.text = "";
+
+            displayCoroutine = StartCoroutine(AITextRoutine());
+        }
+
+        IEnumerator AITextRoutine()
+        {
+            nextButton.gameObject.SetActive(false);
+
+            for (int i = 0; i < playerConversant.GetText().Length; i++)
+            {
+                AIText.text += playerConversant.GetText()[i];
+                yield return new WaitForSeconds(displaySpeed);
+            }
+
+            nextButton.gameObject.SetActive(true);
         }
 
         void BuildChoiceList()

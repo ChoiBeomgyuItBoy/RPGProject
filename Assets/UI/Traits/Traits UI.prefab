@@ -100,7 +100,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9116663501720862014}
-  - component: {fileID: 394568767596617167}
   - component: {fileID: 4743209162772730685}
   m_Layer: 5
   m_Name: Traits UI
@@ -130,21 +129,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.5376, y: 109.4546}
   m_SizeDelta: {x: 1236.7429, y: 1376.5879}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &394568767596617167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7137658947808725764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7b6a7fac6e2d604a8e529f6dddf65b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputReader: {fileID: 11400000, guid: 62c8d5858ee4a604e813595988855e84, type: 2}
-  toggleAction: 10
-  uiContainer: {fileID: 8811695145437030050}
 --- !u!114 &4743209162772730685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,12 +1162,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5747297398110381586}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8811695145437030050 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3858439756948668592, guid: 1ab4dd5ae3ef3d54ea06e72f6004089f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5747297398110381586}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7010826426519363285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1635,11 +1613,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6469480200057308161, guid: 5fd350b0cf8fe8b48bf8615c0d2858e1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 394568767596617167}
     - target: {fileID: 6469480200057308161, guid: 5fd350b0cf8fe8b48bf8615c0d2858e1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState

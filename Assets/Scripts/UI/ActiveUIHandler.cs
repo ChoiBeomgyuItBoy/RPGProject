@@ -5,8 +5,12 @@ namespace RPG.Core
 {
     public class ActiveUIHandler : MonoBehaviour
     {
+        [SerializeField] Animator uiAnimator;
+        [SerializeField] string enterAnimationTrigger = "";
+        [SerializeField] string exitAnimationTrigger = "";
         [SerializeField] bool toggleControls = false;
         [SerializeField] bool toggleInput = false;
+        [SerializeField] bool cancelCurrentAction = false;
         PlayerController playerController;
         InputReader inputReader;
 
@@ -27,6 +31,21 @@ namespace RPG.Core
             {
                 inputReader.enabled = false;
             }
+
+            if(cancelCurrentAction)
+            {
+                playerController.GetComponent<ActionScheduler>().CancelCurrentAction();
+            }
+
+            if(exitAnimationTrigger != "")
+            {
+                uiAnimator.ResetTrigger(exitAnimationTrigger);
+            }
+
+            if(enterAnimationTrigger != "")
+            {
+                uiAnimator.SetTrigger(enterAnimationTrigger);
+            }
         }
 
         void OnDisable()
@@ -39,6 +58,16 @@ namespace RPG.Core
             if(toggleInput)
             {
                 inputReader.enabled = true;
+            }
+
+            if(enterAnimationTrigger != "")
+            {
+                uiAnimator.ResetTrigger(enterAnimationTrigger);
+            }
+
+            if(exitAnimationTrigger != "")
+            {
+                uiAnimator.SetTrigger(exitAnimationTrigger);
             }
         }
     }
