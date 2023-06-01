@@ -1,7 +1,6 @@
 using System.Linq;
 using RPG.Quests;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RPG.UI.Quests
 {
@@ -9,33 +8,21 @@ namespace RPG.UI.Quests
     {
         [SerializeField] QuestTooltipUI questTooltip;
         [SerializeField] Transform listRoot;
-        [SerializeField] Button allQuestsButton;
-        [SerializeField] Button pendingQuestsButton;
-        [SerializeField] Button completedQuestsButton;
         [SerializeField] QuestItemUI questPrefab;
         QuestList questList;
 
         void Start()
         {
             questList = GameObject.FindWithTag("Player").GetComponent<QuestList>();
-            questList.onListUpdated += Redraw;
-            allQuestsButton.onClick.AddListener(ToggleAllQuests);
-            pendingQuestsButton.onClick.AddListener(TogglePendingQuests);
-            completedQuestsButton.onClick.AddListener(ToggleCompletedQuests);
-            Redraw();
-            InitTooltip();
-        }
 
-        void InitTooltip()
-        {
-            if(questList.GetStatuses().Count() > 0)
+            foreach (QuestFilterUI questFilterUI in GetComponentsInChildren<QuestFilterUI>())
             {
-                questTooltip.Setup(questList.GetLastStatus());
+                questFilterUI.Setup(questList);
             }
-            else
-            {
-                questTooltip.gameObject.SetActive(false);
-            }
+
+            questList.onListUpdated += Redraw;
+
+            Redraw();
         }
 
         void Redraw()
@@ -45,38 +32,25 @@ namespace RPG.UI.Quests
                 Destroy(child.gameObject);
             }
 
-            foreach (QuestStatus questStatus in questList.GetStatuses().Reverse())
+            foreach (QuestStatus status in questList.GetFilteredStatuses().Reverse())
             {
-                if(!completedQuestsButton.IsInteractable() && !questStatus.IsComplete()) continue;
-                if(!pendingQuestsButton.IsInteractable() && questStatus.IsComplete()) continue;
-
                 QuestItemUI questInstance = Instantiate<QuestItemUI>(questPrefab, listRoot);
-                questInstance.Setup(questStatus, questTooltip);
+                questInstance.Setup(status, questTooltip);
             }
-        }
 
-        void ToggleAllQuests()
-        {
-            allQuestsButton.interactable = false;
-            pendingQuestsButton.interactable = true;
-            completedQuestsButton.interactable = true;
-            Redraw();
-        }
-
-        void TogglePendingQuests()
-        {
-            pendingQuestsButton.interactable = false;
-            allQuestsButton.interactable = true;
-            completedQuestsButton.interactable = true;
-            Redraw();
-        }
-
-        void ToggleCompletedQuests()
-        {
-            completedQuestsButton.interactable = false;
-            allQuestsButton.interactable = true;
-            pendingQuestsButton.interactable = true;
-            Redraw();
+            foreach (QuestFilterUI questFilterUI in GetComponentsInChildren<QuestFilterUI>())
+            {
+                questFilterUI.RefreshUI();
+            }
+   
+            if(questList.GetFilteredStatuses().Count() > 0)
+            {
+                questTooltip.Setup(questList.GetFilteredStatuses().Last());
+            }
+            else
+            {
+                questTooltip.Setup(null);
+            }
         }
     }
 }

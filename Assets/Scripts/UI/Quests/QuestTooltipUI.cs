@@ -8,6 +8,8 @@ namespace RPG.UI.Quests
     {
         [SerializeField] TextMeshProUGUI title;
         [SerializeField] TextMeshProUGUI description;
+        [SerializeField] TextMeshProUGUI objectives;
+        [SerializeField] TextMeshProUGUI rewards;
         [SerializeField] Transform objectiveContainer;
         [SerializeField] GameObject objectivePrefab;
         [SerializeField] GameObject objectiveIncompletePrefab;
@@ -18,17 +20,26 @@ namespace RPG.UI.Quests
         public void Setup(QuestStatus status)
         {   
             this.status = status;
-            Quest quest = status.GetQuest();
-            title.text = quest.GetTitle();
-            description.text = quest.GetDescription();
+            FillTitles();
             FillObjectives();
             FillRewards();
         }
 
-        private void OnEnable()
+        private void FillTitles()
         {
-            if(status == null) return;
-            FillObjectives();
+            if(status == null)
+            {
+                title.text = "No quests available";
+                description.text = "";
+                objectives.text = "";
+                rewards.text = "";
+                return;
+            }
+
+            title.text = status.GetQuest().GetTitle();
+            description.text = status.GetQuest().GetDescription();
+            objectives.text = "Objectives";
+            rewards.text = "Rewards";
         }
 
         private void FillObjectives()
@@ -36,6 +47,11 @@ namespace RPG.UI.Quests
             foreach(Transform child in objectiveContainer)
             {
                 Destroy(child.gameObject);
+            }
+
+            if(status == null) 
+            {
+                return;
             }
 
             foreach(var objective in status.GetQuest().GetObjectives())
@@ -57,6 +73,11 @@ namespace RPG.UI.Quests
             foreach(Transform child in rewardsContainer)
             {
                 Destroy(child.gameObject);
+            }
+
+            if(status == null) 
+            {
+                return;
             }
 
             foreach(var reward in status.GetQuest().GetRewards())

@@ -20,6 +20,8 @@ namespace RPG.UI.Menus
 
         void Redraw()
         {
+            if(listRoot == null) return;
+
             foreach(Transform child in listRoot)
             {
                 Destroy(child.gameObject);

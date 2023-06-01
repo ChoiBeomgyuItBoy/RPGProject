@@ -10,7 +10,7 @@ namespace RPG.Quests
     public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
         List<QuestStatus> statuses = new List<QuestStatus>();
-
+        QuestType filter = QuestType.None;
         public event Action onListUpdated;
 
         public void AddQuest(Quest quest)
@@ -23,14 +23,26 @@ namespace RPG.Quests
             onListUpdated?.Invoke();
         }
 
-        public IEnumerable<QuestStatus> GetStatuses()
+        public void SelectFilter(QuestType filter)
         {
-            return statuses;
+            this.filter = filter;
+            onListUpdated?.Invoke();
         }
 
-        public QuestStatus GetLastStatus()
+        public IEnumerable<QuestStatus> GetFilteredStatuses()
         {
-            return statuses[statuses.Count - 1];
+            foreach(var status in statuses)
+            {
+                if(filter == QuestType.None || status.GetQuest().GetQuestType() == filter)
+                {
+                    yield return status;
+                }
+            }
+        }
+
+        public QuestType GetFilter()
+        {
+            return filter;
         }
 
         public void CompleteObjective(Quest quest, string objective)

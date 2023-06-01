@@ -142,6 +142,11 @@ namespace RPG.Graphics
         {
             var saveObject = new Dictionary<int, int>();
 
+            if(graphicSettingsLookup == null)
+            {
+                BuildLookup();
+            }
+
             foreach(var pair in graphicSettingsLookup)
             {
                 foreach(var innerPair in pair.Value)

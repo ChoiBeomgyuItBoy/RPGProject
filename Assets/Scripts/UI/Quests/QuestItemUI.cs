@@ -16,26 +16,21 @@ namespace RPG.UI.Quests
         {
             this.status = status;
             this.questTooltip = questTooltip;
-            Color textColor = status.IsComplete() ? Color.gray : Color.white;
-            title.color = textColor;
-            progress.color = textColor;
-            title.text = status.GetQuest().GetTitle();
-            progress.text = status.GetCompletedCount() + "/" + status.GetQuest().GetObjectiveCount();
+            SetText();
         }
 
         private void Start()
         {
-            GetComponent<Button>().onClick.AddListener(SetTooltip);
+            GetComponent<Button>().onClick.AddListener(() => questTooltip.Setup(status));
         }
 
-        private void SetTooltip()
+        private void SetText()
         {
-            if(!questTooltip.isActiveAndEnabled)
-            {
-                questTooltip.gameObject.SetActive(true);
-            }
-
-            questTooltip.Setup(status);
+            Color textColor = status.IsComplete() ? Color.gray : title.color;
+            title.color = textColor;
+            progress.color = textColor;
+            title.text = status.GetQuest().GetTitle();
+            progress.text = status.GetCompletedCount() + "/" + status.GetQuest().GetObjectiveCount();
         }
     }
 }
