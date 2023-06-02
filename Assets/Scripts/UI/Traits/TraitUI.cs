@@ -27,6 +27,7 @@ namespace RPG.UI.Traits
 
         private void UpdateUI()
         {
+            commitButton.interactable = playerTraitStore.GetTotalStagedPoints() > 0;
             gameObject.SetActive(playerTraitStore.IsActive());
             unassignedPointsText.text = $"{playerTraitStore.GetUnassignedPoints()}";
         }

@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 2839117394802426191}
   - component: {fileID: 6121055535390678194}
   - component: {fileID: 6816642337371548323}
+  - component: {fileID: 2221662013678413276}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -373,7 +374,8 @@ MonoBehaviour:
   choicePrefab: {fileID: 914199540039967959, guid: b7b78845128d4114abb441cf49208c68,
     type: 3}
   conversantName: {fileID: 2098278762197783215}
-  displaySpeed: 0.02
+  normalDisplaySpeed: 0.03
+  fastDisplaySpeed: 0
 --- !u!114 &6816642337371548323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +394,18 @@ MonoBehaviour:
   toggleControls: 1
   toggleInput: 1
   cancelCurrentAction: 1
+--- !u!225 &2221662013678413276
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920086357042914717}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8431688870758925568
 GameObject:
   m_ObjectHideFlags: 0

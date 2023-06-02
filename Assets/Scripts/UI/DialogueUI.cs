@@ -1,13 +1,13 @@
-using System;
 using System.Collections;
 using RPG.Dialogue;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace RPG.UI
 {
-    public class DialogueUI : MonoBehaviour
+    public class DialogueUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         PlayerConversant playerConversant;
         [SerializeField] TextMeshProUGUI AIText;
@@ -16,7 +16,9 @@ namespace RPG.UI
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] TextMeshProUGUI conversantName;
-        [SerializeField] float displaySpeed = 0.1f;
+        [SerializeField] float normalDisplaySpeed = 0.03f;
+        [SerializeField] float fastDisplaySpeed = 0.06f;
+        float letterSpeed = 0;
         Coroutine displayCoroutine = null;
 
         void Start()
@@ -28,6 +30,8 @@ namespace RPG.UI
             nextButton.onClick.AddListener(() => playerConversant.Next());
 
             UpdateUI();
+
+            letterSpeed = normalDisplaySpeed;
         }
 
         void UpdateUI()
@@ -66,6 +70,16 @@ namespace RPG.UI
             displayCoroutine = StartCoroutine(AITextRoutine());
         }
 
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+        {
+            letterSpeed = fastDisplaySpeed;
+        }
+
+        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
+        {
+            letterSpeed = normalDisplaySpeed;
+        }
+
         IEnumerator AITextRoutine()
         {
             nextButton.gameObject.SetActive(false);
@@ -73,7 +87,7 @@ namespace RPG.UI
             for (int i = 0; i < playerConversant.GetText().Length; i++)
             {
                 AIText.text += playerConversant.GetText()[i];
-                yield return new WaitForSeconds(displaySpeed);
+                yield return new WaitForSeconds(letterSpeed);
             }
 
             nextButton.gameObject.SetActive(true);

@@ -43,7 +43,13 @@ namespace RPG.Stats
                 total += points;
             }
 
-            
+            return total + GetTotalStagedPoints();
+        }
+
+        public int GetTotalStagedPoints()
+        {
+            int total = 0;
+
             foreach(int points in stagedPoints.Values)
             {
                 total += points;
@@ -72,6 +78,7 @@ namespace RPG.Stats
             if(!CanAsignPoints(trait, points)) return;
 
             stagedPoints[trait] = GetStagedPoints(trait) + points;
+            storeUpdated?.Invoke();
         }
 
         public bool CanAsignPoints(Trait trait, int points)
@@ -96,28 +103,6 @@ namespace RPG.Stats
         public int GetAssignablePoints()
         {
             return (int) GetComponent<BaseStats>().GetStat(Stat.TotalTraitPoints);
-        }
-
-        private void Awake()
-        {
-            additiveBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
-            percentageBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
-
-            foreach(var bonus in bonusConfig)
-            {
-                if(!additiveBonusCache.ContainsKey(bonus.stat))
-                {
-                    additiveBonusCache[bonus.stat] = new Dictionary<Trait, float>();
-                }
-
-                if(!percentageBonusCache.ContainsKey(bonus.stat))
-                {
-                    percentageBonusCache[bonus.stat] = new Dictionary<Trait, float>();
-                }
-
-                additiveBonusCache[bonus.stat][bonus.trait] = bonus.additiveBonusPerPoint;
-                percentageBonusCache[bonus.stat][bonus.trait] = bonus.percentageBonusPerPoint;
-            }
         }
 
         public IEnumerable<float> GetAdditiveModifiers(Stat stat)
@@ -155,6 +140,28 @@ namespace RPG.Stats
            return traitEnhancer != null;
         }
 
+        void Awake()
+        {
+            additiveBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
+            percentageBonusCache = new Dictionary<Stat, Dictionary<Trait, float>>();
+
+            foreach(var bonus in bonusConfig)
+            {
+                if(!additiveBonusCache.ContainsKey(bonus.stat))
+                {
+                    additiveBonusCache[bonus.stat] = new Dictionary<Trait, float>();
+                }
+
+                if(!percentageBonusCache.ContainsKey(bonus.stat))
+                {
+                    percentageBonusCache[bonus.stat] = new Dictionary<Trait, float>();
+                }
+
+                additiveBonusCache[bonus.stat][bonus.trait] = bonus.additiveBonusPerPoint;
+                percentageBonusCache[bonus.stat][bonus.trait] = bonus.percentageBonusPerPoint;
+            }
+        }
+
         object ISaveable.CaptureState()
         {
             return assignedPoints;
@@ -167,12 +174,17 @@ namespace RPG.Stats
 
         bool? IPredicateEvaluator.Evaluate(string predicate, string[] parameters)
         {
-            if(predicate == "MinimumTrait")
+            switch(predicate)
             {
-                if(Enum.TryParse<Trait>(parameters[0], out Trait trait))
-                {
-                    return GetPoints(trait) >= Int32.Parse(parameters[1]);
-                } 
+                case "MinimumTrait":
+                    if(Enum.TryParse<Trait>(parameters[0], out Trait trait))
+                    {
+                        return GetPoints(trait) >= Int32.Parse(parameters[1]);
+                    } 
+                    break;
+
+                case "HasTraitPoints":
+                    return GetUnassignedPoints() > 0;
             }
 
             return null;

@@ -1,0 +1,272 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9070265922742400311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 38581d2a-a14b-4b40-aae5-3cc442bb04d7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I want to become stronger
+  rect:
+    serializedVersion: 2
+    x: 603
+    y: 41
+    width: 200
+    height: 100
+  children:
+  - f23582a4-6932-4fb9-8c84-bc1c31388414
+  - e1ad0169-7233-47be-856c-e5ccfe45bb4d
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-8493066817280615215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 70df4dfc-45b8-40e4-a438-fc5cbe0e8c92
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Nevermind
+  rect:
+    serializedVersion: 2
+    x: 607
+    y: 162
+    width: 200
+    height: 100
+  children:
+  - 123f29b8-d9b0-45a2-abd9-2e447f6e8bb5
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-4463837648698354489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: e1ad0169-7233-47be-856c-e5ccfe45bb4d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'Ah the desire of strength burn within you. However, you have not yet reached
+    the required level to receive my blessings. '
+  rect:
+    serializedVersion: 2
+    x: 873
+    y: 100
+    width: 200
+    height: 100
+  children:
+  - d1aa6087-248e-4524-baef-452324dfb1fe
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and:
+    - or:
+      - predicate: HasTraitPoints
+        parameters: []
+        negate: 1
+--- !u!114 &-3551559357651606358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f74538de-29f6-473a-8ee3-4daa9bdc2e7e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What brings you to my presence?
+  rect:
+    serializedVersion: 2
+    x: 354
+    y: 93
+    width: 200
+    height: 100
+  children:
+  - 38581d2a-a14b-4b40-aae5-3cc442bb04d7
+  - 70df4dfc-45b8-40e4-a438-fc5cbe0e8c92
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-2760402046140037411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: c998e744-23c8-4b40-8ed5-7acafe2b1175
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Welcome mortal, I am the embodiment of the godesses's power, ready to bestow
+    blessings upon you.
+  rect:
+    serializedVersion: 2
+    x: 121
+    y: 91
+    width: 200
+    height: 100
+  children:
+  - f74538de-29f6-473a-8ee3-4daa9bdc2e7e
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-2604421575613304341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 123f29b8-d9b0-45a2-abd9-2e447f6e8bb5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You're most welcome young adventurer.
+  rect:
+    serializedVersion: 2
+    x: 866
+    y: 210
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-1252021337782811724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: d1aa6087-248e-4524-baef-452324dfb1fe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Fear not, for as you progress on your journey and grow in experience, my
+    powers shall be available for you.
+  rect:
+    serializedVersion: 2
+    x: 1139
+    y: 100
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2f31a6d5670c34e9249c28a722f2ff, type: 3}
+  m_Name: Trait Statue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -2760402046140037411}
+  - {fileID: -3551559357651606358}
+  - {fileID: -9070265922742400311}
+  - {fileID: -8493066817280615215}
+  - {fileID: 6795199854389245742}
+  - {fileID: 6013002949939790171}
+  - {fileID: -2604421575613304341}
+  - {fileID: -4463837648698354489}
+  - {fileID: -1252021337782811724}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &6013002949939790171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: f23582a4-6932-4fb9-8c84-bc1c31388414
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Very well. Embrace the strength within your spirit, focus on the pulsating
+    energy around you, and receive my gift.
+  rect:
+    serializedVersion: 2
+    x: 881
+    y: -3
+    width: 200
+    height: 100
+  children:
+  - 726389d6-6b4c-423d-b01b-434af4ec4038
+  onEnterActions: []
+  onExitActions:
+  - ShowTraits
+  condition:
+    and:
+    - or:
+      - predicate: HasTraitPoints
+        parameters: []
+        negate: 0
+--- !u!114 &6795199854389245742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 726389d6-6b4c-423d-b01b-434af4ec4038
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: May your spells dazzle and your incantations reshape reality. Remember, magic
+    is a force that demands respect and responsibility. Wield it wisely in your journey.
+  rect:
+    serializedVersion: 2
+    x: 1144
+    y: -3
+    width: 200
+    height: 100
+  children: []
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953f2f19c0286ef44ab11fbe1a2868e3, type: 3}
+  m_Name: Weak Dagger
+  m_EditorClassIdentifier: 
+  itemID: a9d2ab8f-684e-4110-ae34-606b50dbe97d
+  displayName: Thornblade
+  description: Crafted from modest materials and designed for practicality rather
+    than grandeur, this dagger serves as a reliable tool for those who value stealth
+    and precision over sheer brute force.
+  icon: {fileID: 21300000, guid: cab0a4f1f00a91d4893a8d0c8f011ad3, type: 3}
+  pickup: {fileID: 2699501989834438182, guid: 0588447d89856e842800581944639ff1, type: 3}
+  stackable: 0
+  price: 180
+  category: 2
+  rarity: 0
+  equipCondition:
+    and: []
+  allowedEquipLocation: 5
+  characterParts: []
+  animatorOverride: {fileID: 22100000, guid: c7b8b11c4bab83a428938c655982ea2b, type: 2}
+  equippedWeaponPrefab: {fileID: 4396510055607372673, guid: c928fe0694c50d94e8b3d9b4e7ce62b0,
+    type: 3}
+  projectile: {fileID: 0}
+  weaponRange: 1
+  weaponDamage: 5
+  percentageBonus: 0
+  isRightHanded: 1

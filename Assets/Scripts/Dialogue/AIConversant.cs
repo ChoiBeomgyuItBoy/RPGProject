@@ -26,9 +26,9 @@ namespace RPG.Dialogue
 
         public bool HandleRaycast(PlayerController callingController)
         {
-            if(GetComponent<Health>().IsDead)
+            if(TryGetComponent<Health>(out Health health))
             {
-                return false;
+                if(health.IsDead) return false;
             }
 
             if(dialogue == null)
