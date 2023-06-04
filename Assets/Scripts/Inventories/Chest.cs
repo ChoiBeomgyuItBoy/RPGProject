@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using GameDevTV.Inventories;
 using GameDevTV.Saving;
 using RPG.Control;
@@ -8,11 +7,11 @@ using UnityEngine.Events;
 
 namespace RPG.Inventories
 {
+    [RequireComponent(typeof(RandomDropper))]
     public class Chest : MonoBehaviour, IRaycastable, ISaveable
     {
         [SerializeField] LootConfig[] loot;
-        [SerializeField] float delayBetweenItems = 0.2f;
-        [SerializeField] UnityEvent onChestOpen;
+        [SerializeField] UnityEvent onChestOpened;
         Inventory playerInventory;
         Boolean alreadyLooted = false;
 
@@ -28,14 +27,13 @@ namespace RPG.Inventories
             playerInventory = Inventory.GetPlayerInventory();
         }
 
-        IEnumerator LootChest()
+        void LootChest()
         {
             alreadyLooted = true;
             
             foreach(var slot in loot)
             {
-                playerInventory.AddToFirstEmptySlot(slot.item, slot.number);
-                yield return new WaitForSeconds(delayBetweenItems);
+                GetComponent<RandomDropper>().DropItem(slot.item, slot.number);
             }
         }
 
@@ -50,9 +48,9 @@ namespace RPG.Inventories
             {
                 if(Input.GetKeyDown(callingController.GetInteractionKey()))
                 {
-                    onChestOpen?.Invoke();
+                    onChestOpened?.Invoke();
                     GetComponent<Animation>().Play();
-                    StartCoroutine(LootChest());
+                    LootChest();
                 }
 
                 return true;

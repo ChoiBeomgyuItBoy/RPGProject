@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3041086281185755136}
   - component: {fileID: 414324845538642277}
   - component: {fileID: 5133937589515384398}
+  - component: {fileID: 8293479443859755215}
   m_Layer: 0
   m_Name: Common Chest
   m_TagString: Untagged
@@ -90,11 +91,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41e21e7edb707b48a135fb2b68c2d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenItems: 0.1
   loot: []
-  onChestOpen:
+  onChestOpened:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8293479443859755215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375262320713271317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdecb6912ad14644887562a615cc03dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropDistance: 3
+  dropLibrary: {fileID: 0}
 --- !u!1001 &5513383360849635171
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -229,6 +229,20 @@ namespace GameDevTV.Inventories
             return true;
         }
 
+        /// <summary>
+        /// Find a slot that can accomodate the given item.
+        /// </summary>
+        /// <returns>-1 if no slot is found.</returns>
+        public int FindSlot(InventoryItem item)
+        {
+            int i = FindStack(item);
+            if (i < 0)
+            {
+                i = FindEmptySlot();
+            }
+            return i;
+        }
+
         public void RemoveWithID(string itemID)
         {
             int slot = FindSlot(InventoryItem.GetFromID(itemID));
@@ -240,20 +254,6 @@ namespace GameDevTV.Inventories
         private void Awake()
         {
             slots = new InventorySlot[inventorySize];
-        }
-
-        /// <summary>
-        /// Find a slot that can accomodate the given item.
-        /// </summary>
-        /// <returns>-1 if no slot is found.</returns>
-        private int FindSlot(InventoryItem item)
-        {
-            int i = FindStack(item);
-            if (i < 0)
-            {
-                i = FindEmptySlot();
-            }
-            return i;
         }
 
         /// <summary>

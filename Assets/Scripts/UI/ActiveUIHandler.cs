@@ -36,6 +36,8 @@ namespace RPG.Core
             {
                 playerController.GetComponent<ActionScheduler>().CancelCurrentAction();
             }
+            
+            if(uiAnimator == null) return;
 
             if(exitAnimationTrigger != "")
             {
@@ -59,6 +61,8 @@ namespace RPG.Core
             {
                 inputReader.enabled = true;
             }
+
+            if(uiAnimator == null) return;
 
             if(enterAnimationTrigger != "")
             {

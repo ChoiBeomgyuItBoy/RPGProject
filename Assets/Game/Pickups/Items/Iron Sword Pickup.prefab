@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7721655879204374885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 959821500287185607}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &959821500287185607
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721655879204374885}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08659744, y: 1.0735306, z: -0.32509232}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5392081941429697183}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1084868280058272381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52,7 +21,27 @@ PrefabInstance:
     - target: {fileID: 1938231559209215926, guid: 13f2789619728db40a0a72c836f6c397,
         type: 3}
       propertyPath: m_Name
-      value: Sword Pickup
+      value: Iron Sword Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507997590919784193, guid: 13f2789619728db40a0a72c836f6c397,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507997590919784193, guid: 13f2789619728db40a0a72c836f6c397,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507997590919784193, guid: 13f2789619728db40a0a72c836f6c397,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.405
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051810725096192759, guid: 13f2789619728db40a0a72c836f6c397,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2.7772884
       objectReference: {fileID: 0}
     - target: {fileID: 5033542271291711714, guid: 13f2789619728db40a0a72c836f6c397,
         type: 3}
@@ -126,10 +115,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4115738876054867989}
-    - targetCorrespondingSourceObject: {fileID: 5033542271291711714, guid: 13f2789619728db40a0a72c836f6c397,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 959821500287185607}
   m_SourcePrefab: {fileID: 100100000, guid: 13f2789619728db40a0a72c836f6c397, type: 3}
 --- !u!4 &5392081941429697183 stripped
 Transform:
