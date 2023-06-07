@@ -24,6 +24,11 @@ namespace RPG.Dialogue
             }
         }
 
+        private void Awake()
+        {
+            OnValidate();
+        }
+
         public IEnumerable<DialogueNode> GetAllNodes()
         {
             return nodes;

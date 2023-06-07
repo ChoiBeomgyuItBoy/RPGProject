@@ -64,6 +64,14 @@ namespace RPG.Graphics
             return graphicSettingsLookup[graphicSetting][GetFromGraphicSetting(graphicSetting)];
         }
 
+        void Start()
+        {
+            foreach(var config in defaultSettings)
+            {
+                SetGraphicSetting(config.graphicSetting, config.value);
+            }
+        }
+
         void BuildLookup()
         {
             graphicSettingsLookup = new Dictionary<GraphicSetting, Dictionary<Type, int>>();

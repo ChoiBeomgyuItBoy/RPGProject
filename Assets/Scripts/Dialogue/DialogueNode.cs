@@ -65,6 +65,6 @@ namespace RPG.Dialogue
             isPlayerSpeaking = state;
             EditorUtility.SetDirty(this);
         }
-    }
 # endif
+    }
 }
