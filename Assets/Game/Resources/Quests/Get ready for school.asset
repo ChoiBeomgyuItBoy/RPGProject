@@ -13,30 +13,30 @@ MonoBehaviour:
   m_Name: Get ready for school
   m_EditorClassIdentifier: 
   questType: 1
-  description: Leonard is mad at you... better get ready before he starts screaming
-    arrogant phrases.
+  description: Leonard is mad at you... better get ready before he starts yelling
+    again.
   objectives:
   - reference: a
-    description: Get your homework and equip it
+    description: Equip your uniform
     usesCondition: 1
     completionCondition:
       and:
       - or:
-        - predicate: HasItemEquiped
+        - predicate: Has Item Equipped
           parameters:
-          - 4d6e15ad-87bc-4bd0-b38d-951adb321947
+          - cfe4bfd5-1eae-4fa9-8d02-b24234cffc54
+          negate: 0
+      - or:
+        - predicate: Has Item Equipped
+          parameters:
+          - 42144055-cae2-4bdc-bd40-b1c76b615158
+          negate: 0
+      - or:
+        - predicate: Has Item Equipped
+          parameters:
+          - 1756ddbe-b0d0-4e8c-a3c2-8a1129734554
           negate: 0
   - reference: b
-    description: Grab some breakfast
-    usesCondition: 1
-    completionCondition:
-      and:
-      - or:
-        - predicate: HasInventoryItem
-          parameters:
-          - a867d8e7-7a1b-4906-a26b-ac80c58fc907
-          negate: 0
-  - reference: c
     description: Talk back to Leonard once you are done
     usesCondition: 0
     completionCondition:

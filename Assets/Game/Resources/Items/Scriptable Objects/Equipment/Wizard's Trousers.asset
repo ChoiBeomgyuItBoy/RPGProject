@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5859ce8b6c6ea24e97de5db679e648b, type: 3}
+  m_Name: Wizard's Trousers
+  m_EditorClassIdentifier: 
+  itemID: 42144055-cae2-4bdc-bd40-b1c76b615158
+  displayName: Wizard's Trousers
+  description: Durable yet comfortable trousers, tailored specifically for the students
+    of Eldermyst Institute. These enchanted garments are designed to withstand the
+    rigors of both study and practice.
+  icon: {fileID: 21300000, guid: 956ce4d8e1f37ca4e956d48b84102c40, type: 3}
+  pickup: {fileID: 8063493189960858902, guid: 47c9c4bd3629cad4db8e1920a955f997, type: 3}
+  stackable: 0
+  price: 900
+  category: 1
+  rarity: 2
+  equipCondition:
+    and: []
+  allowedEquipLocation: 3
+  characterParts:
+  - Chr_Hips_Male_07
+  additiveModifiers: []
+  percentageModifiers: []

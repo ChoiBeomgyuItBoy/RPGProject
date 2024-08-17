@@ -149,29 +149,40 @@ namespace RPG.Quests
         bool? IPredicateEvaluator.Evaluate(string predicate, string[] parameters)
         {
             if(parameters.Length == 0) return null;
+
+            Quest quest = Quest.GetByName(parameters[0]);
             
-            QuestStatus status = GetQuestStatus(Quest.GetByName(parameters[0]));
+            QuestStatus status = GetQuestStatus(quest);
 
             switch(predicate)
             {
-                case "HasQuest":
+                case "Has Quest":
 
-                    return HasQuest(Quest.GetByName(parameters[0]));
+                    return HasQuest(quest);
 
-                case "CompletedQuest":
+                case "Quest Completed":
 
                     if(status != null)
                     {
                         return status.IsComplete();
                     }
+
                     return false;
 
-                case "CompletedObjective":       
+                case "Objective Completed":       
 
                     if(status != null)
                     {
-                        return status.IsObjectiveComplete(parameters[1]);
+                        bool result = true;
+
+                        for(int i = 1; i < parameters.Length; i++)
+                        {
+                            result = result && status.IsObjectiveComplete(parameters[i]);
+                        }
+
+                        return result;
                     } 
+
                     return false;    
             }
 

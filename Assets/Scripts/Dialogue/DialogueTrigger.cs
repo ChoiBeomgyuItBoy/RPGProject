@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,14 +6,39 @@ namespace RPG.Dialogue
 {
     public class DialogueTrigger : MonoBehaviour
     {
-        [SerializeField] string action;
-        [SerializeField] UnityEvent onTrigger;
+        [SerializeField] TriggerSetup[] triggersSetup;
+        Dictionary<string, UnityEvent> actionLookup;
 
-        public void Trigger(string actionTrigger)
+        [System.Serializable]
+        struct TriggerSetup
         {
-            if(action == actionTrigger)
+            public string actionID;
+            public UnityEvent trigger;
+        }
+
+        public void Trigger(string caller, string actionID)
+        {
+            if(actionLookup == null)
             {
-                onTrigger?.Invoke();
+                FillLookup();
+            }
+
+            if(!actionLookup.ContainsKey(actionID))
+            {
+                Debug.LogError($"Action ID '{actionID}' not found in dialogue '{caller}'");
+                return;
+            }
+
+            actionLookup[actionID].Invoke();
+        }
+
+        private void FillLookup()
+        {
+            actionLookup = new();
+
+            foreach(var setup in triggersSetup)
+            {
+                actionLookup[setup.actionID] = setup.trigger;
             }
         }
     }

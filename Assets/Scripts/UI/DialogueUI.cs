@@ -16,8 +16,8 @@ namespace RPG.UI
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] TextMeshProUGUI conversantName;
-        [SerializeField] float normalDisplaySpeed = 0.03f;
-        [SerializeField] float fastDisplaySpeed = 0.06f;
+        [SerializeField] float normalDisplayDelay = 0.03f;
+        [SerializeField] float onClickDisplayDelay = 0.06f;
         float letterSpeed = 0;
         Coroutine displayCoroutine = null;
 
@@ -31,7 +31,7 @@ namespace RPG.UI
 
             UpdateUI();
 
-            letterSpeed = normalDisplaySpeed;
+            letterSpeed = normalDisplayDelay;
         }
 
         void UpdateUI()
@@ -72,12 +72,12 @@ namespace RPG.UI
 
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
-            letterSpeed = fastDisplaySpeed;
+            letterSpeed = onClickDisplayDelay;
         }
 
         void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
         {
-            letterSpeed = normalDisplaySpeed;
+            letterSpeed = normalDisplayDelay;
         }
 
         IEnumerator AITextRoutine()

@@ -16,8 +16,8 @@ MonoBehaviour:
   text: Get yoursealf ready before we leave dumbhead.
   rect:
     serializedVersion: 2
-    x: 1102
-    y: 409
+    x: 1315
+    y: 452
     width: 200
     height: 100
   children:
@@ -39,11 +39,11 @@ MonoBehaviour:
   m_Name: efa4a4e8-97e6-4d6e-b36d-9b3608e8ef17
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Yup, everything ready
+  text: Yeah.
   rect:
     serializedVersion: 2
-    x: 463
-    y: 802
+    x: 576
+    y: 729
     width: 200
     height: 100
   children:
@@ -53,16 +53,10 @@ MonoBehaviour:
   condition:
     and:
     - or:
-      - predicate: CompletedObjective
+      - predicate: Objective Completed
         parameters:
         - Get ready for school
         - a
-        negate: 0
-    - or:
-      - predicate: CompletedObjective
-        parameters:
-        - Get ready for school
-        - b
         negate: 0
 --- !u!114 &-8819773581544525338
 MonoBehaviour:
@@ -77,11 +71,11 @@ MonoBehaviour:
   m_Name: c216a5e5-f049-4e5b-9155-9ee1988ffba6
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Ready yet?
+  text: Ready?
   rect:
     serializedVersion: 2
-    x: 241
-    y: 251
+    x: 292
+    y: 521
     width: 200
     height: 100
   children:
@@ -89,17 +83,17 @@ MonoBehaviour:
   - efa4a4e8-97e6-4d6e-b36d-9b3608e8ef17
   - 0896a050-e7e7-4b40-84c8-d229bb5d25c5
   onEnterActions:
-  - PlayNoiseAudio
+  - 
   onExitActions: []
   condition:
     and:
     - or:
-      - predicate: HasQuest
+      - predicate: Has Quest
         parameters:
         - Get ready for school
         negate: 0
     - or:
-      - predicate: CompletedQuest
+      - predicate: Quest Completed
         parameters:
         - Get ready for school
         negate: 1
@@ -119,8 +113,8 @@ MonoBehaviour:
   text: How can I equip an item?
   rect:
     serializedVersion: 2
-    x: 896
-    y: 527
+    x: 1072
+    y: 580
     width: 200
     height: 100
   children:
@@ -128,12 +122,7 @@ MonoBehaviour:
   onEnterActions: []
   onExitActions: []
   condition:
-    and:
-    - or:
-      - predicate: HasInventoryItem
-        parameters:
-        - 4d6e15ad-87bc-4bd0-b38d-951adb321947
-        negate: 0
+    and: []
 --- !u!114 &-8235594596994276940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +140,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 486
-    y: 187
+    y: 173
     width: 200
     height: 100
   children:
@@ -173,23 +162,22 @@ MonoBehaviour:
   m_Name: ebb64231-9f87-404a-8ad7-a87f0511270b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Hey man, you overslept again! We're going to be late for school.
+  text: Why aren't you ready yet? Today's the Trial of Ascendancy, remember?
   rect:
     serializedVersion: 2
-    x: 245
+    x: 231
     y: 122
     width: 200
     height: 100
   children:
   - f1643410-b502-4c3d-ae04-72b00a957a30
   - c238a29c-d416-449a-98da-e652cb1e221d
-  onEnterActions:
-  - PlayAngryAudio
+  onEnterActions: []
   onExitActions: []
   condition:
     and:
     - or:
-      - predicate: HasQuest
+      - predicate: Has Quest
         parameters:
         - Get ready for school
         negate: 1
@@ -206,12 +194,12 @@ MonoBehaviour:
   m_Name: 71230a7f-3d82-459c-83eb-788290f788ea
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Open your inventory with the "I" key, then drag it where it locks inside
-    the Equipment Menu.
+  text: Open your inventory , then drag it on the corresponding slot inside the Equipment
+    Menu.
   rect:
     serializedVersion: 2
-    x: 1115
-    y: 535
+    x: 1310
+    y: 580
     width: 200
     height: 100
   children:
@@ -236,8 +224,8 @@ MonoBehaviour:
   text: Allright, just hurry up will ya?
   rect:
     serializedVersion: 2
-    x: 2117
-    y: 614
+    x: 2289
+    y: 450
     width: 200
     height: 100
   children: []
@@ -258,7 +246,7 @@ MonoBehaviour:
   m_Name: 6c4aa45a-92d8-4b20-8ebd-108defdc5c33
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: It's already 7:30, WE SHALL LEAVE NOW!
+  text: It's already 6:00 am have you noticed?...
   rect:
     serializedVersion: 2
     x: 729
@@ -284,11 +272,11 @@ MonoBehaviour:
   m_Name: a9b10dcd-e026-4f08-b863-29dd997ff835
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Not of your business.
+  text: Can I go back to sleep?
   rect:
     serializedVersion: 2
-    x: 1183
-    y: 169
+    x: 1173
+    y: 174
     width: 200
     height: 100
   children:
@@ -313,14 +301,13 @@ MonoBehaviour:
   text: What's the matter?
   rect:
     serializedVersion: 2
-    x: 654
-    y: 475
+    x: 832
+    y: 527
     width: 200
     height: 100
   children:
   - 1996594b-8aeb-4437-9b08-2973eab58e9b
   - 98b1ac2c-4421-4f61-b09c-37cf0c7eed08
-  - 5dd5094a-af54-4900-a9d0-d05f0d696d46
   onEnterActions: []
   onExitActions: []
   condition:
@@ -338,11 +325,11 @@ MonoBehaviour:
   m_Name: 57f480da-dcae-43c8-8b1c-3dfaa2c11874
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Finally... you piss me off quite often you know that right?
+  text: You really wind me up with how late you always are, you know that?
   rect:
     serializedVersion: 2
-    x: 695
-    y: 801
+    x: 842
+    y: 730
     width: 200
     height: 100
   children:
@@ -364,16 +351,40 @@ MonoBehaviour:
   m_Name: 4b42938d-20fd-4d00-b4b5-fef3019cc07d
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Open your quest list by clicking on the book icon or by pressing the "Q"
-    key, all the information you need is there.
+  text: Open your quest list in the pause menu, all the information you need is there.
   rect:
     serializedVersion: 2
-    x: 1322
-    y: 403
+    x: 1580
+    y: 457
     width: 200
     height: 100
   children:
   - ffaef326-4f94-479f-b7f7-5a09728ba222
+  onEnterActions: []
+  onExitActions: []
+  condition:
+    and: []
+--- !u!114 &-1753370879502508445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 058930d3-756b-4cf9-991e-fd2532ced1e6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Come on now, hurry up.
+  rect:
+    serializedVersion: 2
+    x: 2921
+    y: 74
+    width: 200
+    height: 100
+  children: []
   onEnterActions: []
   onExitActions: []
   condition:
@@ -391,8 +402,8 @@ MonoBehaviour:
   m_Name: d6496fd8-8ab8-43f7-a463-3c9db6f564f1
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: If you keep this behaviour you'll never get past me, I'll be the greatest
-    sorcerer in the entire world!
+  text: If you keep this up, you'll always be a slacker, while I'll be the greatest
+    sorcerer in the entire world!.
   rect:
     serializedVersion: 2
     x: 1409
@@ -432,9 +443,6 @@ MonoBehaviour:
   - {fileID: -8406459316497994253}
   - {fileID: -6544942237970090951}
   - {fileID: -2000186034894819487}
-  - {fileID: 387584819037402399}
-  - {fileID: 5778362709161520241}
-  - {fileID: 890639945169758863}
   - {fileID: 4211042363250803256}
   - {fileID: 5406846661044137608}
   - {fileID: -7457267750612790282}
@@ -452,6 +460,10 @@ MonoBehaviour:
   - {fileID: 1115469800802736882}
   - {fileID: 2769343169969370336}
   - {fileID: -5487025910696531512}
+  - {fileID: 4903594466894849504}
+  - {fileID: 7598167006141352856}
+  - {fileID: 3900739097360489369}
+  - {fileID: -1753370879502508445}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &127578806037566871
 MonoBehaviour:
@@ -466,11 +478,11 @@ MonoBehaviour:
   m_Name: 945503c8-b53f-4ae5-8868-ba336728a62c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Give me a few minutes.
+  text: Never mind.
   rect:
     serializedVersion: 2
-    x: 478
-    y: 311
+    x: 608
+    y: 326
     width: 200
     height: 100
   children:
@@ -479,38 +491,6 @@ MonoBehaviour:
   onExitActions: []
   condition:
     and: []
---- !u!114 &387584819037402399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
-  m_Name: 5dd5094a-af54-4900-a9d0-d05f0d696d46
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: How can I eat this apple?
-  rect:
-    serializedVersion: 2
-    x: 893
-    y: 657
-    width: 200
-    height: 100
-  children:
-  - 5db28dc8-1524-4d6f-9e7d-d3030bb84516
-  onEnterActions: []
-  onExitActions: []
-  condition:
-    and:
-    - or:
-      - predicate: CompletedObjective
-        parameters:
-        - Get ready for school
-        - b
-        negate: 0
 --- !u!114 &685119828247223994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,8 +507,8 @@ MonoBehaviour:
   text: Hey!
   rect:
     serializedVersion: 2
-    x: 7
-    y: 241
+    x: -1
+    y: 522
     width: 200
     height: 100
   children:
@@ -552,55 +532,24 @@ MonoBehaviour:
   m_Name: 251f21d0-234f-4d13-89cd-6ef8ce7dc1ca
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: C'mon, I'll meet you there.
+  text: Come on, I'll see you there.
   rect:
     serializedVersion: 2
-    x: 230
-    y: 376
+    x: 292
+    y: 902
     width: 200
     height: 100
   children: []
   onEnterActions:
-  - PlayNoiseAudio
+  - 
   onExitActions: []
   condition:
     and:
     - or:
-      - predicate: HasQuest
+      - predicate: Quest Completed
         parameters:
         - Get ready for school
         negate: 0
-    - or:
-      - predicate: CompletedQuest
-        parameters:
-        - Get ready for school
-        negate: 0
---- !u!114 &890639945169758863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
-  m_Name: 5a09059c-d24a-46d1-84ac-a81a6a225c1c
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: 'Press the number related to the Action Slot you want to use. '
-  rect:
-    serializedVersion: 2
-    x: 1363
-    y: 668
-    width: 200
-    height: 100
-  children:
-  - ffaef326-4f94-479f-b7f7-5a09728ba222
-  onEnterActions: []
-  onExitActions: []
-  condition:
-    and: []
 --- !u!114 &1115469800802736882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,11 +563,11 @@ MonoBehaviour:
   m_Name: 4570ffe5-6e7b-4f62-817a-da93a4579e31
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Can you be a responsible person FOR ONLY ONE DAY!?
+  text: THIS IS UNACCEPTABLE!
   rect:
     serializedVersion: 2
-    x: 944
-    y: 95
+    x: 973
+    y: 96
     width: 200
     height: 100
   children:
@@ -644,8 +593,8 @@ MonoBehaviour:
   text: No.
   rect:
     serializedVersion: 2
-    x: 1857
-    y: 614
+    x: 2046
+    y: 580
     width: 200
     height: 100
   children:
@@ -667,7 +616,7 @@ MonoBehaviour:
   m_Name: 2edef87a-46b6-46b1-ab00-ea43e8932c58
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: C'mon I kept awake doing my homework.
+  text: Really?...
   rect:
     serializedVersion: 2
     x: 1176
@@ -693,7 +642,7 @@ MonoBehaviour:
   m_Name: f1643410-b502-4c3d-ae04-72b00a957a30
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Ughhhh... let me sleep a little more.
+  text: What are you doing here?
   rect:
     serializedVersion: 2
     x: 478
@@ -722,8 +671,8 @@ MonoBehaviour:
   text: I need some help.
   rect:
     serializedVersion: 2
-    x: 454
-    y: 476
+    x: 548
+    y: 524
     width: 200
     height: 100
   children:
@@ -731,7 +680,13 @@ MonoBehaviour:
   onEnterActions: []
   onExitActions: []
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: Objective Completed
+        parameters:
+        - Get ready for school
+        - a
+        negate: 1
 --- !u!114 &3275110649329462556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,8 +703,8 @@ MonoBehaviour:
   text: How can i open the door?
   rect:
     serializedVersion: 2
-    x: 887
-    y: 404
+    x: 1081
+    y: 452
     width: 200
     height: 100
   children:
@@ -771,19 +726,47 @@ MonoBehaviour:
   m_Name: ccf89f7a-9008-41a3-b883-2ce247cd7eb7
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Anyways... hurry up and get ready! I'll wait for you. Don't forget to bring
-    your homework, Master Stormcaller must be expecting us.
+  text: Anyway, get a move on and get ready! I'll wait for you. Master Stormcaller
+    must be expecting us.
   rect:
     serializedVersion: 2
-    x: 1931
-    y: 77
+    x: 2172
+    y: 75
     width: 200
     height: 100
-  children: []
+  children:
+  - bd58e5ac-ae81-407b-8d13-3a707b7da15a
   onEnterActions: []
   onExitActions:
-  - GiveQuest1
-  - GiveQuest2
+  - Give Quest
+  condition:
+    and: []
+--- !u!114 &3900739097360489369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: 3af81229-a85b-4d9c-8414-16a91c32afe3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Grab some egg toast\u2014it's my killer recipe! My mom passed it down to
+    me."
+  rect:
+    serializedVersion: 2
+    x: 2672
+    y: 75
+    width: 200
+    height: 100
+  children:
+  - 058930d3-756b-4cf9-991e-fd2532ced1e6
+  onEnterActions: []
+  onExitActions:
+  - Give Item
   condition:
     and: []
 --- !u!114 &4211042363250803256
@@ -802,14 +785,42 @@ MonoBehaviour:
   text: Alright...
   rect:
     serializedVersion: 2
-    x: 1654
-    y: 26
+    x: 1644
+    y: 27
     width: 200
     height: 100
   children:
   - ccf89f7a-9008-41a3-b883-2ce247cd7eb7
   onEnterActions: []
   onExitActions: []
+  condition:
+    and: []
+--- !u!114 &4903594466894849504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
+  m_Name: bd58e5ac-ae81-407b-8d13-3a707b7da15a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You look absolutely awful, by the way. Master Storm Caller can't be seen
+    in such a state!
+  rect:
+    serializedVersion: 2
+    x: 2447
+    y: 72
+    width: 200
+    height: 100
+  children:
+  - 3af81229-a85b-4d9c-8414-16a91c32afe3
+  onEnterActions: []
+  onExitActions:
+  - 
   condition:
     and: []
 --- !u!114 &5406846661044137608
@@ -825,20 +836,20 @@ MonoBehaviour:
   m_Name: 3691fc0e-882c-43af-8f6c-191bf90a1297
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Nope, that'll be me!
+  text: Not that I care anyways...
   rect:
     serializedVersion: 2
-    x: 1658
-    y: 174
+    x: 1651
+    y: 158
     width: 200
     height: 100
   children:
-  - ccf89f7a-9008-41a3-b883-2ce247cd7eb7
+  - ca9b9ce7-0767-41fa-adae-3b253b3ba8c6
   onEnterActions: []
   onExitActions: []
   condition:
     and: []
---- !u!114 &5778362709161520241
+--- !u!114 &7598167006141352856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -848,19 +859,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fefe9c61feaaacd4a84ba7d3e9bfa033, type: 3}
-  m_Name: 5db28dc8-1524-4d6f-9e7d-d3030bb84516
+  m_Name: ca9b9ce7-0767-41fa-adae-3b253b3ba8c6
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Items such as food, potions, spells, etc. can be used by dragging them into
-    the Action Bar.
+  text: YOU SILLY LITTLE...
   rect:
     serializedVersion: 2
-    x: 1139
-    y: 668
+    x: 1901
+    y: 158
     width: 200
     height: 100
   children:
-  - 5a09059c-d24a-46d1-84ac-a81a6a225c1c
+  - ccf89f7a-9008-41a3-b883-2ce247cd7eb7
   onEnterActions: []
   onExitActions: []
   condition:
@@ -881,8 +891,8 @@ MonoBehaviour:
   text: Yeah.
   rect:
     serializedVersion: 2
-    x: 1881
-    y: 465
+    x: 2040
+    y: 413
     width: 200
     height: 100
   children:
@@ -907,8 +917,8 @@ MonoBehaviour:
   text: Anything else?
   rect:
     serializedVersion: 2
-    x: 1595
-    y: 539
+    x: 1798
+    y: 538
     width: 200
     height: 100
   children:
@@ -931,18 +941,17 @@ MonoBehaviour:
   m_Name: ed36e8d4-f5d9-4586-a7a6-93658e9a6763
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Anyways, I'll meet you at the academy.
+  text: Anyway, I'll catch you at the academy.
   rect:
     serializedVersion: 2
-    x: 955
-    y: 809
+    x: 1106
+    y: 729
     width: 200
     height: 100
   children: []
   onEnterActions: []
   onExitActions:
-  - GiveQuest2
-  - CompleteObjective
+  - Complete Objective
   condition:
     and: []
 --- !u!114 &9042642283511145620
@@ -961,8 +970,8 @@ MonoBehaviour:
   text: We don't have the entire morning , hurry up!
   rect:
     serializedVersion: 2
-    x: 728
-    y: 295
+    x: 847
+    y: 319
     width: 200
     height: 100
   children: []

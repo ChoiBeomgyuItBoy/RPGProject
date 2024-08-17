@@ -5,6 +5,7 @@ using RPG.Core;
 using System.Collections.Generic;
 using GameDevTV.Utils;
 using RPG.Inventories;
+using JetBrains.Annotations;
 
 namespace GameDevTV.Inventories
 {
@@ -243,7 +244,13 @@ namespace GameDevTV.Inventories
             return i;
         }
 
-        public void RemoveWithID(string itemID)
+        // Called in Unity Events
+        public void Add(string itemID)
+        {
+            AddToFirstEmptySlot(InventoryItem.GetFromID(itemID), 1);
+        }
+
+        public void Remove(string itemID)
         {
             int slot = FindSlot(InventoryItem.GetFromID(itemID));
             RemoveFromSlot(slot, GetNumberInSlot(slot));
@@ -337,7 +344,7 @@ namespace GameDevTV.Inventories
         {
             switch(predicate)
             {
-                case "HasInventoryItem":
+                case "Has Item":
                     return HasItem(InventoryItem.GetFromID(parameters[0]));
             }
 

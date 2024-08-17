@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5859ce8b6c6ea24e97de5db679e648b, type: 3}
+  m_Name: Wizard's Boots
+  m_EditorClassIdentifier: 
+  itemID: cfe4bfd5-1eae-4fa9-8d02-b24234cffc54
+  displayName: Wizard's Boots
+  description: Sturdy leather boots imbued with light enchantments, worn by students
+    of Eldermyst Institute. Designed for comfort and durability
+  icon: {fileID: 21300000, guid: 2c77ec09c5194e14f9203b09e5b81736, type: 3}
+  pickup: {fileID: 8063493189960858902, guid: 47c9c4bd3629cad4db8e1920a955f997, type: 3}
+  stackable: 0
+  price: 900
+  category: 1
+  rarity: 2
+  equipCondition:
+    and: []
+  allowedEquipLocation: 4
+  characterParts:
+  - Chr_LegLeft_Male_07
+  - Chr_LegRight_Male_07
+  additiveModifiers: []
+  percentageModifiers: []

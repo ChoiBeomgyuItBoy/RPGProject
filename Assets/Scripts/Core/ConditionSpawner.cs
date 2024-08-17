@@ -7,8 +7,6 @@ namespace RPG.Core
     public class ConditionSpawner : MonoBehaviour
     {
         [SerializeField] Condition conditionToSpawn;
-        [SerializeField] GameObject spawner;
-        [SerializeField] bool checkOnUpdate;
         IEnumerable<IPredicateEvaluator> evaluators;
 
         void Awake()
@@ -18,15 +16,7 @@ namespace RPG.Core
 
         void Start()
         {
-            spawner.SetActive(conditionToSpawn.Check(evaluators));
-        }
-
-        void Update()
-        {
-            if(checkOnUpdate)
-            {
-                spawner.SetActive(conditionToSpawn.Check(evaluators));
-            }
+            gameObject.SetActive(conditionToSpawn.Check(evaluators));
         }
     }
 }
