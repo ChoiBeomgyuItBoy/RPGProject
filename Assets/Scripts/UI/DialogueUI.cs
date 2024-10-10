@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace RPG.UI
 {
-    public class DialogueUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class DialogueUI : MonoBehaviour, IPointerDownHandler
     {
         PlayerConversant playerConversant;
         [SerializeField] TextMeshProUGUI AIText;
@@ -16,10 +16,9 @@ namespace RPG.UI
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] TextMeshProUGUI conversantName;
-        [SerializeField] float normalDisplayDelay = 0.03f;
-        [SerializeField] float onClickDisplayDelay = 0.06f;
-        float letterSpeed = 0;
+        [SerializeField] float displayDelay = 0.03f;
         Coroutine displayCoroutine = null;
+        bool skipDelay = false;
 
         void Start()
         {
@@ -30,8 +29,6 @@ namespace RPG.UI
             nextButton.onClick.AddListener(() => playerConversant.Next());
 
             UpdateUI();
-
-            letterSpeed = normalDisplayDelay;
         }
 
         void UpdateUI()
@@ -67,17 +64,9 @@ namespace RPG.UI
 
             AIText.text = "";
 
+            skipDelay = false;
+
             displayCoroutine = StartCoroutine(AITextRoutine());
-        }
-
-        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-        {
-            letterSpeed = onClickDisplayDelay;
-        }
-
-        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
-        {
-            letterSpeed = normalDisplayDelay;
         }
 
         IEnumerator AITextRoutine()
@@ -86,8 +75,14 @@ namespace RPG.UI
 
             for (int i = 0; i < playerConversant.GetText().Length; i++)
             {
+                if(skipDelay)
+                {
+                    AIText.text = playerConversant.GetText();
+                    break;
+                }
+
                 AIText.text += playerConversant.GetText()[i];
-                yield return new WaitForSeconds(letterSpeed);
+                yield return new WaitForSeconds(displayDelay);
             }
 
             nextButton.gameObject.SetActive(true);
@@ -111,6 +106,14 @@ namespace RPG.UI
                 {
                     playerConversant.SelectChoice(choice);
                 });
+            }
+        }
+
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+        {
+            if(displayCoroutine != null)
+            {
+                skipDelay = true;
             }
         }
     }
