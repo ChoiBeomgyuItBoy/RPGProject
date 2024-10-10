@@ -22,6 +22,7 @@ namespace RPG.UI
         [System.Serializable]
         class DisplayTextData
         {
+            public string label = null;
             public TMP_Text displayText = null;   
             public DisplayType displayType = DisplayType.CurrentInt;
         }
@@ -54,22 +55,24 @@ namespace RPG.UI
 
         void FillText()
         {
+            string label = displayTextData.label;
+
             switch(displayTextData.displayType)
             {
                 case DisplayType.CurrentAndMaxInt:
-                    displayTextData.displayText.text = string.Format("{0:0}/{1:0}", statsProvider.GetCurrentValue(), statsProvider.GetMaxValue());
+                    displayTextData.displayText.text = label + string.Format("{0:0}/{1:0}", statsProvider.GetCurrentValue(), statsProvider.GetMaxValue());
                     break;
                 case DisplayType.CurrentInt:
-                    displayTextData.displayText.text = string.Format("{0:0}", statsProvider.GetCurrentValue());
+                    displayTextData.displayText.text = label + string.Format("{0:0}", statsProvider.GetCurrentValue());
                     break;
                 case DisplayType.Currency:
-                    displayTextData.displayText.text = $"${statsProvider.GetCurrentValue():N2}";
+                    displayTextData.displayText.text = label + $"${statsProvider.GetCurrentValue():N2}";
                     break;
                 case DisplayType.Time:
                     string hour = DateTime.FromOADate(statsProvider.GetCurrentValue() * 1.0 / 24).
                         ToString(@"hh: mm tt", System.Globalization.CultureInfo.InvariantCulture).Replace(".", "");
                     hour = hour.Replace("AM", "am").Replace("PM", "pm");
-                    displayTextData.displayText.text = hour;
+                    displayTextData.displayText.text = label + hour;
                     break;
 
             }

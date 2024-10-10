@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4028700793771898976}
   - component: {fileID: 7157265393881294754}
   - component: {fileID: 6736019542053041901}
-  - component: {fileID: 6775687687993860218}
   - component: {fileID: 2290365653978529728}
   m_Layer: 0
   m_Name: Trait Enhancer
@@ -35,7 +34,7 @@ Transform:
   - {fileID: 1350323105538790723}
   - {fileID: 3158040115160783718}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7157265393881294754
 BoxCollider:
@@ -64,18 +63,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 37bba2c4c1f59c243a81f1abd65ee3c7, type: 2}
   conversantName: Unknown voice
---- !u!114 &6775687687993860218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7006855455617128423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65a033c543889b4a91a6e028f304350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2290365653978529728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,22 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf15ef3cc5905dc47bfbf210153dccdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: ShowTraits
-  onTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  triggersSetup: []
 --- !u!1001 &1350323105538714591
 PrefabInstance:
   m_ObjectHideFlags: 0
