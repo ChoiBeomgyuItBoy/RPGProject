@@ -9,6 +9,11 @@ namespace RPG.Dialogue
         [SerializeField] Dialogue dialogue = null;
         [SerializeField] string conversantName = "";
 
+        public Dialogue GetDialogue()
+        {
+            return dialogue;
+        }
+
         public string GetDialogueName()
         {
             return dialogue.name;

@@ -55,11 +55,28 @@ namespace RPG.Dialogue.Editor
         {
             Dialogue newDialogue = Selection.activeObject as Dialogue;
 
+            GameObject selection = Selection.activeGameObject;
+
+            if(selection != null)
+            {
+                AIConversant aIConversant = selection.GetComponent<AIConversant>();
+
+                if(aIConversant != null)
+                {
+                    SetDialogue(aIConversant.GetDialogue());
+                }
+            }
+
             if(newDialogue != null)
             {
-                selectedDialogue = newDialogue;
-                Repaint();
+                SetDialogue(newDialogue);
             }
+        }
+
+        private void SetDialogue(Dialogue dialogue)
+        {
+            selectedDialogue = dialogue;
+            Repaint();
         }
 
         private void SetUpNodeStyle()
