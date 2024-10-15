@@ -11,30 +11,21 @@ namespace RPG.UI.Inventories
     {
         [SerializeField] TMP_Text itemNameText;
         [SerializeField] Image itemIcon;
-        [SerializeField] float timeToRemove = 4;
-        InventoryItem item;
-
         public event Action onRemoved; 
+
+        // Called in animation event
+        public void Remove()
+        {
+            onRemoved?.Invoke();
+            Destroy(gameObject);
+        }
         
         public void Setup(InventoryItem item, int number)
         {
             if(item == null) return;
 
-            this.item = item;
             itemNameText.text = $"{item.GetDisplayName()} x {number}";
             itemIcon.sprite = item.GetIcon();
-        }
-
-        void OnEnable()
-        {
-            StartCoroutine(RemoveRoutine());
-        }
-
-        IEnumerator RemoveRoutine()
-        {
-            yield return new WaitForSeconds(timeToRemove);
-            onRemoved?.Invoke();
-            Destroy(gameObject);
         }
     }
 }
