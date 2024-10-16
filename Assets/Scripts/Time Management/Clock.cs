@@ -61,11 +61,11 @@ namespace RPG.TimeManagement
         {
             switch(predicate)
             {
-                case "IsMorning":
+                case "Is Morning":
                     return currentTime >= 6 && currentTime < 12;
-                case "IsEvening":
+                case "Is Evening":
                     return currentTime >= 12 && currentTime < 19;
-                case "IsNight":
+                case "Is Night":
                     return currentTime >= 19 || currentTime < 6;
             }
 

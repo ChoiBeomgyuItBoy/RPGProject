@@ -9728,7 +9728,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864909694}
-  m_LocalRotation: {x: 0.13346463, y: -0.1235667, z: 0.016773973, w: 0.98317707}
+  m_LocalRotation: {x: 0.13346462, y: -0.12356672, z: 0.01677397, w: 0.98317707}
   m_LocalPosition: {x: 2.5, y: 1.98, z: 19.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -30269,7 +30269,7 @@ PrefabInstance:
     - target: {fileID: 5596286528183300070, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -73.7207
+      value: -73.72095
       objectReference: {fileID: 0}
     - target: {fileID: 5603352366445432604, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
@@ -30754,7 +30754,7 @@ PrefabInstance:
     - target: {fileID: 5909368177935446905, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -88.28467
+      value: -88.28491
       objectReference: {fileID: 0}
     - target: {fileID: 5917134984852969025, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
@@ -31884,7 +31884,7 @@ PrefabInstance:
     - target: {fileID: 7320902572518208139, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -35
+      value: -35.000122
       objectReference: {fileID: 0}
     - target: {fileID: 7331536888410293939, guid: b52fb5d54be7b2145b1631437eb0d35d,
         type: 3}
@@ -33551,6 +33551,21 @@ PrefabInstance:
       propertyPath: soundEffects.Array.data[0].volumeFraction
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6206657952913374290, guid: a8e1b493721a50b42a1003451453a7bb,
+        type: 3}
+      propertyPath: conditionToEnable.and.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206657952913374290, guid: a8e1b493721a50b42a1003451453a7bb,
+        type: 3}
+      propertyPath: conditionToEnable.and.Array.data[0].or.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206657952913374290, guid: a8e1b493721a50b42a1003451453a7bb,
+        type: 3}
+      propertyPath: conditionToEnable.and.Array.data[0].or.Array.data[0].predicate
+      value: Is Morning
+      objectReference: {fileID: 0}
     - target: {fileID: 6206657953024402093, guid: a8e1b493721a50b42a1003451453a7bb,
         type: 3}
       propertyPath: m_Name
@@ -33610,6 +33625,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206657953892189950, guid: a8e1b493721a50b42a1003451453a7bb,
+        type: 3}
+      propertyPath: conditionToEnable.and.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206657953892189950, guid: a8e1b493721a50b42a1003451453a7bb,
+        type: 3}
+      propertyPath: conditionToEnable.and.Array.data[0].or.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206657953892189950, guid: a8e1b493721a50b42a1003451453a7bb,
+        type: 3}
+      propertyPath: conditionToEnable.and.Array.data[0].or.Array.data[0].predicate
+      value: Is Night
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

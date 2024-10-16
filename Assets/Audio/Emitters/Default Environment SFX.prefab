@@ -1,58 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6206657952913374288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6206657952913374289}
-  - component: {fileID: 6206657952913374290}
-  m_Layer: 0
-  m_Name: 'Day '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6206657952913374289
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6206657952913374288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2237505904648817659}
-  m_Father: {fileID: 6206657953024402094}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6206657952913374290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6206657952913374288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e34bcca4b1fbfd540b300c9ce3f7c630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conditionToSpawn:
-    and:
-    - or:
-      - predicate: IsNight
-        parameters: []
-        negate: 1
-  spawner: {fileID: 2237505904648817658}
-  checkOnUpdate: 1
 --- !u!1 &6206657953024402093
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6206657953024402094}
+  - component: {fileID: 1126260089768046702}
   m_Layer: 0
   m_Name: Default Environment SFX
   m_TagString: Untagged
@@ -82,63 +30,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2237505904341398114}
-  - {fileID: 6206657952913374289}
-  - {fileID: 6206657953892189949}
+  - {fileID: 2237505904648817659}
+  - {fileID: 2237505903994566822}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6206657953892189948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6206657953892189949}
-  - component: {fileID: 6206657953892189950}
-  m_Layer: 0
-  m_Name: Night
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6206657953892189949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6206657953892189948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2237505903994566822}
-  m_Father: {fileID: 6206657953024402094}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6206657953892189950
+--- !u!114 &1126260089768046702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6206657953892189948}
+  m_GameObject: {fileID: 6206657953024402093}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e34bcca4b1fbfd540b300c9ce3f7c630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditionToSpawn:
-    and:
-    - or:
-      - predicate: IsNight
-        parameters: []
-        negate: 0
-  spawner: {fileID: 2237505903994566823}
+  enableConditions:
+  - target: {fileID: 2237505904648817658}
+    condition:
+      and:
+      - or:
+        - predicate: Is Night
+          parameters: []
+          negate: 1
+  - target: {fileID: 2237505903994566823}
+    condition:
+      and:
+      - or:
+        - predicate: Is Night
+          parameters: []
+          negate: 0
   checkOnUpdate: 1
 --- !u!1001 &6206657953551042821
 PrefabInstance:
@@ -295,7 +218,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 6206657952913374289}
+    m_TransformParent: {fileID: 6206657953024402094}
     m_Modifications:
     - target: {fileID: 5273518650120797024, guid: 6d676ce2624eb15428c5d1bfba1f74d9,
         type: 3}
@@ -460,7 +383,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 6206657953892189949}
+    m_TransformParent: {fileID: 6206657953024402094}
     m_Modifications:
     - target: {fileID: 5273518650120797024, guid: 6d676ce2624eb15428c5d1bfba1f74d9,
         type: 3}
